@@ -1,0 +1,6 @@
+.vs
+*~
+temp
+bin/
+obj/
+packages/
