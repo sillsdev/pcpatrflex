@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Copyright (c) 2018 SIL International
+// This software is licensed under the LGPL, version 2.1 or later
+// (http://www.gnu.org/licenses/lgpl-2.1.html)
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +22,7 @@ namespace SIL.PrepFLExDB
 {
 	public partial class PrepFLExDBForm : Form
 	{
-		public ProjectId projId { get; set;  }
+		public ProjectId ProjId { get; set;  }
 
 		public PrepFLExDBForm()
 		{
@@ -32,12 +36,13 @@ namespace SIL.PrepFLExDB
 
 		private void btnOpenChooser_Click(object sender, EventArgs e)
 		{
-			projId = ChooseLangProject(this);
-			if (projId != null)
+			ProjId = ChooseLangProject(this);
+			if (ProjId != null)
 			{
-				lblDatabaseToUse.Text = projId.Name;
+				lblDatabaseToUse.Text = ProjId.Name;
 				btnProcess.Enabled = true;
-				LcmCache cache = CreateCache(projId, lblStatus);
+				LcmLoader loader = new LcmLoader(ProjId, lblStatus);
+				LcmCache cache = loader.CreateCache();
 			}
 			else
 			{
@@ -68,55 +73,6 @@ namespace SIL.PrepFLExDB
 			}
 		}
 
-		/// ------------------------------------------------------------------------------------
-		/// <summary>
-		/// Creates a cache used for accessing the specified project.
-		/// </summary>
-		/// <param name="projectId">The project id.</param>
-		/// <returns>
-		/// A new LcmCache used for accessing the specified project, or null, if a
-		/// cache could not be created.
-		/// </returns>
-		/// ------------------------------------------------------------------------------------
-		private static LcmCache CreateCache(ProjectId projectId, Label status)
-		{
-			//Icu.InitIcuDataDir();
-			//Sldr.Initialize();
-			var synchronizeInvoke = new SingleThreadedSynchronizeInvoke();
-
-			//var projectId = new ProjectIdentifier(args[0]);
-			var logger = new ConsoleLogger(synchronizeInvoke);
-			var dirs = new NullLcmDirectories();
-			var settings = new LcmSettings { DisableDataMigration = true };
-			var progress = new NullThreadedProgress(synchronizeInvoke);
-			Console.WriteLine("Loading FieldWorks project...");
-			status.Text = "Loading FieldWorks project...";
-			status.Refresh();
-			LcmCache cache = null;
-			try
-			{
-				cache = LcmCache.CreateCacheFromExistingData(projectId, "en", logger, dirs, settings, progress);
-				Console.WriteLine("Loading completed.");
-				status.Text = "Loading completed.";
-				return  cache;
-			}
-			catch (LcmFileLockedException)
-			{
-				Console.WriteLine("Loading failed.");
-				Console.WriteLine("The FieldWorks project is currently open in another application.");
-				Console.WriteLine("Close the application and try to run this command again.");
-				status.Text = "Loading failed.\nThe FieldWorks project is currently open in another application.\nClose the application and try to run this program again.";
-				return null;
-			}
-			catch (LcmDataMigrationForbiddenException)
-			{
-				Console.WriteLine("Loading failed.");
-				Console.WriteLine("The FieldWorks project was created with an older version of FLEx.");
-				Console.WriteLine("Migrate the project to the latest version by opening it in FLEx.");
-				status.Text = "Loading failed.\nThe FieldWorks project was created with an older version of FLEx.\nMigrate the project to the latest version by opening it in FLEx.";
-				return null;
-			}
-		}
 		
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
