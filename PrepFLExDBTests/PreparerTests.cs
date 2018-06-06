@@ -61,7 +61,7 @@ namespace PrepFLExDBTests
 		}
 
 		/// <summary>
-		/// Test we get the expected results.
+		/// Test we get the expected results for the preparer service.
 		/// </summary>
 		[Test]
 		public void PreparerTest()
@@ -73,6 +73,14 @@ namespace PrepFLExDBTests
 			Assert.AreEqual(34, possListRepository.AllInstances().Count());
 			var preparer = new Preparer(cache);
 			preparer.AddPCPATRList();
+			CheckPossibilityList(possListRepository);
+			// invoke it again.  Only one copy should exist.
+			preparer.AddPCPATRList();
+			CheckPossibilityList(possListRepository);
+		}
+
+		private void CheckPossibilityList(ICmPossibilityListRepository possListRepository)
+		{
 			Assert.AreEqual(35, possListRepository.AllInstances().Count());
 			var pcPatrList = possListRepository.AllInstances().Last();
 			Assert.AreEqual(Constants.PcPatrFeatureDescriptorList, pcPatrList.Name.BestAnalysisAlternative.Text);

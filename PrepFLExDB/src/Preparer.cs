@@ -24,12 +24,18 @@ namespace SIL.PrepFLExDB
 
 		public void AddPCPATRList()
 		{
+			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+			var pcpatrList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.PcPatrFeatureDescriptorList);
+			if (pcpatrList != null)
+			{
+				return;
+			}
 			SIL.LCModel.Infrastructure.NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
 			{
 				int ws = Cache.DefaultAnalWs;
 				Cache.ServiceLocator.GetInstance<ICmPossibilityListFactory>().CreateUnowned(Constants.PcPatrFeatureDescriptorList, ws);
-				var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-				var pcpatrList = possListRepository.AllInstances().Last();
+//				var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+				pcpatrList = possListRepository.AllInstances().Last();
 				var factPoss = Cache.ServiceLocator.GetInstance<ICmPossibilityFactory>();
 				foreach (string sName in FeatureDescriptors)
 				{
