@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIL.PrepFLExDB.Preparer;
 
-namespace PrepFLExDBTests
+namespace SIL.PrepFLExDBTests
 {
 	/// <summary>
 	/// Tests related to Preparer.
