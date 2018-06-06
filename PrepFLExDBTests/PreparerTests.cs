@@ -72,7 +72,7 @@ namespace SIL.PrepFLExDBTests
 			Assert.IsNotNull(cache);
 			Assert.AreEqual(5, cache.LangProject.AllPartsOfSpeech.Count);
 			Assert.AreEqual(0, cache.LangProject.LexDbOA.Entries.Count());
-			var preparer = new Preparer(cache);
+			var preparer = new Preparer(cache, false);
 
 			// If we try to create the custom field before the master possibility list, the field is not created.
 			customFields = preparer.GetListOfCustomFields();
