@@ -7,3 +7,5 @@ packages/
 NUnit-2.6.4/
 NUnit-2.6.4.zip
 *.lock
+PcPatrTestFiles/
+WritingSystemStore/
