@@ -5,6 +5,7 @@
 using NUnit.Framework;
 using SIL.LCModel;
 using SIL.LCModel.Core;
+using SIL.LCModel.Core.Cellar;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
 using SIL.LCModel.Utils;
@@ -18,6 +19,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIL.PrepFLExDB.Preparer;
 
 namespace PrepFLExDBTests
 {
@@ -31,6 +33,7 @@ namespace PrepFLExDBTests
 		LcmCache cache;
 		public LcmLoader Loader { get; set; }
 		public ProjectId ProjId { get; set; }
+		private List<FieldDescription> customFields;
 
 		public override void FixtureSetup()
 		{
@@ -69,14 +72,39 @@ namespace PrepFLExDBTests
 			Assert.IsNotNull(cache);
 			Assert.AreEqual(5, cache.LangProject.AllPartsOfSpeech.Count);
 			Assert.AreEqual(0, cache.LangProject.LexDbOA.Entries.Count());
+			var preparer = new Preparer(cache);
+
+			// If we try to create the custom field before the master possibility list, the field is not created.
+			customFields = preparer.GetListOfCustomFields();
+			Assert.AreEqual(0, customFields.Count);
+			preparer.AddPCPATRSenseCustomField();
+			customFields = preparer.GetListOfCustomFields();
+			Assert.AreEqual(0, customFields.Count);
+
 			var possListRepository = cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
 			Assert.AreEqual(34, possListRepository.AllInstances().Count());
-			var preparer = new Preparer(cache);
 			preparer.AddPCPATRList();
 			CheckPossibilityList(possListRepository);
-			// invoke it again.  Only one copy should exist.
+			// Invoke it again.  Only one copy should exist.
 			preparer.AddPCPATRList();
 			CheckPossibilityList(possListRepository);
+
+			// Add custom field
+			customFields = preparer.GetListOfCustomFields();
+			Assert.AreEqual(0, customFields.Count);
+			preparer.AddPCPATRSenseCustomField();
+			customFields = preparer.GetListOfCustomFields();
+			Assert.AreEqual(1, customFields.Count);
+			var cf = customFields.Find(fd => fd.Name == Constants.PcPatrFeatureDescriptorCustomField);
+			Assert.IsNotNull(cf);
+			Assert.IsTrue(cf.IsCustomField);
+			Assert.AreEqual(Constants.PcPatrFeatureDescriptorCustomField, cf.Name);
+			Assert.AreEqual(CellarPropertyType.ReferenceCollection, cf.Type);
+			Assert.AreEqual(LexSenseTags.kClassId, cf.Class);
+			// Invoke it again.  Only one should exist.
+			preparer.AddPCPATRSenseCustomField();
+			customFields = preparer.GetListOfCustomFields();
+			Assert.AreEqual(1, customFields.Count);
 		}
 
 		private void CheckPossibilityList(ICmPossibilityListRepository possListRepository)

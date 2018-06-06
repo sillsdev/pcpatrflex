@@ -3,6 +3,7 @@
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
 using SIL.LCModel;
+using SIL.LCModel.Core.Cellar;
 using SIL.LCModel.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace SIL.PrepFLExDB
 
 		public LcmCache Cache { get; set; }
 
+		/// <summary>
+		/// Creates a new possibility list for PC-PATR feature descriptors.
+		/// </summary>
 		public void AddPCPATRList()
 		{
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
@@ -30,11 +34,10 @@ namespace SIL.PrepFLExDB
 			{
 				return;
 			}
-			SIL.LCModel.Infrastructure.NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
+			NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
 			{
 				int ws = Cache.DefaultAnalWs;
 				Cache.ServiceLocator.GetInstance<ICmPossibilityListFactory>().CreateUnowned(Constants.PcPatrFeatureDescriptorList, ws);
-//				var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
 				pcpatrList = possListRepository.AllInstances().Last();
 				var factPoss = Cache.ServiceLocator.GetInstance<ICmPossibilityFactory>();
 				foreach (string sName in FeatureDescriptors)
@@ -49,6 +52,51 @@ namespace SIL.PrepFLExDB
 			var poss = factPoss.Create();
 			newList.PossibilitiesOS.Add(poss);
 			poss.Name.set_String(ws, sName);
+		}
+
+		/// <summary>
+		/// Creates a new sense-level custom field for PC-PATR feature descriptors.
+		/// </summary>
+		public void AddPCPATRSenseCustomField()
+		{
+			var customFields = GetListOfCustomFields();
+			if (customFields.Find(fd => fd.Name == Constants.PcPatrFeatureDescriptorCustomField) != null)
+			{
+				// already done; quit
+				return;
+			}
+			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+			var pcpatrList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.PcPatrFeatureDescriptorList);
+			if (pcpatrList == null)
+			{
+				// need the master possibility list and it does not exist
+				return;
+			}
+			NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
+			{
+				int ws = Cache.DefaultAnalWs;
+				// create new custom field
+				var fd = new FieldDescription(Cache)
+				{
+					Userlabel = Constants.PcPatrFeatureDescriptorCustomField,
+					HelpString = string.Empty,
+					Class = LexSenseTags.kClassId
+				};
+				fd.Type = CellarPropertyType.ReferenceCollection;
+				fd.DstCls = CmPossibilityTags.kClassId;
+
+				fd.ListRootId = pcpatrList.Guid;
+				//FieldDescription.FieldDescriptors(Cache).ToList().Add(fd);
+				fd.UpdateCustomField();
+				FieldDescription.ClearDataAbout();
+			});
+		}
+
+		public List<FieldDescription> GetListOfCustomFields()
+		{
+			return (from fd in FieldDescription.FieldDescriptors(Cache)
+					where fd.IsCustomField //&& GetItem(m_locationComboBox, fd.Class) != null
+					select fd).ToList();
 		}
 	}
 }

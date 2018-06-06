@@ -12,6 +12,7 @@ namespace SIL.PrepFLExDB
 {
 	public static class Constants
 	{
+		public const string PcPatrFeatureDescriptorCustomField = "PCPATR";
 		public const string PcPatrFeatureDescriptorList = "PCPatr Feature Descriptors";
 	}
 }
