@@ -37,17 +37,17 @@ namespace SIL.PrepFLExDB
 
 		private void btnOpenChooser_Click(object sender, EventArgs e)
 		{
+			btnProcess.Enabled = false;
 			ProjId = ChooseLangProject(this);
 			if (ProjId != null)
 			{
 				lblDatabaseToUse.Text = ProjId.Name;
 				var loader = new LcmLoader(ProjId, lblStatus);
 				Cache = loader.CreateCache();
-				btnProcess.Enabled = true;
-			}
-			else
-			{
-				btnProcess.Enabled = false;
+				if (Cache != null)
+				{
+					btnProcess.Enabled = true;
+				}
 			}
 		}
 
@@ -88,6 +88,9 @@ namespace SIL.PrepFLExDB
 			preparer.AddPCPATRSenseCustomField();
 			Cache.ActionHandlerAccessor.Commit();
 			Application.UseWaitCursor = false;
+			MessageBox.Show("Process is complete.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			btnProcess.Enabled = false;
+			btnOpenChooser.Focus();
 		}
 	}
 }

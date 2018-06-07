@@ -18,8 +18,6 @@ namespace SIL.PrepFLExDB
 		{
 			this.ProjectId = projId;
 			this.Label = label;
-			//Icu.InitIcuDataDir();
-			//Sldr.Initialize();
 		}
 
 		public Label Label { get; set; }
@@ -39,7 +37,6 @@ namespace SIL.PrepFLExDB
 		{
 			var synchronizeInvoke = new SingleThreadedSynchronizeInvoke();
 
-			//var projectId = new ProjectIdentifier(args[0]);
 			var logger = new ConsoleLogger(synchronizeInvoke);
 			var dirs = new NullLcmDirectories();
 			var settings = new LcmSettings { DisableDataMigration = true };
