@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using PrepFLExDB;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
+using SIL.LCModel.DomainServices;
 using SIL.LCModel.Utils;
 using SIL.PrepFLExDB;
 using SIL.WritingSystems;
@@ -77,7 +78,16 @@ namespace SIL.PrepFLExDB
 		
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
+			UnlockDatabaseIfNeeded();
 			Application.Exit();
+		}
+
+		private void UnlockDatabaseIfNeeded()
+		{
+			if (Cache != null)
+			{
+				ProjectLockingService.UnlockCurrentProject(Cache);
+			}
 		}
 
 		private void btnProcess_Click(object sender, EventArgs e)
@@ -90,7 +100,14 @@ namespace SIL.PrepFLExDB
 			Application.UseWaitCursor = false;
 			MessageBox.Show("Process is complete.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			btnProcess.Enabled = false;
+			ProjectLockingService.UnlockCurrentProject(Cache);
+			Cache.Dispose();
 			btnOpenChooser.Focus();
+		}
+
+		private void PrepFLExDBForm_FormClosing(object sender, EventArgs e)
+		{
+			UnlockDatabaseIfNeeded();
 		}
 	}
 }

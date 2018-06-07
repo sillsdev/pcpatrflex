@@ -108,6 +108,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "PrepFLExDBForm";
 			this.Text = "Prepare FLEx database for PC-PATR";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrepFLExDBForm_FormClosing);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
