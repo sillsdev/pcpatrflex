@@ -101,7 +101,6 @@ namespace SIL.PrepFLExDB
 			MessageBox.Show("Process is complete.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			btnProcess.Enabled = false;
 			ProjectLockingService.UnlockCurrentProject(Cache);
-			Cache.Dispose();
 			btnOpenChooser.Focus();
 		}
 
