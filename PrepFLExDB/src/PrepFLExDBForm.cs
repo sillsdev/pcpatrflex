@@ -22,6 +22,7 @@ namespace SIL.PrepFLExDB
 {
 	public partial class PrepFLExDBForm : Form
 	{
+		public LcmCache Cache { get; set; }
 		public ProjectId ProjId { get; set;  }
 
 		public PrepFLExDBForm()
@@ -40,9 +41,9 @@ namespace SIL.PrepFLExDB
 			if (ProjId != null)
 			{
 				lblDatabaseToUse.Text = ProjId.Name;
+				var loader = new LcmLoader(ProjId, lblStatus);
+				Cache = loader.CreateCache();
 				btnProcess.Enabled = true;
-				LcmLoader loader = new LcmLoader(ProjId, lblStatus);
-				LcmCache cache = loader.CreateCache();
 			}
 			else
 			{
@@ -77,6 +78,17 @@ namespace SIL.PrepFLExDB
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
+			Console.WriteLine("After application.exit()");
+		}
+
+		private void btnProcess_Click(object sender, EventArgs e)
+		{
+			Application.UseWaitCursor = true;
+			var preparer = new Preparer(Cache);
+			preparer.AddPCPATRList();
+			preparer.AddPCPATRSenseCustomField();
+			Cache.ActionHandlerAccessor.Commit();
+			Application.UseWaitCursor = false;
 		}
 	}
 }

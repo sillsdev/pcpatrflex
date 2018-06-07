@@ -99,8 +99,11 @@ namespace SIL.PrepFLExDBTests
 			Assert.IsNotNull(cf);
 			Assert.IsTrue(cf.IsCustomField);
 			Assert.AreEqual(Constants.PcPatrFeatureDescriptorCustomField, cf.Name);
+			Assert.AreEqual(Constants.PcPatrFeatureDescriptorCustomField, cf.Userlabel);
 			Assert.AreEqual(CellarPropertyType.ReferenceCollection, cf.Type);
 			Assert.AreEqual(LexSenseTags.kClassId, cf.Class);
+			Assert.AreEqual(CmCustomItemTags.kClassId, cf.DstCls);
+			Assert.AreEqual(WritingSystemServices.kwsAnal, cf.WsSelector);
 			// Invoke it again.  Only one should exist.
 			preparer.AddPCPATRSenseCustomField();
 			customFields = preparer.GetListOfCustomFields();
