@@ -9,3 +9,4 @@ NUnit-2.6.4.zip
 *.lock
 PcPatrTestFiles/
 WritingSystemStore/
+SharedSettings/

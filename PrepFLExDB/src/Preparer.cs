@@ -42,7 +42,6 @@ namespace SIL.PrepFLExDB
 			}
 			NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
 			{
-				//int ws = Cache.DefaultAnalWs;
 				int ws = WritingSystemServices.kwsAnal;
 				Cache.ServiceLocator.GetInstance<ICmPossibilityListFactory>().CreateUnowned(Constants.PcPatrFeatureDescriptorList, ws);
 				pcpatrList = possListRepository.AllInstances().Last();

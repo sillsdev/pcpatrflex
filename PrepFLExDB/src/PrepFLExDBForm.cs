@@ -78,7 +78,6 @@ namespace SIL.PrepFLExDB
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
-			Console.WriteLine("After application.exit()");
 		}
 
 		private void btnProcess_Click(object sender, EventArgs e)
