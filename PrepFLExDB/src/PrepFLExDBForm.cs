@@ -3,20 +3,11 @@
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using PrepFLExDB;
+using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
-using SIL.LCModel.Utils;
-using SIL.PrepFLExDB;
 using SIL.WritingSystems;
 
 namespace SIL.PrepFLExDB
@@ -43,13 +34,19 @@ namespace SIL.PrepFLExDB
 			if (ProjId != null)
 			{
 				lblDatabaseToUse.Text = ProjId.Name;
-				var loader = new LcmLoader(ProjId, lblStatus);
+				var loader = new LcmLoader.LcmLoader(ProjId);
+				loader.RaiseLcmLoaderEvent += HandleLcmLoaderEvent;
 				Cache = loader.CreateCache();
 				if (Cache != null)
 				{
 					btnProcess.Enabled = true;
 				}
 			}
+		}
+
+		private void HandleLcmLoaderEvent(object sender, LcmLoaderEventArgs a)
+		{
+			lblStatus.Text = a.Message;
 		}
 
 		/// ------------------------------------------------------------------------------------

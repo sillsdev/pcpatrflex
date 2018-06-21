@@ -59,6 +59,9 @@
     <Reference Include="SIL.Core">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Core.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.LcmLoader">
+      <HintPath>..\LcmLoader\bin\x86\Debug\SIL.LcmLoader.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.LCModel">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.LCModel.dll</HintPath>
     </Reference>
@@ -89,21 +92,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Constants.cs" />
-    <Compile Include="src\LcmLoader.cs" />
     <Compile Include="src\FwStubs\ChooseLangProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\FwStubs\ChooseLangProjectDialog.designer.cs">
       <DependentUpon>ChooseLangProjectDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\FwStubs\ConsoleLogger.cs" />
-    <Compile Include="src\FwStubs\FwDirectoryFinder.cs" />
     <Compile Include="src\FwStubs\FwLcmUI.cs" />
-    <Compile Include="src\FwStubs\FwRegistryHelper.cs" />
-    <Compile Include="src\FwStubs\IFwRegistryHelper.cs" />
-    <Compile Include="src\FwStubs\NullLcmDirectories.cs" />
-    <Compile Include="src\FwStubs\NullThreadedProgress.cs" />
-    <Compile Include="src\FwStubs\ProjectId.cs" />
     <Compile Include="src\Preparer.cs" />
     <Compile Include="src\PrepFLExDBExe.cs" />
     <Compile Include="src\PrepFLExDBForm.cs">

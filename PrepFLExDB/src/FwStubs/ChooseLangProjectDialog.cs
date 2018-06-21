@@ -271,7 +271,7 @@ namespace SIL.PrepFLExDB
 			{
 				Hide();
 				dlg.CheckFileExists = true;
-				dlg.InitialDirectory = FwDirectoryFinder.ProjectsDirectory;
+				dlg.InitialDirectory = LcmLoader.FwDirectoryFinder.ProjectsDirectory;
 				dlg.RestoreDirectory = true;
 				dlg.Title = "Choose Language Project";//// FwCoreDlgs.ksChooseLangProjectDialogTitle;
 				dlg.ValidateNames = true;
@@ -309,7 +309,7 @@ namespace SIL.PrepFLExDB
 			}
 
 			// Load projects.
-			foreach (var projectPathname in Directory.GetDirectories(FwDirectoryFinder.ProjectsDirectory))
+			foreach (var projectPathname in Directory.GetDirectories(LcmLoader.FwDirectoryFinder.ProjectsDirectory))
 			{
 				var projectDirName = new DirectoryInfo(projectPathname).Name;
 				var dataPathname = Path.Combine(projectPathname, projectDirName + LcmFileHelper.ksFwDataXmlFileExtension);
