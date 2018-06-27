@@ -51,15 +51,22 @@ namespace SIL.FLExDBExtraction
 			var sense = entry.SensesOS.FirstOrDefault<ILexSense>();
 			var msa = (IMoStemMsa)sense.MorphoSyntaxAnalysisRA;
 			var pos = msa.PartOfSpeechRA;
-			sb.Append(pos.Name.BestAnalysisAlternative.Text);
+			sb.Append(pos.Abbreviation.BestAnalysisAlternative.Text);
 			sb.Append("\n\\g ");
 			sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
 			sb.Append("\n\\f");
+			sb.Append(GetFeatureDescriptorsFromSense(sense));
+			sb.Append("\n\n");
+		}
+
+		private string GetFeatureDescriptorsFromSense(ILexSense sense)
+		{
+			var sb = new StringBuilder();
 			if (CustomField != null)
 			{
 				IList<string> fds = new List<string>() { };
 				var size = Cache.MainCacheAccessor.get_VecSize(sense.Hvo, CustomField.Id);
-				for (int i = 0; i <size; i++)
+				for (int i = 0; i < size; i++)
 				{
 					var hvo = Cache.MainCacheAccessor.get_VecItem(sense.Hvo, CustomField.Id, i);
 					if (PcpatrList != null)
@@ -75,7 +82,7 @@ namespace SIL.FLExDBExtraction
 					sb.Append(" " + fd);
 				}
 			}
-			sb.Append("\n\n");
+			return sb.ToString();
 		}
 
 		public List<FieldDescription> GetListOfCustomFields()
@@ -85,5 +92,103 @@ namespace SIL.FLExDBExtraction
 					select fd).ToList();
 		}
 
+		public string ExtractTextSegmentAsANA(ISegment segment)
+		{
+			var sb = new StringBuilder();
+			var sbA = new StringBuilder();
+			var sbD = new StringBuilder();
+			var sbC = new StringBuilder();
+			var sbFD = new StringBuilder();
+			var sbW = new StringBuilder();
+			foreach (IAnalysis analysis in segment.AnalysesRS)
+			{
+				var wordform = analysis.Wordform;
+				if (wordform == null)
+				{
+					continue;
+				}
+				sbA.Clear();
+				sbA.Append("\\a ");
+				sbD.Clear();
+				sbD.Append("\\d ");
+				sbC.Clear();
+				sbC.Append("\\cat ");
+				sbFD.Clear();
+				sbFD.Append("\\fd ");
+				sbW.Clear();
+				sbW.Append("\\w ");
+				var shape = wordform.Form.VernacularDefaultWritingSystem.Text;
+				sbW.Append(shape + "\n");
+				int ambiguities = wordform.AnalysesOC.Count;
+				if (ambiguities > 1)
+				{
+					String ambigs = "%" + ambiguities + "%";
+					sbA.Append(ambigs);
+					sbD.Append(ambigs);
+					sbC.Append(ambigs);
+					sbFD.Append(ambigs);
+				}
+				foreach (IWfiAnalysis wfiAnalysis in wordform.AnalysesOC)
+				{
+					sbA.Append("< ");
+					foreach (IWfiMorphBundle bundle in wfiAnalysis.MorphBundlesOS)
+					{
+						var msa = bundle.MsaRA;
+						var cat = msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
+						sbA.Append(cat + " ");
+						sbC.Append(cat);
+						var morph = bundle.MorphRA;
+						sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
+						var sense = bundle.SenseRA;
+						if (sense == null)
+						{
+							var entry = (ILexEntry)morph.Owner;
+							var sense2 = entry.SensesOS.First();
+							if (sense2 == null)
+							{
+								sbA.Append("missing_sense >");
+							}
+							else
+							{
+								HandleSense(sbA, sbFD, sense2);
+							}
+						}
+						else
+						{
+							HandleSense(sbA, sbFD, sense);
+						}
+
+						if (ambiguities > 1)
+						{
+							sbA.Append("%");
+							sbD.Append("%");
+							sbC.Append("%");
+							sbFD.Append("%");
+						}
+					}
+				}
+				sbA.Append("\n");
+				sbD.Append("\n");
+				sbC.Append("\n");
+				sbFD.Append("\n");
+				sbW.Append("\n");
+				sb.Append(sbA.ToString());
+				sb.Append(sbD.ToString());
+				sb.Append(sbC.ToString());
+				sb.Append(sbFD.ToString());
+				sb.Append(sbW.ToString());
+			}
+			Console.Write(sb.ToString());
+			return sb.ToString();
+		}
+
+		private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
+		{
+			var gloss = sense.Gloss.BestAnalysisAlternative.Text;
+			sbA.Append(gloss + " >");
+			var fds = GetFeatureDescriptorsFromSense(sense);
+			fds = (fds.Length > 1) ? fds.Substring(1) : fds;
+			sbFD.Append(fds);
+		}
 	}
 }

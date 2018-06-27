@@ -1,530 +1,530 @@
 \w a
-\c Art
+\c art
 \g a
 \f indefinite singular
 
 \w ABS
-\c Case
+\c case
 \g absolutive
 \f absolutive
 
 \w ACC
-\c Case
+\c case
 \g accusative
 \f accusative
 
 \w ACC-not-that
-\c Dem
+\c dem
 \g ACC-NEG-that
 \f case_prefix_accusative negative_prefix singular
 
 \w all
-\c Q
+\c q
 \g all
 \f DP-initial modifies_NP plural
 
 \w almost
-\c Deg
+\c deg
 \g almost
 \f modifies_NP modifies_Q
 
 \w always
-\c Adv
+\c adv
 \g always
 \f temporal
 
 \w and
-\c Conj
+\c conj
 \g and
 \f plural
 
 \w anyone
-\c Pron
+\c pro
 \g anyone
 \f animate indefinitePron negative-polarity third
 
 \w any-one
-\c Pron
+\c pro
 \g any-one
 \f animate indefinitePron negative-polarity_prefix third
 
 \w anything
-\c Pron
+\c pro
 \g anything
 \f -animate indefinitePron negative-polarity third
 
 \w anywhere
-\c Adv
+\c adv
 \g anywhere
 \f indefiniteAdv locative negative-polarity
 
 \w any-where
-\c Adv
+\c adv
 \g any-where
 \f indefiniteAdv locative negative-polarity_prefix
 
 \w are
-\c V
+\c v
 \g are
 \f copular plural_subject
 
 \w are
-\c V
+\c v
 \g are
 \f copular second_subject singular_subject
 
 \w are
-\c V
+\c v
 \g are-exist
 \f exist plural_subject
 
 \w are
-\c V
+\c v
 \g are-exist
 \f exist second_subject singular_subject
 
 \w are
-\c Aux
+\c aux
 \g are-Aux
 \f passive plural_subject
 
 \w as_for
-\c TopicM
+\c tm
 \g as_for
 \f
 
 \w as
-\c Conj
+\c conj
 \g as
 \f compareN
 
 \w as
-\c Deg
+\c deg
 \g as
 \f equalAdj
 
 \w as
-\c Conj
+\c conj
 \g as
 \f compareAdj
 
 \w asked
-\c V
+\c v
 \g ask-PST
 \f past speech_DPwh_or_transitive
 
 \w at
-\c P
+\c p
 \g at
 \f locative
 
 \w away
-\c Adv
+\c adv
 \g away
 \f locative
 
 \w ball
-\c N
+\c n
 \g ball
 \f class_other
 
 \w ball-ACC
-\c N
+\c n
 \g ball-ACC
 \f case_suffix_accusative class_other
 
 \w balls
-\c N
+\c n
 \g ball-s
 \f class_other plural
 
 \w be
-\c V
+\c v
 \g be
 \f copular
 
 \w be
-\c V
+\c v
 \g be-exist
 \f exist
 
 \w because
-\c Adv
+\c adv
 \g because
 \f reason sentential_finite_IP
 
 \w been
-\c Aux
+\c aux
 \g be-PST-Aux
 \f passive past
 
 \w been
-\c V
+\c v
 \g be-PST-exist
 \f exist past
 
 \w before
-\c Adv
+\c adv
 \g before
 \f temporal
 
 \w best
-\c Deg
+\c deg
 \g best
 \f superlative
 
 \w better
-\c Deg
+\c deg
 \g better
 \f comparative
 
 \w big
-\c Adj
+\c adj
 \g big
 \f
 
 \w Bill
-\c N
+\c n
 \g Bill
 \f animate proper
 
 \w Bill-FOC
-\c N
+\c n
 \g Bill-FOC
 \f animate focus_suffix proper
 
 \w Bill-Top
-\c N
+\c n
 \g Bill-top
 \f animate proper topic_suffix
 
 \w book
-\c N
+\c n
 \g book
 \f class_other
 
 \w books
-\c N
+\c n
 \g book-PL
 \f class_other plural
 
 \w bought
-\c V
+\c v
 \g buy-PST
 \f class_other ditransitive.opt
 
 \w boy
-\c N
+\c n
 \g boy
 \f class_human
 
 \w boy?
-\c N
+\c n
 \g boy-YNQ
 \f class_human YNQ_suffix
 
 \w boyPOS
-\c N
+\c n
 \g boy-POSS
 \f animate poss_suffix
 
 \w boys
-\c N
+\c n
 \g boy-s
 \f class_human plural
 
 \w boys-NOM
-\c N
+\c n
 \g boy-s-NOM
 \f case_suffix_nominative class_human plural
 
 \w brand
-\c N
+\c n
 \g brand
 \f
 
 \w break
-\c V
+\c v
 \g break
 \f present takes_P
 
 \w broke
-\c V
+\c v
 \g break-PST
 \f past transitive
 
 \w broken
-\c V
+\c v
 \g break-PART
 \f participle passive
 
 \w bus
-\c N
+\c n
 \g bus
 \f
 
 \w buy
-\c V
+\c v
 \g buy
 \f transitive
 
 \w buy-AV
-\c V
+\c v
 \g buy-AV
 \f actorVoice ditransitive transitive
 
 \w buy-GV
-\c V
+\c v
 \g buy-GV
 \f ditransitive goalVoice transitive
 
 \w buy-OV
-\c V
+\c v
 \g buy-OV
 \f ditransitive objectVoice transitive
 
 \w by
-\c P
+\c p
 \g by
 \f passive
 
 \w by
-\c P
+\c p
 \g by-LOC
 \f locative
 
 \w came
-\c V
+\c v
 \g come-PST
 \f motion past
 
 \w can
-\c Aux
+\c aux
 \g can
 \f
 
 \w can-buy
-\c V
+\c v
 \g can-buy
 \f subjunctive
 
 \w can't
-\c Aux
+\c aux
 \g ca-n't
 \f negative_suffix present
 
 \w cat
-\c N
+\c n
 \g cat
 \f animate
 
 \w cats
-\c N
+\c n
 \g cat-PL
 \f animate plural
 
 \w catsNPQ
-\c N
+\c n
 \g cat-PL-NPQ
 \f animate plural quantifier_suffix
 
 \w caused
-\c V
+\c v
 \g cause-PST
 \f causative_syntax past
 
 \w cereal
-\c N
+\c n
 \g cereal
 \f
 
 \w certain
-\c Adj
+\c adj
 \g certain
 \f sentential_A
 
 \w CL
-\c Class
+\c class
 \g CL-human
 \f class_human
 
 \w clean
-\c V
+\c v
 \g clean
 \f transitive
 
 \w CLO
-\c Class
+\c class
 \g CL-other
 \f class_other
 
 \w color
-\c N
+\c n
 \g color
 \f
 
 \w come
-\c V
+\c v
 \g come
 \f motion
 
 \w coming
-\c V
+\c v
 \g come-PROG
 \f motion progressive
 
 \w CONJcats
-\c N
+\c n
 \g CONJ-cat-PL
 \f conj_prefix_pl plural third
 
 \w CONJcatsNPQ
-\c N
+\c n
 \g CONJ-cat-PL-NPQ
 \f animate conj_prefix plural quantifier_suffix
 
 \w CONJhis
-\c Pron
+\c pro
 \g CONJ-3rdSg-Gen
 \f conj_prefix genitive singular third
 
 \w CONJrabbits
-\c N
+\c n
 \g CONJ-rabbit-PL
 \f animate conj_prefix plural
 
 \w cook
-\c V
+\c v
 \g cook
 \f transitive
 
 \w could
-\c Aux
+\c aux
 \g could
 \f
 
 \w curtains
-\c N
+\c n
 \g curtain-pl
 \f plural
 
 \w dance
-\c V
+\c v
 \g dance
 \f
 
 \w dancing
-\c V
+\c v
 \g dance-GER
 \f gerund
 
 \w DAT
-\c Case
+\c case
 \g dative
 \f dative
 
 \w did
-\c Aux
+\c aux
 \g do-PST
 \f past
 
 \w do
-\c Aux
+\c aux
 \g do
 \f present -third_singular_subject
 
 \w does
-\c Aux
+\c aux
 \g do-3SG
 \f present singular_subject third_subject
 
 \w dog
-\c N
+\c n
 \g dog
 \f animate
 
 \w dogCONJ
-\c N
+\c n
 \g dog-CONJ
 \f animate conj_suffix
 
 \w dogs
-\c N
+\c n
 \g dog-PL
 \f animate plural
 
 \w dogsCONJ
-\c N
+\c n
 \g dog-PL-CONJ
 \f animate conj_suffix plural
 
 \w don't
-\c Aux
+\c aux
 \g do-n't
 \f negative_suffix present -third_singular_subject
 
 \w door
-\c N
+\c n
 \g door
 \f
 
 \w dull
-\c Adj
+\c adj
 \g dull
 \f
 
 \w eats
-\c V
+\c v
 \g eat-3SG
 \f singular_subject third_subject
 
 \w either
-\c InitConj
+\c initconj
 \g either
 \f
 
 \w ERG
-\c Case
+\c case
 \g ergative
 \f ergative
 
 \w ERG-those
-\c Dem
+\c dem
 \g ERG-those
 \f case_prefix_ergative plural
 
 \w ever
-\c Adv
+\c adv
 \g ever
 \f negative-polarity temporal
 
 \w everything
-\c Pron
+\c pro
 \g everything
 \f -animate indefinitePron third
 
 \w expect
-\c V
+\c v
 \g expect
 \f sentential_CP_or_-finiteIP
 
 \w feeling
-\c V
+\c v
 \g feel-PROG
 \f perception progressive
 
 \w fight
-\c N
+\c n
 \g fight-N
 \f
 
 \w fight
-\c V
+\c v
 \g fight
 \f
 
 \w find
-\c V
+\c v
 \g find
 \f transitive
 
@@ -534,1082 +534,1082 @@
 \f
 
 \w fish
-\c N
+\c n
 \g fish
 \f
 
 \w FOC
-\c FocusM
+\c fm
 \g FOC
 \f
 
 \w for
-\c C
+\c comp
 \g for
 \f -finite
 
 \w for
-\c P
+\c p
 \g for
 \f dative
 
 \w friendly
-\c Adj
+\c adj
 \g friendly
 \f
 
 \w from
-\c P
+\c p
 \g from
 \f locative
 
 \w gave
-\c V
+\c v
 \g give-PST
 \f ditransitive past
 
 \w GEN
-\c Case
+\c case
 \g genitive
 \f genitive
 
 \w get
-\c V
+\c v
 \g get-cop
 \f copular
 
 \w get
-\c V
+\c v
 \g get
 \f sentential_-finiteIP_or_transitive
 
 \w gift
-\c N
+\c n
 \g gift
 \f
 
 \w gift-FOC
-\c N
+\c n
 \g gift-FOC
 \f focus_suffix
 
 \w girl
-\c N
+\c n
 \g girl
 \f class_human
 
 \w give
-\c V
+\c v
 \g give
 \f ditransitive
 
 \w given
-\c V
+\c v
 \g give-PAS
 \f ditransitive passive
 
 \w glass
-\c N
+\c n
 \g glass
 \f
 
 \w glass-FOC
-\c N
+\c n
 \g glass-FOC
 \f focus_suffix
 
 \w go
-\c V
+\c v
 \g go
 \f motion present
 
 \w God
-\c N
+\c n
 \g God
 \f animate proper
 
 \w goes
-\c V
+\c v
 \g go-3SG
 \f motion present singular_subject third_subject
 
 \w going
-\c V
+\c v
 \g go-PROG
 \f motion progressive
 
 \w gone
-\c V
+\c v
 \g go-PST
 \f motion past
 
 \w got
-\c V
+\c v
 \g get-PST-cop
 \f copular past
 
 \w got
-\c V
+\c v
 \g get-PST
 \f past sentential_-finiteIP_or_transitive
 
 \w great
-\c Adj
+\c adj
 \g great
 \f
 
 \w handsome
-\c Adj
+\c adj
 \g handsome
 \f
 
 \w happy
-\c Adj
+\c adj
 \g happy
 \f
 
 \w hard
-\c Adj
+\c adj
 \g hard
 \f sentential_A
 
 \w has
-\c Aux
+\c aux
 \g has
 \f
 
 \w have
-\c Aux
+\c aux
 \g have
 \f
 
 \w hay
-\c V
+\c v
 \g hay
 \f exist
 
 \w he
-\c Pron
+\c pro
 \g 3rdM-nom
 \f masculine nominative singular third
 
 \w healthy
-\c Adj
+\c adj
 \g healthy
 \f
 
 \w he-foc
-\c Pron
+\c pro
 \g 3sgNom-foc
 \f focus nominative singular third
 
 \w he-FOC
-\c Pron
+\c pro
 \g 3sgNom-FOC
 \f focus_suffix nominative singular third
 
 \w her
-\c Pron
+\c pro
 \g her
 \f feminine genitive singular third
 
 \w here
-\c Adv
+\c adv
 \g here
 \f locative
 
 \w hi
-\c Greet
+\c greet
 \g hi
 \f
 
 \w him
-\c Pron
+\c pro
 \g 3sg-ACC
 \f accusative singular third
 
 \w his
-\c Pron
+\c pro
 \g 3rdSg-Gen
 \f genitive singular third
 
 \w hit
-\c V
+\c v
 \g hit
 \f transitive
 
 \w hit=REL
-\c V
+\c v
 \g hit=REL
 \f relative_suffix transitive
 
 \w home
-\c N
+\c n
 \g home
 \f locative mass
 
 \w house
-\c N
+\c n
 \g house
 \f locative
 
 \w how
-\c Adv
+\c adv
 \g how
 \f wh
 
 \w how
-\c Excl
+\c excl
 \g how-Excl
 \f
 
 \w how
-\c Deg
+\c deg
 \g how-Deg
 \f modifies_Adj
 
 \w I
-\c Pron
+\c pro
 \g 1sg
 \f first nominative singular
 
 \w if
-\c Cond
+\c cond
 \g if
 \f conditional
 
 \w if
-\c C
+\c comp
 \g if
 \f question -root
 
 \w if-s
-\c Cond
+\c cond
 \g if-s
 \f subjunctive_conditional
 
 \w in
-\c P
+\c p
 \g in
 \f locative temporal
 
 \w is
-\c V
+\c v
 \g is
 \f copular singular_subject third_subject
 
 \w is
-\c V
+\c v
 \g is-exist
 \f exist singular_subject third_subject
 
 \w is
-\c Aux
+\c aux
 \g is-Aux
 \f singular_subject third_subject
 
 \w it
-\c Pron
+\c pro
 \g it
 \f third
 
 \w John
-\c N
+\c n
 \g John
 \f animate proper
 
 \w know
-\c V
+\c v
 \g know
 \f sentential_finite_or_transitive
 
 \w last
-\c Adj
+\c adj
 \g last
 \f
 
 \w late
-\c Adv
+\c adv
 \g late
 \f temporal
 
 \w lately
-\c Adv
+\c adv
 \g lately
 \f temporal
 
 \w learn
-\c V
+\c v
 \g learn
 \f sentential_-finiteIPpro-drop_or_transitive_or_question
 
 \w learned
-\c V
+\c v
 \g learn-PST
 \f past sentential_-finiteIPpro-drop_or_transitive
 
 \w light
-\c N
+\c n
 \g light
 \f
 
 \w like
-\c V
+\c v
 \g like
 \f sentential_-finite_or_transitive
 
 \w likes
-\c V
+\c v
 \g like-3sg
 \f present singular_subject third_subject transitive
 
 \w look
-\c V
+\c v
 \g look
 \f perception plural_subject present third_subject
 
 \w looks
-\c V
+\c v
 \g look-3SG
 \f perception present singular_subject third_subject
 
 \w love
-\c V
+\c v
 \g love
 \f transitive
 
 \w loved
-\c V
+\c v
 \g love-PART
 \f participle transitive
 
 \w loves
-\c V
+\c v
 \g love-3SG
 \f singular_subject third_subject transitive
 
 \w made
-\c V
+\c v
 \g make-caus-PST
 \f causative_syntax past
 
 \w man
-\c N
+\c n
 \g man
 \f animate singular third
 
 \w married
-\c V
+\c v
 \g marry-PART
 \f participle
 
 \w may
-\c Aux
+\c aux
 \g may
 \f
 
 \w me
-\c Pron
+\c pro
 \g 1sg-acc
 \f accusative first singular
 
 \w meeting
-\c N
+\c n
 \g meeting
 \f -animate locative singular third
 
 \w meeting=REL
-\c N
+\c n
 \g meeting=REL
 \f -animate locative relative_suffix singular third
 
 \w millions
-\c N
+\c n
 \g million-PL
 \f animate plural
 
 \w money
-\c N
+\c n
 \g money
 \f
 
 \w money-if
-\c N
+\c n
 \g money-if
 \f conditional_suffix
 
 \w money-if-s
-\c N
+\c n
 \g money-if-s
 \f subjunctive_conditional_suffix
 
 \w more
-\c Deg
+\c deg
 \g more
 \f comparative
 
 \w morning
-\c N
+\c n
 \g morning
 \f temporal
 
 \w most
-\c Deg
+\c deg
 \g most
 \f superlative
 
 \w mother
-\c N
+\c n
 \g mother
 \f feminine
 
 \w my
-\c Pron
+\c pro
 \g 1sg-Gen
 \f first genitive singular
 
 \w near
-\c P
+\c p
 \g near
 \f locative
 
 \w NEG
-\c Neg
+\c neg
 \g negative
 \f negative
 
 \w never
-\c Adv
+\c adv
 \g NOT-ever
 \f negative temporal
 
 \w new
-\c Adj
+\c adj
 \g new
 \f
 
 \w new-foc
-\c Adj
+\c adj
 \g new-foc
 \f focus
 
 \w nice
-\c Adj
+\c adj
 \g nice
 \f
 
 \w no
-\c Neg
+\c neg
 \g no
 \f
 
 \w nobody
-\c Pron
+\c pro
 \g nobody
 \f indefinite negative
 
 \w NOM
-\c Case
+\c case
 \g nominative
 \f nominative
 
 \w NOM-those
-\c Dem
+\c dem
 \g NOM-those
 \f case_prefix_nominative plural
 
 \w no-saw
-\c V
+\c v
 \g NEG.see.PST
 \f negative past transitive
 
 \w not
-\c Aux
+\c aux
 \g NEG
 \f negative
 
 \w not-ACC-that
-\c Dem
+\c dem
 \g NEG-ACC-that
 \f case_prefix_accusative negative_prefix singular
 
 \w not-that
-\c Dem
+\c dem
 \g NEG-that
 \f negative_prefix singular
 
 \w now
-\c Adv
+\c adv
 \g now
 \f sentential_finite_CP temporal
 
 \w NPQhis
-\c Pron
+\c pro
 \g NPQ-3rdSg-GEN
 \f genitive quantifier_prefix singular third
 
 \w of
-\c P
+\c p
 \g of
 \f partitive
 
 \w on
-\c P
+\c p
 \g on
 \f locative particle
 
 \w one
-\c Num
+\c num
 \g 1
 \f singular
 
 \w or
-\c Conj
+\c conj
 \g or
 \f
 
 \w other
-\c Adj
+\c adj
 \g other
 \f
 
 \w out
-\c P
+\c p
 \g out
 \f locative particle
 
 \w outran
-\c V
+\c v
 \g APP-run-PST
 \f applicative past
 
 \w party
-\c N
+\c n
 \g party
 \f locative
 
 \w pe
-\c C
+\c comp
 \g ?
 \f question
 
 \w persuaded
-\c V
+\c v
 \g persuade-PST
 \f past sentential_with_object
 
 \w pets
-\c N
+\c n
 \g pet-PL
 \f animate plural
 
 \w pick
-\c V
+\c v
 \g pick
 \f takes_P transitive
 
 \w pie
-\c N
+\c n
 \g pie
 \f
 
 \w pieces
-\c N
+\c n
 \g piece-PL
 \f plural
 
 \w plays
-\c V
+\c v
 \g play-3SG
 \f singular_subject third_subject transitive
 
 \w put
-\c V
+\c v
 \g put
 \f takes_P transitive_motion
 
 \w quite
-\c Deg
+\c deg
 \g quite
 \f modifies_Adj
 
 \w rabbits
-\c N
+\c n
 \g rabbit-PL
 \f animate plural
 
 \w ran
-\c V
+\c v
 \g run-PST
 \f past
 
 \w ran
-\c V
+\c v
 \g run-PST-MOT
 \f motion past
 
 \w read
-\c V
+\c v
 \g read
 \f transitive
 
 \w reading
-\c V
+\c v
 \g read-PROG
 \f progressive transitive
 
 \w REL=came
-\c V
+\c v
 \g REL=come-PST
 \f motion past relative_prefix
 
 \w REL=you
-\c Pron
+\c pro
 \g REL=2sg
 \f relative_prefix second singular
 
 \w rhumba
-\c N
+\c n
 \g rhumba
 \f
 
 \w room
-\c N
+\c n
 \g room
 \f
 
 \w said
-\c V
+\c v
 \g say-PST
 \f past speech_PP_or_transitive
 
 \w same
-\c Deg
+\c deg
 \g same
 \f equalN
 
 \w save
-\c V
+\c v
 \g save
 \f
 
 \w saw
-\c V
+\c v
 \g see.PST
 \f past transitive
 
 \w see
-\c V
+\c v
 \g see
 \f transitive
 
 \w seems
-\c V
+\c v
 \g seem-3sg
 \f present sentential_raising_or_perception singular third
 
 \w see-n't
-\c V
+\c v
 \g see-n't
 \f negative_suffix transitive
 
 \w shattered
-\c V
+\c v
 \g shatter-PART
 \f participle
 
 \w she
-\c Pron
+\c pro
 \g 3sgFem
 \f feminine nominative singular third
 
 \w should
-\c Aux
+\c aux
 \g should
 \f finite
 
 \w since
-\c Adv
+\c adv
 \g since
 \f reason sentential_finite_IP takes_Adv takes_DP temporal
 
 \w sisterPOS
-\c N
+\c n
 \g sister-POSS
 \f animate poss_suffix
 
 \w sisters'
-\c N
+\c n
 \g sister-pl-Poss
 \f class_human plural poss_suffix
 
 \w sister's
-\c N
+\c n
 \g sister-Poss
 \f class_human poss_suffix
 
 \w soccer
-\c N
+\c n
 \g soccer
 \f mass
 
 \w soccer-foc
-\c N
+\c n
 \g soccer-foc
 \f focus mass
 
 \w soccer-FOC
-\c N
+\c n
 \g soccer-FOC
 \f focus_suffix mass
 
 \w someone
-\c Pron
+\c pro
 \g 3rd-Indef
 \f indefinitePron third
 
 \w Spanish
-\c N
+\c n
 \g Spanish
 \f proper
 
 \w store
-\c N
+\c n
 \g store
 \f locative
 
 \w Sue
-\c N
+\c n
 \g Sue
 \f animate proper
 
 \w table
-\c N
+\c n
 \g table
 \f locative
 
 \w than
-\c Conj
+\c conj
 \g than
 \f comparative
 
 \w that
-\c Dem
+\c dem
 \g that
 \f singular
 
 \w that
-\c C
+\c comp
 \g that
 \f finite
 
 \w that
-\c C
+\c comp
 \g that-REL
 \f relative
 
 \w the
-\c Art
+\c art
 \g the
 \f definite
 
 \w then
-\c Conseq
+\c conseq
 \g then
 \f
 
 \w then
-\c Adv
+\c adv
 \g then
 \f temporal
 
 \w there
-\c Adv
+\c adv
 \g there
 \f exist
 
 \w they
-\c Pron
+\c pro
 \g 3PL
 \f plural third
 
 \w those
-\c Dem
+\c dem
 \g those
 \f plural
 
 \w to
-\c P
+\c p
 \g to-DAT
 \f dative
 
 \w to
-\c P
+\c p
 \g to-LOC
 \f locative
 
 \w to
-\c Aux
+\c aux
 \g to
 \f -finite
 
 \w to-break
-\c V
+\c v
 \g INF-break
 \f -finite transitive
 
 \w to-clean
-\c V
+\c v
 \g INF-clean
 \f -finite transitive
 
 \w told
-\c V
+\c v
 \g tell-PST
 \f past speech_DP_or_transitive
 
 \w to-make
-\c V
+\c v
 \g INF-make
 \f -finite transitive
 
 \w tomorrow
-\c Adv
+\c adv
 \g tomorrow
 \f temporal
 
 \w TOP-Bill
-\c N
+\c n
 \g topic-Bill
 \f animate proper topic_prefix
 
 \w tortillas
-\c N
+\c n
 \g tortilla-PL
 \f plural
 
 \w to-say
-\c V
+\c v
 \g INF-say
 \f -finite speech_DPwh_or_transitive
 
 \w tree
-\c N
+\c n
 \g tree
 \f -animate
 
 \w tried
-\c V
+\c v
 \g try-PST
 \f past sentential_-finiteIPpro-drop_or_transitive
 
 \w turn
-\c V
+\c v
 \g turn
 \f takes_P
 
 \w turtle
-\c N
+\c n
 \g turtle
 \f animate
 
 \w turtles
-\c N
+\c n
 \g turtle-PL
 \f animate plural
 
 \w turtlesCONJ
-\c N
+\c n
 \g turtle-PL-CONJ
 \f animate conj_suffix plural
 
 \w two
-\c Num
+\c num
 \g 2
 \f
 
 \w up
-\c P
+\c p
 \g up
 \f locative particle
 
 \w us
-\c Pron
+\c pro
 \g 1PL-acc
 \f accusative first plural
 
 \w very
-\c Deg
+\c deg
 \g very
 \f modifies_Adj modifies_Adv-reason modifies_Q
 
 \w walks
-\c V
+\c v
 \g walk-3SG
 \f present singular_subject third_subject
 
 \w wall
-\c N
+\c n
 \g wall
 \f
 
 \w walls
-\c N
+\c n
 \g wall-pl
 \f plural
 
 \w want
-\c V
+\c v
 \g want
 \f sentential_-finiteIP_or_transitive
 
 \w was
-\c Aux
+\c aux
 \g is-PST-Aux
 \f passive past singular_subject
 
 \w was
-\c V
+\c v
 \g is-PST-exist
 \f exist past singular_subject
 
 \w was
-\c V
+\c v
 \g is-PST
 \f copular past singular_subject
 
 \w wasn't
-\c Aux
+\c aux
 \g is-PST-n't
 \f negative_suffix passive singular_subject
 
 \w we
-\c Pron
+\c pro
 \g 1PL-nom
 \f first nominative plural
 
 \w week
-\c N
+\c n
 \g week
 \f temporal
 
 \w well
-\c Adj
+\c adj
 \g well
 \f
 
 \w well-SUP
-\c Adj
+\c adj
 \g well-SUP
 \f superlative
 
 \w went
-\c V
+\c v
 \g go-PST
 \f motion past
 
 \w were
-\c V
+\c v
 \g be-PST
 \f copular past plural_subject
 
 \w were
-\c Aux
+\c aux
 \g were-Aux-past
 \f passive past plural_subject
 
 \w were
-\c V
+\c v
 \g be-PST-exist
 \f exist past plural_subject
 
 \w what
-\c Pron
+\c pro
 \g what
 \f -animate -genitive wh
 
 \w whatever
-\c Pron
+\c pro
 \g whatever
 \f -animate indefinitePron third
 
 \w when
-\c Adv
+\c adv
 \g when
 \f temporal wh
 
 \w whenever
-\c Adv
+\c adv
 \g whenever
 \f indefiniteAdv temporal
 
 \w where
-\c Adv
+\c adv
 \g where
 \f locative wh
 
 \w wherever
-\c Adv
+\c adv
 \g wherever
 \f indefiniteAdv locative
 
 \w which
-\c Det
+\c det
 \g which
 \f wh
 
 \w who
-\c Pron
+\c pro
 \g who
 \f animate nominative wh
 
 \w whom
-\c Pron
+\c pro
 \g whom
 \f accusative animate wh
 
 \w why
-\c Adv
+\c adv
 \g why
 \f reason wh
 
 \w will
-\c Aux
+\c aux
 \g will
 \f finite future
 
 \w wonder
-\c V
+\c v
 \g wonder
 \f sentential_CP sentential_question
 
 \w won't
-\c Aux
+\c aux
 \g will-not
 \f negative_suffix
 
 \w would
-\c Aux
+\c aux
 \g would
 \f future
 
 \w yesterday
-\c Adv
+\c adv
 \g yesterday
 \f temporal
 
 \w you
-\c Pron
+\c pro
 \g 2nd-Nom
 \f nominative second
 
 \w you
-\c Pron
+\c pro
 \g 2nd-Acc
 \f accusative second
 
 \w your
-\c Pron
+\c pro
 \g 2-gen
 \f genitive second
 

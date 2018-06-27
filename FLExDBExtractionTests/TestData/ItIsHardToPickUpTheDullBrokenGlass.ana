@@ -1,0 +1,60 @@
+\a < pro it >
+\d it
+\cat pro
+\fd third
+\w it
+
+\a %3%< v is-exist >%< aux is-Aux >%< v is >%
+\d %3%is%is%is%
+\cat %3%v%aux%v%
+\fd %3%exist singular_subject third_subject%singular_subject third_subject%copular singular_subject third_subject%
+\w is
+
+\a < adj hard >
+\d hard
+\cat adj
+\fd sentential_A
+\w hard
+
+\a %3%< p to-DAT >%< aux to >%< p to-LOC >%
+\d %3%to%to%to%
+\cat %3%p%aux%p%
+\fd %3%dative%-finite%locative%
+\w to
+
+\a < v pick >
+\d pick
+\cat v
+\fd takes_P transitive
+\w pick
+
+\a < p up >
+\d up
+\cat p
+\fd locative particle
+\w up
+
+\a < art the >
+\d the
+\cat art
+\fd definite
+\w the
+
+\a < adj dull >
+\d dull
+\cat adj
+\fd 
+\w dull
+
+\a < v break-PART >
+\d broken
+\cat v
+\fd participle passive
+\w broken
+
+\a < n glass >
+\d glass
+\cat n
+\fd 
+\w glass
+

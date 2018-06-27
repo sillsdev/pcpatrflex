@@ -1,0 +1,48 @@
+\a < pro 1PL-nom >
+\d we
+\cat pro
+\fd first nominative plural
+\w we
+
+\a < v want >
+\d want
+\cat v
+\fd sentential_-finiteIP_or_transitive
+\w want
+
+\a %3%< p to-DAT >%< aux to >%< p to-LOC >%
+\d %3%to%to%to%
+\cat %3%p%aux%p%
+\fd %3%dative%-finite%locative%
+\w to
+
+\a %2%< v get >%< v get-cop >%
+\d %2%get%get%
+\cat %2%v%v%
+\fd %2%sentential_-finiteIP_or_transitive%copular%
+\w get
+
+\a < v marry-PART >
+\d married
+\cat v
+\fd participle
+\w married
+
+\a < conj and >
+\d and
+\cat conj
+\fd plural
+\w and
+
+\a %2%< v be >%< v be-exist >%
+\d %2%be%be%
+\cat %2%v%v%
+\fd %2%copular%exist%
+\w be
+
+\a < adj happy >
+\d happy
+\cat adj
+\fd 
+\w happy
+
