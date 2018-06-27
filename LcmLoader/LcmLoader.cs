@@ -1,4 +1,8 @@
-﻿using SI.LcmLoader;
+﻿// Copyright (c) 2018 SIL International
+// This software is licensed under the LGPL, version 2.1 or later
+// (http://www.gnu.org/licenses/lgpl-2.1.html)
+
+using SI.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Utils;
 using System;

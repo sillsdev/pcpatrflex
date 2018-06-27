@@ -11,6 +11,7 @@ using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LcmLoader;
 using SIL.WritingSystems;
+using SIL.LCModel.DomainServices;
 
 namespace SIL.LcmLoaderTests
 {
@@ -22,6 +23,8 @@ namespace SIL.LcmLoaderTests
 	class LcmLoaderTests : MemoryOnlyBackendProviderTestBase
 	{
 		public SIL.LcmLoader.LcmLoader Loader { get; set; }
+
+		LcmCache myCache { get; set; }
 
 		public ProjectId ProjId { get; set; }
 
@@ -78,6 +81,10 @@ namespace SIL.LcmLoaderTests
 		{
 			//Directory.Delete(m_projectsDirectory, true);
 			base.FixtureTeardown();
+			if (myCache != null)
+			{
+				ProjectLockingService.UnlockCurrentProject(myCache);
+			}
 		}
 
 		/// <summary>
@@ -88,11 +95,11 @@ namespace SIL.LcmLoaderTests
 		{
 			SetUpTestFile("PCPATRTestingEmpty.fwdata");
 			step = 1;
-			LcmCache cache = Loader.CreateCache();
-			Assert.IsNotNull(cache);
-			Assert.AreEqual(ProjId.UiName, cache.ProjectId.UiName);
-			Assert.AreEqual(5, cache.LangProject.AllPartsOfSpeech.Count);
-			Assert.AreEqual(0, cache.LangProject.LexDbOA.Entries.Count());
+			myCache = Loader.CreateCache();
+			Assert.IsNotNull(myCache);
+			Assert.AreEqual(ProjId.UiName, myCache.ProjectId.UiName);
+			Assert.AreEqual(5, myCache.LangProject.AllPartsOfSpeech.Count);
+			Assert.AreEqual(0, myCache.LangProject.LexDbOA.Entries.Count());
 		}
 
 		/// <summary>
