@@ -7,8 +7,8 @@
     <ProjectGuid>{EAF09912-896A-466E-89AB-A1B3D16429E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrepFLExDBTests</RootNamespace>
-    <AssemblyName>PrepFLExDBTests</AssemblyName>
+    <RootNamespace>SIL.PrepFLExDBTests</RootNamespace>
+    <AssemblyName>SIL.PrepFLExDBTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -64,6 +64,9 @@
     </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.LcmLoader">
+      <HintPath>..\LcmLoader\bin\x86\Debug\SIL.LcmLoader.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.LCModel.dll</HintPath>

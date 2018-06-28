@@ -3,6 +3,7 @@
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
 using NUnit.Framework;
+using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core;
 using SIL.LCModel.Core.Cellar;
@@ -31,7 +32,7 @@ namespace SIL.PrepFLExDBTests
 	class PreparerTests : MemoryOnlyBackendProviderTestBase
 	{
 		LcmCache cache;
-		public LcmLoader Loader { get; set; }
+		public SIL.LcmLoader.LcmLoader Loader { get; set; }
 		public ProjectId ProjId { get; set; }
 		private List<FieldDescription> customFields;
 
@@ -51,7 +52,7 @@ namespace SIL.PrepFLExDBTests
 			String basedir = rootdir.Substring(0, i);
 			String testfile = Path.Combine(basedir, "PrepFLExDBTests", "TestData", "PCPATRTestingEmpty.fwdata");
 			ProjId = new ProjectId(testfile);
-			Loader = new LcmLoader(ProjId, new Label());
+			Loader = new SIL.LcmLoader.LcmLoader(ProjId);
 			cache = Loader.CreateCache();
 		}
 
