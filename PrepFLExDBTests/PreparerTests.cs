@@ -31,7 +31,7 @@ namespace SIL.PrepFLExDBTests
 	[TestFixture]
 	class PreparerTests : MemoryOnlyBackendProviderTestBase
 	{
-		LcmCache cache;
+		LcmCache MyCache { get; set; }
 		public SIL.LcmLoader.LcmLoader Loader { get; set; }
 		public ProjectId ProjId { get; set; }
 		private List<FieldDescription> customFields;
@@ -53,7 +53,7 @@ namespace SIL.PrepFLExDBTests
 			String testfile = Path.Combine(basedir, "PrepFLExDBTests", "TestData", "PCPATRTestingEmpty.fwdata");
 			ProjId = new ProjectId(testfile);
 			Loader = new SIL.LcmLoader.LcmLoader(ProjId);
-			cache = Loader.CreateCache();
+			MyCache = Loader.CreateCache();
 		}
 
 		/// <summary></summary>
@@ -61,7 +61,7 @@ namespace SIL.PrepFLExDBTests
 		{
 			//Directory.Delete(m_projectsDirectory, true);
 			base.FixtureTeardown();
-			cache.Dispose();
+			MyCache.Dispose();
 		}
 
 		/// <summary>
@@ -70,10 +70,10 @@ namespace SIL.PrepFLExDBTests
 		[Test]
 		public void PreparerTest()
 		{
-			Assert.IsNotNull(cache);
-			Assert.AreEqual(5, cache.LangProject.AllPartsOfSpeech.Count);
-			Assert.AreEqual(0, cache.LangProject.LexDbOA.Entries.Count());
-			var preparer = new Preparer(cache, false);
+			Assert.IsNotNull(MyCache);
+			Assert.AreEqual(5, MyCache.LangProject.AllPartsOfSpeech.Count);
+			Assert.AreEqual(0, MyCache.LangProject.LexDbOA.Entries.Count());
+			var preparer = new Preparer(MyCache, false);
 
 			// If we try to create the custom field before the master possibility list, the field is not created.
 			customFields = preparer.GetListOfCustomFields();
@@ -82,7 +82,7 @@ namespace SIL.PrepFLExDBTests
 			customFields = preparer.GetListOfCustomFields();
 			Assert.AreEqual(0, customFields.Count);
 
-			var possListRepository = cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+			var possListRepository = MyCache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
 			Assert.AreEqual(34, possListRepository.AllInstances().Count());
 			preparer.AddPCPATRList();
 			CheckPossibilityList(possListRepository);
@@ -109,6 +109,17 @@ namespace SIL.PrepFLExDBTests
 			preparer.AddPCPATRSenseCustomField();
 			customFields = preparer.GetListOfCustomFields();
 			Assert.AreEqual(1, customFields.Count);
+
+			// Add PcPatr syntactic parser agent
+			var agents = MyCache.LangProject.AnalyzingAgentsOC;
+			Assert.AreEqual(4, agents.Count);
+			preparer.AddPCPATRSyntacticParserAgent();
+			agents = MyCache.LangProject.AnalyzingAgentsOC;
+			Assert.AreEqual(5, agents.Count);
+			var agent = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser).First();
+			Assert.IsFalse(agent.Human);
+			Assert.AreEqual(Constants.PcPatrSyntacticParser, agent.Name.BestAnalysisAlternative.Text);
+			Assert.AreEqual("Normal", agent.Version);
 		}
 
 		private void CheckPossibilityList(ICmPossibilityListRepository possListRepository)
@@ -125,7 +136,7 @@ namespace SIL.PrepFLExDBTests
 
 		private void CheckMatch(ICmPossibilityList last, string sToMatch)
 		{
-			Assert.AreEqual(sToMatch, last.FindPossibilityByName(last.PossibilitiesOS, sToMatch, Cache.DefaultAnalWs).Name.BestAnalysisAlternative.Text);
+			Assert.AreEqual(sToMatch, last.FindPossibilityByName(last.PossibilitiesOS, sToMatch, base.Cache.DefaultAnalWs).Name.BestAnalysisAlternative.Text);
 		}
 	}
 }

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1C9C6F8C-05A7-4BD2-84CD-8C751DA518B0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PrepFLExDB</RootNamespace>
-    <AssemblyName>PrepFLExDB</AssemblyName>
+    <RootNamespace>SIL.PrepFLExDB</RootNamespace>
+    <AssemblyName>SIL.PrepFLExDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -115,6 +115,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="src\FwStubs\ChooseLangProjectDialog.resx">
       <DependentUpon>ChooseLangProjectDialog.cs</DependentUpon>

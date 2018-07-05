@@ -8,6 +8,7 @@ using SIL.LCModel.DomainServices;
 using SIL.LCModel.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,5 +111,31 @@ namespace SIL.PrepFLExDB
 					where fd.IsCustomField //&& GetItem(m_locationComboBox, fd.Class) != null
 					select fd).ToList();
 		}
+
+		/// <summary>
+		/// Creates a new possibility list for PC-PATR feature descriptors.
+		/// </summary>
+		public void AddPCPATRSyntacticParserAgent()
+		{
+			var agents = Cache.LangProject.AnalyzingAgentsOC;
+			Console.WriteLine("count=" + agents.Count);
+			var pcpatrAgents = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser);
+			if (pcpatrAgents.Count() > 0)
+			{
+				return;
+			}
+			NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
+			{
+				var factAgent = Cache.ServiceLocator.GetInstance<ICmAgentFactory>();
+				var agent = factAgent.Create();
+				agents.Add(agent);
+				var ws = Cache.DefaultAnalWs;
+				agent.Human = false;
+				agent.Name.SetAnalysisDefaultWritingSystem(Constants.PcPatrSyntacticParser);
+				agent.Version = "Normal";
+			});
+		}
+
+
 	}
 }
