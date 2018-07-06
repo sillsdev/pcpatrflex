@@ -99,6 +99,7 @@ namespace SIL.FLExDBExtraction
 			var sbD = new StringBuilder();
 			var sbC = new StringBuilder();
 			var sbFD = new StringBuilder();
+			var sbP = new StringBuilder();
 			var sbW = new StringBuilder();
 			foreach (IAnalysis analysis in segment.AnalysesRS)
 			{
@@ -115,6 +116,8 @@ namespace SIL.FLExDBExtraction
 				sbC.Append("\\cat ");
 				sbFD.Clear();
 				sbFD.Append("\\fd ");
+				sbP.Clear();
+				sbP.Append("\\p ");
 				sbW.Clear();
 				sbW.Append("\\w ");
 				var shape = wordform.Form.VernacularDefaultWritingSystem.Text;
@@ -127,10 +130,12 @@ namespace SIL.FLExDBExtraction
 					sbD.Append(ambigs);
 					sbC.Append(ambigs);
 					sbFD.Append(ambigs);
+					sbP.Append(ambigs);
 				}
 				foreach (IWfiAnalysis wfiAnalysis in wordform.AnalysesOC)
 				{
 					sbA.Append("< ");
+					int i = 1;
 					foreach (IWfiMorphBundle bundle in wfiAnalysis.MorphBundlesOS)
 					{
 						var msa = bundle.MsaRA;
@@ -157,13 +162,21 @@ namespace SIL.FLExDBExtraction
 						{
 							HandleSense(sbA, sbFD, sense);
 						}
-
+						sbP.Append(bundle.Guid.ToString());
+						if (i < wfiAnalysis.MorphBundlesOS.Count)
+						{
+							sbD.Append("-");
+							sbC.Append("=");
+							sbFD.Append("=");
+							sbP.Append("=");
+						}
 						if (ambiguities > 1)
 						{
 							sbA.Append("%");
 							sbD.Append("%");
 							sbC.Append("%");
 							sbFD.Append("%");
+							sbP.Append("%");
 						}
 					}
 				}
@@ -171,11 +184,13 @@ namespace SIL.FLExDBExtraction
 				sbD.Append("\n");
 				sbC.Append("\n");
 				sbFD.Append("\n");
+				sbP.Append("\n");
 				sbW.Append("\n");
 				sb.Append(sbA.ToString());
 				sb.Append(sbD.ToString());
 				sb.Append(sbC.ToString());
 				sb.Append(sbFD.ToString());
+				sb.Append(sbP.ToString());
 				sb.Append(sbW.ToString());
 			}
 			Console.Write(sb.ToString());
