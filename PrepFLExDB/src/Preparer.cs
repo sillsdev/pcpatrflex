@@ -117,25 +117,42 @@ namespace SIL.PrepFLExDB
 		/// </summary>
 		public void AddPCPATRSyntacticParserAgent()
 		{
-			var agents = Cache.LangProject.AnalyzingAgentsOC;
-			Console.WriteLine("count=" + agents.Count);
+			//var agents = Cache.LangProject.AnalyzingAgentsOC;
+			//var pcpatrAgents = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser);
+			//if (pcpatrAgents.Count() > 0)
+			//{
+			//	return;
+			//}
+			var pcpatrAgent = GetPCPATRSyntacticParsingAgent(Cache);
+			if (pcpatrAgent == null)
+			{
+				NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
+				{
+					var factAgent = Cache.ServiceLocator.GetInstance<ICmAgentFactory>();
+					var agent = factAgent.Create();
+					var agents = Cache.LangProject.AnalyzingAgentsOC;
+					agents.Add(agent);
+					var ws = Cache.DefaultAnalWs;
+					agent.Human = false;
+					agent.Name.SetAnalysisDefaultWritingSystem(Constants.PcPatrSyntacticParser);
+					agent.Version = "Normal";
+				});
+			}
+		}
+
+		public ICmAgent GetPCPATRSyntacticParsingAgent(LcmCache cache)
+		{
+			var agents = cache.LangProject.AnalyzingAgentsOC;
 			var pcpatrAgents = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser);
 			if (pcpatrAgents.Count() > 0)
 			{
-				return;
+				return pcpatrAgents.First();
 			}
-			NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
+			else
 			{
-				var factAgent = Cache.ServiceLocator.GetInstance<ICmAgentFactory>();
-				var agent = factAgent.Create();
-				agents.Add(agent);
-				var ws = Cache.DefaultAnalWs;
-				agent.Human = false;
-				agent.Name.SetAnalysisDefaultWritingSystem(Constants.PcPatrSyntacticParser);
-				agent.Version = "Normal";
-			});
+				return null;
+			}
 		}
-
 
 	}
 }

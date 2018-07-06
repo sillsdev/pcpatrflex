@@ -120,6 +120,10 @@ namespace SIL.PrepFLExDBTests
 			Assert.IsFalse(agent.Human);
 			Assert.AreEqual(Constants.PcPatrSyntacticParser, agent.Name.BestAnalysisAlternative.Text);
 			Assert.AreEqual("Normal", agent.Version);
+			// Invoke it again.  Only five should exist.
+			preparer.AddPCPATRSyntacticParserAgent();
+			agents = MyCache.LangProject.AnalyzingAgentsOC;
+			Assert.AreEqual(5, agents.Count);
 		}
 
 		private void CheckPossibilityList(ICmPossibilityListRepository possListRepository)
