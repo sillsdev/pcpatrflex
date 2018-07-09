@@ -14,10 +14,10 @@ using SIL.LcmLoader;
 using SIL.WritingSystems;
 using System.Reflection;
 using System.IO;
-using SIL.FLExDBExtraction;
+using SIL.DisambiguateSegmentInFLExDB;
 using SIL.LCModel.DomainServices;
 
-namespace SIL.FLExDBExtractionTest
+namespace SIL.DisambiguateSegmentInFLExDBTests
 {
 	[TestFixture]
 	public class FLExDBExtractorTests : MemoryOnlyBackendProviderTestBase
@@ -41,9 +41,9 @@ namespace SIL.FLExDBExtractionTest
 			base.FixtureSetup();
 			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
 			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-			int i = rootdir.LastIndexOf("FLExDBExtractionTests");
+			int i = rootdir.LastIndexOf("DisambiguateSegmentInFLExDBTests");
 			String basedir = rootdir.Substring(0, i);
-			TestDataDir = Path.Combine(basedir, "FLExDBExtractionTests", "TestData");
+			TestDataDir = Path.Combine(basedir, "DisambiguateSegmentInFLExDBTests", "TestData");
 			String testfile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
 			ProjId = new ProjectId(testfile);
 			Loader = new SIL.LcmLoader.LcmLoader(ProjId);

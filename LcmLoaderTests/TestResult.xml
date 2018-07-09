@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\LcmLoaderTests\LcmLoaderTests.csproj" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-06-28" time="15:14:54">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8830" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\NUnit-2.6.4\bin" machine-name="ANDYBLACK-M3800" user="Andy Black" user-domain="AndyBlack-M3800" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Project" name="C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\LcmLoaderTests\LcmLoaderTests.csproj" executed="True" result="Failure" success="False" time="0.006" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\LcmLoaderTests\bin\Debug\SIL.LcmLoaderTests.dll" executed="True" result="Failure" success="False" time="0.005" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="SIL" executed="True" result="Failure" success="False" time="0.005" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="LcmLoaderTests" executed="True" result="Failure" success="False" time="0.005" asserts="0">
+                <results>
+                  <test-suite type="TestFixture" name="LcmLoaderTests" executed="True" result="Error" success="False" time="0.004" asserts="0">
+                    <failure>
+                      <message><![CDATA[SetUp : System.DllNotFoundException : Unable to load DLL 'icuuc54.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)]]></message>
+                      <stack-trace><![CDATA[at SIL.LCModel.Core.Text.Icu.u_GetDataDirectory()
+at SIL.LCModel.Core.Text.Icu.get_DataDirectory() in C:\Users\Andy Black\Documents\FieldWorks\LCModel\liblcm\src\SIL.LCModel.Core\Text\Icu.cs:line 254
+at SIL.LCModel.Core.Text.Icu.InitIcuDataDir() in C:\Users\Andy Black\Documents\FieldWorks\LCModel\liblcm\src\SIL.LCModel.Core\Text\Icu.cs:line 207
+at SIL.LcmLoaderTests.LcmLoaderTests.FixtureSetup() in C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\LcmLoaderTests\LcmLoaderTests.cs:line 30
+]]></stack-trace>
+                    </failure>
+                    <results>
+                      <test-case name="SIL.LcmLoaderTests.LcmLoaderTests.CreateCacheTest" executed="True" result="Failure" success="False" time="0.000" asserts="0">
+                        <failure>
+                          <message><![CDATA[TestFixtureSetUp failed in LcmLoaderTests]]></message>
+                          <stack-trace />
+                        </failure>
+                      </test-case>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

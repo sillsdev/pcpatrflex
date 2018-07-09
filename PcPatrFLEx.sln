@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LcmLoader", "LcmLoader\LcmL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LcmLoaderTests", "LcmLoaderTests\LcmLoaderTests.csproj", "{5783F4CE-25D2-41A9-94A9-B40A9CD8E76B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLExDBExtraction", "FLExDBExtraction\FLExDBExtraction.csproj", "{1C52CDF8-7ACB-4CC7-AA46-B21FC32E05D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisambiguateSegmentInFLExDB", "DisambiguateSegmentInFLExDB\DisambiguateSegmentInFLExDB.csproj", "{1C52CDF8-7ACB-4CC7-AA46-B21FC32E05D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLExDBExtractionTests", "FLExDBExtractionTests\FLExDBExtractionTests.csproj", "{2D83ECFF-BABA-42FD-A1F3-AC1D32A9B992}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisambiguateSegmentInFLExDBTests", "DisambiguateSegmentInFLExDBTests\DisambiguateSegmentInFLExDBTests.csproj", "{2D83ECFF-BABA-42FD-A1F3-AC1D32A9B992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
