@@ -124,6 +124,8 @@ namespace SIL.PrepFLExDBTests
 			preparer.AddPCPATRSyntacticParserAgent();
 			agents = MyCache.LangProject.AnalyzingAgentsOC;
 			Assert.AreEqual(5, agents.Count);
+			var pcpatrAgent = preparer.GetPCPATRSyntacticParsingAgent(MyCache);
+			Assert.AreEqual(Constants.PcPatrSyntacticParser, pcpatrAgent.Name.BestAnalysisAlternative.Text);
 		}
 
 		private void CheckPossibilityList(ICmPossibilityListRepository possListRepository)
