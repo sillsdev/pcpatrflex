@@ -1,5 +1,6 @@
 .vs
 *~
+*.bak
 temp
 bin/
 obj/
