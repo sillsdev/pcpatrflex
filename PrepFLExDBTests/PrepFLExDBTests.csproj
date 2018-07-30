@@ -101,6 +101,12 @@
     <Compile Include="PreparerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LcmLoaderUI\LcmLoaderUI.csproj">
+      <Project>{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}</Project>
+      <Name>LcmLoaderUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(SolutionDir)lib\downloads\$(PlatformName)\*.dll" "$(ProjectDir)\$(OutDir)"</PostBuildEvent>

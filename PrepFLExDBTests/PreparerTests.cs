@@ -4,6 +4,7 @@
 
 using NUnit.Framework;
 using SIL.LcmLoader;
+using SIL.LcmLoaderUI;
 using SIL.LCModel;
 using SIL.LCModel.Core;
 using SIL.LCModel.Core.Cellar;
