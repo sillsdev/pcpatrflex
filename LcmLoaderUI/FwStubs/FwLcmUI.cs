@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using SIL.LCModel;
 using SIL.LCModel.Utils;
 
-namespace SIL.PrepFLExDB
+namespace SIL.LcmLoaderUI
 {
 	/// <summary>
 	/// The implementation of ILcmUI for FieldWorks apps.

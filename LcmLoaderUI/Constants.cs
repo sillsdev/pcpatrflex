@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.PrepFLExDB
+namespace SIL.LcmLoaderUI
 {
 	public static class Constants
 	{

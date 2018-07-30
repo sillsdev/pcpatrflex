@@ -11,7 +11,7 @@ using System.Linq;
 using System.Windows.Forms;
 using SIL.LCModel;
 
-namespace SIL.PrepFLExDB
+namespace SIL.LcmLoaderUI
 {
 	/// <summary></summary>
 	public partial class ChooseLangProjectDialog : Form

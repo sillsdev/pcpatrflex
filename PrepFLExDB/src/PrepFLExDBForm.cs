@@ -5,6 +5,7 @@
 using System;
 using System.Windows.Forms;
 using SIL.LcmLoader;
+using SIL.LcmLoaderUI;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
