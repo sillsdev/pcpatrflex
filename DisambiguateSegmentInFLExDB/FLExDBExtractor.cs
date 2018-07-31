@@ -2,6 +2,7 @@
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
+using SIL.LcmLoaderUI;
 using SIL.LCModel;
 using SIL.PrepFLExDB;
 using System;
@@ -139,6 +140,8 @@ namespace SIL.DisambiguateSegmentInFLExDB
 					foreach (IWfiMorphBundle bundle in wfiAnalysis.MorphBundlesOS)
 					{
 						var msa = bundle.MsaRA;
+						if (msa == null)
+							continue;
 						var cat = msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
 						sbA.Append(cat + " ");
 						sbC.Append(cat);

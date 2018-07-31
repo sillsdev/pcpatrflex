@@ -72,6 +72,10 @@
       <Project>{E5E9DDC7-2855-4D92-AD46-960AC4C46457}</Project>
       <Name>SIL.LCModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LcmLoaderUI\LcmLoaderUI.csproj">
+      <Project>{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}</Project>
+      <Name>LcmLoaderUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrepFLExDB\PrepFLExDB.csproj">
       <Project>{1C9C6F8C-05A7-4BD2-84CD-8C751DA518B0}</Project>
       <Name>PrepFLExDB</Name>
