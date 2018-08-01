@@ -146,19 +146,26 @@ namespace SIL.DisambiguateSegmentInFLExDB
 						sbA.Append(cat + " ");
 						sbC.Append(cat);
 						var morph = bundle.MorphRA;
-						sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
+						if (morph != null)
+						{
+							sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
+							sbA.Append("missing_sense >");
+						}
 						var sense = bundle.SenseRA;
 						if (sense == null)
 						{
-							var entry = (ILexEntry)morph.Owner;
-							var sense2 = entry.SensesOS.First();
-							if (sense2 == null)
+							if (morph != null)
 							{
-								sbA.Append("missing_sense >");
-							}
-							else
-							{
-								HandleSense(sbA, sbFD, sense2);
+								var entry = (ILexEntry)morph.Owner;
+								var sense2 = entry.SensesOS.FirstOrDefault();
+								if (sense2 == null)
+								{
+									sbA.Append("missing_sense >");
+								}
+								else
+								{
+									HandleSense(sbA, sbFD, sense2);
+								}
 							}
 						}
 						else
