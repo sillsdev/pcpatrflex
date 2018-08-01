@@ -129,6 +129,12 @@
   <ItemGroup>
     <Content Include="PAWS2FLEx.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DisambiguateSegmentInFLExDB\DisambiguateSegmentInFLExDB.csproj">
+      <Project>{1C52CDF8-7ACB-4CC7-AA46-B21FC32E05D5}</Project>
+      <Name>DisambiguateSegmentInFLExDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(SolutionDir)lib\downloads\$(PlatformName)\*.dll" "$(ProjectDir)\$(OutDir)"</PostBuildEvent>
