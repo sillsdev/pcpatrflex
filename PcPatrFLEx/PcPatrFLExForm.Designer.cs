@@ -45,7 +45,8 @@
 			// 
 			// btnParse
 			// 
-			this.btnParse.Location = new System.Drawing.Point(697, 12);
+			this.btnParse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnParse.Location = new System.Drawing.Point(1125, 12);
 			this.btnParse.Name = "btnParse";
 			this.btnParse.Size = new System.Drawing.Size(94, 38);
 			this.btnParse.TabIndex = 0;
@@ -66,7 +67,7 @@
 			// lblDatabaseToUse
 			// 
 			this.lblDatabaseToUse.AutoSize = true;
-			this.lblDatabaseToUse.Location = new System.Drawing.Point(282, 30);
+			this.lblDatabaseToUse.Location = new System.Drawing.Point(282, 17);
 			this.lblDatabaseToUse.Name = "lblDatabaseToUse";
 			this.lblDatabaseToUse.Size = new System.Drawing.Size(158, 20);
 			this.lblDatabaseToUse.TabIndex = 3;
@@ -132,7 +133,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 729);
+			this.ClientSize = new System.Drawing.Size(1228, 729);
 			this.Controls.Add(this.lblSegments);
 			this.Controls.Add(this.lblTexts);
 			this.Controls.Add(this.splitContainer1);
