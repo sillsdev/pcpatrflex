@@ -23,6 +23,7 @@ namespace SIL.PcPatrFLEx
 
 		private IList<IText> Texts { get; set; }
 		private FLExDBExtractor Extractor { get; set; }
+		private String GrammarFile { get; set; }
 
 		public PcPatrFLExForm()
 		{
@@ -33,7 +34,7 @@ namespace SIL.PcPatrFLEx
 			Sldr.Initialize();
 
 			splitContainer1.Dock = DockStyle.Bottom;
-			splitContainer1.Size = new System.Drawing.Size(796, 400);
+			splitContainer1.Size = new System.Drawing.Size(796, 475);
 
 			lbSegments.DisplayMember = "Baseline";
 			lbSegments.ValueMember = "Segment";
@@ -149,6 +150,18 @@ namespace SIL.PcPatrFLEx
 			else
 			{
 				btnParse.Enabled = true;
+			}
+		}
+
+		private void btnBrowse_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog dlg = new OpenFileDialog();
+			dlg.Filter = "PC-PATR Grammar File (*.grm)|*.grm|" +
+			"All Files (*.*)|*.*";
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				GrammarFile = dlg.FileName;
+				tbGrammarFile.Text = GrammarFile;
 			}
 		}
 	}

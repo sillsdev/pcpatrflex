@@ -37,6 +37,9 @@
 			this.lbSegments = new System.Windows.Forms.ListBox();
 			this.lblTexts = new System.Windows.Forms.Label();
 			this.lblSegments = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.tbGrammarFile = new System.Windows.Forms.TextBox();
+			this.btnBrowse = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -46,7 +49,7 @@
 			// btnParse
 			// 
 			this.btnParse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnParse.Location = new System.Drawing.Point(1125, 12);
+			this.btnParse.Location = new System.Drawing.Point(1125, 169);
 			this.btnParse.Name = "btnParse";
 			this.btnParse.Size = new System.Drawing.Size(94, 38);
 			this.btnParse.TabIndex = 0;
@@ -75,7 +78,8 @@
 			// 
 			// splitContainer1
 			// 
-			this.splitContainer1.Location = new System.Drawing.Point(4, 100);
+			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.splitContainer1.Location = new System.Drawing.Point(3, 248);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
@@ -85,8 +89,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.lbSegments);
-			this.splitContainer1.Size = new System.Drawing.Size(796, 466);
-			this.splitContainer1.SplitterDistance = 253;
+			this.splitContainer1.Size = new System.Drawing.Size(796, 687);
+			this.splitContainer1.SplitterDistance = 226;
 			this.splitContainer1.TabIndex = 4;
 			// 
 			// lbTexts
@@ -96,7 +100,7 @@
 			this.lbTexts.ItemHeight = 20;
 			this.lbTexts.Location = new System.Drawing.Point(0, 0);
 			this.lbTexts.Name = "lbTexts";
-			this.lbTexts.Size = new System.Drawing.Size(253, 466);
+			this.lbTexts.Size = new System.Drawing.Size(226, 687);
 			this.lbTexts.TabIndex = 1;
 			this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.lbTexts_SelectedIndexChanged_1);
 			// 
@@ -107,14 +111,14 @@
 			this.lbSegments.ItemHeight = 20;
 			this.lbSegments.Location = new System.Drawing.Point(0, 0);
 			this.lbSegments.Name = "lbSegments";
-			this.lbSegments.Size = new System.Drawing.Size(539, 466);
+			this.lbSegments.Size = new System.Drawing.Size(566, 687);
 			this.lbSegments.TabIndex = 2;
 			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.lbSegments_SelectedIndexChanged);
 			// 
 			// lblTexts
 			// 
 			this.lblTexts.AutoSize = true;
-			this.lblTexts.Location = new System.Drawing.Point(12, 77);
+			this.lblTexts.Location = new System.Drawing.Point(9, 187);
 			this.lblTexts.Name = "lblTexts";
 			this.lblTexts.Size = new System.Drawing.Size(47, 20);
 			this.lblTexts.TabIndex = 3;
@@ -123,17 +127,49 @@
 			// lblSegments
 			// 
 			this.lblSegments.AutoSize = true;
-			this.lblSegments.Location = new System.Drawing.Point(282, 77);
+			this.lblSegments.Location = new System.Drawing.Point(367, 187);
 			this.lblSegments.Name = "lblSegments";
 			this.lblSegments.Size = new System.Drawing.Size(82, 20);
 			this.lblSegments.TabIndex = 4;
 			this.lblSegments.Text = "Segments";
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(13, 124);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(180, 20);
+			this.label1.TabIndex = 5;
+			this.label1.Text = "PC-PATR Grammar file: ";
+			// 
+			// tbGrammarFile
+			// 
+			this.tbGrammarFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGrammarFile.Location = new System.Drawing.Point(216, 120);
+			this.tbGrammarFile.Name = "tbGrammarFile";
+			this.tbGrammarFile.Size = new System.Drawing.Size(885, 26);
+			this.tbGrammarFile.TabIndex = 6;
+			// 
+			// btnBrowse
+			// 
+			this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnBrowse.Location = new System.Drawing.Point(1128, 120);
+			this.btnBrowse.Name = "btnBrowse";
+			this.btnBrowse.Size = new System.Drawing.Size(94, 38);
+			this.btnBrowse.TabIndex = 7;
+			this.btnBrowse.Text = "Browse";
+			this.btnBrowse.UseVisualStyleBackColor = true;
+			this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+			// 
 			// PcPatrFLExForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1228, 729);
+			this.ClientSize = new System.Drawing.Size(1228, 947);
+			this.Controls.Add(this.btnBrowse);
+			this.Controls.Add(this.tbGrammarFile);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.lblSegments);
 			this.Controls.Add(this.lblTexts);
 			this.Controls.Add(this.splitContainer1);
@@ -162,6 +198,9 @@
 		private System.Windows.Forms.ListBox lbTexts;
 		private System.Windows.Forms.Label lblSegments;
 		private System.Windows.Forms.ListBox lbSegments;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox tbGrammarFile;
+		private System.Windows.Forms.Button btnBrowse;
 	}
 }
 
