@@ -3,6 +3,7 @@ using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
+using SIL.PrepFLExDB;
 using SIL.WritingSystems;
 using System;
 using System.Collections.Generic;
@@ -52,11 +53,20 @@ namespace SIL.PcPatrFLEx
 				Cache = loader.CreateCache();
 				if (Cache != null)
 				{
+					EnsureDatabaseHasBeenPrepped();
 					Extractor = new FLExDBExtractor(Cache);
 					FillTextsListBox();
 				}
 			}
 
+		}
+
+		private void EnsureDatabaseHasBeenPrepped()
+		{
+			var preparer = new Preparer(Cache, false);
+			preparer.AddPCPATRList();
+			preparer.AddPCPATRSenseCustomField();
+			preparer.AddPCPATRSyntacticParserAgent();
 		}
 
 		private void FillTextsListBox()

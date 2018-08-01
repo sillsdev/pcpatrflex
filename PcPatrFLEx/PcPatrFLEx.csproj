@@ -134,6 +134,10 @@
       <Project>{1C52CDF8-7ACB-4CC7-AA46-B21FC32E05D5}</Project>
       <Name>DisambiguateSegmentInFLExDB</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrepFLExDB\PrepFLExDB.csproj">
+      <Project>{1C9C6F8C-05A7-4BD2-84CD-8C751DA518B0}</Project>
+      <Name>PrepFLExDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
