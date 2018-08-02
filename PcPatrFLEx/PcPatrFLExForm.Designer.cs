@@ -40,6 +40,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.tbGrammarFile = new System.Windows.Forms.TextBox();
 			this.btnBrowse = new System.Windows.Forms.Button();
+			this.lblProjectName = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -55,7 +56,7 @@
 			this.btnParse.TabIndex = 0;
 			this.btnParse.Text = "Parse";
 			this.btnParse.UseVisualStyleBackColor = true;
-			this.btnParse.Click += new System.EventHandler(this.btnParse_Click);
+			this.btnParse.Click += new System.EventHandler(this.Parse_Click);
 			// 
 			// btnProject
 			// 
@@ -65,7 +66,7 @@
 			this.btnProject.TabIndex = 2;
 			this.btnProject.Text = "Choose FLEx Project";
 			this.btnProject.UseVisualStyleBackColor = true;
-			this.btnProject.Click += new System.EventHandler(this.btnProject_Click);
+			this.btnProject.Click += new System.EventHandler(this.ChooseProject_Click);
 			// 
 			// lblDatabaseToUse
 			// 
@@ -102,7 +103,7 @@
 			this.lbTexts.Name = "lbTexts";
 			this.lbTexts.Size = new System.Drawing.Size(226, 687);
 			this.lbTexts.TabIndex = 1;
-			this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.lbTexts_SelectedIndexChanged_1);
+			this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.Texts_SelectedIndexChanged);
 			// 
 			// lbSegments
 			// 
@@ -113,7 +114,7 @@
 			this.lbSegments.Name = "lbSegments";
 			this.lbSegments.Size = new System.Drawing.Size(566, 687);
 			this.lbSegments.TabIndex = 2;
-			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.lbSegments_SelectedIndexChanged);
+			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
 			// 
 			// lblTexts
 			// 
@@ -160,13 +161,23 @@
 			this.btnBrowse.TabIndex = 7;
 			this.btnBrowse.Text = "Browse";
 			this.btnBrowse.UseVisualStyleBackColor = true;
-			this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+			this.btnBrowse.Click += new System.EventHandler(this.Browse_Click);
+			// 
+			// lblProjectName
+			// 
+			this.lblProjectName.AutoSize = true;
+			this.lblProjectName.Location = new System.Drawing.Point(13, 73);
+			this.lblProjectName.Name = "lblProjectName";
+			this.lblProjectName.Size = new System.Drawing.Size(158, 20);
+			this.lblProjectName.TabIndex = 8;
+			this.lblProjectName.Text = "Chosen FLEx Project";
 			// 
 			// PcPatrFLExForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1228, 947);
+			this.Controls.Add(this.lblProjectName);
 			this.Controls.Add(this.btnBrowse);
 			this.Controls.Add(this.tbGrammarFile);
 			this.Controls.Add(this.label1);
@@ -179,6 +190,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "PcPatrFLExForm";
 			this.Text = "Use PC-PATR with FLEx";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -201,6 +213,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox tbGrammarFile;
 		private System.Windows.Forms.Button btnBrowse;
+		private System.Windows.Forms.Label lblProjectName;
 	}
 }
 
