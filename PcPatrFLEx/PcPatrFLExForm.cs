@@ -59,6 +59,7 @@ namespace SIL.PcPatrFLEx
 
 			splitContainer1.Dock = DockStyle.Bottom;
 			splitContainer1.Size = new System.Drawing.Size(796, 475);
+			splitContainer1.SplitterWidth = 3;
 
 			lbSegments.DisplayMember = "Baseline";
 			lbSegments.ValueMember = "Segment";
@@ -324,6 +325,12 @@ namespace SIL.PcPatrFLEx
 
 			if (WindowState == FormWindowState.Normal)
 				RectNormal = DesktopBounds;
+			splitContainer1.Height = this.Height - 195;
+		}
+
+		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+		{
+			lblSegments.Left = e.SplitX + 10;
 		}
 	}
 
