@@ -2,6 +2,7 @@
 using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
+using SIL.LCModel.Core.WritingSystems;
 using SIL.LCModel.DomainServices;
 using SIL.PrepFLExDB;
 using SIL.WritingSystems;
@@ -55,10 +56,26 @@ namespace SIL.PcPatrFLEx
 				{
 					EnsureDatabaseHasBeenPrepped();
 					Extractor = new FLExDBExtractor(Cache);
+					lbTexts.Font = CreateFont(Cache.LanguageProject.DefaultAnalysisWritingSystem);
+					lbSegments.Font = CreateFont(Cache.LanguageProject.DefaultVernacularWritingSystem);
 					FillTextsListBox();
 				}
 			}
+		}
 
+		private static Font CreateFont(CoreWritingSystemDefinition wsDef)
+		{
+			float fontSize = (wsDef.DefaultFontSize == 0) ? 10 : wsDef.DefaultFontSize;
+			var fStyle = FontStyle.Regular;
+			if (wsDef.DefaultFontFeatures.Contains("Bold"))
+			{
+				fStyle |= FontStyle.Bold;
+			}
+			if (wsDef.DefaultFontFeatures.Contains("Italic"))
+			{
+				fStyle |= FontStyle.Italic;
+			}
+			return new Font(wsDef.DefaultFontName, fontSize, fStyle);
 		}
 
 		private void EnsureDatabaseHasBeenPrepped()
