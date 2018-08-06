@@ -46,7 +46,7 @@ namespace SIL.DisambiguateSegmentInFLExDBTest
 		{
 			String grammarFile = Path.Combine(TestDataDir, "Invoker.grm");
 			String anaFile = Path.Combine(TestDataDir, "Invoker.ana");
-			String andFile = Path.Combine(TestDataDir, "Invoker.and");
+			String andFile = Path.Combine(TestDataDir, "InvokerB4.and");
 			using (var streamReader = new StreamReader(andFile, Encoding.UTF8))
 			{
 				AndString = streamReader.ReadToEnd().Replace("\r", "");
