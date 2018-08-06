@@ -23,6 +23,8 @@ namespace SIL.DisambiguateSegmentInFLExDBTests
 	class DisambiguateSegmentTests : MemoryOnlyBackendProviderTestBase
 	{
 		String TestDataDir { get; set; }
+		String SavedTestFile { get; set; }
+		String TestFile { get; set; }
 		LcmCache myCache { get; set; }
 		public SIL.LcmLoader.LcmLoader Loader { get; set; }
 		public ProjectId ProjId { get; set; }
@@ -42,10 +44,10 @@ namespace SIL.DisambiguateSegmentInFLExDBTests
 			int i = rootdir.LastIndexOf("DisambiguateSegmentInFLExDBTests");
 			String basedir = rootdir.Substring(0, i);
 			TestDataDir = Path.Combine(basedir, "DisambiguateSegmentInFLExDBTests", "TestData");
-			String savedTestFile = Path.Combine(TestDataDir, "PCPATRTestingB4.fwdata");
-			String testfile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
-			File.Copy(savedTestFile, testfile, true);	
-			ProjId = new ProjectId(testfile);
+			SavedTestFile = Path.Combine(TestDataDir, "PCPATRTestingB4.fwdata");
+			TestFile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
+			File.Copy(SavedTestFile, TestFile, true);
+			ProjId = new ProjectId(TestFile);
 			Loader = new SIL.LcmLoader.LcmLoader(ProjId);
 			myCache = Loader.CreateCache();
 
@@ -69,6 +71,7 @@ namespace SIL.DisambiguateSegmentInFLExDBTests
 			if (myCache != null)
 			{
 				ProjectLockingService.UnlockCurrentProject(myCache);
+				File.Copy(SavedTestFile, TestFile, true);
 			}
 		}
 
