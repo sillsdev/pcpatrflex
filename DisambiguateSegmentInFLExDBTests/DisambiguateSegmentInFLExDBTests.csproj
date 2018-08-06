@@ -92,6 +92,9 @@
     <Compile Include="FLExDBExtractorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PcPatrInvokerTests.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(SolutionDir)lib\downloads\$(PlatformName)\*.dll" "$(ProjectDir)\$(OutDir)"</PostBuildEvent>
