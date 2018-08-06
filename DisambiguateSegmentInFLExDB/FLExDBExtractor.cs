@@ -149,7 +149,6 @@ namespace SIL.DisambiguateSegmentInFLExDB
 						if (morph != null)
 						{
 							sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
-							sbA.Append("missing_sense >");
 						}
 						var sense = bundle.SenseRA;
 						if (sense == null)
