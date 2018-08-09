@@ -136,7 +136,7 @@ namespace SIL.PcPatrBrowser
 		private const string m_ksGrammarMessage = "When you click on a node in the tree in the panel above and " +
 			"a grammar file has been loaded, the corresponding rule will show here.";
 
-		public String GuidsChosen { get; set; }
+		public String PropertiesChosen { get; set; }
 
 		public event LingTreeNodeClickedEventHandler LingTreeNodeClicked;
 		protected virtual void OnLingTreeNodeClicked(LingTreeNodeClickedEventArgs ltncea)
@@ -1541,7 +1541,7 @@ namespace SIL.PcPatrBrowser
 			{
 				sb.Append(node.InnerText + "\n");
 			}
-			GuidsChosen = sb.ToString();
+			PropertiesChosen = sb.ToString();
 		}
 
 		private void miViewStatusBar_Click(object sender, System.EventArgs e)
