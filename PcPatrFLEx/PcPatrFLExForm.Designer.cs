@@ -41,6 +41,7 @@
 			this.tbGrammarFile = new System.Windows.Forms.TextBox();
 			this.btnBrowse = new System.Windows.Forms.Button();
 			this.lblProjectName = new System.Windows.Forms.Label();
+			this.btnDisambiguate = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -50,11 +51,11 @@
 			// btnParse
 			// 
 			this.btnParse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnParse.Location = new System.Drawing.Point(1125, 169);
+			this.btnParse.Location = new System.Drawing.Point(519, 201);
 			this.btnParse.Name = "btnParse";
-			this.btnParse.Size = new System.Drawing.Size(94, 38);
+			this.btnParse.Size = new System.Drawing.Size(267, 38);
 			this.btnParse.TabIndex = 0;
-			this.btnParse.Text = "Parse";
+			this.btnParse.Text = "Parse && show this segment";
 			this.btnParse.UseVisualStyleBackColor = true;
 			this.btnParse.Click += new System.EventHandler(this.Parse_Click);
 			// 
@@ -91,7 +92,7 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.lbSegments);
 			this.splitContainer1.Size = new System.Drawing.Size(796, 687);
-			this.splitContainer1.SplitterDistance = 226;
+			this.splitContainer1.SplitterDistance = 356;
 			this.splitContainer1.TabIndex = 4;
 			this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
 			// 
@@ -102,7 +103,7 @@
 			this.lbTexts.ItemHeight = 20;
 			this.lbTexts.Location = new System.Drawing.Point(0, 0);
 			this.lbTexts.Name = "lbTexts";
-			this.lbTexts.Size = new System.Drawing.Size(226, 687);
+			this.lbTexts.Size = new System.Drawing.Size(356, 687);
 			this.lbTexts.TabIndex = 1;
 			this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.Texts_SelectedIndexChanged);
 			// 
@@ -113,25 +114,27 @@
 			this.lbSegments.ItemHeight = 20;
 			this.lbSegments.Location = new System.Drawing.Point(0, 0);
 			this.lbSegments.Name = "lbSegments";
-			this.lbSegments.Size = new System.Drawing.Size(566, 687);
+			this.lbSegments.Size = new System.Drawing.Size(436, 687);
 			this.lbSegments.TabIndex = 2;
 			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
 			// 
 			// lblTexts
 			// 
 			this.lblTexts.AutoSize = true;
-			this.lblTexts.Location = new System.Drawing.Point(9, 187);
+			this.lblTexts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTexts.Location = new System.Drawing.Point(9, 211);
 			this.lblTexts.Name = "lblTexts";
-			this.lblTexts.Size = new System.Drawing.Size(47, 20);
+			this.lblTexts.Size = new System.Drawing.Size(61, 25);
 			this.lblTexts.TabIndex = 3;
 			this.lblTexts.Text = "Texts";
 			// 
 			// lblSegments
 			// 
 			this.lblSegments.AutoSize = true;
-			this.lblSegments.Location = new System.Drawing.Point(367, 187);
+			this.lblSegments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblSegments.Location = new System.Drawing.Point(367, 211);
 			this.lblSegments.Name = "lblSegments";
-			this.lblSegments.Size = new System.Drawing.Size(82, 20);
+			this.lblSegments.Size = new System.Drawing.Size(101, 25);
 			this.lblSegments.TabIndex = 4;
 			this.lblSegments.Text = "Segments";
 			// 
@@ -173,11 +176,22 @@
 			this.lblProjectName.TabIndex = 8;
 			this.lblProjectName.Text = "Chosen FLEx Project";
 			// 
+			// btnDisambiguate
+			// 
+			this.btnDisambiguate.Location = new System.Drawing.Point(77, 201);
+			this.btnDisambiguate.Name = "btnDisambiguate";
+			this.btnDisambiguate.Size = new System.Drawing.Size(244, 38);
+			this.btnDisambiguate.TabIndex = 9;
+			this.btnDisambiguate.Text = "Disambiguate && show this text";
+			this.btnDisambiguate.UseVisualStyleBackColor = true;
+			this.btnDisambiguate.Click += new System.EventHandler(this.Disambiguate_Click);
+			// 
 			// PcPatrFLExForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1228, 947);
+			this.Controls.Add(this.btnDisambiguate);
 			this.Controls.Add(this.lblProjectName);
 			this.Controls.Add(this.btnBrowse);
 			this.Controls.Add(this.tbGrammarFile);
@@ -215,6 +229,7 @@
 		private System.Windows.Forms.TextBox tbGrammarFile;
 		private System.Windows.Forms.Button btnBrowse;
 		private System.Windows.Forms.Label lblProjectName;
+		private System.Windows.Forms.Button btnDisambiguate;
 	}
 }
 

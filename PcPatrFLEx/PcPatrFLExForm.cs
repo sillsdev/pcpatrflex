@@ -285,6 +285,13 @@ namespace SIL.PcPatrFLEx
 			var invoker = new PCPatrInvoker(GrammarFile, anaFile);
 			invoker.Invoke();
 			var andResult = invoker.AndFile;
+			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
+			var result = browser.PropertiesChosen;
+			DisambiguateSegment(selectedSegmentToShow, result);
+		}
+
+		private PcPatrBrowserApp ShowPcPatrBrowser(string andResult)
+		{
 			var browser = new PcPatrBrowserApp();
 			browser.AdjustUIForPcPatrFLEx();
 			browser.LanguageInfo.GlossFontFace = AnalysisFont.FontFamily.Name;
@@ -295,8 +302,7 @@ namespace SIL.PcPatrFLEx
 			browser.LanguageInfo.LexFontStyle = VernacularFont.Style;
 			browser.LoadAnaFile(andResult);
 			browser.ShowDialog();
-			var result = browser.PropertiesChosen;
-			DisambiguateSegment(selectedSegmentToShow, result);
+			return browser;
 		}
 
 		private static void DisambiguateSegment(SegmentToShow selectedSegmentToShow, string result)
@@ -321,6 +327,28 @@ namespace SIL.PcPatrFLEx
 			var segment = selectedSegmentToShow.Segment;
 			var ana = Extractor.ExtractTextSegmentAsANA(segment);
 			return ana;
+		}
+
+		private string GetAnaForm(IText selectedTextToShow)
+		{
+			var sb = new StringBuilder();
+			var contents = selectedTextToShow.ContentsOA;
+			IList<IStPara> paragraphs = contents.ParagraphsOS;
+			foreach (IStPara para in paragraphs)
+			{
+				var paraUse = para as IStTxtPara;
+				if (paraUse != null)
+				{
+					foreach (var segment in paraUse.SegmentsOS)
+					{
+						var ana = Extractor.ExtractTextSegmentAsANA(segment);
+						sb.Append(ana.Substring(0, ana.Length-1)); // skip final extra nl
+						// Now add period so PcPatr will treat it as an end of a sentence
+						sb.Append("\\n .\n\n");
+					}
+				}
+			}
+			return sb.ToString();
 		}
 
 		private void Segments_SelectedIndexChanged(object sender, EventArgs e)
@@ -370,6 +398,22 @@ namespace SIL.PcPatrFLEx
 		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
 		{
 			lblSegments.Left = e.SplitX + 10;
+			btnParse.Left = lblSegments.Right + 10;
+		}
+
+		private void Disambiguate_Click(object sender, EventArgs e)
+		{
+			var selectedTextToShow = lbTexts.SelectedItem as IText;
+			string ana = GetAnaForm(selectedTextToShow);
+			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
+			File.WriteAllText(anaFile, ana);
+			var invoker = new PCPatrInvoker(GrammarFile, anaFile);
+			invoker.Invoke();
+			var andResult = invoker.AndFile;
+			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
+			// What do we do??
+			//var result = browser.PropertiesChosen;
+			//DisambiguateSegment(selectedTextToShow, result);
 		}
 	}
 
