@@ -5,6 +5,7 @@ using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.Core.WritingSystems;
 using SIL.LCModel.DomainServices;
+using SIL.PcPatrBrowser;
 using SIL.PrepFLExDB;
 using SIL.WritingSystems;
 using System;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,7 +122,7 @@ namespace SIL.PcPatrFLEx
 			WindowState = (FormWindowState)regkey.GetValue(m_strWindowState, 0);
 
 			LastDatabase = (string)regkey.GetValue(m_strLastDatabase);
-			LastGrammarFile = (string)regkey.GetValue(m_strLastGrammarFile);
+			GrammarFile = LastGrammarFile = (string)regkey.GetValue(m_strLastGrammarFile);
 			LastText = (string)regkey.GetValue(m_strLastText);
 			LastSegment = (string)regkey.GetValue(m_strLastSegment);
 		}
@@ -274,7 +276,34 @@ namespace SIL.PcPatrFLEx
 		{
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
 			string ana = GetAnaForm(selectedSegmentToShow);
-			Console.WriteLine("ana='" + ana + "'");
+			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
+			File.WriteAllText(anaFile, ana);
+			var invoker = new PCPatrInvoker(GrammarFile, anaFile);
+			invoker.Invoke();
+			var andResult = invoker.AndFile;
+			var browser = new PcPatrBrowserApp();
+			browser.AdjustUIForPcPatrFLEx();
+			browser.LoadAnaFile(andResult);
+			browser.ShowDialog();
+			var result = browser.GuidsChosen;
+			DisambiguateSegment(selectedSegmentToShow, result);
+		}
+
+		private static void DisambiguateSegment(SegmentToShow selectedSegmentToShow, string result)
+		{
+			if (!String.IsNullOrEmpty(result))
+			{
+				List<Guid> guids = new List<Guid>();
+				var guidStrings = result.Split('\n');
+				foreach (string sGuid in guidStrings)
+				{
+					if (!String.IsNullOrEmpty(sGuid))
+					{
+						guids.Add(new Guid(sGuid));
+					}
+				}
+				var disambiguator = new SegmentDisambiguation(selectedSegmentToShow.Segment, guids);
+			}
 		}
 
 		private string GetAnaForm(SegmentToShow selectedSegmentToShow)

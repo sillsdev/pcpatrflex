@@ -55,6 +55,16 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.SHDocVw">
+      <HintPath>..\PcPatrBrowser\bin\Release\AxInterop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>..\PcPatrBrowser\bin\Release\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="LingTreeTree">
+      <HintPath>..\PcPatrBrowser\bin\Release\LingTreeTree.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.Core">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Core.dll</HintPath>
     </Reference>
@@ -75,6 +85,9 @@
     </Reference>
     <Reference Include="SIL.Lexicon">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Lexicon.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.PcPatrBrowserDll">
+      <HintPath>..\PcPatrBrowser\PcPatrBrowserDll\bin\x86\Debug\SIL.PcPatrBrowserDll.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.WritingSystems.dll</HintPath>

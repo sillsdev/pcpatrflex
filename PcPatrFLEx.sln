@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserUI", "..\..\..\..\..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LcmLoaderUI", "LcmLoaderUI\LcmLoaderUI.csproj", "{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcPatrBrowserDll", "PcPatrBrowser\PcPatrBrowserDll\PcPatrBrowserDll.csproj", "{6279A591-0D6A-46DF-A536-BA9B66BA686B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -188,6 +190,18 @@ Global
 		{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}.Release|x64.Build.0 = Release|Any CPU
 		{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}.Release|x86.ActiveCfg = Release|Any CPU
 		{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}.Release|x86.Build.0 = Release|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Debug|x64.Build.0 = Debug|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Debug|x86.ActiveCfg = Debug|x86
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Debug|x86.Build.0 = Debug|x86
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Release|x64.ActiveCfg = Release|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Release|x64.Build.0 = Release|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Release|x86.ActiveCfg = Release|Any CPU
+		{6279A591-0D6A-46DF-A536-BA9B66BA686B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
