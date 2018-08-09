@@ -1307,15 +1307,15 @@ namespace SIL.PcPatrBrowser
 			string sOutput = Path.GetTempFileName();
 			StreamWriter result = new StreamWriter(sOutput);
 			XsltArgumentList argList = new XsltArgumentList();
-			argList.AddParam("sGlossFont", "", m_language.GlossInfo.Font.Name);
-			argList.AddParam("sGlossFontSize", "", m_language.GlossInfo.Font.Size.ToString());
+			argList.AddParam("sGlossFont", "", m_language.GlossFontFace);
+			argList.AddParam("sGlossFontSize", "", m_language.GlossFontSize.ToString());
 			argList.AddParam("sGlossFontColor", "", m_language.GlossInfo.Color.Name);
-			argList.AddParam("sNTFont", "", m_language.NTInfo.Font.Name);
-			argList.AddParam("sNTFontSize", "", m_language.NTInfo.Font.Size.ToString());
-			argList.AddParam("sNTFontColor", "", m_language.NTInfo.Color.Name);
-			argList.AddParam("sLexFont", "", m_language.LexInfo.Font.Name);
-			argList.AddParam("sLexFontSize", "", m_language.LexInfo.Font.Size.ToString());
-			argList.AddParam("sLexFontColor", "", m_language.LexInfo.Color.Name);
+			argList.AddParam("sNTFont", "", m_language.NTFontFace);
+			argList.AddParam("sNTFontSize", "", m_language.NTFontSize.ToString());
+			argList.AddParam("sNTFontColor", "", m_language.NTColorName);
+			argList.AddParam("sLexFont", "", m_language.LexFontFace);
+			argList.AddParam("sLexFontSize", "", m_language.LexFontSize.ToString());
+			argList.AddParam("sLexFontColor", "", m_language.LexColorName);
 			m_treeTransform.Transform(xpath, argList, result);
 			result.Close();
 

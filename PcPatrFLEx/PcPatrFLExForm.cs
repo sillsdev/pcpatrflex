@@ -30,6 +30,8 @@ namespace SIL.PcPatrFLEx
 		private IList<SegmentToShow> SegmentsInListBox { get; set; }
 		private FLExDBExtractor Extractor { get; set; }
 		private String GrammarFile { get; set; }
+		private Font AnalysisFont { get; set; }
+		private Font VernacularFont { get; set; }
 
 		public static string m_strRegKey = "Software\\SIL\\PcPatrFLEx";
 		const string m_strLastDatabase = "LastDatabase";
@@ -174,8 +176,10 @@ namespace SIL.PcPatrFLEx
 			{
 				EnsureDatabaseHasBeenPrepped();
 				Extractor = new FLExDBExtractor(Cache);
-				lbTexts.Font = CreateFont(Cache.LanguageProject.DefaultAnalysisWritingSystem);
-				lbSegments.Font = CreateFont(Cache.LanguageProject.DefaultVernacularWritingSystem);
+				AnalysisFont = CreateFont(Cache.LanguageProject.DefaultAnalysisWritingSystem);
+				lbTexts.Font = AnalysisFont;
+				VernacularFont = CreateFont(Cache.LanguageProject.DefaultVernacularWritingSystem);
+				lbSegments.Font = VernacularFont;
 				FillTextsListBox();
 			}
 		}
@@ -283,9 +287,15 @@ namespace SIL.PcPatrFLEx
 			var andResult = invoker.AndFile;
 			var browser = new PcPatrBrowserApp();
 			browser.AdjustUIForPcPatrFLEx();
+			browser.LanguageInfo.GlossFontFace = AnalysisFont.FontFamily.Name;
+			browser.LanguageInfo.GlossFontSize = AnalysisFont.Size;
+			browser.LanguageInfo.GlossFontStyle = AnalysisFont.Style;
+			browser.LanguageInfo.LexFontFace = VernacularFont.FontFamily.Name;
+			browser.LanguageInfo.LexFontSize = VernacularFont.Size;
+			browser.LanguageInfo.LexFontStyle = VernacularFont.Style;
 			browser.LoadAnaFile(andResult);
 			browser.ShowDialog();
-			var result = browser.GuidsChosen;
+			var result = browser.PropertiesChosen;
 			DisambiguateSegment(selectedSegmentToShow, result);
 		}
 
