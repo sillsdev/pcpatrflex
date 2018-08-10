@@ -55,7 +55,7 @@
 			this.btnParse.Name = "btnParse";
 			this.btnParse.Size = new System.Drawing.Size(267, 38);
 			this.btnParse.TabIndex = 0;
-			this.btnParse.Text = "Parse && show this segment";
+			this.btnParse.Text = "&Parse && show this segment";
 			this.btnParse.UseVisualStyleBackColor = true;
 			this.btnParse.Click += new System.EventHandler(this.Parse_Click);
 			// 
@@ -65,7 +65,7 @@
 			this.btnProject.Name = "btnProject";
 			this.btnProject.Size = new System.Drawing.Size(191, 38);
 			this.btnProject.TabIndex = 2;
-			this.btnProject.Text = "Choose FLEx Project";
+			this.btnProject.Text = "&Choose FLEx Project";
 			this.btnProject.UseVisualStyleBackColor = true;
 			this.btnProject.Click += new System.EventHandler(this.ChooseProject_Click);
 			// 
@@ -163,7 +163,7 @@
 			this.btnBrowse.Name = "btnBrowse";
 			this.btnBrowse.Size = new System.Drawing.Size(94, 38);
 			this.btnBrowse.TabIndex = 7;
-			this.btnBrowse.Text = "Browse";
+			this.btnBrowse.Text = "&Browse";
 			this.btnBrowse.UseVisualStyleBackColor = true;
 			this.btnBrowse.Click += new System.EventHandler(this.Browse_Click);
 			// 
@@ -182,7 +182,7 @@
 			this.btnDisambiguate.Name = "btnDisambiguate";
 			this.btnDisambiguate.Size = new System.Drawing.Size(244, 38);
 			this.btnDisambiguate.TabIndex = 9;
-			this.btnDisambiguate.Text = "Disambiguate && show this text";
+			this.btnDisambiguate.Text = "&Disambiguate && show this text";
 			this.btnDisambiguate.UseVisualStyleBackColor = true;
 			this.btnDisambiguate.Click += new System.EventHandler(this.Disambiguate_Click);
 			// 
