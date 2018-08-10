@@ -198,8 +198,8 @@ namespace SIL.DisambiguateSegmentInFLExDB
 				sb.Append(sbA.ToString());
 				sb.Append(sbD.ToString());
 				sb.Append(sbC.ToString());
-				sb.Append(sbFD.ToString());
 				sb.Append(sbP.ToString());
+				sb.Append(sbFD.ToString());
 				sb.Append(sbW.ToString());
 			}
 			Console.Write(sb.ToString());
