@@ -73,6 +73,8 @@ namespace SIL.PcPatrFLEx
 				regkey = Registry.CurrentUser.OpenSubKey(m_strRegKey);
 				if (regkey != null)
 				{
+					Cursor.Current = Cursors.WaitCursor;
+					Application.DoEvents();
 					retrieveRegistryInfo();
 					regkey.Close();
 					DesktopBounds = RectNormal;
@@ -102,6 +104,7 @@ namespace SIL.PcPatrFLEx
 							lbSegments.SelectedIndex = SegmentsInListBox.IndexOf(selectedSegment);
 						}
 					}
+					Cursor.Current = Cursors.Default;
 				}
 			}
 			catch (Exception e)
@@ -158,10 +161,13 @@ namespace SIL.PcPatrFLEx
 		{
 			btnParse.Enabled = false;
 			ProjId = ChooseLangProject(this);
+			Cursor.Current = Cursors.WaitCursor;
+			Application.DoEvents();
 			LoadProject();
 			lblProjectName.Text = "";
 			if (ProjId != null)
 				lblProjectName.Text = ProjId.Name;
+			Cursor.Current = Cursors.Default;
 		}
 
 		private void LoadProject()
@@ -278,6 +284,8 @@ namespace SIL.PcPatrFLEx
 
 		private void Parse_Click(object sender, EventArgs e)
 		{
+			Cursor.Current = Cursors.WaitCursor;
+			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
 			string ana = GetAnaForm(selectedSegmentToShow);
 			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
@@ -288,6 +296,7 @@ namespace SIL.PcPatrFLEx
 			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
 			var result = browser.PropertiesChosen;
 			DisambiguateSegment(selectedSegmentToShow, result);
+			Cursor.Current = Cursors.Default;
 		}
 
 		private PcPatrBrowserApp ShowPcPatrBrowser(string andResult)
@@ -403,6 +412,8 @@ namespace SIL.PcPatrFLEx
 
 		private void Disambiguate_Click(object sender, EventArgs e)
 		{
+			Cursor.Current = Cursors.WaitCursor;
+			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
 			string ana = GetAnaForm(selectedTextToShow);
 			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
@@ -414,6 +425,7 @@ namespace SIL.PcPatrFLEx
 			// What do we do??
 			//var result = browser.PropertiesChosen;
 			//DisambiguateSegment(selectedTextToShow, result);
+			Cursor.Current = Cursors.Default;
 		}
 	}
 
