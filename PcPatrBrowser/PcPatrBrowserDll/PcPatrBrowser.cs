@@ -136,7 +136,7 @@ namespace SIL.PcPatrBrowser
 		private const string m_ksGrammarMessage = "When you click on a node in the tree in the panel above and " +
 			"a grammar file has been loaded, the corresponding rule will show here.";
 
-		public String PropertiesChosen { get; set; }
+		public String[] PropertiesChosen { get; set; }
 
 		public event LingTreeNodeClickedEventHandler LingTreeNodeClicked;
 		protected virtual void OnLingTreeNodeClicked(LingTreeNodeClickedEventArgs ltncea)
@@ -208,7 +208,6 @@ namespace SIL.PcPatrBrowser
 			m_RectNormal = DesktopBounds;
 
 			m_fNeedToSaveLanguageInfo = false;
-
 		}
 
 		public void AdjustUIForPcPatrFLEx()
@@ -296,6 +295,7 @@ namespace SIL.PcPatrBrowser
 			{
 				EnableDisableSentenceItems();
 				EnableDisableParseItems();
+				miUseThisParse.Enabled = true;
 				tbbtnUseThisParse.Enabled = true;
 			}
 			if (m_tree == null)
@@ -390,7 +390,6 @@ namespace SIL.PcPatrBrowser
 			miParsePrevious.Enabled = bValue;
 			tbbtnFirstParse.Enabled = bValue;
 			tbbtnPreviousParse.Enabled = bValue;
-			miUseThisParse.Enabled = bValue;
 		}
 		/// <summary>
 		/// Either disable or enable the parse next/last menu/toolbar items
@@ -402,7 +401,6 @@ namespace SIL.PcPatrBrowser
 			tbbtnLastParse.Enabled = bValue;
 			tbbtnNextParse.Enabled = bValue;
 			miParseLast.Enabled = bValue;
-			miUseThisParse.Enabled = bValue;
 		}
 		private void InitBrowser(WebBrowser browser)
 		{
@@ -1187,6 +1185,7 @@ namespace SIL.PcPatrBrowser
 			ShowInterlinear(sent);
 			Cursor.Current = Cursors.Arrow;
 			SetTitle();
+			PropertiesChosen = new String[m_doc.NumberOfSentences];
 		}
 
 		private void FileOpenGrammar_Click(object sender, System.EventArgs e)
@@ -1541,7 +1540,7 @@ namespace SIL.PcPatrBrowser
 			{
 				sb.Append(node.InnerText + "\n");
 			}
-			PropertiesChosen = sb.ToString();
+			PropertiesChosen[m_doc.CurrentSentenceNumber-1] = sb.ToString();
 		}
 
 		private void miViewStatusBar_Click(object sender, System.EventArgs e)

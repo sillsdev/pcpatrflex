@@ -1,56 +1,56 @@
 \a < pro 1PL-nom >
 \d we
 \cat pro
-\fd first nominative plural
 \p e2e4949d-9af0-4142-9d4f-f2d9afdcb646
+\fd first nominative plural
 \w we
 
 \a < v want >
 \d want
 \cat v
-\fd sentential_-finiteIP_or_transitive
 \p b3e8623e-5679-4261-acd5-d62ed71d1d2b
+\fd sentential_-finiteIP_or_transitive
 \w want
 
 \a %3%< p to-DAT >%< aux to >%< p to-LOC >%
 \d %3%to%to%to%
 \cat %3%p%aux%p%
-\fd %3%dative%-finite%locative%
 \p %3%62f4c91c-7744-426f-b0a5-96f1ee35131f%2f63f58f-112b-46ab-b329-3dc85ffda392%933d7fb3-b038-4913-b5b8-576f80df2fba%
+\fd %3%dative%-finite%locative%
 \w to
 
 \a %2%< v get >%< v get-cop >%
 \d %2%get%get%
 \cat %2%v%v%
-\fd %2%sentential_-finiteIP_or_transitive%copular%
 \p %2%7b94a783-86b2-4b2b-b0c8-b0219f924165%8ac47da9-e3dd-4645-9ef6-507b4f9dc802%
+\fd %2%sentential_-finiteIP_or_transitive%copular%
 \w get
 
 \a < v marry-PART >
 \d married
 \cat v
-\fd participle
 \p 1ea23f59-f6d9-406d-89f6-792318a04efe
+\fd participle
 \w married
 
 \a < conj and >
 \d and
 \cat conj
-\fd plural
 \p 479aca02-ca6a-4c2a-862a-d980fbcc9a37
+\fd plural
 \w and
 
 \a %2%< v be >%< v be-exist >%
 \d %2%be%be%
 \cat %2%v%v%
-\fd %2%copular%exist%
 \p %2%04f021dc-a0dd-44fc-8b0a-9e6741743dd8%5ed1dfd8-bcc3-4410-8b5c-5d8e8f75ec35%
+\fd %2%copular%exist%
 \w be
 
 \a < adj happy >
 \d happy
 \cat adj
-\fd 
 \p 07fbf262-bbe7-415b-af3f-8317a2cb4521
+\fd 
 \w happy
 

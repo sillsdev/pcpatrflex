@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 
-namespace SIL.DisambiguateSegmentInFLExDB
+namespace SIL.DisambiguateInFLExDB
 {
 	public class PCPatrInvoker
 	{

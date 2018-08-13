@@ -3,7 +3,7 @@
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
 using NUnit.Framework;
-using SIL.DisambiguateSegmentInFLExDB;
+using SIL.DisambiguateInFLExDB;
 using SIL.LCModel;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.DisambiguateSegmentInFLExDBTest
+namespace SIL.DisambiguateInFLExDBTests
 {
 	[TestFixture]
 	class PcPatrInvokerTests
@@ -27,9 +27,9 @@ namespace SIL.DisambiguateSegmentInFLExDBTest
 		{
 			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
 			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-			int i = rootdir.LastIndexOf("DisambiguateSegmentInFLExDBTests");
+			int i = rootdir.LastIndexOf("DisambiguateInFLExDBTests");
 			String basedir = rootdir.Substring(0, i);
-			TestDataDir = Path.Combine(basedir, "DisambiguateSegmentInFLExDBTests", "TestData");
+			TestDataDir = Path.Combine(basedir, "DisambiguateInFLExDBTests", "TestData");
 		}
 
 		/// <summary></summary>

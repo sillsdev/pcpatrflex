@@ -3,12 +3,12 @@
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
 using NUnit.Framework;
+using SIL.DisambiguateInFLExDB;
 using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
 using SIL.WritingSystems;
-using SIL.DisambiguateSegmentInFLExDB;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,40 +17,16 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.DisambiguateSegmentInFLExDBTests
+namespace SIL.DisambiguateInFLExDBTests
 {
 	[TestFixture]
-	class DisambiguateSegmentTests : MemoryOnlyBackendProviderTestBase
+	class DisambiguateSegmentTests : DisambiguateTests
 	{
-		String TestDataDir { get; set; }
-		String SavedTestFile { get; set; }
-		String TestFile { get; set; }
-		LcmCache myCache { get; set; }
-		public SIL.LcmLoader.LcmLoader Loader { get; set; }
-		public ProjectId ProjId { get; set; }
 		List<Guid> MorphBundleGuidsWeWantToGetMarriedAndBeHappy { get; set; }
 
 		public override void FixtureSetup()
 		{
-			Icu.InitIcuDataDir();
-			if (!Sldr.IsInitialized)
-			{
-				Sldr.Initialize();
-			}
-
 			base.FixtureSetup();
-			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-			int i = rootdir.LastIndexOf("DisambiguateSegmentInFLExDBTests");
-			String basedir = rootdir.Substring(0, i);
-			TestDataDir = Path.Combine(basedir, "DisambiguateSegmentInFLExDBTests", "TestData");
-			SavedTestFile = Path.Combine(TestDataDir, "PCPATRTestingB4.fwdata");
-			TestFile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
-			File.Copy(SavedTestFile, TestFile, true);
-			ProjId = new ProjectId(TestFile);
-			Loader = new SIL.LcmLoader.LcmLoader(ProjId);
-			myCache = Loader.CreateCache();
-
 			MorphBundleGuidsWeWantToGetMarriedAndBeHappy = new List<Guid>()
 			{
 				new Guid("e2e4949d-9af0-4142-9d4f-f2d9afdcb646"),
@@ -68,15 +44,10 @@ namespace SIL.DisambiguateSegmentInFLExDBTests
 		public override void FixtureTeardown()
 		{
 			base.FixtureTeardown();
-			if (myCache != null)
-			{
-				ProjectLockingService.UnlockCurrentProject(myCache);
-				File.Copy(SavedTestFile, TestFile, true);
-			}
 		}
 
 		/// <summary>
-		/// Test extracting of lexicon.
+		/// Test disambiguating segment in a text
 		/// </summary>
 		[Test]
 		public void DisambiguateSegmentTest()
@@ -149,10 +120,6 @@ namespace SIL.DisambiguateSegmentInFLExDBTests
 			analysis = segment.AnalysesRS.ElementAt(7); // happy
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
-
-
-
 		}
-
 	}
 }

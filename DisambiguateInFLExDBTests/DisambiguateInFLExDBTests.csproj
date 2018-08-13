@@ -7,8 +7,8 @@
     <ProjectGuid>{2D83ECFF-BABA-42FD-A1F3-AC1D32A9B992}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SIL.DisambiguateSegmentInFLExDBTest</RootNamespace>
-    <AssemblyName>SIL.DisambiguateSegmentInFLExDBTest</AssemblyName>
+    <RootNamespace>SIL.DisambiguateInFLExDBTest</RootNamespace>
+    <AssemblyName>SIL.DisambiguateInFLExDBTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -55,8 +55,8 @@
     <Reference Include="SIL.Core">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DisambiguateSegmentInFLExDB">
-      <HintPath>..\DisambiguateSegmentInFLExDB\bin\x86\Debug\SIL.DisambiguateSegmentInFLExDB.dll</HintPath>
+    <Reference Include="SIL.DisambiguateInFLExDB">
+      <HintPath>..\DisambiguateInFLExDB\bin\x86\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DisambiguateSegmentTest.cs" />
+    <Compile Include="DisambiguateTest.cs" />
+    <Compile Include="DisambiguateTextTest.cs" />
     <Compile Include="FLExDBExtractorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

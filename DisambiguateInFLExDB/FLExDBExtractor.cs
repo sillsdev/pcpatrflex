@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.DisambiguateSegmentInFLExDB
+namespace SIL.DisambiguateInFLExDB
 {
     public class FLExDBExtractor
 	{

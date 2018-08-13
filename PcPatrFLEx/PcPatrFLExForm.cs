@@ -295,7 +295,7 @@ namespace SIL.PcPatrFLEx
 			var andResult = invoker.AndFile;
 			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
 			var result = browser.PropertiesChosen;
-			DisambiguateSegment(selectedSegmentToShow, result);
+			DisambiguateSegment(selectedSegmentToShow, result[0]);
 			Cursor.Current = Cursors.Default;
 		}
 
@@ -314,7 +314,7 @@ namespace SIL.PcPatrFLEx
 			return browser;
 		}
 
-		private static void DisambiguateSegment(SegmentToShow selectedSegmentToShow, string result)
+		private void DisambiguateSegment(SegmentToShow selectedSegmentToShow, string result)
 		{
 			if (!String.IsNullOrEmpty(result))
 			{
@@ -328,6 +328,7 @@ namespace SIL.PcPatrFLEx
 					}
 				}
 				var disambiguator = new SegmentDisambiguation(selectedSegmentToShow.Segment, guids);
+				disambiguator.Disambiguate(Cache);
 			}
 		}
 
@@ -423,8 +424,7 @@ namespace SIL.PcPatrFLEx
 			var andResult = invoker.AndFile;
 			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
 			// What do we do??
-			//var result = browser.PropertiesChosen;
-			//DisambiguateSegment(selectedTextToShow, result);
+			var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
 			Cursor.Current = Cursors.Default;
 		}
 	}

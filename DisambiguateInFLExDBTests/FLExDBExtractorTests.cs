@@ -14,39 +14,19 @@ using SIL.LcmLoader;
 using SIL.WritingSystems;
 using System.Reflection;
 using System.IO;
-using SIL.DisambiguateSegmentInFLExDB;
+using SIL.DisambiguateInFLExDB;
 using SIL.LCModel.DomainServices;
 
-namespace SIL.DisambiguateSegmentInFLExDBTests
+namespace SIL.DisambiguateInFLExDBTests
 {
 	[TestFixture]
-	public class FLExDBExtractorTests : MemoryOnlyBackendProviderTestBase
+	class FLExDBExtractorTests : DisambiguateTests
 	{
 		String Lexicon { get; set; }
-		String TestDataDir { get; set; }
-		LcmCache myCache { get; set; }
-
-		public SIL.LcmLoader.LcmLoader Loader { get; set; }
-
-		public ProjectId ProjId { get; set; }
 
 		public override void FixtureSetup()
 		{
-			Icu.InitIcuDataDir();
-			if (!Sldr.IsInitialized)
-			{
-				Sldr.Initialize();
-			}
-
 			base.FixtureSetup();
-			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-			int i = rootdir.LastIndexOf("DisambiguateSegmentInFLExDBTests");
-			String basedir = rootdir.Substring(0, i);
-			TestDataDir = Path.Combine(basedir, "DisambiguateSegmentInFLExDBTests", "TestData");
-			String testfile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
-			ProjId = new ProjectId(testfile);
-			Loader = new SIL.LcmLoader.LcmLoader(ProjId);
 
 			using (var streamReader = new StreamReader(Path.Combine(TestDataDir, "Lexicon.lex"), Encoding.UTF8))
 			{
@@ -58,10 +38,6 @@ namespace SIL.DisambiguateSegmentInFLExDBTests
 		public override void FixtureTeardown()
 		{
 			base.FixtureTeardown();
-			if (myCache != null)
-			{
-				ProjectLockingService.UnlockCurrentProject(myCache);
-			}
 		}
 
 		/// <summary>

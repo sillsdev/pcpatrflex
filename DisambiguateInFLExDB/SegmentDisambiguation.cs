@@ -12,9 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.DisambiguateSegmentInFLExDB
+namespace SIL.DisambiguateInFLExDB
 {
-	public class SegmentDisambiguation
+	public class SegmentDisambiguation : Disambiguation
 	{
 		public SegmentDisambiguation(ISegment segment, List<Guid> disambiguatedMorphBundleGuids)
 		{
@@ -50,20 +50,6 @@ namespace SIL.DisambiguateSegmentInFLExDB
 					i++;
 				}
 			});
-		}
-
-		public ICmAgent GetPCPATRSyntacticParsingAgent(LcmCache cache)
-		{
-			var agents = cache.LangProject.AnalyzingAgentsOC;
-			var pcpatrAgents = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser);
-			if (pcpatrAgents.Count() > 0)
-			{
-				return pcpatrAgents.First();
-			}
-			else
-			{
-				return null;
-			}
 		}
 
 	}
