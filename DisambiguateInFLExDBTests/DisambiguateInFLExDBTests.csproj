@@ -88,10 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndFileLoaderTest.cs" />
     <Compile Include="DisambiguateSegmentTest.cs" />
     <Compile Include="DisambiguateTest.cs" />
     <Compile Include="DisambiguateTextTest.cs" />
     <Compile Include="FLExDBExtractorTests.cs" />
+    <Compile Include="GuidConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

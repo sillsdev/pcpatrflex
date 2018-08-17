@@ -68,6 +68,9 @@
     <Reference Include="SIL.Core">
       <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Core.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.DisambiguateInFLExDB">
+      <HintPath>..\DisambiguateInFLExDB\bin\x86\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
+    </Reference>
     <Reference Include="SIL.LcmLoader">
       <HintPath>..\LcmLoader\bin\x86\Debug\SIL.LcmLoader.dll</HintPath>
     </Reference>

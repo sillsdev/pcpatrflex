@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-using SIL.DisambiguateSegmentInFLExDB;
+using SIL.DisambiguateInFLExDB;
 using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;

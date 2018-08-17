@@ -63,16 +63,16 @@ namespace SIL.DisambiguateInFLExDBTests
 			var paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(3);
 			var segment = paragraph.SegmentsOS.First();
 			var segmentDisam = new SegmentDisambiguation(segment, MorphBundleGuidsWeWantToGetMarriedAndBeHappy);
-			var pcpatrAgent = segmentDisam.GetPCPATRSyntacticParsingAgent(myCache);
+			var defaultAgent = myCache.LanguageProject.DefaultUserAgent;
 
 			// Before disambiguation
 			Assert.AreEqual(9, segment.AnalysesRS.Count);
 			var analysis = segment.AnalysesRS.ElementAt(0); // we
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.noopinion, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(1); // want
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.noopinion, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(2); // to (ambiguous)
 			Assert.AreEqual(WfiWordformTags.kClassId, analysis.ClassID);
 			Assert.IsNull(analysis.Analysis);
@@ -81,16 +81,16 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.IsNull(analysis.Analysis);
 			analysis = segment.AnalysesRS.ElementAt(4); // married
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.noopinion, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(5); // and
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.noopinion, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(6); // be (ambiguous)
 			Assert.AreEqual(WfiWordformTags.kClassId, analysis.ClassID);
 			Assert.IsNull(analysis.Analysis);
 			analysis = segment.AnalysesRS.ElementAt(7); // happy
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.noopinion, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 
 			//var segmentDisam = new SegmentDisambiguation(segment, MorphBundleGuidsWeWantToGetMarriedAndBeHappy);
 			segmentDisam.Disambiguate(myCache);
@@ -98,28 +98,28 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.AreEqual(9, segment.AnalysesRS.Count);
 			analysis = segment.AnalysesRS.ElementAt(0); // we
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(1); // want
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(2); // to (ambiguous)
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(3); // get (ambiguous)
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(4); // married
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(5); // and
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(6); // be (ambiguous)
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(7); // happy
 			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
-			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(pcpatrAgent));
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 		}
 	}
 }

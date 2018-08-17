@@ -1,0 +1,51 @@
+﻿// Copyright (c) 2018 SIL International
+// This software is licensed under the LGPL, version 2.1 or later
+// (http://www.gnu.org/licenses/lgpl-2.1.html)
+
+using NUnit.Framework;
+using SIL.DisambiguateInFLExDB;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SIL.DisambiguateInFLExDBTest
+{
+	[TestFixture]
+	class AndFileLoaderTest
+	{
+		String TestDataDir { get; set; }
+		String AndFile { get; set; }
+
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+			int i = rootdir.LastIndexOf("DisambiguateInFLExDBTests");
+			String basedir = rootdir.Substring(0, i);
+			TestDataDir = Path.Combine(basedir, "DisambiguateInFLExDBTests", "TestData");
+			AndFile = Path.Combine(TestDataDir, "Text.and");
+		}
+
+		[Test]
+		public void LoadAndFileGuidsTest()
+		{
+			var result = AndFileLoader.GetGuidsFromAndFile(AndFile);
+			Assert.AreEqual(16, result.Length);
+			var guid = result[0];
+			Assert.AreEqual("", guid.ToString());
+			guid = result[2];
+			Assert.AreEqual("7e6c1be9-ad21-454e-91b4-dfc126514da7\n39994213-303e-4e59-9e47-f10e74d7331d\n1ea23f59-f6d9-406d-89f6-792318a04efe\n", guid.ToString());
+			guid = result[3];
+			Assert.AreEqual("e2e4949d-9af0-4142-9d4f-f2d9afdcb646\nb3e8623e-5679-4261-acd5-d62ed71d1d2b\n9be2d38f-bc3a-4e96-acb5-64d2b3e53d95\n0dee3420-0d8e-4506-8737-c5a78b85188a\n1ea23f59-f6d9-406d-89f6-792318a04efe\n479aca02-ca6a-4c2a-862a-d980fbcc9a37\n04f021dc-a0dd-44fc-8b0a-9e6741743dd8\n07fbf262-bbe7-415b-af3f-8317a2cb4521\n", guid.ToString());
+			guid = result[5];
+			Assert.AreEqual("", guid.ToString());
+			guid = result[15];
+			Assert.AreEqual("e2e4949d-9af0-4142-9d4f-f2d9afdcb646\n216db198-8a9e-43e6-ba00-f10db3d51465\n9be2d38f-bc3a-4e96-acb5-64d2b3e53d95\n0053c955-c19a-480b-bb45-9a1b27b3d5eb\n933d7fb3-b038-4913-b5b8-576f80df2fba\n7841d0ff-57f0-4a2c-a689-6d109efca66e\nb8c624a0-9fb3-4e39-867d-802292933ed5\n", guid.ToString());
+		}
+	}
+}

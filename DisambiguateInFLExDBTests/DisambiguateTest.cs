@@ -42,8 +42,10 @@ namespace SIL.DisambiguateInFLExDBTests
 			int i = rootdir.LastIndexOf("DisambiguateInFLExDBTests");
 			String basedir = rootdir.Substring(0, i);
 			TestDataDir = Path.Combine(basedir, "DisambiguateInFLExDBTests", "TestData");
-			SavedTestFile = Path.Combine(TestDataDir, "PCPATRTestingB4.fwdata");
-			TestFile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
+			if (String.IsNullOrEmpty(TestFile))
+				TestFile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
+			if (String.IsNullOrEmpty(SavedTestFile))
+				SavedTestFile = Path.Combine(TestDataDir, "PCPATRTestingB4.fwdata");
 			File.Copy(SavedTestFile, TestFile, true);
 			ProjId = new ProjectId(TestFile);
 			Loader = new SIL.LcmLoader.LcmLoader(ProjId);

@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndFileLoader.cs" />
     <Compile Include="Disambiguation.cs" />
     <Compile Include="FLExDBExtractor.cs" />
+    <Compile Include="GuidConverter.cs" />
     <Compile Include="PCPatrInvoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentDisambiguation.cs" />

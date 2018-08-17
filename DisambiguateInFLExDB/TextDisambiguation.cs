@@ -27,16 +27,44 @@ namespace SIL.DisambiguateInFLExDB
 
 		public void Disambiguate(LcmCache cache)
 		{
-			var pcpatrAgent = GetPCPATRSyntacticParsingAgent(cache);
-			NonUndoableUnitOfWorkHelper.Do(cache.ActionHandlerAccessor, () =>
-			{
-				// run through each segment in the text
-				// if there is a guid bundle for the segment in the text, use it
-				// otherwise find the \a, etc. items in the And File
-				// if there are no % in all the \p fields, use that set of guids
-			});
+			var istText = Text.ContentsOA as IStText;
+			var andGuids = AndFileLoader.GetGuidsFromAndFile(AndFile);
+			int max = Math.Max(andGuids.Length, GuidBundles.Length);
+			//NonUndoableUnitOfWorkHelper.Do(cache.ActionHandlerAccessor, () =>
+			//{
+				for (int i=0; i < max; i++)
+				{
+					Console.WriteLine("i=" + i);
+					var para = istText.ParagraphsOS.ElementAtOrDefault(i) as IStTxtPara;
+					var segment = para.SegmentsOS.FirstOrDefault();
+					if (segment == null)
+						continue;
+					if (i < GuidBundles.Length)
+					{
+						Console.WriteLine("trying chosen");
+						if (Disambguated(cache, segment, GuidBundles.ElementAtOrDefault(i)))
+							continue;
+					}
+					if (i < andGuids.Length)
+					{
+						Console.WriteLine("trying AND file");
+						Disambguated(cache, segment, andGuids.ElementAtOrDefault(i));
+					}
+				}
+			//});
 		}
 
-
+		private bool Disambguated(LcmCache cache, ISegment segment, string chosen)
+		{
+			if (!String.IsNullOrEmpty(chosen))
+			{
+				var guids = GuidConverter.CreateListFromString(chosen);
+				Console.WriteLine("disambiguating:\n" + chosen);
+				var segmentDisam = new SegmentDisambiguation(segment, guids);
+				segmentDisam.Disambiguate(cache);
+				return true;
+			}
+			return false;
+		}
 	}
 }

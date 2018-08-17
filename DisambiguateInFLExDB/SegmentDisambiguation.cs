@@ -27,7 +27,6 @@ namespace SIL.DisambiguateInFLExDB
 
 		public void Disambiguate(LcmCache cache)
 		{
-			var pcpatrAgent = GetPCPATRSyntacticParsingAgent(cache);
 			NonUndoableUnitOfWorkHelper.Do(cache.ActionHandlerAccessor, () =>
 			{
 				int i = 0;
@@ -38,14 +37,23 @@ namespace SIL.DisambiguateInFLExDB
 						var wfiWordform = analysis as IWfiWordform;
 						var wfiMorphBundelGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
 						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundelGuidToUse);
-						var wfiAnalysisToUse = wfiMorphBundle.Owner as IWfiAnalysis;
-						wfiAnalysisToUse.Analysis.SetAgentOpinion(pcpatrAgent, Opinions.approves);
-						Segment.AnalysesRS.RemoveAt(i);
-						Segment.AnalysesRS.Insert(i, wfiAnalysisToUse);
-					}
-					else if (analysis.ClassID != PunctuationFormTags.kClassId)
-					{
-						analysis.Analysis.SetAgentOpinion(pcpatrAgent, Opinions.approves);
+						if (wfiMorphBundle.Owner is IWfiAnalysis wfiAnalysisToUse)
+						{
+							// To disambiguate, we replace the WfiWordForm with a WfiGloss
+							IWfiGloss gloss;
+							if (wfiAnalysisToUse.MeaningsOC.Count == 0)
+							{
+								var wgFactory = cache.ServiceLocator.GetInstance<IWfiGlossFactory>();
+								gloss = wgFactory.Create();
+								wfiAnalysisToUse.MeaningsOC.Add(gloss);
+							}
+							else
+							{
+								gloss = wfiAnalysisToUse.MeaningsOC.First();
+							}
+							wfiAnalysisToUse.SetAgentOpinion(cache.LanguageProject.DefaultUserAgent, Opinions.approves);
+							Segment.AnalysesRS[i] = gloss;
+						}
 					}
 					i++;
 				}
