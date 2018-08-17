@@ -23,7 +23,13 @@ namespace SIL.DisambiguateInFLExDB
 				{
 					if (!String.IsNullOrEmpty(sGuid))
 					{
-						guids.Add(new Guid(sGuid));
+						String sGuidToUse = sGuid;
+						int i = sGuid.IndexOf("=");
+						if (i > 0)
+						{
+							sGuidToUse = sGuid.Substring(0, i);
+						}
+						guids.Add(new Guid(sGuidToUse));
 					}
 				}
 			}

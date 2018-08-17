@@ -317,15 +317,7 @@ namespace SIL.PcPatrFLEx
 		{
 			if (!String.IsNullOrEmpty(result))
 			{
-				List<Guid> guids = new List<Guid>();
-				var guidStrings = result.Split('\n');
-				foreach (string sGuid in guidStrings)
-				{
-					if (!String.IsNullOrEmpty(sGuid))
-					{
-						guids.Add(new Guid(sGuid));
-					}
-				}
+				var guids = DisambiguateInFLExDB.GuidConverter.CreateListFromString(result);
 				var disambiguator = new SegmentDisambiguation(selectedSegmentToShow.Segment, guids);
 				disambiguator.Disambiguate(Cache);
 			}
