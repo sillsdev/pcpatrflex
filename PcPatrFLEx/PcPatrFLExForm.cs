@@ -424,6 +424,7 @@ namespace SIL.PcPatrFLEx
 			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
 			// What do we do??
 			var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
+			textdisambiguator.Disambiguate(Cache);
 			Cursor.Current = Cursors.Default;
 		}
 	}
