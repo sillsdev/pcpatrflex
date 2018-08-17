@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndFileLoader.cs" />
-    <Compile Include="Disambiguation.cs" />
     <Compile Include="FLExDBExtractor.cs" />
     <Compile Include="GuidConverter.cs" />
     <Compile Include="PCPatrInvoker.cs" />

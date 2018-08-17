@@ -110,23 +110,6 @@ namespace SIL.PrepFLExDBTests
 			preparer.AddPCPATRSenseCustomField();
 			customFields = preparer.GetListOfCustomFields();
 			Assert.AreEqual(1, customFields.Count);
-
-			// Add PcPatr syntactic parser agent
-			var agents = MyCache.LangProject.AnalyzingAgentsOC;
-			Assert.AreEqual(4, agents.Count);
-			preparer.AddPCPATRSyntacticParserAgent();
-			agents = MyCache.LangProject.AnalyzingAgentsOC;
-			Assert.AreEqual(5, agents.Count);
-			var agent = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser).First();
-			Assert.IsFalse(agent.Human);
-			Assert.AreEqual(Constants.PcPatrSyntacticParser, agent.Name.BestAnalysisAlternative.Text);
-			Assert.AreEqual("Normal", agent.Version);
-			// Invoke it again.  Only five should exist.
-			preparer.AddPCPATRSyntacticParserAgent();
-			agents = MyCache.LangProject.AnalyzingAgentsOC;
-			Assert.AreEqual(5, agents.Count);
-			var pcpatrAgent = preparer.GetPCPATRSyntacticParsingAgent(MyCache);
-			Assert.AreEqual(Constants.PcPatrSyntacticParser, pcpatrAgent.Name.BestAnalysisAlternative.Text);
 		}
 
 		private void CheckPossibilityList(ICmPossibilityListRepository possListRepository)

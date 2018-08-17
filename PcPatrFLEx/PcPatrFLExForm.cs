@@ -210,7 +210,6 @@ namespace SIL.PcPatrFLEx
 			var preparer = new Preparer(Cache, false);
 			preparer.AddPCPATRList();
 			preparer.AddPCPATRSenseCustomField();
-			preparer.AddPCPATRSyntacticParserAgent();
 		}
 
 		private void FillTextsListBox()

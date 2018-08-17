@@ -202,7 +202,6 @@ namespace SIL.DisambiguateInFLExDB
 				sb.Append(sbFD.ToString());
 				sb.Append(sbW.ToString());
 			}
-			Console.Write(sb.ToString());
 			return sb.ToString();
 		}
 

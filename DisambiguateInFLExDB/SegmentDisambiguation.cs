@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace SIL.DisambiguateInFLExDB
 {
-	public class SegmentDisambiguation : Disambiguation
+	public class SegmentDisambiguation
 	{
 		public SegmentDisambiguation(ISegment segment, List<Guid> disambiguatedMorphBundleGuids)
 		{

@@ -94,7 +94,6 @@ namespace SIL.PrepFLExDB
 			var preparer = new Preparer(Cache);
 			preparer.AddPCPATRList();
 			preparer.AddPCPATRSenseCustomField();
-			preparer.AddPCPATRSyntacticParserAgent();
 			Cache.ActionHandlerAccessor.Commit();
 			Application.UseWaitCursor = false;
 			MessageBox.Show("Process is complete.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -96,13 +96,13 @@ namespace SIL.DisambiguateInFLExDB
 			i = GetShortPathName(AnaFile, sbAnaFileShortPath, sbAnaFileShortPath.Capacity);
 			String anashort = sbAnaFileShortPath.ToString();
 			sbTake.Append(anashort);
-			Console.WriteLine("anashort='" + anashort + "'");
+			//Console.WriteLine("anashort='" + anashort + "'");
 			sbTake.Append(" ");
 			String andshort = ""; // sbTakeFileShortPath.ToString();
 			String result = anashort.Substring(0, anashort.Length - 1) + "d";
 			sbTake.Append(result + "\n");
 			sbTake.Append("exit\n");
-			Console.Write(sbTake.ToString());
+			//Console.Write(sbTake.ToString());
 			File.WriteAllText(takeFile, sbTake.ToString());
 			AndFile = result;
 		}

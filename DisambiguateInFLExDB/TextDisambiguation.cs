@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SIL.DisambiguateInFLExDB
 {
-	public class TextDisambiguation : Disambiguation
+	public class TextDisambiguation
 	{
 		public IText Text { get; set; }
 		public string[] GuidBundles { get; set; }
@@ -34,20 +34,17 @@ namespace SIL.DisambiguateInFLExDB
 			//{
 				for (int i=0; i < max; i++)
 				{
-					Console.WriteLine("i=" + i);
 					var para = istText.ParagraphsOS.ElementAtOrDefault(i) as IStTxtPara;
 					var segment = para.SegmentsOS.FirstOrDefault();
 					if (segment == null)
 						continue;
 					if (i < GuidBundles.Length)
 					{
-						Console.WriteLine("trying chosen");
 						if (Disambguated(cache, segment, GuidBundles.ElementAtOrDefault(i)))
 							continue;
 					}
 					if (i < andGuids.Length)
 					{
-						Console.WriteLine("trying AND file");
 						Disambguated(cache, segment, andGuids.ElementAtOrDefault(i));
 					}
 				}
@@ -59,7 +56,6 @@ namespace SIL.DisambiguateInFLExDB
 			if (!String.IsNullOrEmpty(chosen))
 			{
 				var guids = GuidConverter.CreateListFromString(chosen);
-				Console.WriteLine("disambiguating:\n" + chosen);
 				var segmentDisam = new SegmentDisambiguation(segment, guids);
 				segmentDisam.Disambiguate(cache);
 				return true;

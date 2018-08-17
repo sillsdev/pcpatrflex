@@ -112,48 +112,5 @@ namespace SIL.PrepFLExDB
 					where fd.IsCustomField //&& GetItem(m_locationComboBox, fd.Class) != null
 					select fd).ToList();
 		}
-
-		/// <summary>
-		/// Creates a new possibility list for PC-PATR feature descriptors.
-		/// </summary>
-		public void AddPCPATRSyntacticParserAgent()
-		{
-			//var agents = Cache.LangProject.AnalyzingAgentsOC;
-			//var pcpatrAgents = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser);
-			//if (pcpatrAgents.Count() > 0)
-			//{
-			//	return;
-			//}
-			var pcpatrAgent = GetPCPATRSyntacticParsingAgent(Cache);
-			if (pcpatrAgent == null)
-			{
-				NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
-				{
-					var factAgent = Cache.ServiceLocator.GetInstance<ICmAgentFactory>();
-					var agent = factAgent.Create();
-					var agents = Cache.LangProject.AnalyzingAgentsOC;
-					agents.Add(agent);
-					var ws = Cache.DefaultAnalWs;
-					agent.Human = false;
-					agent.Name.SetAnalysisDefaultWritingSystem(Constants.PcPatrSyntacticParser);
-					agent.Version = "Normal";
-				});
-			}
-		}
-
-		public ICmAgent GetPCPATRSyntacticParsingAgent(LcmCache cache)
-		{
-			var agents = cache.LangProject.AnalyzingAgentsOC;
-			var pcpatrAgents = agents.Where(a => a.Name.BestAnalysisAlternative.Text == Constants.PcPatrSyntacticParser);
-			if (pcpatrAgents.Count() > 0)
-			{
-				return pcpatrAgents.First();
-			}
-			else
-			{
-				return null;
-			}
-		}
-
 	}
 }
