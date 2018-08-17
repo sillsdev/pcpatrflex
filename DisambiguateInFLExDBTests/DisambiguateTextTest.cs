@@ -144,6 +144,34 @@ namespace SIL.DisambiguateInFLExDBTests
 			analysis = segment.AnalysesRS.ElementAt(9); // punctuation
 			Assert.AreEqual(PunctuationFormTags.kClassId, analysis.ClassID);
 
+			para = text.ParagraphsOS.ElementAtOrDefault(16) as IStTxtPara;
+			Assert.NotNull(para);
+			segment = para.SegmentsOS.FirstOrDefault();
+			Assert.NotNull(segment);
+			analysis = segment.AnalysesRS.ElementAt(0); // we
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(1); // got (ambiguous)
+			Assert.AreEqual(WfiWordformTags.kClassId, analysis.ClassID);
+			Assert.IsNull(analysis.Analysis);
+			analysis = segment.AnalysesRS.ElementAt(2); // to (ambiguous)
+			Assert.AreEqual(WfiWordformTags.kClassId, analysis.ClassID);
+			Assert.IsNull(analysis.Analysis);
+			analysis = segment.AnalysesRS.ElementAt(3); // go
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(4); // to (ambiguous)
+			Assert.AreEqual(WfiWordformTags.kClassId, analysis.ClassID);
+			Assert.IsNull(analysis.Analysis);
+			analysis = segment.AnalysesRS.ElementAt(5); // the
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(6); // party
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(7); // punctuation
+			Assert.AreEqual(PunctuationFormTags.kClassId, analysis.ClassID);
+
 			textDisam.Disambiguate(myCache);
 
 			//After disambiguation
@@ -213,6 +241,33 @@ namespace SIL.DisambiguateInFLExDBTests
 			analysis = segment.AnalysesRS.ElementAt(9); // punctuation
 			Assert.AreEqual(PunctuationFormTags.kClassId, analysis.ClassID);
 
+			para = text.ParagraphsOS.ElementAtOrDefault(16) as IStTxtPara;
+			Assert.NotNull(para);
+			segment = para.SegmentsOS.FirstOrDefault();
+			Assert.NotNull(segment);
+			analysis = segment.AnalysesRS.ElementAt(0); // we
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(1); // got
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(2); // to
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(3); // go
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(4); // to
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(5); // the
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(6); // party
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+			analysis = segment.AnalysesRS.ElementAt(7); // punctuation
+			Assert.AreEqual(PunctuationFormTags.kClassId, analysis.ClassID);
 
 		}
 

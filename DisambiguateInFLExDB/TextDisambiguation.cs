@@ -29,26 +29,31 @@ namespace SIL.DisambiguateInFLExDB
 		{
 			var istText = Text.ContentsOA as IStText;
 			var andGuids = AndFileLoader.GetGuidsFromAndFile(AndFile);
-			int max = Math.Max(andGuids.Length, GuidBundles.Length);
-			//NonUndoableUnitOfWorkHelper.Do(cache.ActionHandlerAccessor, () =>
-			//{
-				for (int i=0; i < max; i++)
+			int guidIndex = 0;
+			for (int i = 0; i < istText.ParagraphsOS.Count; i++)
+			{
+				var para = istText.ParagraphsOS.ElementAtOrDefault(i) as IStTxtPara;
+				//Console.WriteLine("text='" + para.Contents.Text + "'");
+				//Console.WriteLine("i=" + i + "; guidIndex=" + guidIndex);
+				var segment = para.SegmentsOS.FirstOrDefault();
+				if (segment == null)
+					continue;
+				if (guidIndex < GuidBundles.Length)
 				{
-					var para = istText.ParagraphsOS.ElementAtOrDefault(i) as IStTxtPara;
-					var segment = para.SegmentsOS.FirstOrDefault();
-					if (segment == null)
+					if (Disambguated(cache, segment, GuidBundles.ElementAtOrDefault(guidIndex)))
+					{
+						//Console.WriteLine("did guid bundles for " + guidIndex);
+						guidIndex++;
 						continue;
-					if (i < GuidBundles.Length)
-					{
-						if (Disambguated(cache, segment, GuidBundles.ElementAtOrDefault(i)))
-							continue;
-					}
-					if (i < andGuids.Length)
-					{
-						Disambguated(cache, segment, andGuids.ElementAtOrDefault(i));
 					}
 				}
-			//});
+				if (guidIndex < andGuids.Length)
+				{
+					Disambguated(cache, segment, andGuids.ElementAtOrDefault(guidIndex));
+					//Console.WriteLine("did and guids for " + guidIndex);
+					guidIndex++;
+				}
+			}
 		}
 
 		private bool Disambguated(LcmCache cache, ISegment segment, string chosen)
