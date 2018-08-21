@@ -12,17 +12,17 @@
 \fd sentential_-finiteIP_or_transitive
 \w want
 
-\a %3%< p to-DAT >%< aux to >%< p to-LOC >%
+\a %3%< aux to >%< p to-DAT >%< p to-LOC >%
 \d %3%to%to%to%
-\cat %3%p%aux%p%
-\p %3%62f4c91c-7744-426f-b0a5-96f1ee35131f%2f63f58f-112b-46ab-b329-3dc85ffda392%933d7fb3-b038-4913-b5b8-576f80df2fba%
-\fd %3%dative%-finite%locative%
+\cat %3%aux%p%p%
+\p %3%9be2d38f-bc3a-4e96-acb5-64d2b3e53d95%62f4c91c-7744-426f-b0a5-96f1ee35131f%933d7fb3-b038-4913-b5b8-576f80df2fba%
+\fd %3%-finite%dative%locative%
 \w to
 
 \a %2%< v get >%< v get-cop >%
 \d %2%get%get%
 \cat %2%v%v%
-\p %2%7b94a783-86b2-4b2b-b0c8-b0219f924165%8ac47da9-e3dd-4645-9ef6-507b4f9dc802%
+\p %2%7b94a783-86b2-4b2b-b0c8-b0219f924165%0dee3420-0d8e-4506-8737-c5a78b85188a%
 \fd %2%sentential_-finiteIP_or_transitive%copular%
 \w get
 

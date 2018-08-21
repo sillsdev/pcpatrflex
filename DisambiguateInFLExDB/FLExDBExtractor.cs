@@ -46,13 +46,19 @@ namespace SIL.DisambiguateInFLExDB
 
 		protected void formatEntry(ILexEntry entry, StringBuilder sb)
 		{
+			var sense = entry.SensesOS.FirstOrDefault<ILexSense>();
+			var msa = sense.MorphoSyntaxAnalysisRA as IMoStemMsa;
+			if (msa == null)
+				return;
+
 			sb.Append("\\w ");
 			sb.Append(entry.LexemeFormOA.Form.BestVernacularAlternative.Text);
 			sb.Append("\n\\c ");
-			var sense = entry.SensesOS.FirstOrDefault<ILexSense>();
-			var msa = (IMoStemMsa)sense.MorphoSyntaxAnalysisRA;
 			var pos = msa.PartOfSpeechRA;
-			sb.Append(pos.Abbreviation.BestAnalysisAlternative.Text);
+			if (pos != null)
+				sb.Append(pos.Abbreviation.BestAnalysisAlternative.Text);
+			else
+				sb.Append("any");
 			sb.Append("\n\\g ");
 			sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
 			sb.Append("\n\\f");
@@ -135,17 +141,34 @@ namespace SIL.DisambiguateInFLExDB
 				}
 				foreach (IWfiAnalysis wfiAnalysis in wordform.AnalysesOC)
 				{
-					sbA.Append("< ");
-					int i = 1;
+					IWfiMorphBundle previous = null;
+					IMoForm previousMorph = null;
+					var maxMorphs = wfiAnalysis.MorphBundlesOS.Count;
+					int i = 0;
 					foreach (IWfiMorphBundle bundle in wfiAnalysis.MorphBundlesOS)
 					{
 						var msa = bundle.MsaRA;
 						if (msa == null)
 							continue;
-						var cat = msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
-						sbA.Append(cat + " ");
-						sbC.Append(cat);
 						var morph = bundle.MorphRA;
+						if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
+						{
+							if (previous == null)
+								sbA.Append("< ");
+							else
+							{
+								if (previousMorph.MorphTypeRA.IsPrefixishType || previousMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphProclitic)
+									sbA.Append(" < ");
+							}
+						}
+						if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
+						{
+							var cat = msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
+							sbA.Append(cat + " ");
+							sbC.Append(cat);
+						}
+						else if (i > 0)
+							sbA.Append(" ");
 						if (morph != null)
 						{
 							sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
@@ -159,7 +182,7 @@ namespace SIL.DisambiguateInFLExDB
 								var sense2 = entry.SensesOS.FirstOrDefault();
 								if (sense2 == null)
 								{
-									sbA.Append("missing_sense >");
+									sbA.Append("missing_sense");
 								}
 								else
 								{
@@ -171,22 +194,38 @@ namespace SIL.DisambiguateInFLExDB
 						{
 							HandleSense(sbA, sbFD, sense);
 						}
+						if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
+						{
+							sbA.Append(" ");
+							var next = wfiAnalysis.MorphBundlesOS.ElementAtOrDefault(i + 1);
+							if (next == null)
+								sbA.Append(">");
+							else
+							{
+								var nextMorph = next.MorphRA;
+								if (nextMorph.MorphTypeRA.IsSuffixishType || nextMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphEnclitic)
+									sbA.Append(">");
+							}
+						}
 						sbP.Append(bundle.Guid.ToString());
-						if (i < wfiAnalysis.MorphBundlesOS.Count)
+						previous = bundle;
+						previousMorph = morph;
+						i++;
+						if (i < maxMorphs)
 						{
 							sbD.Append("-");
 							sbC.Append("=");
 							sbFD.Append("=");
 							sbP.Append("=");
 						}
-						if (ambiguities > 1)
-						{
-							sbA.Append("%");
-							sbD.Append("%");
-							sbC.Append("%");
-							sbFD.Append("%");
-							sbP.Append("%");
-						}
+					}
+					if (ambiguities > 1)
+					{
+						sbA.Append("%");
+						sbD.Append("%");
+						sbC.Append("%");
+						sbFD.Append("%");
+						sbP.Append("%");
 					}
 				}
 				sbA.Append("\n");
@@ -208,10 +247,20 @@ namespace SIL.DisambiguateInFLExDB
 		private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
 		{
 			var gloss = sense.Gloss.BestAnalysisAlternative.Text;
-			sbA.Append(gloss + " >");
+			sbA.Append(gloss);
 			var fds = GetFeatureDescriptorsFromSense(sense);
 			fds = (fds.Length > 1) ? fds.Substring(1) : fds;
 			sbFD.Append(fds);
+		}
+
+		public bool IsAttachedClitic(Guid mtypeGuid, int bundles)
+		{
+			if (mtypeGuid == MoMorphTypeTags.kguidMorphEnclitic || mtypeGuid == MoMorphTypeTags.kguidMorphProclitic)
+			{
+				if (bundles > 1)
+					return true;
+			}
+			return false;
 		}
 	}
 }

@@ -22,11 +22,8 @@ namespace SIL.DisambiguateInFLExDBTests
 
 		public override void FixtureSetup()
 		{
-			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-			int i = rootdir.LastIndexOf("DisambiguateInFLExDBTests");
-			String basedir = rootdir.Substring(0, i);
-			TestDataDir = Path.Combine(basedir, "DisambiguateInFLExDBTests", "TestData");
+			IcuInit();
+			TestDirInit();
 			TestFile = Path.Combine(TestDataDir, "PCPATRTesting4Text.fwdata");
 			SavedTestFile = Path.Combine(TestDataDir, "PCPATRTesting4TextB4.fwdata");
 

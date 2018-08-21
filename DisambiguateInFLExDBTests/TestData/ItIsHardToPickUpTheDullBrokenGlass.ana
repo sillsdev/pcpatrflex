@@ -19,11 +19,11 @@
 \fd sentential_A
 \w hard
 
-\a %3%< p to-DAT >%< aux to >%< p to-LOC >%
+\a %3%< aux to >%< p to-DAT >%< p to-LOC >%
 \d %3%to%to%to%
-\cat %3%p%aux%p%
-\p %3%62f4c91c-7744-426f-b0a5-96f1ee35131f%2f63f58f-112b-46ab-b329-3dc85ffda392%933d7fb3-b038-4913-b5b8-576f80df2fba%
-\fd %3%dative%-finite%locative%
+\cat %3%aux%p%p%
+\p %3%9be2d38f-bc3a-4e96-acb5-64d2b3e53d95%62f4c91c-7744-426f-b0a5-96f1ee35131f%933d7fb3-b038-4913-b5b8-576f80df2fba%
+\fd %3%-finite%dative%locative%
 \w to
 
 \a < v pick >

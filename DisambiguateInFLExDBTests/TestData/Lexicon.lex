@@ -1,3 +1,8 @@
+\w si
+\c n
+\g =POSS
+\f
+
 \w a
 \c art
 \g a
@@ -211,7 +216,7 @@
 \w bought
 \c v
 \g buy-PST
-\f class_other ditransitive.opt
+\f ditransitive.opt past
 
 \w boy
 \c n
@@ -1122,6 +1127,11 @@
 \c v
 \g play-3SG
 \f singular_subject third_subject transitive
+
+\w pro
+\c n
+\g FAVOR
+\f
 
 \w put
 \c v

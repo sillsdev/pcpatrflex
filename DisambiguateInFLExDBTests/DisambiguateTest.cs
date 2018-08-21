@@ -30,18 +30,7 @@ namespace SIL.DisambiguateInFLExDBTests
 
 		public override void FixtureSetup()
 		{
-			Icu.InitIcuDataDir();
-			if (!Sldr.IsInitialized)
-			{
-				Sldr.Initialize();
-			}
-
 			base.FixtureSetup();
-			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-			int i = rootdir.LastIndexOf("DisambiguateInFLExDBTests");
-			String basedir = rootdir.Substring(0, i);
-			TestDataDir = Path.Combine(basedir, "DisambiguateInFLExDBTests", "TestData");
 			if (String.IsNullOrEmpty(TestFile))
 				TestFile = Path.Combine(TestDataDir, "PCPATRTesting.fwdata");
 			if (String.IsNullOrEmpty(SavedTestFile))
@@ -50,6 +39,24 @@ namespace SIL.DisambiguateInFLExDBTests
 			ProjId = new ProjectId(TestFile);
 			Loader = new SIL.LcmLoader.LcmLoader(ProjId);
 			myCache = Loader.CreateCache();
+		}
+
+		protected void TestDirInit()
+		{
+			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+			int i = rootdir.LastIndexOf("DisambiguateInFLExDBTests");
+			String basedir = rootdir.Substring(0, i);
+			TestDataDir = Path.Combine(basedir, "DisambiguateInFLExDBTests", "TestData");
+		}
+
+		protected static void IcuInit()
+		{
+			Icu.InitIcuDataDir();
+			if (!Sldr.IsInitialized)
+			{
+				Sldr.Initialize();
+			}
 		}
 
 		/// <summary></summary>

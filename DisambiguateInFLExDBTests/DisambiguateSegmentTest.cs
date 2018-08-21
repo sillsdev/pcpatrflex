@@ -26,6 +26,8 @@ namespace SIL.DisambiguateInFLExDBTests
 
 		public override void FixtureSetup()
 		{
+			IcuInit();
+			TestDirInit();
 			base.FixtureSetup();
 			MorphBundleGuidsWeWantToGetMarriedAndBeHappy = new List<Guid>()
 			{
