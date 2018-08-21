@@ -91,6 +91,58 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.IsTrue(extractor.IsAttachedClitic(MoMorphTypeTags.kguidMorphProclitic, 2));
 		}
 
+		[Test]
+		public void GetOrComputeWordCategoryTest()
+		{
+			myCache = Loader.CreateCache();
+			var extractor = new FLExDBExtractor(myCache);
+			var wordCat = extractor.GetOrComputeWordCategory(null);
+			Assert.AreEqual("", wordCat);
+
+			var text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text == "Mulit-morphemic").First();
+			var paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(1);
+			var segment = paragraph.SegmentsOS.First();
+			var analysis = segment.AnalysesRS.ElementAtOrDefault(3);
+			var wordform = analysis.Wordform; // trees
+			Assert.AreEqual(2, wordform.AnalysesOC.Count);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(0));
+			Assert.AreEqual("n", wordCat);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(1));
+			Assert.AreEqual("n", wordCat);
+			analysis = segment.AnalysesRS.ElementAtOrDefault(7);
+			wordform = analysis.Wordform; // booksi
+			Assert.AreEqual(1, wordform.AnalysesOC.Count);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(0));
+			Assert.AreEqual("n", wordCat);
+
+			paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(2);
+			segment = paragraph.SegmentsOS.First();
+			analysis = segment.AnalysesRS.ElementAtOrDefault(0);
+			wordform = analysis.Wordform; // the
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(0));
+			Assert.AreEqual("art", wordCat);
+			analysis = segment.AnalysesRS.ElementAtOrDefault(1);
+			wordform = analysis.Wordform; // preturntables
+			Assert.AreEqual(2, wordform.AnalysesOC.Count);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(0));
+			Assert.AreEqual("n", wordCat);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(1));
+			Assert.AreEqual("n", wordCat);
+			analysis = segment.AnalysesRS.ElementAtOrDefault(2);
+			wordform = analysis.Wordform; // are
+			Assert.AreEqual(5, wordform.AnalysesOC.Count);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(0));
+			Assert.AreEqual("v", wordCat);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(1));
+			Assert.AreEqual("v", wordCat);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(2));
+			Assert.AreEqual("v", wordCat);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(3));
+			Assert.AreEqual("v", wordCat);
+			wordCat = extractor.GetOrComputeWordCategory(wordform.AnalysesOC.ElementAtOrDefault(4));
+			Assert.AreEqual("aux", wordCat);
+		}
+
 		/// <summary>
 		/// Test extracting of text segments in ANA format.
 		/// </summary>

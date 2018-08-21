@@ -157,7 +157,8 @@ namespace SIL.DisambiguateInFLExDB
 								sbA.Append("< ");
 							else
 							{
-								if (previousMorph.MorphTypeRA.IsPrefixishType || previousMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphProclitic)
+								if (previousMorph.MorphTypeRA.IsPrefixishType
+									|| previousMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphProclitic)
 									sbA.Append(" < ");
 							}
 						}
@@ -165,7 +166,6 @@ namespace SIL.DisambiguateInFLExDB
 						{
 							var cat = msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
 							sbA.Append(cat + " ");
-							sbC.Append(cat);
 						}
 						else if (i > 0)
 							sbA.Append(" ");
@@ -203,7 +203,8 @@ namespace SIL.DisambiguateInFLExDB
 							else
 							{
 								var nextMorph = next.MorphRA;
-								if (nextMorph.MorphTypeRA.IsSuffixishType || nextMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphEnclitic)
+								if (nextMorph.MorphTypeRA.IsSuffixishType
+									|| nextMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphEnclitic)
 									sbA.Append(">");
 							}
 						}
@@ -214,11 +215,11 @@ namespace SIL.DisambiguateInFLExDB
 						if (i < maxMorphs)
 						{
 							sbD.Append("-");
-							sbC.Append("=");
 							sbFD.Append("=");
 							sbP.Append("=");
 						}
 					}
+					sbC.Append(GetOrComputeWordCategory(wfiAnalysis));
 					if (ambiguities > 1)
 					{
 						sbA.Append("%");
@@ -261,6 +262,43 @@ namespace SIL.DisambiguateInFLExDB
 					return true;
 			}
 			return false;
+		}
+
+		public String GetOrComputeWordCategory(IWfiAnalysis wfiAnalysis)
+		{
+			String result = "";
+			if (wfiAnalysis == null)
+				return result;
+			var cat = wfiAnalysis.CategoryRA;
+			if (cat != null)
+				return cat.Abbreviation.AnalysisDefaultWritingSystem.Text;
+			var bundles = wfiAnalysis.MorphBundlesOS.Count;
+			if (bundles == 1)
+			{
+				var bundle = wfiAnalysis.MorphBundlesOS.ElementAtOrDefault(0);
+				return GetStemsCategory(bundle);
+			}
+			var stems = wfiAnalysis.MorphBundlesOS.Where(b => b.MsaRA is IMoStemMsa
+				&& !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
+			if (stems.Count() == 1)
+			{
+				var firstStem = wfiAnalysis.MorphBundlesOS.First(b => b.MsaRA is IMoStemMsa
+					&& !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
+				result = GetStemsCategory(firstStem);
+			}
+			else
+			{ // has at least one stem compound 
+			  // Use right-most for now
+				var rightmostStem = stems.Last();
+				result = GetStemsCategory(rightmostStem);
+			}
+			return result;
+		}
+
+		private string GetStemsCategory(IWfiMorphBundle bundle)
+		{
+			var msa = bundle.MsaRA as IMoStemMsa;
+			return msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
 		}
 	}
 }
