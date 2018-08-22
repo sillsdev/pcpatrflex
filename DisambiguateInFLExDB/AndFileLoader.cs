@@ -13,8 +13,8 @@ namespace SIL.DisambiguateInFLExDB
 {
 	public static class AndFileLoader
 	{
-		static string[] splitOn = new string[] { "\\parse", "\\endparse" };
-		static string[] pfield = new string[] { "\\p " };
+		static string[] SplitOn = new string[] { "\\parse", "\\endparse" };
+		static string[] pField = new string[] { "\\p " };
 
 		public static string[] GetGuidsFromAndFile(String andfile)
 		{
@@ -22,27 +22,16 @@ namespace SIL.DisambiguateInFLExDB
 			var sr = new StreamReader(andfile, Encoding.UTF8);
 			var contents = sr.ReadToEnd();
 			sr.Close();
-			//var splitOn = new string[] { "\\parse", "\\endparse" };
-			var sections = contents.Split(splitOn, StringSplitOptions.RemoveEmptyEntries);
+			// skip any \id fields at the beginning
+			int iStart = Math.Max(0, contents.IndexOf(pField[0]));
+			var sections = contents.Substring(iStart).Split(SplitOn, StringSplitOptions.RemoveEmptyEntries);
 			foreach (string section in sections)
 			{
-				//Console.WriteLine("section='" + section + "'");
 				if (section.Contains("\\p"))
 				{
 					ProcessAna(guids, section);
 				}
 			}
-
-			//int iEndParse = 0;
-			//int iParse = contents.Substring(iEndParse).IndexOf("\\parse");
-			//Console.WriteLine("1st: parse=" + iParse + "; endparse=" + iEndParse);
-			//while (iParse > -1)
-			//{
-			//	ProcessAna(guids, contents, iEndParse, iParse);
-			//	iEndParse = contents.Substring(iParse).IndexOf("\\endparse");
-			//	iParse = contents.Substring(iEndParse).IndexOf("\\parse");
-			//}
-
 			return guids.ToArray();
 		}
 
@@ -56,12 +45,10 @@ namespace SIL.DisambiguateInFLExDB
 			}
 			else
 			{
-				var ps = ana.Split(pfield, StringSplitOptions.RemoveEmptyEntries);
+				var ps = ana.Split(pField, StringSplitOptions.RemoveEmptyEntries);
 				var sb = new StringBuilder();
-				//sb.Clear();
 				foreach (string p in ps)
 				{
-					//Console.WriteLine("p='" + p + "'");
 					if (p[0] != '\r' && p[1] != '\n')
 					{
 						int i = p.IndexOf("\n");
@@ -72,18 +59,7 @@ namespace SIL.DisambiguateInFLExDB
 					}
 				}
 				guids.Add(sb.ToString());
-				//Console.WriteLine("added '" + sb.ToString() + "'");
-				//int iPField = ana.IndexOf("\\p ");
-				//while (iPField > -1)
-				//{
-				//	iPField += 3;
-				//	int iNL = ana.Substring(iPField).IndexOf("\n") + iPField;
-				//	Console.WriteLine("p=" + iPField + "; nl=" + iNL);
-				//	guids.Add(ana.Substring(iPField, iNL - iPField));
-				//	iPField = ana.Substring(iNL).IndexOf("\\p ");
-				//}
 			}
-
 		}
 
 
@@ -108,7 +84,6 @@ namespace SIL.DisambiguateInFLExDB
 					iPField = ana.Substring(iNL).IndexOf("\\p ");
 				}
 			}
-
 		}
 	}
 }
