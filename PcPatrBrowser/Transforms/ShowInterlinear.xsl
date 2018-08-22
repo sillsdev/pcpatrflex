@@ -29,6 +29,8 @@ Preamble
 	<!-- text message -->
 	<xsl:param name="sTextMessage" select="'Sentence 1 of 33'"/>
 	<xsl:param name="bRightToLeft" select="'Y'"/>
+
+	<xsl:variable name="bDoUnderlyingForm" select="//UnderForm"/>
 	<!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Main template
@@ -206,21 +208,23 @@ DoUnderlyingFormInfo
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 	<xsl:template name="DoUnderlyingFormInfo">
-		<tr>
-			<td>
-				<xsl:attribute name="style">color=<xsl:value-of select="$sUnderFormColor"/>
-					<xsl:text>;font-family:</xsl:text>
-					<xsl:value-of select="$sUnderFormFont"/>
-				</xsl:attribute>
-				<xsl:for-each select="WordParse">
-					<xsl:for-each select="Morphs/*">
-						<xsl:value-of select="UnderForm"/>
-						<xsl:call-template name="DoSeparationCharacter"/>
+		<xsl:if test="$bDoUnderlyingForm">
+			<tr>
+				<td>
+					<xsl:attribute name="style">color=<xsl:value-of select="$sUnderFormColor"/>
+						<xsl:text>;font-family:</xsl:text>
+						<xsl:value-of select="$sUnderFormFont"/>
+					</xsl:attribute>
+					<xsl:for-each select="WordParse">
+						<xsl:for-each select="Morphs/*">
+							<xsl:value-of select="UnderForm"/>
+							<xsl:call-template name="DoSeparationCharacter"/>
+						</xsl:for-each>
+						<xsl:call-template name="DoParseSeparator"/>
 					</xsl:for-each>
-					<xsl:call-template name="DoParseSeparator"/>
-				</xsl:for-each>
-			</td>
-		</tr>
+				</td>
+			</tr>
+		</xsl:if>
 	</xsl:template>
 	<!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -252,7 +256,7 @@ DoWord
 					<td>
 						<table cellpadding="0" cellspacing="0">
 							<tr>
-								<td valign="top" style="padding-right='2'">
+								<td valign="top" style="padding-right='2pt'">
 									<xsl:variable name="iCountParses" select="count(WordParse)"/>
 									<xsl:if test="$iCountParses &gt; 1">
 										<xsl:value-of select="$iCountParses"/>
@@ -279,6 +283,7 @@ DoWord
 ================================================================
 Revision History
 - - - - - - - - - - - - - - - - - - -
+22-Aug-2018    Andy Black    Only show underlying form if needed; add more space between count and items
 21-Sep-2005    Andy Black    Use RTL flow and right-justify;
 												  fix ordering for RTL to sort correctly when more than 9 words
 26-Aug-2005	Andy Black	Initial Draft
