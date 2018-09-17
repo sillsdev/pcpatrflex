@@ -42,6 +42,7 @@
 			this.btnBrowse = new System.Windows.Forms.Button();
 			this.lblProjectName = new System.Windows.Forms.Label();
 			this.btnDisambiguate = new System.Windows.Forms.Button();
+			this.btnHelp = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -186,11 +187,23 @@
 			this.btnDisambiguate.UseVisualStyleBackColor = true;
 			this.btnDisambiguate.Click += new System.EventHandler(this.Disambiguate_Click);
 			// 
+			// btnHelp
+			// 
+			this.btnHelp.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.btnHelp.Location = new System.Drawing.Point(1189, 15);
+			this.btnHelp.Name = "btnHelp";
+			this.btnHelp.Size = new System.Drawing.Size(33, 40);
+			this.btnHelp.TabIndex = 11;
+			this.btnHelp.Text = "?";
+			this.btnHelp.UseVisualStyleBackColor = true;
+			this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+			// 
 			// PcPatrFLExForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1228, 947);
+			this.Controls.Add(this.btnHelp);
 			this.Controls.Add(this.btnDisambiguate);
 			this.Controls.Add(this.lblProjectName);
 			this.Controls.Add(this.btnBrowse);
@@ -230,6 +243,7 @@
 		private System.Windows.Forms.Button btnBrowse;
 		private System.Windows.Forms.Label lblProjectName;
 		private System.Windows.Forms.Button btnDisambiguate;
+		private System.Windows.Forms.Button btnHelp;
 	}
 }
 

@@ -53,6 +53,8 @@ namespace SIL.PcPatrFLEx
 
 		private RegistryKey regkey;
 
+		private ContextMenuStrip helpContextMenu;
+
 		public PcPatrFLExForm()
 		{
 			InitializeComponent();
@@ -67,6 +69,8 @@ namespace SIL.PcPatrFLEx
 
 			lbSegments.DisplayMember = "Baseline";
 			lbSegments.ValueMember = "Segment";
+
+			BuildHelpContextMenu();
 
 			try
 			{
@@ -113,6 +117,19 @@ namespace SIL.PcPatrFLEx
 				Console.WriteLine(e.InnerException);
 				Console.WriteLine(e.StackTrace);
 			}
+		}
+
+		private void BuildHelpContextMenu()
+		{
+			helpContextMenu = new ContextMenuStrip();
+			ToolStripMenuItem userDoc = new ToolStripMenuItem("User Documentation");
+			userDoc.Click += new EventHandler(UserDoc_Click);
+			userDoc.Name = "User Documentation";
+			ToolStripMenuItem about = new ToolStripMenuItem("About");
+			about.Click += new EventHandler(About_Click);
+			about.Name = "About";
+			helpContextMenu.Items.Add(userDoc);
+			helpContextMenu.Items.Add(about);
 		}
 
 		void retrieveRegistryInfo()
@@ -419,6 +436,34 @@ namespace SIL.PcPatrFLEx
 			textdisambiguator.Disambiguate(Cache);
 			Cursor.Current = Cursors.Default;
 		}
+
+		private void btnHelp_Click(object sender, EventArgs e)
+		{
+			Button btnSender = (Button)sender;
+			Point ptLowerLeft = new Point(0, btnSender.Height);
+			ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+			helpContextMenu.Show(ptLowerLeft);
+			//btnHelp.ContextMenuStrip = helpContextMenu;
+		}
+
+		void UserDoc_Click(object sender, EventArgs e)
+		{
+			ToolStripItem menuItem = (ToolStripItem)sender;
+			if (menuItem.Name == "User Documentation")
+			{
+				Console.WriteLine("user doc clicked");
+			}
+		}
+
+		void About_Click(object sender, EventArgs e)
+		{
+			ToolStripItem menuItem = (ToolStripItem)sender;
+			if (menuItem.Name == "About")
+			{
+				Console.WriteLine("about clicked");
+			}
+		}
+
 	}
 
 	public class SegmentToShow
