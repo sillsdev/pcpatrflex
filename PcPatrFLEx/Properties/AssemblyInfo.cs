@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PcPatrFLEx")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Use PC-PATR with FLEx")]
+[assembly: AssemblyDescription("This program enables one to use a PC-PATR grammar to disambiguate a text in FieldWorks Language Explorer.\r\n\r\nThis software is licensed under the LGPL, version 2.1 or later\r\n(http://www.gnu.org/licenses/lgpl-2.1.html)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PcPatrFLEx")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCompany("SIL International")]
+[assembly: AssemblyProduct("Use PC-PATR with FLEx")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]

@@ -12,9 +12,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -443,7 +445,6 @@ namespace SIL.PcPatrFLEx
 			Point ptLowerLeft = new Point(0, btnSender.Height);
 			ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
 			helpContextMenu.Show(ptLowerLeft);
-			//btnHelp.ContextMenuStrip = helpContextMenu;
 		}
 
 		void UserDoc_Click(object sender, EventArgs e)
@@ -451,7 +452,11 @@ namespace SIL.PcPatrFLEx
 			ToolStripItem menuItem = (ToolStripItem)sender;
 			if (menuItem.Name == "User Documentation")
 			{
-				Console.WriteLine("user doc clicked");
+				Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+				var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+				int i = rootdir.LastIndexOf("bin");
+				String basedir = rootdir.Substring(0, i);
+				Process.Start(Path.Combine(basedir, "doc", "UserDocumentation.pdf"));
 			}
 		}
 
@@ -461,6 +466,8 @@ namespace SIL.PcPatrFLEx
 			if (menuItem.Name == "About")
 			{
 				Console.WriteLine("about clicked");
+				var dialog = new AboutBox();
+				dialog.Show();
 			}
 		}
 
