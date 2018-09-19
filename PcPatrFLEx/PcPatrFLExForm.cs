@@ -86,7 +86,7 @@ namespace SIL.PcPatrFLEx
 					DesktopBounds = RectNormal;
 					WindowState = WindowState;
 					StartPosition = FormStartPosition.Manual;
-					if (LastGrammarFile != null)
+					if (!String.IsNullOrEmpty(LastGrammarFile))
 						tbGrammarFile.Text = LastGrammarFile;
 					FwRegistryHelper.Initialize();
 					ProjId = new ProjectId(LastDatabase);
@@ -96,6 +96,10 @@ namespace SIL.PcPatrFLEx
 					lblProjectName.Text = "";
 					if (ProjId != null)
 						lblProjectName.Text = ProjId.Name;
+					if (Cache != null && Cache.LangProject.Texts.Count > 0)
+						btnDisambiguate.Enabled = true;
+					else
+						btnDisambiguate.Enabled = false;
 					// select last used text and segment, if any
 					if (!String.IsNullOrEmpty(lastText))
 					{
@@ -191,7 +195,7 @@ namespace SIL.PcPatrFLEx
 
 		private void LoadProject()
 		{
-			if (ProjId == null)
+			if (ProjId == null || ProjId.Name == null)
 				return;
 			LastDatabase = ProjId.Name;
 			var loader = new LcmLoader.LcmLoader(ProjId);
@@ -236,6 +240,8 @@ namespace SIL.PcPatrFLEx
 			Texts = Cache.LanguageProject.Texts.Where(t => t.ContentsOA != null).Cast<IText>().
 				OrderBy(t => t.ShortName).ToList();
 			lbTexts.DataSource = Texts;
+			if (Texts.Count > 0)
+				btnDisambiguate.Enabled = true;
 		}
 
 		private void HandleLcmLoaderEvent(object sender, LcmLoaderEventArgs a)

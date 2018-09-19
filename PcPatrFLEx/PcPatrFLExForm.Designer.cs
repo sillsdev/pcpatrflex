@@ -55,17 +55,17 @@
 			this.btnParse.Location = new System.Drawing.Point(519, 201);
 			this.btnParse.Name = "btnParse";
 			this.btnParse.Size = new System.Drawing.Size(267, 38);
-			this.btnParse.TabIndex = 0;
+			this.btnParse.TabIndex = 10;
 			this.btnParse.Text = "&Parse && show this segment";
 			this.btnParse.UseVisualStyleBackColor = true;
 			this.btnParse.Click += new System.EventHandler(this.Parse_Click);
 			// 
 			// btnProject
 			// 
-			this.btnProject.Location = new System.Drawing.Point(13, 12);
+			this.btnProject.Location = new System.Drawing.Point(13, 83);
 			this.btnProject.Name = "btnProject";
 			this.btnProject.Size = new System.Drawing.Size(191, 38);
-			this.btnProject.TabIndex = 2;
+			this.btnProject.TabIndex = 3;
 			this.btnProject.Text = "&Choose FLEx Project";
 			this.btnProject.UseVisualStyleBackColor = true;
 			this.btnProject.Click += new System.EventHandler(this.ChooseProject_Click);
@@ -73,10 +73,10 @@
 			// lblDatabaseToUse
 			// 
 			this.lblDatabaseToUse.AutoSize = true;
-			this.lblDatabaseToUse.Location = new System.Drawing.Point(282, 17);
+			this.lblDatabaseToUse.Location = new System.Drawing.Point(282, 88);
 			this.lblDatabaseToUse.Name = "lblDatabaseToUse";
 			this.lblDatabaseToUse.Size = new System.Drawing.Size(158, 20);
-			this.lblDatabaseToUse.TabIndex = 3;
+			this.lblDatabaseToUse.TabIndex = 4;
 			this.lblDatabaseToUse.Text = "Chosen FLEx Project";
 			// 
 			// splitContainer1
@@ -105,7 +105,7 @@
 			this.lbTexts.Location = new System.Drawing.Point(0, 0);
 			this.lbTexts.Name = "lbTexts";
 			this.lbTexts.Size = new System.Drawing.Size(356, 687);
-			this.lbTexts.TabIndex = 1;
+			this.lbTexts.TabIndex = 0;
 			this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.Texts_SelectedIndexChanged);
 			// 
 			// lbSegments
@@ -116,7 +116,7 @@
 			this.lbSegments.Location = new System.Drawing.Point(0, 0);
 			this.lbSegments.Name = "lbSegments";
 			this.lbSegments.Size = new System.Drawing.Size(436, 687);
-			this.lbSegments.TabIndex = 2;
+			this.lbSegments.TabIndex = 0;
 			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
 			// 
 			// lblTexts
@@ -126,7 +126,7 @@
 			this.lblTexts.Location = new System.Drawing.Point(9, 211);
 			this.lblTexts.Name = "lblTexts";
 			this.lblTexts.Size = new System.Drawing.Size(61, 25);
-			this.lblTexts.TabIndex = 3;
+			this.lblTexts.TabIndex = 7;
 			this.lblTexts.Text = "Texts";
 			// 
 			// lblSegments
@@ -136,34 +136,34 @@
 			this.lblSegments.Location = new System.Drawing.Point(367, 211);
 			this.lblSegments.Name = "lblSegments";
 			this.lblSegments.Size = new System.Drawing.Size(101, 25);
-			this.lblSegments.TabIndex = 4;
+			this.lblSegments.TabIndex = 9;
 			this.lblSegments.Text = "Segments";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(13, 124);
+			this.label1.Location = new System.Drawing.Point(13, 32);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(180, 20);
-			this.label1.TabIndex = 5;
+			this.label1.TabIndex = 0;
 			this.label1.Text = "PC-PATR Grammar file: ";
 			// 
 			// tbGrammarFile
 			// 
 			this.tbGrammarFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGrammarFile.Location = new System.Drawing.Point(216, 120);
+			this.tbGrammarFile.Location = new System.Drawing.Point(216, 28);
 			this.tbGrammarFile.Name = "tbGrammarFile";
 			this.tbGrammarFile.Size = new System.Drawing.Size(885, 26);
-			this.tbGrammarFile.TabIndex = 6;
+			this.tbGrammarFile.TabIndex = 1;
 			// 
 			// btnBrowse
 			// 
 			this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnBrowse.Location = new System.Drawing.Point(1128, 120);
+			this.btnBrowse.Location = new System.Drawing.Point(1128, 28);
 			this.btnBrowse.Name = "btnBrowse";
 			this.btnBrowse.Size = new System.Drawing.Size(94, 38);
-			this.btnBrowse.TabIndex = 7;
+			this.btnBrowse.TabIndex = 2;
 			this.btnBrowse.Text = "&Browse";
 			this.btnBrowse.UseVisualStyleBackColor = true;
 			this.btnBrowse.Click += new System.EventHandler(this.Browse_Click);
@@ -171,10 +171,10 @@
 			// lblProjectName
 			// 
 			this.lblProjectName.AutoSize = true;
-			this.lblProjectName.Location = new System.Drawing.Point(13, 73);
+			this.lblProjectName.Location = new System.Drawing.Point(13, 144);
 			this.lblProjectName.Name = "lblProjectName";
 			this.lblProjectName.Size = new System.Drawing.Size(158, 20);
-			this.lblProjectName.TabIndex = 8;
+			this.lblProjectName.TabIndex = 5;
 			this.lblProjectName.Text = "Chosen FLEx Project";
 			// 
 			// btnDisambiguate
@@ -182,18 +182,18 @@
 			this.btnDisambiguate.Location = new System.Drawing.Point(77, 201);
 			this.btnDisambiguate.Name = "btnDisambiguate";
 			this.btnDisambiguate.Size = new System.Drawing.Size(244, 38);
-			this.btnDisambiguate.TabIndex = 9;
+			this.btnDisambiguate.TabIndex = 8;
 			this.btnDisambiguate.Text = "&Disambiguate && show this text";
 			this.btnDisambiguate.UseVisualStyleBackColor = true;
 			this.btnDisambiguate.Click += new System.EventHandler(this.Disambiguate_Click);
 			// 
 			// btnHelp
 			// 
-			this.btnHelp.Anchor = System.Windows.Forms.AnchorStyles.Right;
-			this.btnHelp.Location = new System.Drawing.Point(1189, 15);
+			this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnHelp.Location = new System.Drawing.Point(1189, 96);
 			this.btnHelp.Name = "btnHelp";
 			this.btnHelp.Size = new System.Drawing.Size(33, 40);
-			this.btnHelp.TabIndex = 11;
+			this.btnHelp.TabIndex = 6;
 			this.btnHelp.Text = "?";
 			this.btnHelp.UseVisualStyleBackColor = true;
 			this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
