@@ -471,8 +471,11 @@ namespace SIL.PcPatrFLEx
 			ToolStripItem menuItem = (ToolStripItem)sender;
 			if (menuItem.Name == "About")
 			{
-				Console.WriteLine("about clicked");
 				var dialog = new AboutBox();
+				// for some reason the following is needed to keep the dialog within the form
+				Point pt = dialog.PointToClient(System.Windows.Forms.Cursor.Position);
+				dialog.Location = new Point(this.Location.X + 20, this.Location.Y + 20);
+				Console.WriteLine("dialog result=" + dialog.Location.X + "," + dialog.Location.Y);
 				dialog.Show();
 			}
 		}
