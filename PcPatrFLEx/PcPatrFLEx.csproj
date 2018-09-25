@@ -7,7 +7,7 @@
     <ProjectGuid>{222677A1-2149-4309-9D61-F96D80D5233F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SIL.PcPatrFLEx</RootNamespace>
-    <AssemblyName>SIL.PcPatrFLEx</AssemblyName>
+    <AssemblyName>PcPatrFLEx</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,6 +54,26 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxInterop.SHDocVw">
       <HintPath>..\PcPatrBrowser\bin\Release\AxInterop.SHDocVw.dll</HintPath>
@@ -63,37 +83,42 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="LingTreeTree">
-      <HintPath>..\PcPatrBrowser\bin\Release\LingTreeTree.dll</HintPath>
+      <HintPath>..\LingTreeTree\bin\x64\Release\LingTreeTree.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core">
-      <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Core.dll</HintPath>
+      <HintPath>..\..\LCModel\LCM\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DisambiguateInFLExDB">
-      <HintPath>..\DisambiguateInFLExDB\bin\x86\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
+    <Reference Include="SIL.Core.Desktop">
+      <HintPath>..\..\LCModel\LCM\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.DisambiguateInFLExDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DisambiguateInFLExDB\bin\x64\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LcmLoader">
-      <HintPath>..\LcmLoader\bin\x86\Debug\SIL.LcmLoader.dll</HintPath>
+      <HintPath>..\LcmLoader\bin\x64\Debug\SIL.LcmLoader.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LcmLoaderUI">
-      <HintPath>..\LcmLoaderUI\bin\x86\Debug\SIL.LcmLoaderUI.dll</HintPath>
+      <HintPath>..\LcmLoaderUI\bin\x64\Debug\SIL.LcmLoaderUI.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel">
-      <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.LCModel.dll</HintPath>
+      <HintPath>..\..\LCModel\LCM\SIL.LCModel.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel.Core">
-      <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.LCModel.Core.dll</HintPath>
+      <HintPath>..\..\LCModel\LCM\SIL.LCModel.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel.Utils">
-      <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.LCModel.Utils.dll</HintPath>
+      <HintPath>..\..\LCModel\LCM\SIL.LCModel.Utils.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Lexicon">
-      <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.Lexicon.dll</HintPath>
+      <HintPath>..\..\LCModel\LCM\SIL.Lexicon.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.PcPatrBrowserDll">
-      <HintPath>..\PcPatrBrowser\PcPatrBrowserDll\bin\x86\Debug\SIL.PcPatrBrowserDll.dll</HintPath>
+    <Reference Include="SIL.PcPatrBrowserDll, Version=0.2.3.24640, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PcPatrBrowser\PcPatrBrowserDll\bin\x64\Debug\SIL.PcPatrBrowserDll.dll</HintPath>
     </Reference>
     <Reference Include="SIL.WritingSystems">
-      <HintPath>..\..\LCModel\liblcm\artifacts\Debug\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\..\LCModel\LCM\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

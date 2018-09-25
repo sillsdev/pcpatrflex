@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6279A591-0D6A-46DF-A536-BA9B66BA686B}</ProjectGuid>
+    <ProjectGuid>{C69C527F-9766-4A88-8B28-346B3CB1F628}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>SIL.PcPatrBrowserDll</AssemblyName>
+    <AssemblyName>LingTreeTree</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -19,7 +19,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>SIL.PcPatrBrowser</RootNamespace>
+    <RootNamespace>LingTree</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -67,7 +67,7 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -92,27 +92,7 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <FileAlignment>4096</FileAlignment>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <BaseAddress>285212672</BaseAddress>
-    <Optimize>true</Optimize>
-    <FileAlignment>4096</FileAlignment>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -136,15 +116,28 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LingTreeTree">
-      <HintPath>..\..\LingTreeTree\bin\x64\Release\LingTreeTree.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.mshtml">
-      <Name>Microsoft.mshtml</Name>
-      <HintPath>..\..\..\..\Program Files\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
-      <AssemblyFolderKey>hklm\primary interop assemblies</AssemblyFolderKey>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -160,76 +153,29 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <COMReference Include="AxSHDocVw">
-      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-    </COMReference>
-    <COMReference Include="SHDocVw">
-      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DlgAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DlgLanguage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GoToDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LanguageInfo.cs">
+    <Compile Include="LingTreeDescriptionException.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MyFontInfo.cs">
+    <Compile Include="LingTreeNode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LingTreeTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NodeClickedEvent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PcPatrBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PcPatrDocument.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PcPatrParse.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PcPatrSentence.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="DlgAbout.resx">
-      <DependentUpon>DlgAbout.cs</DependentUpon>
+    <EmbeddedResource Include="LingTreeNode.resx">
+      <DependentUpon>LingTreeNode.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DlgLanguage.resx">
-      <DependentUpon>DlgLanguage.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FWDownArrow.bmp" />
-    <EmbeddedResource Include="FWFirstArrow.bmp" />
-    <EmbeddedResource Include="FWFirstUpArrow.bmp" />
-    <EmbeddedResource Include="FWLastArrow.bmp" />
-    <EmbeddedResource Include="FWLastDownArrow.bmp" />
-    <EmbeddedResource Include="FWLeftArrow.bmp" />
-    <EmbeddedResource Include="FWRightArrow.bmp" />
-    <EmbeddedResource Include="FWUpArrow.bmp" />
-    <EmbeddedResource Include="GoToDialog.resx">
-      <DependentUpon>GoToDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OPEN.BMP" />
-    <EmbeddedResource Include="PcPatrBrowser.ico" />
-    <EmbeddedResource Include="PcPatrBrowser.resx">
-      <DependentUpon>PcPatrBrowser.cs</DependentUpon>
+    <EmbeddedResource Include="LingTreeTree.resx">
+      <DependentUpon>LingTreeTree.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
@@ -249,9 +195,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="yes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

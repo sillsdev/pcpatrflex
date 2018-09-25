@@ -98,7 +98,7 @@ namespace SIL.DisambiguateInFLExDB
 			sbTake.Append(anashort);
 			//Console.WriteLine("anashort='" + anashort + "'");
 			sbTake.Append(" ");
-			String andshort = ""; // sbTakeFileShortPath.ToString();
+			//String andshort = "";
 			String result = anashort.Substring(0, anashort.Length - 1) + "d";
 			sbTake.Append(result + "\n");
 			sbTake.Append("exit\n");

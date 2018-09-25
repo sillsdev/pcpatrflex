@@ -340,6 +340,7 @@ namespace SIL.LcmLoader
 			catch (SecurityException se)
 			{
 				// What to do here? Punt!
+				Console.WriteLine(se.Message);
 			}
 			return migratedAnything;
 		}
