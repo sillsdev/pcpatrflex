@@ -71,11 +71,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LcmLoaderUI\bin\x64\Debug\SIL.LcmLoaderUI.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel">
-      <HintPath>..\..\LCModel\LCM\SIL.LCModel.dll</HintPath>
+    <Reference Include="SIL.LCModel, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\SIL.LCModel.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Core">
-      <HintPath>..\..\LCModel\LCM\SIL.LCModel.Core.dll</HintPath>
+    <Reference Include="SIL.LCModel.Core, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\SIL.LCModel.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,12 +96,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentDisambiguation.cs" />
     <Compile Include="TextDisambiguation.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PrepFLExDB\PrepFLExDB.csproj">
-      <Project>{1C9C6F8C-05A7-4BD2-84CD-8C751DA518B0}</Project>
-      <Name>PrepFLExDB</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

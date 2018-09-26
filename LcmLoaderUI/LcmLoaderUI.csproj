@@ -66,24 +66,29 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SIL.Core">
-      <HintPath>..\..\LCModel\LCM\SIL.Core.dll</HintPath>
+    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LcmLoader\bin\x64\Debug\SIL.LcmLoader.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel">
-      <HintPath>..\..\LCModel\LCM\SIL.LCModel.dll</HintPath>
+    <Reference Include="SIL.LCModel, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\SIL.LCModel.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Core">
-      <HintPath>..\..\LCModel\LCM\SIL.LCModel.Core.dll</HintPath>
+    <Reference Include="SIL.LCModel.Core, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\SIL.LCModel.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Utils">
-      <HintPath>..\..\LCModel\LCM\SIL.LCModel.Utils.dll</HintPath>
+    <Reference Include="SIL.LCModel.Utils, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\SIL.LCModel.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Lexicon">
-      <HintPath>..\..\LCModel\LCM\SIL.Lexicon.dll</HintPath>
+    <Reference Include="SIL.Lexicon, Version=5.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\SIL.Lexicon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

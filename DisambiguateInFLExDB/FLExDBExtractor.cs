@@ -4,7 +4,6 @@
 
 using SIL.LcmLoaderUI;
 using SIL.LCModel;
-using SIL.PrepFLExDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
