@@ -41,12 +41,20 @@ namespace SIL.DisambiguateInFLExDB
 			sbBatchFile.Append("@echo off\n");
 			sbBatchFile.Append("cd \"");
 			sbBatchFile.Append(Path.GetTempPath());
-			sbBatchFile.Append("\"\n");
-			sbBatchFile.Append("pcpatr32 -t ");
+			sbBatchFile.Append("\"\n\"");
+			sbBatchFile.Append(GetPcPatr64ExePath());
+			sbBatchFile.Append("\\pcpatr64\" -t ");
 			sbBatchFile.Append(takeFileName);
 			sbBatchFile.Append("\n");
-			//Console.Write(sbBatchFile.ToString());
+			Console.Write(sbBatchFile.ToString());
 			File.WriteAllText(BatchFile ,sbBatchFile.ToString());
+		}
+
+		private String GetPcPatr64ExePath()
+		{
+			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+			return rootdir;
 		}
 		public void Invoke()
 		{

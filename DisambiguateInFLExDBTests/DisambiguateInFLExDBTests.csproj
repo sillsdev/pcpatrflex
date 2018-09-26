@@ -136,6 +136,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)lib\downloads\$(PlatformName)\*.dll" "$(ProjectDir)\$(OutDir)"</PostBuildEvent>
+    <PostBuildEvent>copy "$(SolutionDir)lib\downloads\$(PlatformName)\*.dll" "$(ProjectDir)\$(OutDir)"
+copy "$(SolutionDir)pcpatr\pcpatr64.exe" "$(ProjectDir)\$(OutDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
