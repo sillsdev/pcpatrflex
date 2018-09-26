@@ -333,6 +333,7 @@ namespace SIL.PcPatrFLEx
 			browser.LanguageInfo.LexFontFace = VernacularFont.FontFamily.Name;
 			browser.LanguageInfo.LexFontSize = VernacularFont.Size;
 			browser.LanguageInfo.LexFontStyle = VernacularFont.Style;
+			browser.LanguageInfo.UseRTL = Cache.LanguageProject.DefaultVernacularWritingSystem.RightToLeftScript;
 			browser.LoadAnaFile(andResult);
 			browser.ShowDialog();
 			return browser;

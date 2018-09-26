@@ -104,7 +104,7 @@ type="tPcPatrFLEx"
 > and <object
 type="tFLEx"
 ></object
-> at the same time.  You will need to close one before you start the other.</p
+> at the same time. You will need to close one before you start the other.</p
 ><p
 ><object
 type="tPcPatrFLEx"
@@ -194,7 +194,7 @@ type="tFLEx"
 > and <object
 type="tPcPatrFLEx"
 ></object
-> on the same project at the same time.  You will need to close one before you start the other.</p
+> on the same project at the same time. You will need to close one before you start the other.</p
 ></section2
 ><section2
 id="sHelp"
@@ -492,6 +492,10 @@ type="tPcPatrBrowser"
 type="tPcPatrBrowser"
 ></object
 > tool.</p
+><section1
+id="sOverview"
+><secTitle
+>Overview</secTitle
 ><p
 >Example <exampleRef
 letter="xPcPatrBrowser1"
@@ -528,7 +532,7 @@ type="tPcPatrGrammar"
 >When a node in the tree is selected, the bottom pane will show the rule in the <object
 type="tPcPatrGrammar"
 ></object
-> file that produced that node.  In addition, the features for that selected node will appear in the right, middle pane. For example, when clicking on the IP node, it looked like example <exampleRef
+> file that produced that node. In addition, the features for that selected node will appear in the right, middle pane. For example, when clicking on the IP node, it looked like example <exampleRef
 letter="xPcPatrBrowser2"
 num="xPcPatrBrowser2"
 ></exampleRef
@@ -554,6 +558,26 @@ type="tPcPatrFLEx"
 type="tMenuItem"
 >Parse</object
 > menu item options or the second set of arrow buttons on the tool bar to navigate from one parse to another.</p
+></section1
+><section1
+id="sRightToLeft"
+><secTitle
+>Right-to-left script</secTitle
+><p
+>If the vernacular language of your <object
+type="tFLEx"
+></object
+> project is a right-to-left script, <object
+type="tPcPatrFLEx"
+></object
+> will try to tell the <object
+type="tPcPatrBrowser"
+></object
+> this.  You may need to use the <object
+type="tMenuItem"
+>Language</object
+> menu item, though, and uncheck and then check the “Use right-to-left orientation in parse tree and interlinear” option.</p
+></section1
 ></appendix
 ><appendix
 id="aGrammarAsXML"
