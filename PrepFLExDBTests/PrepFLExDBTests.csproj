@@ -107,10 +107,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FWDlls\SIL.Lexicon.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.PrepFLExDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PrepFLExDB\bin\x64\Debug\SIL.PrepFLExDB.exe</HintPath>
-    </Reference>
     <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FWDlls\SIL.WritingSystems.dll</HintPath>
@@ -133,6 +129,10 @@
     <ProjectReference Include="..\LcmLoaderUI\LcmLoaderUI.csproj">
       <Project>{D122CA85-EB21-4EC1-B5D4-3B80ED69857B}</Project>
       <Name>LcmLoaderUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrepFLExDB\PrepFLExDB.csproj">
+      <Project>{1C9C6F8C-05A7-4BD2-84CD-8C751DA518B0}</Project>
+      <Name>PrepFLExDB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

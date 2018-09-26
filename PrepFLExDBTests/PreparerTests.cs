@@ -6,11 +6,9 @@ using NUnit.Framework;
 using SIL.LcmLoader;
 using SIL.LcmLoaderUI;
 using SIL.LCModel;
-using SIL.LCModel.Core;
 using SIL.LCModel.Core.Cellar;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
-using SIL.LCModel.Utils;
 using SIL.PrepFLExDB;
 using SIL.WritingSystems;
 using System;
@@ -18,10 +16,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static SIL.PrepFLExDB.Preparer;
 
 namespace SIL.PrepFLExDBTests
 {

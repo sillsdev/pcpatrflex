@@ -13,6 +13,6 @@ namespace SIL.LcmLoaderUI
 	public static class Constants
 	{
 		public const string PcPatrFeatureDescriptorCustomField = "PCPATR";
-		public const string PcPatrFeatureDescriptorList = "PCPatr Feature Descriptors";
+		public const string PcPatrFeatureDescriptorList = "PCPATR Feature Descriptors";
 	}
 }
