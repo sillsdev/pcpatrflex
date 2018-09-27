@@ -190,11 +190,11 @@
 			// btnHelp
 			// 
 			this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnHelp.Location = new System.Drawing.Point(1189, 96);
+			this.btnHelp.Location = new System.Drawing.Point(1146, 96);
 			this.btnHelp.Name = "btnHelp";
-			this.btnHelp.Size = new System.Drawing.Size(33, 40);
+			this.btnHelp.Size = new System.Drawing.Size(76, 40);
 			this.btnHelp.TabIndex = 6;
-			this.btnHelp.Text = "?";
+			this.btnHelp.Text = "Help...";
 			this.btnHelp.UseVisualStyleBackColor = true;
 			this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
 			// 
