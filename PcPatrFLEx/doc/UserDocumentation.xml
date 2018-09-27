@@ -196,7 +196,7 @@ type="tFLEx"
 >When you click the “Choose FLEx Project” button, you will see the standard <object
 type="tFLEx"
 ></object
-> choose project dialog box. You use it to select the project to use. Once the project has been loaded (which may take a while, depending on the size of the project), the names of the project's texts (in the default analysis language) will appear in the bottom left pane. By default, the first text will be selected and all of its segments<endnote
+> choose project dialog box. You use it to select the project to use. Once the project has been loaded (which may take a while, depending on the size of the project), the names of the project's texts will appear in the bottom left pane. By default, the first text will be selected and all of its segments<endnote
 id="nSegment"
 ><p
 >By “segment” we mean the portion of the text that FLEx treats as a unit. These are often sentences or clauses.</p
