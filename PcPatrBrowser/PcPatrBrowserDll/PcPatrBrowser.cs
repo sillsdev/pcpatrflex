@@ -186,13 +186,17 @@ namespace SIL.PcPatrBrowser
 			pnlTree.Controls.Add(m_tree);
 
 			m_treeTransform = new XslCompiledTransform();
-			m_treeTransform.Load(Path.Combine(sStartupPath, @"..\..\Transforms\PcPatrToLingTree.xsl"));
+			string beginPath = "";
+			if (sStartupPath.Contains("x64"))
+				beginPath = @"..\..\";
+			m_sStartUpPath = Path.Combine(sStartupPath, beginPath);
+			m_treeTransform.Load(Path.Combine(m_sStartUpPath, @"Transforms\PcPatrToLingTree.xsl"));
 
 			m_fsTransform = new XslCompiledTransform();
-			m_fsTransform.Load(Path.Combine(m_sStartUpPath, @"..\..\Transforms\ShowFS.xsl"));
+			m_fsTransform.Load(Path.Combine(m_sStartUpPath, @"Transforms\ShowFS.xsl"));
 
 			m_interlinearTransform = new XslCompiledTransform();
-			m_interlinearTransform.Load(Path.Combine(sStartupPath, @"..\..\Transforms\ShowInterlinear.xsl"));
+			m_interlinearTransform.Load(Path.Combine(m_sStartUpPath, @"Transforms\ShowInterlinear.xsl"));
 
 			InitInterlinearBrowser();
 			InitFeatureStructureBrowser();
@@ -437,7 +441,7 @@ namespace SIL.PcPatrBrowser
 			InitBrowser(wbFeatureStructure);
 			wbFeatureStructure.Name = "wbFeatureStructure";
 			pnlFeatureStructure.Controls.Add(wbFeatureStructure);
-			m_sInitFeatureMessagePath = Path.Combine(Application.StartupPath, @"..\..\Transforms\InitFeature.htm");
+			m_sInitFeatureMessagePath = Path.Combine(m_sStartUpPath, @"Transforms\InitFeature.htm");
 			wbFeatureStructure.Navigate(m_sInitFeatureMessagePath);
 		}
 		private void InitInterlinearBrowser()
@@ -446,7 +450,7 @@ namespace SIL.PcPatrBrowser
 			InitBrowser(wbInterlinear);
 			wbInterlinear.Name = "wbInterlinear";
 			pnlInterlinear.Controls.Add(wbInterlinear);
-			m_sInitInterlinearMessagePath = Path.Combine(Application.StartupPath, @"..\..\Transforms\InitInterlinear.htm");
+			m_sInitInterlinearMessagePath = Path.Combine(m_sStartUpPath, @"Transforms\InitInterlinear.htm");
 			wbInterlinear.Navigate(m_sInitInterlinearMessagePath);
 		}
 
@@ -1257,7 +1261,7 @@ namespace SIL.PcPatrBrowser
 
 		private void ReportNoInterlinear()
 		{
-			string sNoInterlinearMessagePath = Path.Combine(Application.StartupPath, @"..\..\Transforms\NoInterlinear.htm");
+			string sNoInterlinearMessagePath = Path.Combine(m_sStartUpPath, @"Transforms\NoInterlinear.htm");
 			wbInterlinear.Navigate(sNoInterlinearMessagePath);
 		}
 		private void ShowParseTree(PcPatrSentence sentence, PcPatrParse parse)
