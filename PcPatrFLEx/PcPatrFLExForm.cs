@@ -56,6 +56,9 @@ namespace SIL.PcPatrFLEx
 		private RegistryKey regkey;
 
 		private ContextMenuStrip helpContextMenu;
+		const string UserDocumentation = "User Documentation";
+		const string PCPATRReferenceManual = "PC-PATR Reference Manual";
+		const string About = "About";
 
 		public PcPatrFLExForm()
 		{
@@ -128,13 +131,18 @@ namespace SIL.PcPatrFLEx
 		private void BuildHelpContextMenu()
 		{
 			helpContextMenu = new ContextMenuStrip();
-			ToolStripMenuItem userDoc = new ToolStripMenuItem("User Documentation");
+			ToolStripMenuItem userDoc = new ToolStripMenuItem(UserDocumentation);
 			userDoc.Click += new EventHandler(UserDoc_Click);
-			userDoc.Name = "User Documentation";
-			ToolStripMenuItem about = new ToolStripMenuItem("About");
+			userDoc.Name = UserDocumentation;
+			ToolStripMenuItem pcpatrDoc = new ToolStripMenuItem(PCPATRReferenceManual);
+			pcpatrDoc.Click += new EventHandler(PCPATRDoc_Click);
+			pcpatrDoc.Name = PCPATRReferenceManual;
+			ToolStripMenuItem about = new ToolStripMenuItem(About);
 			about.Click += new EventHandler(About_Click);
-			about.Name = "About";
+			about.Name = About;
 			helpContextMenu.Items.Add(userDoc);
+			helpContextMenu.Items.Add(pcpatrDoc);
+			helpContextMenu.Items.Add("-");
 			helpContextMenu.Items.Add(about);
 		}
 
@@ -312,14 +320,14 @@ namespace SIL.PcPatrFLEx
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
 			string ana = GetAnaForm(selectedSegmentToShow);
-			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
-			File.WriteAllText(anaFile, ana);
-			var invoker = new PCPatrInvoker(GrammarFile, anaFile);
-			invoker.Invoke();
-			var andResult = invoker.AndFile;
-			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
-			var result = browser.PropertiesChosen;
-			DisambiguateSegment(selectedSegmentToShow, result[0]);
+			string andResult;
+			PcPatrBrowserApp browser;
+			var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
+			if (grammarOK)
+			{
+				var result = browser.PropertiesChosen;
+				DisambiguateSegment(selectedSegmentToShow, result[0]);
+			}
 			Cursor.Current = Cursors.Default;
 		}
 
@@ -434,16 +442,37 @@ namespace SIL.PcPatrFLEx
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
 			string ana = GetAnaForm(selectedTextToShow);
+			string andResult;
+			PcPatrBrowserApp browser;
+			var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
+			if (grammarOK)
+			{
+				var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
+				textdisambiguator.Disambiguate(Cache);
+			}
+			Cursor.Current = Cursors.Default;
+		}
+
+		private bool ProcessANAFileAndShowResults(string ana, out string andResult, out PcPatrBrowserApp browser)
+		{
 			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
 			File.WriteAllText(anaFile, ana);
 			var invoker = new PCPatrInvoker(GrammarFile, anaFile);
 			invoker.Invoke();
-			var andResult = invoker.AndFile;
-			PcPatrBrowserApp browser = ShowPcPatrBrowser(andResult);
-			// What do we do??
-			var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
-			textdisambiguator.Disambiguate(Cache);
-			Cursor.Current = Cursors.Default;
+			andResult = invoker.AndFile;
+			if (File.Exists(andResult))
+			{
+				browser = ShowPcPatrBrowser(andResult);
+				return true;
+			}
+			else
+			{
+				browser = null;
+				MessageBox.Show("The PC-PATR grammar file had an error in it and failed to load.\nWe will show the error log after you click on OK.\nPlease fix all errors in the grammar file and then try again.",
+					"Grammar Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Process.Start(andResult.Replace(".and", ".log"));
+				return false;
+			}
 		}
 
 		private void btnHelp_Click(object sender, EventArgs e)
@@ -457,24 +486,48 @@ namespace SIL.PcPatrFLEx
 		void UserDoc_Click(object sender, EventArgs e)
 		{
 			ToolStripItem menuItem = (ToolStripItem)sender;
-			if (menuItem.Name == "User Documentation")
+			if (menuItem.Name == UserDocumentation)
 			{
-				Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-				var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
-				int i = rootdir.LastIndexOf("bin");
+				string rootdir;
+				int indexOfBinInPath;
+				DetermineIndexOfBinInExecutablesPath(out rootdir, out indexOfBinInPath);
 				String basedir;
-				if (i >= 0)
-					basedir = rootdir.Substring(0, i);
+				if (indexOfBinInPath >= 0)
+					basedir = rootdir.Substring(0, indexOfBinInPath);
 				else
 					basedir = rootdir;
 				Process.Start(Path.Combine(basedir, "doc", "UserDocumentation.pdf"));
 			}
 		}
 
+		private static void DetermineIndexOfBinInExecutablesPath(out string rootdir, out int indexOfBinInPath)
+		{
+			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+			rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+			indexOfBinInPath = rootdir.LastIndexOf("bin");
+		}
+
+		void PCPATRDoc_Click(object sender, EventArgs e)
+		{
+			ToolStripItem menuItem = (ToolStripItem)sender;
+			if (menuItem.Name == PCPATRReferenceManual)
+			{
+				string rootdir;
+				int indexOfBinInPath;
+				DetermineIndexOfBinInExecutablesPath(out rootdir, out indexOfBinInPath);
+				String basedir;
+				if (indexOfBinInPath >= 0)
+					basedir = rootdir.Substring(0, indexOfBinInPath);
+				else
+					basedir = rootdir;
+				Process.Start(Path.Combine(basedir, "doc", "pcpatr.html"));
+			}
+		}
+
 		void About_Click(object sender, EventArgs e)
 		{
 			ToolStripItem menuItem = (ToolStripItem)sender;
-			if (menuItem.Name == "About")
+			if (menuItem.Name == About)
 			{
 				var dialog = new AboutBox();
 				// for some reason the following is needed to keep the dialog within the form

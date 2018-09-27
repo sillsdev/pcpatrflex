@@ -224,7 +224,7 @@ id="sHelp"
 ><secTitle
 >Help button</secTitle
 ><p
->The “Help...” button is used to get this user documentation file or to show the “About” dialog box.</p
+>The “Help...” button is used to get this user documentation file, show the PC-PATR Reference Manual, or to show the “About” dialog box.</p
 ></section2
 ><section2
 id="sDisambiguate"
@@ -478,6 +478,38 @@ type="tFWDatabaseVersion"
 ></object
 >.</td
 ></tr
+><tr
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>The PC-PATR grammar file had an error in it and failed to load.  We will show the error log after you click on OK.  Please fix all errors in the grammar file and then try again.</object
+></td
+><td
+>The <object
+type="tPcPatrGrammar"
+></object
+> file being used has at least one error it it so the <object
+type="tPcPatr"
+></object
+> program could not load and use it.  The list of errors (and any warning messages, too) will be shown as soon as you click on the OK button.  Note that in the error message file, the grammar file's location may look odd, but it is the same as what is showing before the “Browse” button.<endnote
+id="nOddGrammarFile"
+><p
+>This happens for long file names or folder names.  <object
+type="tPcPatr"
+></object
+> is a “DOS” program and uses this cryptic format.</p
+></endnote
+>  Also, the error messages and warnings may be a bit cryptic.  See the PC-PATR Reference Manual for (some possible) help on this.  (The manual is available via the "Help” button; see section <sectionRef
+sec="sHelp"
+></sectionRef
+>.)</td
+></tr
 ></table
 ></example
 ><p
@@ -550,6 +582,8 @@ type="tFLEx"
 ></object
 >.</pc
 ></li
+><li
+>The user interface is in English only.</li
 ></ul
 ></section1
 ><section1
