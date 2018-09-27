@@ -33,7 +33,7 @@ namespace SIL.LcmLoader
 		public const string kProjectOpen = "The FieldWorks project is currently open in another application.";
 		public const string kCloseApp = "Close the application and try to run this command again.";
 		public const string kProjectOlder = "The FieldWorks project was created with an older version of FLEx.";
-		public const string kProjectMigrate = "Migrate the project to the latest version by opening it in FLEx.";
+		public const string kProjectMigrate = "Migrate the project to the latest version by opening it in a newer version of FLEx.";
 
 		/// ------------------------------------------------------------------------------------
 		/// <summary>

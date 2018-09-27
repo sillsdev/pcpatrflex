@@ -462,7 +462,11 @@ namespace SIL.PcPatrFLEx
 				Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
 				var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
 				int i = rootdir.LastIndexOf("bin");
-				String basedir = rootdir.Substring(0, i);
+				String basedir;
+				if (i >= 0)
+					basedir = rootdir.Substring(0, i);
+				else
+					basedir = rootdir;
 				Process.Start(Path.Combine(basedir, "doc", "UserDocumentation.pdf"));
 			}
 		}

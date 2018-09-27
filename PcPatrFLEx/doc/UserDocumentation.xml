@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >andy_black@sil.org</emailAddress
 ><date
->September 26, 2018</date
+>September 27, 2018</date
 ><version
->Version 0.1.0 Beta</version
+>Version 1.0.0</version
 ><version
 >Copyright © 2018 SIL International</version
 ><contents
@@ -55,6 +55,29 @@ type="tFLEx"
 type="tPcPatrFLEx"
 ></object
 > to try and disambiguate it.</p
+><p
+><object
+type="tPcPatrFLEx"
+></object
+> is compatible with any version of <object
+type="tFLEx"
+></object
+> that is compatible with version <object
+type="tFWDatabaseVersion"
+></object
+> of the <object
+type="tFLEx"
+></object
+> database.  It was developed with version <object
+type="tFLExVersion"
+></object
+> of <object
+type="tFLEx"
+></object
+>, so that version is known to work with <object
+type="tPcPatrFLEx"
+></object
+>.</p
 ><p
 >While you can use any <object
 type="tPcPatrGrammar"
@@ -422,6 +445,39 @@ type="tFLEx"
 ></object
 >.</td
 ></tr
+><tr
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>Loading failed.  The FieldWorks project was created with an older version of FLEx.  Migrate the project to the latest version by opening it in a newer version of FLEx.</object
+></td
+><td
+>The <object
+type="tPcPatrFLEx"
+></object
+> program works with certain versions of <object
+type="tFLEx"
+></object
+> (currently version <object
+type="tFLExVersion"
+></object
+> which has database version <object
+type="tFWDatabaseVersion"
+></object
+>).  You will need to use a version of <object
+type="tFLEx"
+></object
+> that will migrate the database to version <object
+type="tFWDatabaseVersion"
+></object
+>.</td
+></tr
 ></table
 ></example
 ><p
@@ -441,6 +497,39 @@ type="tPcPatrFLEx"
 >:</p
 ><ul
 ><li
+><object
+type="tPcPatrFLEx"
+></object
+> only works with a version of <object
+type="tFLEx"
+></object
+> that also uses version <object
+type="tFWDatabaseVersion"
+></object
+> of the database.  One such version is <object
+type="tFLEx"
+></object
+> version <object
+type="tFLExVersion"
+></object
+>.</li
+><li
+>You cannot run <object
+type="tPcPatrFLEx"
+></object
+> and <object
+type="tFLEx"
+></object
+> on the same database at the same time.  You must close one before opening the other.</li
+><li
+><object
+type="tPcPatrFLEx"
+></object
+> assumes that the comment character in the <object
+type="tPcPatrGrammar"
+></object
+> file is a vertical bar |. If you use something else, the parser will fail every segment.</li
+><li
 >When a word in <object
 type="tFLEx"
 ></object
@@ -455,15 +544,12 @@ type="tPcPatrFLEx"
 ><li
 >If there are two or more stems, use the category of the left-most one. (This could be incorrect if some other stem is the correct category to use or if the stem compounding results in a different category or if one of the affixes is derivational and changes the category.)</li
 ></ol
+><pc
+>Therefore, it is always a good idea to overtly fill out the “Word Cat” field in <object
+type="tFLEx"
+></object
+>.</pc
 ></li
-><li
-><object
-type="tPcPatrFLEx"
-></object
-> assumes that the comment character in the <object
-type="tPcPatrGrammar"
-></object
-> file is a vertical bar |. If you use something else, the parser will fail every segment.</li
 ></ul
 ></section1
 ><section1
@@ -573,7 +659,7 @@ type="tPcPatrFLEx"
 > will try to tell the <object
 type="tPcPatrBrowser"
 ></object
-> this.  You may need to use the <object
+> this. You may need to use the <object
 type="tMenuItem"
 >Language</object
 > menu item, though, and uncheck and then check the “Use right-to-left orientation in parse tree and interlinear” option.</p
@@ -788,6 +874,14 @@ id="tPcPatr"
 ><type
 before="PC-PATR grammar"
 id="tPcPatrGrammar"
+></type
+><type
+before="9.0.4 Beta"
+id="tFLExVersion"
+></type
+><type
+before="700072"
+id="tFWDatabaseVersion"
 ></type
 ><type
 before="PcPatr Browser"
