@@ -13,4 +13,4 @@ It was developed with version 9.0.4 Beta of FLEx, so that version is known to wo
 While you can use any PC-PATR grammar file, *Use PC-PATR with FLEx* expects that you will have used the *PAWS* program to create 
 the PC-PATR grammar file. See https://software.sil.org/paws/ for more on this program.
 
-See https://github.com/sillsdev/pcpatrflex/tree/master/PcPatrFLEx/doc/UseDocumentation.pdf for more.
+See https://github.com/sillsdev/pcpatrflex/tree/master/PcPatrFLEx/doc/UserDocumentation.pdf for more.
