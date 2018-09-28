@@ -19,10 +19,10 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf64}\SIL\PcPatrFLEx
-DefaultGroupName=PcPatrFLEx
-OutputBaseFilename=PcPatrFLExSetup
-SetupIconFile=C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\PAWS2FLEx.ico
+DefaultDirName={pf64}\SIL\UsePcPatrWithFLEx
+DefaultGroupName=Use PC-PATR with FLEx
+OutputBaseFilename=UsePcPatrWithFLExSetup
+SetupIconFile=..\PcPatrFLEx\PAWS2FLEx.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -30,41 +30,41 @@ SolidCompression=yes
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: 
 
 [Files]
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\PcPatrFLEx.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\icu.net.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\icudt54.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\icuin54.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\icutu54.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\icuuc54.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\LingTreeTree.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\Microsoft.Extensions.DependencyModel.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\Microsoft.Practices.ServiceLocation.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\pcpatr64.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\PrepFLExDB.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.Core.Desktop.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.DisambiguateInFLExDB.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.LcmLoader.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.LcmLoaderUI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.LCModel.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.LCModel.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.LCModel.Utils.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.Lexicon.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.PcPatrBrowserDll.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\SIL.WritingSystems.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\x64\Release\StructureMap.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\Transforms\InitFeature.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\Transforms\InitInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\Transforms\NoInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\Transforms\PcPatrToLingTree.xsl"; DestDir: "{app}\Transforms"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\Transforms\ShowFS.xsl"; DestDir: "{app}\Transforms"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\bin\Transforms\ShowInterlinear.xsl"; DestDir: "{app}\Transforms"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\doc\pcpatr.html"; DestDir: "{app}\doc"; Flags: ignoreversion
-Source: "C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\PcPatrFLEx\doc\UserDocumentation.pdf"; DestDir: "{app}\doc"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\PcPatrFLEx.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\icu.net.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\icudt54.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\icuin54.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\icutu54.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\icuuc54.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\LingTreeTree.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\Microsoft.Extensions.DependencyModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\Microsoft.Practices.ServiceLocation.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\pcpatr64.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\PrepFLExDB.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.Core.Desktop.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.DisambiguateInFLExDB.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.LcmLoader.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.LcmLoaderUI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.LCModel.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.LCModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.LCModel.Utils.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.Lexicon.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.PcPatrBrowserDll.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\SIL.WritingSystems.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\x64\Release\StructureMap.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\Transforms\InitFeature.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\Transforms\InitInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\Transforms\NoInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\Transforms\PcPatrToLingTree.xsl"; DestDir: "{app}\Transforms"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\Transforms\ShowFS.xsl"; DestDir: "{app}\Transforms"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\bin\Transforms\ShowInterlinear.xsl"; DestDir: "{app}\Transforms"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\doc\pcpatr.html"; DestDir: "{app}\doc"; Flags: ignoreversion
+Source: "..\PcPatrFLEx\doc\UserDocumentation.pdf"; DestDir: "{app}\doc"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
