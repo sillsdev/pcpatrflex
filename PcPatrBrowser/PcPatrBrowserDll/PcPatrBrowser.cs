@@ -78,7 +78,7 @@ namespace SIL.PcPatrBrowser
 		private string m_sLogOrAnaFileName;
 		private string m_sGrammarFileName;
 		private string m_sLanguageFileName;
-		private const string m_strLanguageFileFilter = "PcPatr Browser Language Info (*.pbl)|*.pbl|" +
+		private const string m_strLanguageFileFilter = "PC-PATR Browser Language Info (*.pbl)|*.pbl|" +
 			"All Files (*.*)|*.*";
 		string m_sFSFile;
 		string m_sInterFile;
@@ -814,7 +814,7 @@ namespace SIL.PcPatrBrowser
 			// miHelpAbout
 			// 
 			this.miHelpAbout.Index = 0;
-			this.miHelpAbout.Text = "&About PcPatrBrowser";
+			this.miHelpAbout.Text = "&About PC-PATR Browser";
 			this.miHelpAbout.Click += new System.EventHandler(this.miHelpAbout_Click);
 			// 
 			// pnlTreeFeat
@@ -822,18 +822,18 @@ namespace SIL.PcPatrBrowser
 			this.pnlTreeFeat.AutoScroll = true;
 			this.pnlTreeFeat.BackColor = System.Drawing.SystemColors.Window;
 			this.pnlTreeFeat.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlTreeFeat.Location = new System.Drawing.Point(0, 131);
+			this.pnlTreeFeat.Location = new System.Drawing.Point(0, 176);
 			this.pnlTreeFeat.Name = "pnlTreeFeat";
-			this.pnlTreeFeat.Size = new System.Drawing.Size(592, 335);
+			this.pnlTreeFeat.Size = new System.Drawing.Size(592, 215);
 			this.pnlTreeFeat.TabIndex = 7;
 			// 
 			// splitterBetweenTreeFeatAndRule
 			// 
 			this.splitterBetweenTreeFeatAndRule.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.splitterBetweenTreeFeatAndRule.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitterBetweenTreeFeatAndRule.Location = new System.Drawing.Point(0, 466);
+			this.splitterBetweenTreeFeatAndRule.Location = new System.Drawing.Point(0, 391);
 			this.splitterBetweenTreeFeatAndRule.Name = "splitterBetweenTreeFeatAndRule";
-			this.splitterBetweenTreeFeatAndRule.Size = new System.Drawing.Size(592, 1);
+			this.splitterBetweenTreeFeatAndRule.Size = new System.Drawing.Size(592, 2);
 			this.splitterBetweenTreeFeatAndRule.TabIndex = 8;
 			this.splitterBetweenTreeFeatAndRule.TabStop = false;
 			// 
@@ -843,9 +843,9 @@ namespace SIL.PcPatrBrowser
 			this.pnlRule.BackColor = System.Drawing.SystemColors.Window;
 			this.pnlRule.Controls.Add(this.richTextBox1);
 			this.pnlRule.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlRule.Location = new System.Drawing.Point(0, 469);
+			this.pnlRule.Location = new System.Drawing.Point(0, 393);
 			this.pnlRule.Name = "pnlRule";
-			this.pnlRule.Size = new System.Drawing.Size(592, 100);
+			this.pnlRule.Size = new System.Drawing.Size(592, 146);
 			this.pnlRule.TabIndex = 7;
 			// 
 			// richTextBox1
@@ -854,7 +854,7 @@ namespace SIL.PcPatrBrowser
 			this.richTextBox1.Location = new System.Drawing.Point(0, 0);
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.ReadOnly = true;
-			this.richTextBox1.Size = new System.Drawing.Size(592, 100);
+			this.richTextBox1.Size = new System.Drawing.Size(592, 146);
 			this.richTextBox1.TabIndex = 0;
 			this.richTextBox1.Text = "";
 			// 
@@ -862,9 +862,9 @@ namespace SIL.PcPatrBrowser
 			// 
 			this.splitterBetweenInterlinearAndTreeFeat.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.splitterBetweenInterlinearAndTreeFeat.Dock = System.Windows.Forms.DockStyle.Top;
-			this.splitterBetweenInterlinearAndTreeFeat.Location = new System.Drawing.Point(0, 128);
+			this.splitterBetweenInterlinearAndTreeFeat.Location = new System.Drawing.Point(0, 174);
 			this.splitterBetweenInterlinearAndTreeFeat.Name = "splitterBetweenInterlinearAndTreeFeat";
-			this.splitterBetweenInterlinearAndTreeFeat.Size = new System.Drawing.Size(592, 1);
+			this.splitterBetweenInterlinearAndTreeFeat.Size = new System.Drawing.Size(592, 2);
 			this.splitterBetweenInterlinearAndTreeFeat.TabIndex = 8;
 			this.splitterBetweenInterlinearAndTreeFeat.TabStop = false;
 			// 
@@ -875,7 +875,7 @@ namespace SIL.PcPatrBrowser
 			this.pnlInterlinear.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlInterlinear.Location = new System.Drawing.Point(0, 28);
 			this.pnlInterlinear.Name = "pnlInterlinear";
-			this.pnlInterlinear.Size = new System.Drawing.Size(592, 100);
+			this.pnlInterlinear.Size = new System.Drawing.Size(592, 146);
 			this.pnlInterlinear.TabIndex = 7;
 			// 
 			// pnlTree
@@ -1052,8 +1052,8 @@ namespace SIL.PcPatrBrowser
 			// 
 			// PcPatrBrowserApp
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(592, 569);
+			this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
+			this.ClientSize = new System.Drawing.Size(592, 539);
 			this.Controls.Add(this.pnlTreeFeat);
 			this.Controls.Add(this.splitterBetweenInterlinearAndTreeFeat);
 			this.Controls.Add(this.pnlInterlinear);
@@ -1063,7 +1063,7 @@ namespace SIL.PcPatrBrowser
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Menu = this.mainMenu1;
 			this.Name = "PcPatrBrowserApp";
-			this.Text = "PcPatrBrowser";
+			this.Text = "PC-PATR Browser";
 			this.pnlRule.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -1703,7 +1703,7 @@ namespace SIL.PcPatrBrowser
 		}
 		private void SetTitle()
 		{
-			this.Text = "PcPatrBrowser - " + m_sLogOrAnaFileName + " (" + m_language.LanguageName + ")" +
+			this.Text = "PC-PATR Browser - " + m_sLogOrAnaFileName + " (" + m_language.LanguageName + ")" +
 				(m_fNeedToSaveLanguageInfo ? "*" : "");
 		}
 
@@ -1714,7 +1714,7 @@ namespace SIL.PcPatrBrowser
 			{
 				SaveFileDialog saveDlg = new SaveFileDialog();
 				saveDlg.AddExtension = true;
-				saveDlg.Title = "PcPatr Browser Language Info File";
+				saveDlg.Title = "PC-PATR Browser Language Info File";
 				saveDlg.Filter = m_strLanguageFileFilter;
 				// following needed, otherwise it always returns "Cancel"
 				saveDlg.OverwritePrompt = false;
@@ -1938,7 +1938,7 @@ namespace SIL.PcPatrBrowser
 		{
 			SaveFileDialog saveDlg = new SaveFileDialog();
 			saveDlg.AddExtension = true;
-			saveDlg.Title = "PcPatr Browser Language Info File";
+			saveDlg.Title = "PC-PATR Browser Language Info File";
 			saveDlg.Filter = m_strLanguageFileFilter;
 			// following needed, otherwise it always returns "Cancel"
 			saveDlg.OverwritePrompt = false;
