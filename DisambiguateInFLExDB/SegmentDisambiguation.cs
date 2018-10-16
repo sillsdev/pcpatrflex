@@ -30,7 +30,8 @@ namespace SIL.DisambiguateInFLExDB
 				int i = 0;
 				foreach (IAnalysis analysis in Segment.AnalysesRS)
 				{
-					if (analysis.ClassID == WfiWordformTags.kClassId)
+					if (analysis.ClassID == WfiWordformTags.kClassId &&
+						i < DisambiguatedMorphBundles.Count)
 					{
 						var wfiWordform = analysis as IWfiWordform;
 						var wfiMorphBundelGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
