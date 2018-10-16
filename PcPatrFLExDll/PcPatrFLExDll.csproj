@@ -79,7 +79,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FwCoreDlgs">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\FwCoreDlgs.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Release\FwCoreDlgs.dll</HintPath>
     </Reference>
     <Reference Include="LingTreeTree">
       <HintPath>..\LingTreeTree\bin\x64\Release\LingTreeTree.dll</HintPath>
@@ -132,7 +132,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="xCoreInterfaces">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\xCoreInterfaces.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Release\xCoreInterfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -190,21 +190,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)pcpatr\pcpatr64.exe" "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\LingTreeTree.dll"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\PcPatrFLExDll.dll"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\PcPatrFLExDll.pdb"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\PrepFLExDB.exe"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\PrepFLExDB.pdb"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\SIL.DisambiguateInFLExDB.dll"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\SIL.DisambiguateInFLExDB.pdb"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\SIL.PcPatrBrowserDll.dll"  "c:\fwrepo\fw\Output\Debug"
-copy "$(ProjectDir)\$(OutDir)\SIL.PcPatrBrowserDll.pdb"  "c:\fwrepo\fw\Output\Debug"
-mkdir "c:\fwrepo\fw\Output\Debug\Transforms"
-copy "$(SolutionDir)PcPatrBrowser\Transforms\*" "c:\fwrepo\fw\Output\Debug\Transforms"
-mkdir "c:\fwrepo\fw\Output\Debug\doc"
-copy "$(ProjectDir)doc\UserDocumentation.pdf"  "c:\fwrepo\fw\Output\Debug\doc"
-copy "$(ProjectDir)doc\pcpatr.html"  "c:\fwrepo\fw\Output\Debug\doc"
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

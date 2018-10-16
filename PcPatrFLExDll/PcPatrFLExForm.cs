@@ -277,7 +277,7 @@ namespace SIL.PcPatrFLEx
 
 		private PcPatrBrowserApp ShowPcPatrBrowser(string andResult)
 		{
-			var browser = new PcPatrBrowserApp();
+			var browser = new PcPatrBrowserApp(GetAppBaseDir());
 			browser.AdjustUIForPcPatrFLEx();
 			browser.LanguageInfo.GlossFontFace = AnalysisFont.FontFamily.Name;
 			browser.LanguageInfo.GlossFontSize = AnalysisFont.Size;
@@ -432,16 +432,22 @@ namespace SIL.PcPatrFLEx
 			ToolStripItem menuItem = (ToolStripItem)sender;
 			if (menuItem.Name == UserDocumentation)
 			{
-				string rootdir;
-				int indexOfBinInPath;
-				DetermineIndexOfBinInExecutablesPath(out rootdir, out indexOfBinInPath);
-				String basedir;
-				if (indexOfBinInPath >= 0)
-					basedir = rootdir.Substring(0, indexOfBinInPath);
-				else
-					basedir = rootdir;
+				String basedir = GetAppBaseDir();
 				Process.Start(Path.Combine(basedir, "doc", "UserDocumentation.pdf"));
 			}
+		}
+
+		private static string GetAppBaseDir()
+		{
+			string basedir;
+			string rootdir;
+			int indexOfBinInPath;
+			DetermineIndexOfBinInExecutablesPath(out rootdir, out indexOfBinInPath);
+			if (indexOfBinInPath >= 0)
+				basedir = rootdir.Substring(0, indexOfBinInPath);
+			else
+				basedir = rootdir;
+			return basedir;
 		}
 
 		private static void DetermineIndexOfBinInExecutablesPath(out string rootdir, out int indexOfBinInPath)
@@ -456,14 +462,7 @@ namespace SIL.PcPatrFLEx
 			ToolStripItem menuItem = (ToolStripItem)sender;
 			if (menuItem.Name == PCPATRReferenceManual)
 			{
-				string rootdir;
-				int indexOfBinInPath;
-				DetermineIndexOfBinInExecutablesPath(out rootdir, out indexOfBinInPath);
-				String basedir;
-				if (indexOfBinInPath >= 0)
-					basedir = rootdir.Substring(0, indexOfBinInPath);
-				else
-					basedir = rootdir;
+				String basedir = GetAppBaseDir();
 				Process.Start(Path.Combine(basedir, "doc", "pcpatr.html"));
 			}
 		}
