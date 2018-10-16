@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >andy_black@sil.org</emailAddress
 ><date
->September 27, 2018</date
+>16 October, 2018</date
 ><version
->Version 1.0.0</version
+>Version 1.0.0 Beta</version
 ><version
 >Copyright © 2018 SIL International</version
 ><contents
@@ -36,11 +36,20 @@ id="sIntro"
 ><object
 type="tPcPatrFLEx"
 ></object
-> is a tool that can use a <object
+> is a tool that works as a utility in <object
+type="tFieldWorks"
+></object
+> (aka <object
+type="tFLEx"
+></object
+>).  <object
+type="tPcPatrFLEx"
+></object
+> can use a <object
 type="tPcPatrGrammar"
 ></object
 > to disambiguate a text or a portion of a text that has been analyzed in a <object
-type="tFieldWorks"
+type="tFLEx"
 ></object
 > project. You tell <object
 type="tPcPatrFLEx"
@@ -48,10 +57,7 @@ type="tPcPatrFLEx"
 > the <object
 type="tPcPatrGrammar"
 ></object
-> file and the <object
-type="tFLEx"
-></object
-> project to use. Then you can choose a text or a portion of that text and ask <object
+> file to use. Then you can choose a text or a portion of that text and ask <object
 type="tPcPatrFLEx"
 ></object
 > to try and disambiguate it.</p
@@ -59,25 +65,13 @@ type="tPcPatrFLEx"
 ><object
 type="tPcPatrFLEx"
 ></object
-> is compatible with any version of <object
-type="tFLEx"
-></object
-> that is compatible with version <object
-type="tFWDatabaseVersion"
-></object
-> of the <object
-type="tFLEx"
-></object
-> database.  It was developed with version <object
+> works with version <object
 type="tFLExVersion"
 ></object
-> of <object
+> or higher of <object
 type="tFLEx"
 ></object
->, so that version is known to work with <object
-type="tPcPatrFLEx"
-></object
->.</p
+> and is only available on 64-bit Windows computers.</p
 ><p
 >While you can use any <object
 type="tPcPatrGrammar"
@@ -94,15 +88,68 @@ type="tPcPatrGrammar"
 > file. See <link
 href="https://software.sil.org/paws/"
 >https://software.sil.org/paws/</link
-> for more on this program.</p
-><p
->Whenever you first load a <object
-type="tFLEx"
+> for more on <object
+type="tPAWS"
 ></object
-> database in <object
+>.</p
+><section2
+id="sInstallation"
+><secTitle
+>Installation</secTitle
+><p
+>To install <object
 type="tPcPatrFLEx"
 ></object
->, it will automatically add to your <object
+>, obtain the installer from <link
+href="https://github.com/sillsdev/pcpatrflex/tree/master/Installer/Output/UsePcPatrWithFLExDllSetup.exe"
+>https://​github.com/​sillsdev/pcpatrflex/​tree/​master/​Installer/​Output/​UsePcPatrWithFLExDllSetup.exe</link
+>.  The installer will check to see if you have installed <object
+type="tFieldWorks"
+></object
+> version 9.  If not, it will abort.</p
+><p
+>We recommend that you close <object
+type="tFieldWorks"
+></object
+> before running the <object
+type="tPcPatrFLEx"
+></object
+> installer.</p
+></section2
+><section2
+id="sInvokingFromFLEx"
+><secTitle
+>Invoking <object
+type="tPcPatrFLEx"
+></object
+> from within <object
+type="tFLEx"
+></object
+></secTitle
+><p
+>While running <object
+type="tFLEx"
+></object
+>, use <object
+type="tMenuItem"
+>Tools</object
+> menu item / <object
+type="tMenuItem"
+>Utilities...</object
+>.  Find the “Use PC-PATR with FLEx” item, check it, and then click on the “Run Checked Utilities Now” button.</p
+></section2
+><section2
+id="sInitialRun"
+><secTitle
+>Initial invocation</secTitle
+><p
+>The first time you invoke <object
+type="tPcPatrFLEx"
+></object
+> on a <object
+type="tFLEx"
+></object
+> database, it will automatically add to your <object
 type="tFLEx"
 ></object
 > database the following:</p
@@ -121,13 +168,15 @@ type="tPAWS"
 ><p
 >The names shown above are always in the English analysis writing system and English is the only writing system containing these names.</p
 ><p
->Please be aware that you cannot run both <object
-type="tPcPatrFLEx"
-></object
-> and <object
+>You can find the custom list by clicking on the “Lists” button in <object
 type="tFLEx"
 ></object
-> at the same time. You will need to close one before you start the other.</p
+>.</p
+></section2
+><section2
+id="sAppearance"
+><secTitle
+>Appearance</secTitle
 ><p
 ><object
 type="tPcPatrFLEx"
@@ -148,10 +197,16 @@ width="450"
 ></chart
 ></example
 ><p
->There are five buttons you can click. Each is discussed in section <sectionRef
+>The texts in the <object
+type="tFLEx"
+></object
+> database are shown in the left pane and the segments of the first text are shown in the right pane.</p
+><p
+>There are four buttons you can click. Each is discussed in section <sectionRef
 sec="sButtons"
 ></sectionRef
 > below.</p
+></section2
 ></section1
 ><section1
 id="sButtons"
@@ -184,40 +239,6 @@ type="tPcPatrGrammar"
 type="tPcPatrGrammar"
 ></object
 > files have an extension of “.grm” so this is what the file browser uses.</p
-></section2
-><section2
-id="sFLExProject"
-><secTitle
->Choose <object
-type="tFLEx"
-></object
-> project button</secTitle
-><p
->When you click the “Choose FLEx Project” button, you will see the standard <object
-type="tFLEx"
-></object
-> choose project dialog box. You use it to select the project to use. Once the project has been loaded (which may take a while, depending on the size of the project), the names of the project's texts will appear in the bottom left pane. By default, the first text will be selected and all of its segments<endnote
-id="nSegment"
-><p
->By “segment” we mean the portion of the text that FLEx treats as a unit. These are often sentences or clauses.</p
-></endnote
-> will be shown in the bottom right pane (using the default vernacular language). By default, the first segment will also be selected.</p
-><p
->Note that if a given segment does not yet have an analysis for every word in it, the segment will be grayed out. This is because there is no need to try and pass this segment to the <object
-type="tPcPatrGrammar"
-></object
->. Since at least one word does not have an analysis, <object
-type="tPcPatr"
-></object
-> cannot parse it: there is no parsing information for that word so the segment is guaranteed to fail to parse.</p
-><p
->Please note that you cannot run both <object
-type="tFLEx"
-></object
-> and <object
-type="tPcPatrFLEx"
-></object
-> on the same project at the same time. You will need to close one before you start the other.</p
 ></section2
 ><section2
 id="sHelp"
@@ -382,23 +403,10 @@ type="tPcPatrGrammar"
 ></object
 > file you last chose;</li
 ><li
->remember which <object
-type="tFLEx"
-></object
-> project you last used and open it;</li
-><li
 >remember which text in that project you last selected; and</li
 ><li
 >remember which segment in that text you last selected.</li
 ></ol
-><p
->As a result, if the last <object
-type="tFLEx"
-></object
-> project you used is large, it may well take a while before <object
-type="tPcPatrFLEx"
-></object
-> finishes starting.</p
 ></section1
 ><section1
 id="sErrorMessage"
@@ -434,61 +442,7 @@ width="3.25in"
 ><td
 ><object
 type="tErrorType"
->Loading failed. The FieldWorks project is currently open in another application. Close the application and try to run this command aqain.</object
-></td
-><td
->Most likely, <object
-type="tFLEx"
-></object
-> is open with the same project. Please close <object
-type="tFLEx"
-></object
->.</td
-></tr
-><tr
-><td
-> </td
-><td
-> </td
-></tr
-><tr
-><td
-><object
-type="tErrorType"
->Loading failed.  The FieldWorks project was created with an older version of FLEx.  Migrate the project to the latest version by opening it in a newer version of FLEx.</object
-></td
-><td
->The <object
-type="tPcPatrFLEx"
-></object
-> program works with certain versions of <object
-type="tFLEx"
-></object
-> (currently version <object
-type="tFLExVersion"
-></object
-> which has database version <object
-type="tFWDatabaseVersion"
-></object
->).  You will need to use a version of <object
-type="tFLEx"
-></object
-> that will migrate the database to version <object
-type="tFWDatabaseVersion"
-></object
->.</td
-></tr
-><tr
-><td
-> </td
-><td
-> </td
-></tr
-><tr
-><td
-><object
-type="tErrorType"
->The PC-PATR grammar file had an error in it and failed to load.  We will show the error log after you click on OK.  Please fix all errors in the grammar file and then try again.</object
+>The PC-PATR grammar file had an error in it and failed to load. We will show the error log after you click on OK. Please fix all errors in the grammar file and then try again.</object
 ></td
 ><td
 >The <object
@@ -497,15 +451,15 @@ type="tPcPatrGrammar"
 > file being used has at least one error it it so the <object
 type="tPcPatr"
 ></object
-> program could not load and use it.  The list of errors (and any warning messages, too) will be shown as soon as you click on the OK button.  Note that in the error message file, the grammar file's location may look odd, but it is the same as what is showing before the “Browse” button.<endnote
+> program could not load and use it. The list of errors (and any warning messages, too) will be shown as soon as you click on the OK button. Note that in the error message file, the grammar file's location may look odd, but it is the same as what is showing before the “Browse” button.<endnote
 id="nOddGrammarFile"
 ><p
->This happens for long file names or folder names.  <object
+>This happens for long file names or folder names. <object
 type="tPcPatr"
 ></object
 > is a “DOS” program and uses this cryptic format.</p
 ></endnote
->  Also, the error messages and warnings may be a bit cryptic.  See the PC-PATR Reference Manual for (some possible) help on this.  (The manual is available via the "Help” button; see section <sectionRef
+> Also, the error messages and warnings may be a bit cryptic. See the PC-PATR Reference Manual for (some possible) help on this. (The manual is available via the "Help” button; see section <sectionRef
 sec="sHelp"
 ></sectionRef
 >.)</td
@@ -532,27 +486,13 @@ type="tPcPatrFLEx"
 ><object
 type="tPcPatrFLEx"
 ></object
-> only works with a version of <object
-type="tFLEx"
-></object
-> that also uses version <object
-type="tFWDatabaseVersion"
-></object
-> of the database.  One such version is <object
-type="tFLEx"
-></object
-> version <object
+> only works with version <object
 type="tFLExVersion"
 ></object
->.</li
-><li
->You cannot run <object
-type="tPcPatrFLEx"
-></object
-> and <object
+> or higher of <object
 type="tFLEx"
 ></object
-> on the same database at the same time.  You must close one before opening the other.</li
+>.</li
 ><li
 ><object
 type="tPcPatrFLEx"
