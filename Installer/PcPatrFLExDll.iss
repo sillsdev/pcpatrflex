@@ -37,9 +37,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Source: "..\PcPatrFLExDll\bin\x64\Release\pcpatr64.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\LingTreeTree.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\PcPatrFLExDll.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLExDll\bin\x64\Release\PcPatrFLExDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\PrepFLExDB.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLExDll\bin\x64\Release\PrepFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.PcPatrBrowserDll.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.PcPatrBrowserDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\Transforms\InitFeature.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\Transforms\InitInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\Transforms\NoInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
