@@ -296,8 +296,15 @@ namespace SIL.DisambiguateInFLExDB
 
 		private string GetStemsCategory(IWfiMorphBundle bundle)
 		{
+			string result = "";
 			var msa = bundle.MsaRA as IMoStemMsa;
-			return msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs).Text;
+			if (msa != null)
+			{
+				var pos = msa.PartOfSpeechForWsTSS(Cache.DefaultAnalWs);
+				if (pos != null)
+					result = pos.Text;
+			}
+			return result;
 		}
 	}
 }
