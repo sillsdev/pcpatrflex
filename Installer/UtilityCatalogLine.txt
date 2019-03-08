@@ -1,0 +1,2 @@
+
+<utility assemblyPath="c:\fwrepo\fw\Output\Release\PcPatrFLExDll.dll" class="SIL.PcPatrFLEx.FLExUtility"/>
