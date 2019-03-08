@@ -285,7 +285,7 @@ namespace SIL.DisambiguateInFLExDB
 					&& !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
 				result = GetStemsCategory(firstStem);
 			}
-			else
+			else if (stems.Count() > 1)
 			{ // has at least one stem compound 
 			  // Use right-most for now
 				var rightmostStem = stems.Last();
