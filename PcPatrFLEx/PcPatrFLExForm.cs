@@ -323,7 +323,7 @@ namespace SIL.PcPatrFLEx
 			string andResult;
 			PcPatrBrowserApp browser;
 			var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
-			if (grammarOK)
+			if (grammarOK && browser.PropertiesChosen.Count() != 0)
 			{
 				var result = browser.PropertiesChosen;
 				DisambiguateSegment(selectedSegmentToShow, result[0]);
