@@ -40,16 +40,22 @@
 			this.btnBrowse = new System.Windows.Forms.Button();
 			this.btnDisambiguate = new System.Windows.Forms.Button();
 			this.btnHelp = new System.Windows.Forms.Button();
+			this.gbRootGloss = new System.Windows.Forms.GroupBox();
+			this.rbAll = new System.Windows.Forms.RadioButton();
+			this.rbRightmost = new System.Windows.Forms.RadioButton();
+			this.rbLeftmost = new System.Windows.Forms.RadioButton();
+			this.rbOff = new System.Windows.Forms.RadioButton();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			this.gbRootGloss.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnParse
 			// 
 			this.btnParse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnParse.Location = new System.Drawing.Point(519, 112);
+			this.btnParse.Location = new System.Drawing.Point(519, 151);
 			this.btnParse.Name = "btnParse";
 			this.btnParse.Size = new System.Drawing.Size(267, 38);
 			this.btnParse.TabIndex = 10;
@@ -60,7 +66,7 @@
 			// splitContainer1
 			// 
 			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.splitContainer1.Location = new System.Drawing.Point(3, 160);
+			this.splitContainer1.Location = new System.Drawing.Point(3, 211);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
@@ -101,7 +107,7 @@
 			// 
 			this.lblTexts.AutoSize = true;
 			this.lblTexts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTexts.Location = new System.Drawing.Point(9, 122);
+			this.lblTexts.Location = new System.Drawing.Point(9, 161);
 			this.lblTexts.Name = "lblTexts";
 			this.lblTexts.Size = new System.Drawing.Size(61, 25);
 			this.lblTexts.TabIndex = 7;
@@ -111,7 +117,7 @@
 			// 
 			this.lblSegments.AutoSize = true;
 			this.lblSegments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblSegments.Location = new System.Drawing.Point(367, 122);
+			this.lblSegments.Location = new System.Drawing.Point(367, 161);
 			this.lblSegments.Name = "lblSegments";
 			this.lblSegments.Size = new System.Drawing.Size(101, 25);
 			this.lblSegments.TabIndex = 9;
@@ -148,7 +154,7 @@
 			// 
 			// btnDisambiguate
 			// 
-			this.btnDisambiguate.Location = new System.Drawing.Point(77, 112);
+			this.btnDisambiguate.Location = new System.Drawing.Point(77, 151);
 			this.btnDisambiguate.Name = "btnDisambiguate";
 			this.btnDisambiguate.Size = new System.Drawing.Size(282, 38);
 			this.btnDisambiguate.TabIndex = 8;
@@ -167,11 +173,71 @@
 			this.btnHelp.UseVisualStyleBackColor = true;
 			this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
 			// 
+			// gbRootGloss
+			// 
+			this.gbRootGloss.Controls.Add(this.rbAll);
+			this.gbRootGloss.Controls.Add(this.rbRightmost);
+			this.gbRootGloss.Controls.Add(this.rbLeftmost);
+			this.gbRootGloss.Controls.Add(this.rbOff);
+			this.gbRootGloss.Location = new System.Drawing.Point(218, 77);
+			this.gbRootGloss.Name = "gbRootGloss";
+			this.gbRootGloss.Size = new System.Drawing.Size(574, 42);
+			this.gbRootGloss.TabIndex = 11;
+			this.gbRootGloss.TabStop = false;
+			this.gbRootGloss.Text = "rootgloss:";
+			// 
+			// rbAll
+			// 
+			this.rbAll.AutoSize = true;
+			this.rbAll.Location = new System.Drawing.Point(453, 11);
+			this.rbAll.Name = "rbAll";
+			this.rbAll.Size = new System.Drawing.Size(89, 24);
+			this.rbAll.TabIndex = 3;
+			this.rbAll.Text = "all roots";
+			this.rbAll.UseVisualStyleBackColor = true;
+			this.rbAll.CheckedChanged += new System.EventHandler(this.rbAll_CheckedChanged);
+			// 
+			// rbRightmost
+			// 
+			this.rbRightmost.AutoSize = true;
+			this.rbRightmost.Location = new System.Drawing.Point(310, 12);
+			this.rbRightmost.Name = "rbRightmost";
+			this.rbRightmost.Size = new System.Drawing.Size(132, 24);
+			this.rbRightmost.TabIndex = 2;
+			this.rbRightmost.Text = "rightmost root";
+			this.rbRightmost.UseVisualStyleBackColor = true;
+			this.rbRightmost.CheckedChanged += new System.EventHandler(this.rbRightmost_CheckedChanged);
+			// 
+			// rbLeftmost
+			// 
+			this.rbLeftmost.AutoSize = true;
+			this.rbLeftmost.Location = new System.Drawing.Point(173, 12);
+			this.rbLeftmost.Name = "rbLeftmost";
+			this.rbLeftmost.Size = new System.Drawing.Size(123, 24);
+			this.rbLeftmost.TabIndex = 1;
+			this.rbLeftmost.Text = "leftmost root";
+			this.rbLeftmost.UseVisualStyleBackColor = true;
+			this.rbLeftmost.CheckedChanged += new System.EventHandler(this.rbLeftmost_CheckedChanged);
+			// 
+			// rbOff
+			// 
+			this.rbOff.AutoSize = true;
+			this.rbOff.Checked = true;
+			this.rbOff.Location = new System.Drawing.Point(97, 12);
+			this.rbOff.Name = "rbOff";
+			this.rbOff.Size = new System.Drawing.Size(53, 24);
+			this.rbOff.TabIndex = 0;
+			this.rbOff.TabStop = true;
+			this.rbOff.Text = "off";
+			this.rbOff.UseVisualStyleBackColor = true;
+			this.rbOff.CheckedChanged += new System.EventHandler(this.rbOff_CheckedChanged);
+			// 
 			// PcPatrFLExForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1228, 947);
+			this.ClientSize = new System.Drawing.Size(1228, 998);
+			this.Controls.Add(this.gbRootGloss);
 			this.Controls.Add(this.btnHelp);
 			this.Controls.Add(this.btnDisambiguate);
 			this.Controls.Add(this.btnBrowse);
@@ -189,6 +255,8 @@
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			this.gbRootGloss.ResumeLayout(false);
+			this.gbRootGloss.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -207,6 +275,11 @@
 		private System.Windows.Forms.Button btnBrowse;
 		private System.Windows.Forms.Button btnDisambiguate;
 		private System.Windows.Forms.Button btnHelp;
+		private System.Windows.Forms.GroupBox gbRootGloss;
+		private System.Windows.Forms.RadioButton rbAll;
+		private System.Windows.Forms.RadioButton rbRightmost;
+		private System.Windows.Forms.RadioButton rbLeftmost;
+		private System.Windows.Forms.RadioButton rbOff;
 	}
 }
 

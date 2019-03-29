@@ -21,6 +21,7 @@ namespace SIL.DisambiguateInFLExDBTests
 		String TestDataDir { get; set; }
 		String AnaString { get; set; }
 		String AndString { get; set; }
+		String TakeString { get; set; }
 
 		[TestFixtureSetUp]
 		public void FixtureSetup()
@@ -51,7 +52,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			{
 				AndString = streamReader.ReadToEnd().Replace("\r", "");
 			}
-			var invoker = new PCPatrInvoker(grammarFile, anaFile);
+			var invoker = new PCPatrInvoker(grammarFile, anaFile, "Off");
 			invoker.Invoke();
 			String andResult = "";
 			using (var streamReader = new StreamReader(invoker.AndFile, Encoding.UTF8))
@@ -66,6 +67,59 @@ namespace SIL.DisambiguateInFLExDBTests
 			int iResult = andResult.IndexOf("Invoker.grm");
 			Assert.AreEqual(AndString.Substring(0, iIDBeginning), andResult.Substring(0, iIDBeginning));
 			Assert.AreEqual(AndString.Substring(iExpected), andResult.Substring(iResult));
+			checkRootGlossState(invoker, null);
+			checkRootGlossState(invoker, "off");
+			checkRootGlossState(invoker, "leftheaded");
+			checkRootGlossState(invoker, "rightheaded");
+			checkRootGlossState(invoker, "all");
+			checkRootGlossStateValue(invoker, null, null);
+			checkRootGlossStateValue(invoker, "Off", "off");
+			checkRootGlossStateValue(invoker, "Leftheaded", "leftheaded");
+			checkRootGlossStateValue(invoker, "Rightheaded", "rightheaded");
+			checkRootGlossStateValue(invoker, "All", "all");
+			checkRootGlossStateValue(invoker, "Of course", "off");
+			checkRootGlossStateValue(invoker, "Luis", "leftheaded");
+			checkRootGlossStateValue(invoker, "Rival", "rightheaded");
+			checkRootGlossStateValue(invoker, "Alone", "all");
+		}
+
+		private void checkRootGlossState(PCPatrInvoker invoker, string state)
+		{
+			String takeFile = Path.Combine(Path.GetTempPath(), "PcPatrFLEx.tak");
+
+			invoker.RootGlossState = state;
+			invoker.Invoke();
+			using (var streamReader = new StreamReader(takeFile, Encoding.UTF8))
+			{
+				TakeString = streamReader.ReadToEnd().Replace("\r", "");
+			}
+			if (String.IsNullOrEmpty(state))
+			{
+				Assert.IsFalse(TakeString.Contains("set rootgloss "));
+			}
+			else
+			{
+				Assert.IsTrue(TakeString.Contains("set rootgloss " + state + "\n"));
+			}
+		}
+		private void checkRootGlossStateValue(PCPatrInvoker invoker, string state, string expectedValue)
+		{
+			String takeFile = Path.Combine(Path.GetTempPath(), "PcPatrFLEx.tak");
+
+			invoker.RootGlossState = state;
+			invoker.Invoke();
+			using (var streamReader = new StreamReader(takeFile, Encoding.UTF8))
+			{
+				TakeString = streamReader.ReadToEnd().Replace("\r", "");
+			}
+			if (String.IsNullOrEmpty(state))
+			{
+				Assert.IsFalse(TakeString.Contains("set rootgloss "));
+			}
+			else
+			{
+				Assert.IsTrue(TakeString.Contains("set rootgloss " + expectedValue + "\n"));
+			}
 		}
 	}
 }

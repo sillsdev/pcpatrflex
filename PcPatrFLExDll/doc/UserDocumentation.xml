@@ -20,11 +20,11 @@ type="tPcPatrFLEx"
 ><emailAddress
 >andy_black@sil.org</emailAddress
 ><date
->16 October, 2018</date
+>29 March, 2019</date
 ><version
->Version 1.0.0 Beta</version
+>Version 1.1.0 Beta</version
 ><version
->Copyright © 2018 SIL International</version
+>Copyright © 2018-2019 SIL International</version
 ><contents
 ></contents
 ></frontMatter
@@ -42,7 +42,7 @@ type="tFieldWorks"
 > (aka <object
 type="tFLEx"
 ></object
->).  <object
+>). <object
 type="tPcPatrFLEx"
 ></object
 > can use a <object
@@ -103,10 +103,10 @@ type="tPcPatrFLEx"
 >, obtain the installer from <link
 href="https://github.com/sillsdev/pcpatrflex/tree/master/Installer/Output/UsePcPatrWithFLExDllSetup.exe"
 >https://​github.com/​sillsdev/pcpatrflex/​tree/​master/​Installer/​Output/​UsePcPatrWithFLExDllSetup.exe</link
->.  The installer will check to see if you have installed <object
+>. The installer will check to see if you have installed <object
 type="tFieldWorks"
 ></object
-> version 9.  If not, it will abort.</p
+> version 9. If not, it will abort.</p
 ><p
 >We recommend that you close <object
 type="tFieldWorks"
@@ -136,7 +136,7 @@ type="tMenuItem"
 > menu item / <object
 type="tMenuItem"
 >Utilities...</object
->.  Find the “Use PC-PATR with FLEx” item, check it, and then click on the “Run Checked Utilities Now” button.</p
+>. Find the “Use PC-PATR with FLEx” item, check it, and then click on the “Run Checked Utilities Now” button.</p
 ></section2
 ><section2
 id="sInitialRun"
@@ -191,7 +191,7 @@ num="xNewPcPatrFLEx"
 ><chart
 ><img
 XeLaTeXSpecial="scaled='600'"
-src="resources/PcPatrFLExEmpty.png"
+src="resources/PcPatrFLExEmpty.png "
 width="450"
 ></img
 ></chart
@@ -202,7 +202,7 @@ type="tFLEx"
 ></object
 > database are shown in the left pane and the segments of the first text are shown in the right pane.</p
 ><p
->There are four buttons you can click. Each is discussed in section <sectionRef
+>There are buttons you can click. Each is discussed in section <sectionRef
 sec="sButtons"
 ></sectionRef
 > below.</p
@@ -239,6 +239,37 @@ type="tPcPatrGrammar"
 type="tPcPatrGrammar"
 ></object
 > files have an extension of “.grm” so this is what the file browser uses.</p
+></section2
+><section2
+id="sRootGloss"
+><secTitle
+>Rootgloss choices</secTitle
+><p
+><object
+type="tPcPatr"
+></object
+> allows you to have “rootglosses” in rules.  This section allows you to set one of four options with respect to how rootglosses are handled.  See section 3.2.14.22 “set rootgloss” in the  PC-PATR Reference Manual.<endnote
+id="nPCPTRRefManual"
+><p
+>Use the <object
+type="tMenuItem"
+>Help</object
+> menu item / <object
+type="tMenuItem"
+> PC-PATR Reference Manual</object
+> to see this document.</p
+></endnote
+> The four options are:</p
+><ol
+><li
+>off: rootglosses are not used; this is the default;</li
+><li
+>leftmost root: the first / leftmost root is used;</li
+><li
+>rightmost root: the last / rightmost root is used;</li
+><li
+>all: every root is used.</li
+></ol
 ></section2
 ><section2
 id="sHelp"

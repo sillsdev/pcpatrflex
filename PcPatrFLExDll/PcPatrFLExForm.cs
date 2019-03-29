@@ -38,11 +38,17 @@ namespace SIL.PcPatrFLEx
 		const string m_strLastGrammarFile = "LastGrammarFile";
 		const string m_strLastText = "LastText";
 		const string m_strLastSegment = "LastSegment";
+		const string m_strLastRootGlossSelection = "LastRootGlossSelection";
 		const string m_strLocationX = "LocationX";
 		const string m_strLocationY = "LocationY";
 		const string m_strSizeHeight = "SizeHeight";
 		const string m_strSizeWidth = "SizeWidth";
 		const string m_strWindowState = "WindowState";
+
+		const string m_strAll = "All";
+		const string m_strLeftmost = "Leftmost";
+		const string m_strOff = "Off";
+		const string m_strRightmost = "Rightmos";
 
 		public Rectangle RectNormal { get; set; }
 
@@ -50,6 +56,7 @@ namespace SIL.PcPatrFLEx
 		public string LastGrammarFile { get; set; }
 		public string LastText { get; set; }
 		public string LastSegment { get; set; }
+		public string LastRootGlossSelection { get; set; }
 		public string RetrievedLastText { get; set; }
 		public string RetrievedLastSegment { get; set; }
 
@@ -87,6 +94,24 @@ namespace SIL.PcPatrFLEx
 					StartPosition = FormStartPosition.Manual;
 					if (!String.IsNullOrEmpty(LastGrammarFile))
 						tbGrammarFile.Text = LastGrammarFile;
+					if (!String.IsNullOrEmpty(LastRootGlossSelection))
+					{
+						switch (LastRootGlossSelection)
+						{
+							case m_strLeftmost:
+								rbLeftmost.Checked = true;
+								break;
+							case m_strRightmost:
+								rbRightmost.Checked = true;
+								break;
+							case m_strAll:
+								rbAll.Checked = true;
+								break;
+							default:
+								rbOff.Checked = true;
+								break;
+						}
+					}
 					if (Cache != null && Cache.LangProject.Texts.Count > 0)
 						btnDisambiguate.Enabled = true;
 					else
@@ -145,6 +170,7 @@ namespace SIL.PcPatrFLEx
 			GrammarFile = LastGrammarFile = (string)regkey.GetValue(m_strLastGrammarFile);
 			RetrievedLastText = LastText = (string)regkey.GetValue(m_strLastText);
 			RetrievedLastSegment = LastSegment = (string)regkey.GetValue(m_strLastSegment);
+			LastRootGlossSelection = (string)regkey.GetValue(m_strLastRootGlossSelection);
 		}
 		public void saveRegistryInfo()
 		{
@@ -162,6 +188,8 @@ namespace SIL.PcPatrFLEx
 				regkey.SetValue(m_strLastText, LastText);
 			if (LastSegment != null)
 				regkey.SetValue(m_strLastSegment, LastSegment);
+			if (LastRootGlossSelection != null)
+				regkey.SetValue(m_strLastRootGlossSelection, LastRootGlossSelection);
 			// Window position and location
 			regkey.SetValue(m_strWindowState, (int)WindowState);
 			regkey.SetValue(m_strLocationX, RectNormal.X);
@@ -401,7 +429,7 @@ namespace SIL.PcPatrFLEx
 		{
 			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
 			File.WriteAllText(anaFile, ana);
-			var invoker = new PCPatrInvoker(GrammarFile, anaFile);
+			var invoker = new PCPatrInvoker(GrammarFile, anaFile, LastRootGlossSelection);
 			invoker.Invoke();
 			andResult = invoker.AndFile;
 			if (File.Exists(andResult))
@@ -481,6 +509,25 @@ namespace SIL.PcPatrFLEx
 			}
 		}
 
+		private void rbOff_CheckedChanged(object sender, EventArgs e)
+		{
+			LastRootGlossSelection = m_strOff;
+		}
+
+		private void rbLeftmost_CheckedChanged(object sender, EventArgs e)
+		{
+			LastRootGlossSelection = m_strLeftmost;
+		}
+
+		private void rbRightmost_CheckedChanged(object sender, EventArgs e)
+		{
+			LastRootGlossSelection = m_strRightmost;
+		}
+
+		private void rbAll_CheckedChanged(object sender, EventArgs e)
+		{
+			LastRootGlossSelection = m_strAll;
+		}
 	}
 
 	public class SegmentToShow

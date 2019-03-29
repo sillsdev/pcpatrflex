@@ -23,11 +23,13 @@ namespace SIL.DisambiguateInFLExDB
 		public String AndFile { get; set; }
 		public String LogFile { get; set; }
 		public String BatchFile { get; set; }
+		public String RootGlossState { get; set; }
 
-		public PCPatrInvoker(string grammarFile, string anaFile)
+		public PCPatrInvoker(string grammarFile, string anaFile, string rootglossState)
 		{
 			GrammarFile = grammarFile;
 			AnaFile = anaFile;
+			RootGlossState = rootglossState;
 			LogFile = Path.Combine(Path.GetTempPath(), logFileName);
 		}
 
@@ -96,6 +98,7 @@ namespace SIL.DisambiguateInFLExDB
 			sbTake.Append("set timing on\n");
 			sbTake.Append("set gloss on\n");
 			sbTake.Append("set features all\n");
+			HandleRootGloss(sbTake);
 			sbTake.Append("set tree xml\n");
 			sbTake.Append("set ambiguities 100\n");
 			sbTake.Append("set write-ample-parses on\n");
@@ -113,6 +116,41 @@ namespace SIL.DisambiguateInFLExDB
 			//Console.Write(sbTake.ToString());
 			File.WriteAllText(takeFile, sbTake.ToString());
 			AndFile = result;
+		}
+
+		private void HandleRootGloss(StringBuilder sbTake)
+		{
+			if (String.IsNullOrEmpty(RootGlossState))
+			{
+				return;
+			}
+			sbTake.Append("set rootgloss ");
+			String result;
+			result = GetRootGlossStateValue();
+			sbTake.Append(result + "\n");
+		}
+
+		public string GetRootGlossStateValue()
+		{
+			string result;
+			String sBeginning = RootGlossState.Substring(0, 1).ToLower();
+			switch (sBeginning)
+			{
+				case "l":
+					result = "leftheaded";
+					break;
+				case "r":
+					result = "rightheaded";
+					break;
+				case "a":
+					result = "all";
+					break;
+				default:
+					result = "off";
+					break;
+			}
+
+			return result;
 		}
 	}
 }
