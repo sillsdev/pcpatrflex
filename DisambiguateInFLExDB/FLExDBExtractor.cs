@@ -202,7 +202,8 @@ namespace SIL.DisambiguateInFLExDB
 							else
 							{
 								var nextMorph = next.MorphRA;
-								if (nextMorph.MorphTypeRA.IsSuffixishType
+								if (nextMorph == null
+									|| nextMorph.MorphTypeRA.IsSuffixishType
 									|| nextMorph.MorphTypeRA.Guid == MoMorphTypeTags.kguidMorphEnclitic)
 									sbA.Append(">");
 							}
