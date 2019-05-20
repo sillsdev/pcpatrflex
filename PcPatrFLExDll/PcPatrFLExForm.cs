@@ -232,6 +232,7 @@ namespace SIL.PcPatrFLEx
 				lbTexts.Font = AnalysisFont;
 				VernacularFont = CreateFont(Cache.LanguageProject.DefaultVernacularWritingSystem);
 				lbSegments.Font = VernacularFont;
+				lbSegments.RightToLeft = Cache.LanguageProject.DefaultVernacularWritingSystem.RightToLeftScript ? RightToLeft.Yes : RightToLeft.No;
 				FillTextsListBox();
 			}
 		}
