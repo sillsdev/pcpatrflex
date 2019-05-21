@@ -30,28 +30,18 @@ namespace SIL.DisambiguateInFLExDB
 				int i = 0;
 				foreach (IAnalysis analysis in Segment.AnalysesRS)
 				{
-					if (analysis.ClassID == WfiWordformTags.kClassId &&
-						i < DisambiguatedMorphBundles.Count)
+					if ((analysis.ClassID == WfiWordformTags.kClassId
+						|| analysis.ClassID == WfiGlossTags.kClassId
+						|| analysis.ClassID == WfiAnalysisTags.kClassId)
+						&& i < DisambiguatedMorphBundles.Count)
 					{
 						var wfiWordform = analysis as IWfiWordform;
-						var wfiMorphBundelGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
-						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundelGuidToUse);
+						var wfiMorphBundleGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
+						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundleGuidToUse);
 						if (wfiMorphBundle.Owner is IWfiAnalysis wfiAnalysisToUse)
 						{
-							// To disambiguate, we replace the WfiWordForm with a WfiGloss
-							IWfiGloss gloss;
-							if (wfiAnalysisToUse.MeaningsOC.Count == 0)
-							{
-								var wgFactory = cache.ServiceLocator.GetInstance<IWfiGlossFactory>();
-								gloss = wgFactory.Create();
-								wfiAnalysisToUse.MeaningsOC.Add(gloss);
-							}
-							else
-							{
-								gloss = wfiAnalysisToUse.MeaningsOC.First();
-							}
 							wfiAnalysisToUse.SetAgentOpinion(cache.LanguageProject.DefaultUserAgent, Opinions.approves);
-							Segment.AnalysesRS[i] = gloss;
+							Segment.AnalysesRS[i] = wfiAnalysisToUse;
 						}
 					}
 					i++;
