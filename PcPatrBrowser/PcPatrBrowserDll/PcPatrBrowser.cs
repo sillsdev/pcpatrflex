@@ -133,6 +133,9 @@ namespace SIL.PcPatrBrowser
 		private System.Windows.Forms.ToolBarButton tbbtnRefresh;
 		private System.Windows.Forms.ToolBarButton tbbtbSeparator4;
 		private System.Windows.Forms.ToolBarButton tbbtbSeparator5;
+		private ToolBarButton tbbtnSeparator6;
+		private ToolBarButton tbbtnSaveForTreeTran;
+		private MenuItem miSaveForTreeTran;
 		private const string m_ksGrammarMessage = "When you click on a node in the tree in the panel above and " +
 			"a grammar file has been loaded, the corresponding rule will show here.";
 
@@ -262,6 +265,7 @@ namespace SIL.PcPatrBrowser
 			tbbtnPreviousParse.Tag = miParsePrevious;
 			tbbtnPreviousSentence.Tag = miSentencePrevious;
 			tbbtnUseThisParse.Tag = miUseThisParse;
+			tbbtnSaveForTreeTran.Tag = miSaveForTreeTran;
 		}
 		private void InitStatusBar()
 		{
@@ -487,6 +491,7 @@ namespace SIL.PcPatrBrowser
 			this.miFileOpenLanguage = new System.Windows.Forms.MenuItem();
 			this.miFileSaveLanguage = new System.Windows.Forms.MenuItem();
 			this.miFileSaveLangAs = new System.Windows.Forms.MenuItem();
+			this.miSaveForTreeTran = new System.Windows.Forms.MenuItem();
 			this.menuItem9 = new System.Windows.Forms.MenuItem();
 			this.miExit = new System.Windows.Forms.MenuItem();
 			this.miView = new System.Windows.Forms.MenuItem();
@@ -544,6 +549,8 @@ namespace SIL.PcPatrBrowser
 			this.tbbtnNextParse = new System.Windows.Forms.ToolBarButton();
 			this.tbbtnLastParse = new System.Windows.Forms.ToolBarButton();
 			this.tbbtnUseThisParse = new System.Windows.Forms.ToolBarButton();
+			this.tbbtnSeparator6 = new System.Windows.Forms.ToolBarButton();
+			this.tbbtnSaveForTreeTran = new System.Windows.Forms.ToolBarButton();
 			this.ilToolBar = new System.Windows.Forms.ImageList(this.components);
 			this.pnlRule.SuspendLayout();
 			this.SuspendLayout();
@@ -569,6 +576,7 @@ namespace SIL.PcPatrBrowser
             this.miFileOpenLanguage,
             this.miFileSaveLanguage,
             this.miFileSaveLangAs,
+            this.miSaveForTreeTran,
             this.menuItem9,
             this.miExit});
 			this.miFile.Text = "File";
@@ -613,14 +621,21 @@ namespace SIL.PcPatrBrowser
 			this.miFileSaveLangAs.Text = "Save Language File &As...";
 			this.miFileSaveLangAs.Click += new System.EventHandler(this.miFileSaveLangAs_Click);
 			// 
+			// miSaveForTreeTran
+			// 
+			this.miSaveForTreeTran.Checked = true;
+			this.miSaveForTreeTran.Index = 7;
+			this.miSaveForTreeTran.Text = "Save for TreeTran";
+			this.miSaveForTreeTran.Click += new System.EventHandler(this.miSaveForTreeTran_Click);
+			// 
 			// menuItem9
 			// 
-			this.menuItem9.Index = 7;
+			this.menuItem9.Index = 8;
 			this.menuItem9.Text = "-";
 			// 
 			// miExit
 			// 
-			this.miExit.Index = 8;
+			this.miExit.Index = 9;
 			this.miExit.Text = "E&xit";
 			this.miExit.Click += new System.EventHandler(this.miExit_Click);
 			// 
@@ -824,14 +839,14 @@ namespace SIL.PcPatrBrowser
 			this.pnlTreeFeat.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlTreeFeat.Location = new System.Drawing.Point(0, 176);
 			this.pnlTreeFeat.Name = "pnlTreeFeat";
-			this.pnlTreeFeat.Size = new System.Drawing.Size(592, 215);
+			this.pnlTreeFeat.Size = new System.Drawing.Size(592, 125);
 			this.pnlTreeFeat.TabIndex = 7;
 			// 
 			// splitterBetweenTreeFeatAndRule
 			// 
 			this.splitterBetweenTreeFeatAndRule.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.splitterBetweenTreeFeatAndRule.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitterBetweenTreeFeatAndRule.Location = new System.Drawing.Point(0, 391);
+			this.splitterBetweenTreeFeatAndRule.Location = new System.Drawing.Point(0, 301);
 			this.splitterBetweenTreeFeatAndRule.Name = "splitterBetweenTreeFeatAndRule";
 			this.splitterBetweenTreeFeatAndRule.Size = new System.Drawing.Size(592, 2);
 			this.splitterBetweenTreeFeatAndRule.TabIndex = 8;
@@ -843,7 +858,7 @@ namespace SIL.PcPatrBrowser
 			this.pnlRule.BackColor = System.Drawing.SystemColors.Window;
 			this.pnlRule.Controls.Add(this.richTextBox1);
 			this.pnlRule.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlRule.Location = new System.Drawing.Point(0, 393);
+			this.pnlRule.Location = new System.Drawing.Point(0, 303);
 			this.pnlRule.Name = "pnlRule";
 			this.pnlRule.Size = new System.Drawing.Size(592, 146);
 			this.pnlRule.TabIndex = 7;
@@ -927,7 +942,9 @@ namespace SIL.PcPatrBrowser
             this.tbbtnPreviousParse,
             this.tbbtnNextParse,
             this.tbbtnLastParse,
-            this.tbbtnUseThisParse});
+            this.tbbtnUseThisParse,
+            this.tbbtnSeparator6,
+            this.tbbtnSaveForTreeTran});
 			this.tbMain.DropDownArrows = true;
 			this.tbMain.ImageList = this.ilToolBar;
 			this.tbMain.Location = new System.Drawing.Point(0, 0);
@@ -1034,6 +1051,18 @@ namespace SIL.PcPatrBrowser
 			this.tbbtnUseThisParse.Name = "tbbtnUseThisParse";
 			this.tbbtnUseThisParse.ToolTipText = "Use This Parse";
 			// 
+			// tbbtnSeparator6
+			// 
+			this.tbbtnSeparator6.Name = "tbbtnSeparator6";
+			this.tbbtnSeparator6.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+			// 
+			// tbbtnSaveForTreeTran
+			// 
+			this.tbbtnSaveForTreeTran.ImageIndex = 11;
+			this.tbbtnSaveForTreeTran.Name = "tbbtnTreeTranOutput";
+			this.tbbtnSaveForTreeTran.Style = System.Windows.Forms.ToolBarButtonStyle.ToggleButton;
+			this.tbbtnSaveForTreeTran.ToolTipText = "Save for TreeTran";
+			// 
 			// ilToolBar
 			// 
 			this.ilToolBar.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilToolBar.ImageStream")));
@@ -1049,11 +1078,12 @@ namespace SIL.PcPatrBrowser
 			this.ilToolBar.Images.SetKeyName(8, "");
 			this.ilToolBar.Images.SetKeyName(9, "Refresh.bmp");
 			this.ilToolBar.Images.SetKeyName(10, "yes.png");
+			this.ilToolBar.Images.SetKeyName(11, "TreeTranOutput.png");
 			// 
 			// PcPatrBrowserApp
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
-			this.ClientSize = new System.Drawing.Size(592, 539);
+			this.ClientSize = new System.Drawing.Size(592, 449);
 			this.Controls.Add(this.pnlTreeFeat);
 			this.Controls.Add(this.splitterBetweenInterlinearAndTreeFeat);
 			this.Controls.Add(this.pnlInterlinear);
@@ -1477,7 +1507,11 @@ namespace SIL.PcPatrBrowser
 
 		private void miExit_Click(object sender, System.EventArgs e)
 		{
-			Application.Exit();
+			this.OnClosed(e);
+			if (!IsDisposed)
+			{
+				this.Dispose();
+			}
 		}
 
 		private void miSentenceFirst_Click(object sender, System.EventArgs e)
@@ -1834,6 +1868,9 @@ namespace SIL.PcPatrBrowser
 		}
 		protected override void OnClosed(EventArgs e)
 		{
+			if (IsDisposed)
+				// if user uses Exit menu item, we dispose and this gets called a second time
+				return;
 			if (m_fNeedToSaveLanguageInfo)
 				miFileSaveLangAs_Click(null, null);
 			SaveRegistryInfo();
@@ -1976,5 +2013,10 @@ namespace SIL.PcPatrBrowser
 				LoadAnaFile();
 		}
 
+		private void miSaveForTreeTran_Click(object sender, EventArgs e)
+		{
+			miSaveForTreeTran.Checked = !miSaveForTreeTran.Checked;
+			tbbtnSaveForTreeTran.Pushed = miSaveForTreeTran.Checked;
+;		}
 	}
 }
