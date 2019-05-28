@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcPatrFLExDll", "PcPatrFLEx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ana2XmlPrep", "Ana2XmlPrep\Ana2XmlPrep.csproj", "{B7506DAB-7DAF-41D0-8D6F-4FCA44D7F68D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcPatrBrowserDllTest", "PcPatrBrowserDllTest\PcPatrBrowserDllTest.csproj", "{F7E4199A-6997-41B9-AB03-C6087B5C32DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +215,18 @@ Global
 		{B7506DAB-7DAF-41D0-8D6F-4FCA44D7F68D}.Release|x64.Build.0 = Release|Any CPU
 		{B7506DAB-7DAF-41D0-8D6F-4FCA44D7F68D}.Release|x86.ActiveCfg = Release|Any CPU
 		{B7506DAB-7DAF-41D0-8D6F-4FCA44D7F68D}.Release|x86.Build.0 = Release|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Debug|x64.ActiveCfg = Debug|x64
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Debug|x64.Build.0 = Debug|x64
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Release|x64.Build.0 = Release|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{F7E4199A-6997-41B9-AB03-C6087B5C32DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

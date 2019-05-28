@@ -1,3 +1,6 @@
+// Copyright (c) 2011-2019 SIL International
+// This software is licensed under the LGPL, version 2.1 or later
+// (http://www.gnu.org/licenses/lgpl-2.1.html)
 using System;
 using System.Drawing;
 using System.Collections;
@@ -73,6 +76,7 @@ namespace SIL.PcPatrBrowser
 		const string m_ksViewStatusBar = "ViewStatusBar";
 		const string m_ksViewToolBar = "ViewToolBar";
 		const string m_ksViewRightToLeft = "ViewRightToLeft";
+		const string m_ksSaveForTreeTran = "SaveForTreeTran";
 		private bool m_fNeedToSaveLanguageInfo;
 		private Rectangle m_RectNormal;
 		private string m_sLogOrAnaFileName;
@@ -140,6 +144,7 @@ namespace SIL.PcPatrBrowser
 			"a grammar file has been loaded, the corresponding rule will show here.";
 
 		public String[] PropertiesChosen { get; set; }
+		public int[] ParsesChosen { get; set; }
 
 		public event LingTreeNodeClickedEventHandler LingTreeNodeClicked;
 		protected virtual void OnLingTreeNodeClicked(LingTreeNodeClickedEventArgs ltncea)
@@ -330,8 +335,7 @@ namespace SIL.PcPatrBrowser
 				tbMain.Visible = true;
 			else
 				tbMain.Visible = false;
-
-
+			tbbtnSaveForTreeTran.Pushed = miSaveForTreeTran.Checked;
 		}
 
 		private void EnableDisableSentenceItems()
@@ -623,7 +627,7 @@ namespace SIL.PcPatrBrowser
 			// 
 			// miSaveForTreeTran
 			// 
-			this.miSaveForTreeTran.Checked = true;
+			this.miSaveForTreeTran.Checked = false;
 			this.miSaveForTreeTran.Index = 7;
 			this.miSaveForTreeTran.Text = "Save for TreeTran";
 			this.miSaveForTreeTran.Click += new System.EventHandler(this.miSaveForTreeTran_Click);
@@ -1220,6 +1224,7 @@ namespace SIL.PcPatrBrowser
 			Cursor.Current = Cursors.Arrow;
 			SetTitle();
 			PropertiesChosen = new String[m_doc.NumberOfSentences];
+			ParsesChosen = new int[m_doc.NumberOfSentences];
 		}
 
 		private void FileOpenGrammar_Click(object sender, System.EventArgs e)
@@ -1579,6 +1584,7 @@ namespace SIL.PcPatrBrowser
 				sb.Append(node.InnerText + "\n");
 			}
 			PropertiesChosen[m_doc.CurrentSentenceNumber-1] = sb.ToString();
+			ParsesChosen[m_doc.CurrentSentenceNumber - 1] = sent.CurrentParseNumber;
 		}
 
 		private void miViewStatusBar_Click(object sender, System.EventArgs e)
@@ -1871,6 +1877,10 @@ namespace SIL.PcPatrBrowser
 			if (IsDisposed)
 				// if user uses Exit menu item, we dispose and this gets called a second time
 				return;
+			if (miSaveForTreeTran.Checked)
+			{
+				SaveForTreeTran();
+			}
 			if (m_fNeedToSaveLanguageInfo)
 				miFileSaveLangAs_Click(null, null);
 			SaveRegistryInfo();
@@ -1879,6 +1889,25 @@ namespace SIL.PcPatrBrowser
 			if (File.Exists(m_sInterFile))
 				File.Delete(m_sInterFile);
 			base.OnClosed(e);
+		}
+
+		private void SaveForTreeTran()
+		{
+			TreeTranSaver saver = new TreeTranSaver(m_doc);
+			string ana = saver.CreateANAFromParsesChosen(ParsesChosen);
+			if (!string.IsNullOrEmpty(ana))
+			{
+				string outputFileName = m_sLogOrAnaFileName;
+				if (!outputFileName.EndsWith(".and"))
+				{
+					outputFileName = outputFileName + ".ant";
+				}
+				else
+				{
+					outputFileName = outputFileName.Substring(0, outputFileName.Length - 1) + "t";
+				}
+				File.WriteAllText(outputFileName, ana, Encoding.UTF8);
+			}
 		}
 
 		private void miHelpAbout_Click(object sender, System.EventArgs e)
@@ -1900,6 +1929,7 @@ namespace SIL.PcPatrBrowser
 					miViewStatusBar.Checked = Convert.ToBoolean((string)regkey.GetValue(m_ksViewStatusBar));
 					miViewToolBar.Checked = Convert.ToBoolean((string)regkey.GetValue(m_ksViewToolBar));
 					miViewRightToLeft.Checked = Convert.ToBoolean((string)regkey.GetValue(m_ksViewRightToLeft));
+					miSaveForTreeTran.Checked = Convert.ToBoolean((string)regkey.GetValue(m_ksSaveForTreeTran));
 					m_sLanguageFileName = (string)regkey.GetValue(m_ksLastLanguageFile);
 					if (m_sLanguageFileName != null && m_sLanguageFileName != "")
 						LoadLanguageInfo();
@@ -1958,6 +1988,7 @@ namespace SIL.PcPatrBrowser
 			regkey.SetValue(m_ksViewStatusBar, miViewStatusBar.Checked);
 			regkey.SetValue(m_ksViewToolBar, miViewToolBar.Checked);
 			regkey.SetValue(m_ksViewRightToLeft, miViewRightToLeft.Checked);
+			regkey.SetValue(m_ksSaveForTreeTran, miSaveForTreeTran.Checked);
 			// Window position and location
 			regkey.SetValue(m_ksWindowState, (int)WindowState);
 			regkey.SetValue(m_ksLocationX, this.m_RectNormal.X);

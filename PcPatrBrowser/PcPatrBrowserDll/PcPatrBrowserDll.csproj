@@ -215,6 +215,7 @@
     <Compile Include="PcPatrSentence.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TreeTranSaver.cs" />
     <EmbeddedResource Include="DlgAbout.resx">
       <DependentUpon>DlgAbout.cs</DependentUpon>
       <SubType>Designer</SubType>
