@@ -18,11 +18,11 @@ type="tPcPatrFLEx"
 ><affiliation
 >SIL International</affiliation
 ><emailAddress
->andy_black@sil.org</emailAddress
+>blackhandrew@gmail.com</emailAddress
 ><date
->29 March, 2019</date
+>28 May, 2019</date
 ><version
->Version 1.1.0 Beta</version
+>Version 1.2.0 Beta</version
 ><version
 >Copyright © 2018-2019 SIL International</version
 ><contents
@@ -248,7 +248,7 @@ id="sRootGloss"
 ><object
 type="tPcPatr"
 ></object
-> allows you to have “rootglosses” in rules.  This section allows you to set one of four options with respect to how rootglosses are handled.  See section 3.2.14.22 “set rootgloss” in the  PC-PATR Reference Manual.<endnote
+> allows you to have “rootglosses” in rules. This section allows you to set one of four options with respect to how rootglosses are handled. See section 3.2.14.22 “set rootgloss” in the PC-PATR Reference Manual.<endnote
 id="nPCPTRRefManual"
 ><p
 >Use the <object
@@ -350,6 +350,17 @@ src="resources/yes.png"
 type="tFLEx"
 ></object
 > database for this segment. That is, this segment will be disambiguated, using the information from this parse.</p
+><p
+>If you are using the <object
+type="tTool"
+>TreeTran</object
+> program, you can save the results of the disambiguated parses in a file called Invoker.xml in the %TEMP% directory.  You do this by using <object
+type="tMenuItem"
+>File / Save for TreeTran</object
+> to make sure there is a check mark before it.  Alternatively, you can click on the <img
+src="resources/TreeTranOutput.png"
+></img
+> item in the tool bar.</p
 ><p
 >When you are done looking at the results, close the <object
 type="tPcPatrBrowser"
@@ -458,6 +469,7 @@ type="tPcPatrFLEx"
 ></object
 > reports along with a brief description of what the error might mean.</p
 ><example
+XeLaTeXSpecial="pagebreak"
 num="xErrorTypes"
 ><table
 border="1"

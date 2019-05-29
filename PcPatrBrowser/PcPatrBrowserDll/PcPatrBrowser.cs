@@ -1900,11 +1900,11 @@ namespace SIL.PcPatrBrowser
 				string outputFileName = m_sLogOrAnaFileName;
 				if (!outputFileName.EndsWith(".and"))
 				{
-					outputFileName = outputFileName + ".ant";
+					outputFileName = outputFileName + ".xml";
 				}
 				else
 				{
-					outputFileName = outputFileName.Substring(0, outputFileName.Length - 1) + "t";
+					outputFileName = outputFileName.Substring(0, outputFileName.Length - 3) + "xml";
 				}
 				File.WriteAllText(outputFileName, ana, Encoding.UTF8);
 			}

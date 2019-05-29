@@ -37,8 +37,8 @@ namespace SIL.PcPatrBrowserTest
 		{
 			string grammarFile;
 			AndFile = Path.Combine(TestDataDir, "InvokerMany.and");
-			string antFile = Path.Combine(TestDataDir, "InvokerMany.ant");
-			string antFileContents = File.ReadAllText(antFile, Encoding.UTF8);
+			string antFile = Path.Combine(TestDataDir, "InvokerMany.xml");
+			string antFileContents = File.ReadAllText(antFile, Encoding.UTF8).Replace("\r","");
 			PcPatrDocument doc = new PcPatrDocument(AndFile, out grammarFile);
 			Assert.AreEqual(10, doc.NumberOfSentences);
 			TreeTranSaver saver = new TreeTranSaver(doc);
@@ -54,7 +54,7 @@ namespace SIL.PcPatrBrowserTest
 			ParsesChosen[8] = 1;
 			ParsesChosen[9] = 1;
 			string ana = saver.CreateANAFromParsesChosen(ParsesChosen);
-			Console.Out.WriteLine(ana);
+			//Console.Out.WriteLine(ana);
 			Assert.AreEqual(antFileContents, ana);
 		}
 	}

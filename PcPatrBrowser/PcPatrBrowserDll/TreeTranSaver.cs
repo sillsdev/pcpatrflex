@@ -29,20 +29,32 @@ namespace SIL.PcPatrBrowser
 		public string CreateANAFromParsesChosen(int[] parsesChosen)
 		{
 			var sb = new StringBuilder();
-			var sbInputWords = new StringBuilder();
 			sb.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 			sb.Append("<XAmpleANA>\n");
 			var sentence = m_doc.FirstSentence;
-			//Console.Out.WriteLine("in CreateANAFromParsesChosen");
 			for (int iSent=0; iSent < m_doc.NumberOfSentences; iSent++)
 			{
-				sbInputWords.Clear();
-				//Console.Out.WriteLine("iSent=" + iSent);
-				//Console.Out.WriteLine("sentence=" + sentence.Node.OuterXml);
+				XmlNode origWord = null;
+				XmlNode nonAlpha = null; ;
 				if (parsesChosen[iSent] == 0 || sentence.Parses.Length == 0)
 				{
 					// output all parses
-					//sentence.
+					int iCount = iRecord;
+					var words = sentence.Node.SelectNodes("/Analysis/Input/Word");
+					foreach (XmlNode word in words)
+					{
+						XmlNodeList wordParses = word.SelectNodes(".//WordParse");
+						iRecord++;
+						iMParse = 1;
+						if ((iRecord - iCount) == words.Count)
+						{
+							OutputAnaRec(sb, wordParses, sentence.Node, out origWord, out nonAlpha);
+						}
+						else
+						{
+							OutputAnaRec(sb, wordParses, null, out origWord, out nonAlpha);
+						}
+					}
 				}
 				else
 				{
@@ -50,117 +62,92 @@ namespace SIL.PcPatrBrowser
 					var parse = sentence.GoToParse(parsesChosen[iSent]);
 					var leaves = parse.Node.SelectNodes(".//Leaf");
 					XmlNode wordParse = null;
-					XmlNode origWord = null;
-					// a d cat p fd w n
 					for (int iLeaf = 0; iLeaf < leaves.Count; iLeaf++)
 					{
 						iRecord++;
 						iMParse = 1;
 						var leaf = leaves.Item(iLeaf);
 						wordParse = FindWordParseToUse(sentence, iLeaf, leaf);
-						//Console.Out.WriteLine("wordparse=" + wordParse.OuterXml);
-						sb.Append("<anaRec id=\"anaRec");
-						sb.Append(iRecord);
-						sb.Append("\">\n");
-						sb.Append("<w id=\"w");
-						sb.Append(iRecord);
-						sb.Append("\">");
-						origWord = wordParse.SelectSingleNode("../OrigWord");
-						sb.Append(origWord.InnerText);
-						sb.Append("</w>\n");
-						var recordParseID = iRecord + "." + iMParse;
-						sb.Append("<mparse id=\"mparse");
-						sb.Append(recordParseID);
-						sb.Append("\">\n");
-						sb.Append("<a id=\"a");
-						sb.Append(recordParseID);
-						sb.Append("\">\n");
-						OutputMorphItems(sb, wordParse, recordParseID);
-						sb.Append("</a>\n");
-						sb.Append("<cat id=\"cat");
-						sb.Append(recordParseID);
-						sb.Append("\">");
-						var wordCat = wordParse.SelectSingleNode("./WordCat");
-						sb.Append(wordCat.InnerText);
-						sb.Append("</cat>\n");
-						sb.Append("</mparse>\n");
-						var nonAlpha = wordParse.SelectSingleNode("../NonAlpha");
-						if (nonAlpha != null)
+						var wordParses = wordParse.SelectNodes("../WordParse[@id='" + wordParse.SelectSingleNode("./@id").InnerText + "']");
+						if (iLeaf == (leaves.Count - 1))
 						{
-							sb.Append("<n id=\"n");
-							sb.Append(iRecord);
-							sb.Append("\">");
-							var na = nonAlpha.InnerText;
-							if (na.Length > 0)
-							{
-								sb.Append(nonAlpha.InnerText);
-							}
-							else
-							{
-								sb.Append(" ");
-							}
-							sb.Append("</n>\n");
+							OutputAnaRec(sb, wordParses, parse.Node, out origWord, out nonAlpha);
 						}
-						sb.Append("</anaRec>\n");
-						sbInputWords.Append("<Word id=\"word");
-						sbInputWords.Append(iRecord);
-						sbInputWords.Append("\">\n");
-						if (origWord != null)
+						else
 						{
-							sbInputWords.Append(InsertNewLines(origWord.OuterXml));
-							sbInputWords.Append("\n");
+							OutputAnaRec(sb, wordParses, null, out origWord, out nonAlpha);
 						}
-						//sbInputWords.Append("\n");
-						if (wordParse != null)
-						{
-							sbInputWords.Append(InsertNewLines(wordParse.OuterXml));
-							sbInputWords.Append("\n");
-						}
-						//if (wordCat != null)
-						//{
-						//	sbInputWords.Append(InsertNewLines(wordCat.OuterXml));
-						//	sbInputWords.Append("\n");
-						//}
-						if (nonAlpha != null)
-						{
-							sbInputWords.Append(InsertNewLines(nonAlpha.OuterXml));
-							sbInputWords.Append("\n");
-						}
-						sbInputWords.Append("</Word>\n");
 					}
-					sb.Append("<Analysis count=\"1\" >\n");
-					sb.Append("<Input>\n");
-					//sb.Append("<Word id =\"word1\">\n");
-					//if (origWord != null)
-					//{
-					//	sb.Append(InsertNewLines(origWord.OuterXml));
-					//}
-					//// output the selected word with the selected wordparse
-					//if (wordParse != null)
-					//{
-					//	sb.Append(InsertNewLines(wordParse.OuterXml));
-					//	sb.Append("\n");
-					//}
-					//var nonAlpha = wordParse.SelectSingleNode("../NonAlpha");
-					//if (nonAlpha != null)
-					//{
-					//	sb.Append(InsertNewLines(nonAlpha.OuterXml));
-					//	sb.Append("\n");
-					//}
-					//sb.Append("</Word>\n");
-					sb.Append(sbInputWords.ToString());
-					sb.Append("</Input>\n");
-					if (parse != null && parse.Node != null)
-					{
-						sb.Append(InsertNewLines(parse.Node.OuterXml));
-						sb.Append("\n");
-					}
-					sb.Append("</Analysis>\n");
 				}
 				sentence = m_doc.NextSentence;
 			}
 			sb.Append("</XAmpleANA>\n");
 			return sb.ToString();
+		}
+
+		private void OutputAnaRec(StringBuilder sb, XmlNodeList wordParses, XmlNode parseNode, out XmlNode origWord, out XmlNode nonAlpha)
+		{
+			sb.Append("<anaRec id=\"anaRec");
+			sb.Append(iRecord);
+			sb.Append("\">\n");
+			sb.Append("<w id=\"w");
+			sb.Append(iRecord);
+			sb.Append("\">");
+			var wordParse1 = wordParses.Item(0);
+			origWord = wordParse1.SelectSingleNode("../OrigWord");
+			sb.Append(origWord.InnerText);
+			sb.Append("</w>\n");
+			foreach (XmlNode wordParse in wordParses)
+			{
+				var recordParseID = iRecord + "." + iMParse;
+				sb.Append("<mparse id=\"mparse");
+				sb.Append(recordParseID);
+				sb.Append("\">\n");
+				sb.Append("<a id=\"a");
+				sb.Append(recordParseID);
+				sb.Append("\">\n");
+				OutputMorphItems(sb, wordParse, recordParseID);
+				sb.Append("</a>\n");
+				sb.Append("<cat id=\"cat");
+				sb.Append(recordParseID);
+				sb.Append("\">");
+				var wordCat = wordParse1.SelectSingleNode("./WordCat");
+				sb.Append(wordCat.InnerText);
+				sb.Append("</cat>\n");
+				sb.Append("</mparse>\n");
+				iMParse++;
+			}
+			nonAlpha = wordParse1.SelectSingleNode("../NonAlpha");
+			if (nonAlpha != null)
+			{
+				sb.Append("<n id=\"n");
+				sb.Append(iRecord);
+				sb.Append("\">");
+				var na = nonAlpha.InnerText;
+				if (na.Length > 0)
+				{
+					sb.Append(nonAlpha.InnerText);
+				}
+				else
+				{
+					sb.Append(" ");
+				}
+				sb.Append("</n>\n");
+			}
+			if (parseNode != null)
+			{
+				if (parseNode.OuterXml.StartsWith("<Analysis"))
+				{
+					sb.Append("<Analysis count=\"0\"/>\n");
+				}
+				else
+				{
+					sb.Append("<Analysis count=\"1\">\n");
+					sb.Append(InsertNewLines(parseNode.OuterXml));
+					sb.Append("</Analysis>\n");
+				}
+			}
+			sb.Append("</anaRec>\n");
 		}
 
 		private void OutputMorphItems(StringBuilder sb, XmlNode wordParse, string recordParseID)

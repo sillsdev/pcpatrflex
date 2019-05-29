@@ -1,0 +1,10823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XAmpleANA>
+<anaRec id="anaRec1">
+<w id="w1">این</w>
+<mparse id="mparse1.1">
+<a id="a1.1">
+<root id="root1.1.1">
+<m id="m1.1.1">this</m>
+<d id="d1.1.1">این</d>
+<mcat id="mcat1.1.1">dem</mcat>
+<p id="p1.1.1">57eac8d6-0aee-4873-b696-62750335b370</p>
+<fd id="fd1.1.1">DP-initial</fd>
+</root>
+</a>
+<cat id="cat1.1">dem</cat>
+</mparse>
+<n id="n1"> </n>
+</anaRec>
+<anaRec id="anaRec2">
+<w id="w2">کتاب</w>
+<mparse id="mparse2.1">
+<a id="a2.1">
+<root id="root2.1.1">
+<m id="m2.1.1">book</m>
+<d id="d2.1.1">کتاب</d>
+<mcat id="mcat2.1.1">n-irreg</mcat>
+<p id="p2.1.1">11f2f36a-d79c-4d89-99c9-023415f135fb</p>
+<fd id="fd2.1.1">-animate compounds_with_خواندن intransitive</fd>
+</root>
+<sfx id="sfx2.1.2">
+<m id="m2.1.2">gen</m>
+<d id="d2.1.2">0</d>
+<mcat id="mcat2.1.2">n-irreg</mcat>
+<p id="p2.1.2">2363a1ae-db39-42ef-8a2c-0a8fac373ec9</p>
+<fd id="fd2.1.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat2.1">n-irreg</cat>
+</mparse>
+<n id="n2"> </n>
+</anaRec>
+<anaRec id="anaRec3">
+<w id="w3">گران</w>
+<mparse id="mparse3.1">
+<a id="a3.1">
+<root id="root3.1.1">
+<m id="m3.1.1">scab</m>
+<d id="d3.1.1">گر</d>
+<mcat id="mcat3.1.1">n</mcat>
+<p id="p3.1.1">a3a03fbf-4883-4e33-8258-22fc85925f86</p>
+<fd id="fd3.1.1"></fd>
+</root>
+<sfx id="sfx3.1.2">
+<m id="m3.1.2">pl</m>
+<d id="d3.1.2">ان</d>
+<mcat id="mcat3.1.2">n</mcat>
+<p id="p3.1.2">1397f214-d0b1-4fc4-a0d5-85564ed60399</p>
+<fd id="fd3.1.2"></fd>
+</sfx>
+</a>
+<cat id="cat3.1">n</cat>
+</mparse>
+<n id="n3"> </n>
+</anaRec>
+<anaRec id="anaRec4">
+<w id="w4">است</w>
+<mparse id="mparse4.1">
+<a id="a4.1">
+<root id="root4.1.1">
+<m id="m4.1.1">be.prs.3sg</m>
+<d id="d4.1.1">است</d>
+<mcat id="mcat4.1.1">cop</mcat>
+<p id="p4.1.1">f0d69e3c-ec41-4aea-b95e-04102bb6be42</p>
+<fd id="fd4.1.1">-compound</fd>
+</root>
+</a>
+<cat id="cat4.1">cop</cat>
+</mparse>
+<n id="n4">.</n>
+<Analysis count="1">
+<Parse>
+<Node cat="S" rule="S option start symbol -  final ya na &amp; Quote allowed" id="s1_1._1">
+<Fs>
+<F name="cat">
+<Str>S</Str>
+</F>
+<F name="head">
+<Fs id="s1_1.co8">
+<F name="case">
+<Fs>
+<F name="direct">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="embedded">
+<Fs>
+<F name="infl">
+<Fs id="s1_1.co3">
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>-</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="infl" fVal="s1_1.co3">
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>be.prs.3sg</Str>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs id="s1_1.co7">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s1_1.co6">
+<F name="agr">
+<Fs id="s1_1.co4">
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="possessor">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="reflexive">
+<Fs id="s1_1.co5">
+<F name="head">
+<Fs>
+<F name="agr" fVal="s1_1.co4">
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>scab</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="coordination">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="reflexive" fVal="s1_1.co5">
+</F>
+<F name="rootgloss">
+<Str>book</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with1">
+<Str>خواندن</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>+</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>+</Str>
+</F>
+<F name="modifier-initial">
+<Str>+</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="auxiliary">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="initialP">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="no_intervening">
+<Str>+</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="pro-drop">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="root">
+<Str>+</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>start</Str>
+</F>
+</Fs>
+<Node cat="IP" rule="IP option 2cINon-ImpersonalVNonPast - subject initial, required, root clause" id="s1_1._2">
+<Fs>
+<F name="cat">
+<Str>IP</Str>
+</F>
+<F name="head" fVal="s1_1.co8">
+</F>
+<F name="rule">
+<Str>2cNon-ImpersonalVNonPast</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s1_1._3">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s1_1.co6">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4aDem - only demonstratives, initial" id="s1_1._4">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s1_1.co6">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Leaf cat="Dem" id="s1_1._5" gloss="this">
+<Fs>
+<F name="cat">
+<Str>Dem</Str>
+</F>
+<F name="decomposition">
+<Str>این</Str>
+</F>
+<F name="featureDescriptors">
+<Str>DP-initial</Str>
+</F>
+<F name="gloss">
+<Str>this</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="nominative">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="DP-initial">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="demonstrative">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>این</Str>
+</F>
+<F name="properties">
+<Str>57eac8d6-0aee-4873-b696-62750335b370</Str>
+</F>
+<F name="rootgloss">
+<Str>this</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>Dem</Str>
+</F>
+<F name="decomposition">
+<Str>این</Str>
+</F>
+<F name="featureDescriptors">
+<Str>DP-initial</Str>
+</F>
+<F name="gloss">
+<Str>this</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="DP-initial">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="demonstrative">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>این</Str>
+</F>
+<F name="properties">
+<Str>57eac8d6-0aee-4873-b696-62750335b370</Str>
+</F>
+<F name="rootgloss">
+<Str>this</Str>
+</F>
+</Lexfs>
+<Str>این</Str>
+</Leaf>
+<Node cat="NP" rule="NP option 1bposs - no separate marker, possessor final" id="s1_1._6" all="true">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s1_1.co6">
+</F>
+<F name="rule">
+<Str>1bposs</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s1_1._7" all="true">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head">
+<Fs id="s1_1.co2">
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="rootgloss">
+<Str>book</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>+</Str>
+</F>
+<F name="compounds_with1">
+<Str>خواندن</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>+</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s1_1._8" all="true" gloss="book gen">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>کتاب-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>-animate compounds_with_خواندن intransitive=genitive_suffix</Str>
+</F>
+<F name="gloss">
+<Str>book gen</Str>
+</F>
+<F name="head" fVal="s1_1.co2">
+</F>
+<F name="lex">
+<Str>کتاب</Str>
+</F>
+<F name="properties">
+<Str>11f2f36a-d79c-4d89-99c9-023415f135fb=2363a1ae-db39-42ef-8a2c-0a8fac373ec9</Str>
+</F>
+<F name="rootgloss">
+<Str>book</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>کتاب-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>-animate compounds_with_خواندن intransitive=genitive_suffix</Str>
+</F>
+<F name="gloss">
+<Str>book gen</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>+</Str>
+</F>
+<F name="compounds_with1">
+<Str>خواندن</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>+</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>کتاب</Str>
+</F>
+<F name="properties">
+<Str>11f2f36a-d79c-4d89-99c9-023415f135fb=2363a1ae-db39-42ef-8a2c-0a8fac373ec9</Str>
+</F>
+<F name="rootgloss">
+<Str>book</Str>
+</F>
+</Lexfs>
+<Str>کتاب</Str>
+</Leaf>
+</Node>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s1_1._9" all="true">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s1_1.co1">
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="rootgloss">
+<Str>scab</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s1_1._10" all="true">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s1_1.co1">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s1_1._11" all="true">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s1_1.co1">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s1_1._12" all="true">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s1_1.co1">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s1_1._13" all="true" gloss="scab pl">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>گر-ان</Str>
+</F>
+<F name="gloss">
+<Str>scab pl</Str>
+</F>
+<F name="head" fVal="s1_1.co1">
+</F>
+<F name="lex">
+<Str>گران</Str>
+</F>
+<F name="properties">
+<Str>a3a03fbf-4883-4e33-8258-22fc85925f86=1397f214-d0b1-4fc4-a0d5-85564ed60399</Str>
+</F>
+<F name="rootgloss">
+<Str>scab</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>گر-ان</Str>
+</F>
+<F name="gloss">
+<Str>scab pl</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>گران</Str>
+</F>
+<F name="properties">
+<Str>a3a03fbf-4883-4e33-8258-22fc85925f86=1397f214-d0b1-4fc4-a0d5-85564ed60399</Str>
+</F>
+<F name="rootgloss">
+<Str>scab</Str>
+</F>
+</Lexfs>
+<Str>گران</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node cat="I'" rule="I' option 1 - no auxiliaries" id="s1_1._14">
+<Fs>
+<F name="cat">
+<Str>I'</Str>
+</F>
+<F name="head" fVal="s1_1.co8">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="VP" rule="VP option 2a - V initial/final, intransitive or copular" id="s1_1._15">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s1_1.co8">
+</F>
+<F name="rule">
+<Str>2a</Str>
+</F>
+</Fs>
+<Leaf cat="V" id="s1_1._16" gloss="be.prs.3sg">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>است</Str>
+</F>
+<F name="featureDescriptors">
+<Str>-compound</Str>
+</F>
+<F name="gloss">
+<Str>be.prs.3sg</Str>
+</F>
+<F name="head" fVal="s1_1.co8">
+</F>
+<F name="lex">
+<Str>است</Str>
+</F>
+<F name="properties">
+<Str>f0d69e3c-ec41-4aea-b95e-04102bb6be42</Str>
+</F>
+<F name="rootgloss">
+<Str>be.prs.3sg</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>است</Str>
+</F>
+<F name="featureDescriptors">
+<Str>-compound</Str>
+</F>
+<F name="gloss">
+<Str>be.prs.3sg</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>-</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>است</Str>
+</F>
+<F name="properties">
+<Str>f0d69e3c-ec41-4aea-b95e-04102bb6be42</Str>
+</F>
+<F name="rootgloss">
+<Str>be.prs.3sg</Str>
+</F>
+</Lexfs>
+<Str>است</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Parse></Analysis>
+</anaRec>
+<anaRec id="anaRec5">
+<w id="w5">آن</w>
+<mparse id="mparse5.1">
+<a id="a5.1">
+<root id="root5.1.1">
+<m id="m5.1.1">that</m>
+<d id="d5.1.1">آن</d>
+<mcat id="mcat5.1.1">dem</mcat>
+<p id="p5.1.1">0109754a-3475-4eb2-9b70-d25be4c9e699</p>
+<fd id="fd5.1.1"></fd>
+</root>
+</a>
+<cat id="cat5.1">dem</cat>
+</mparse>
+<mparse id="mparse5.2">
+<a id="a5.2">
+<root id="root5.2.1">
+<m id="m5.2.1">that</m>
+<d id="d5.2.1">آن</d>
+<mcat id="mcat5.2.1">dem</mcat>
+<p id="p5.2.1">7abcd109-2299-4114-9241-256b1cd73fcb</p>
+<fd id="fd5.2.1"></fd>
+</root>
+</a>
+<cat id="cat5.2">dem</cat>
+</mparse>
+<mparse id="mparse5.3">
+<a id="a5.3">
+<root id="root5.3.1">
+<m id="m5.3.1">that</m>
+<d id="d5.3.1">آن</d>
+<mcat id="mcat5.3.1">pro</mcat>
+<p id="p5.3.1">a5400aab-d6c3-45ca-b84a-d3daabdce330</p>
+<fd id="fd5.3.1"></fd>
+</root>
+</a>
+<cat id="cat5.3">dem</cat>
+</mparse>
+<mparse id="mparse5.4">
+<a id="a5.4">
+<root id="root5.4.1">
+<m id="m5.4.1">that</m>
+<d id="d5.4.1">آن</d>
+<mcat id="mcat5.4.1">pro</mcat>
+<p id="p5.4.1">49f37ddb-5311-46b3-be1a-701a8a1ae87d</p>
+<fd id="fd5.4.1"></fd>
+</root>
+<sfx id="sfx5.4.2">
+<m id="m5.4.2">obl</m>
+<d id="d5.4.2">0</d>
+<mcat id="mcat5.4.2">pro</mcat>
+<p id="p5.4.2">ebab3fe6-be00-4109-908f-65d985448424</p>
+<fd id="fd5.4.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat5.4">dem</cat>
+</mparse>
+<n id="n5"> </n>
+</anaRec>
+<anaRec id="anaRec6">
+<w id="w6">بچه‌ها</w>
+<mparse id="mparse6.1">
+<a id="a6.1">
+<pfx id="pfx6.1.1">
+<m id="m6.1.1">to</m>
+<d id="d6.1.1">ب</d>
+<mcat id="mcat6.1.1">n</mcat>
+<p id="p6.1.1">b07fea72-0639-41d6-9906-08874404a656</p>
+<fd id="fd6.1.1"></fd>
+</pfx>
+<root id="root6.1.2">
+<m id="m6.1.2">what</m>
+<d id="d6.1.2">چه</d>
+<mcat id="mcat6.1.2">n</mcat>
+<p id="p6.1.2">3a53ed0a-d06e-43d5-bac3-6bfab57b4585</p>
+<fd id="fd6.1.2"></fd>
+</root>
+<sfx id="sfx6.1.3">
+<m id="m6.1.3">pl</m>
+<d id="d6.1.3">‌ها</d>
+<mcat id="mcat6.1.3">n</mcat>
+<p id="p6.1.3">d3066797-a5f2-49ff-bdb8-72f80404e60e</p>
+<fd id="fd6.1.3"></fd>
+</sfx>
+<sfx id="sfx6.1.4">
+<m id="m6.1.4">obl</m>
+<d id="d6.1.4">0</d>
+<mcat id="mcat6.1.4">n</mcat>
+<p id="p6.1.4">cc5cbe66-9598-4320-a8d2-dd86ac99e38f</p>
+<fd id="fd6.1.4">oblique</fd>
+</sfx>
+</a>
+<cat id="cat6.1">n</cat>
+</mparse>
+<mparse id="mparse6.2">
+<a id="a6.2">
+<pfx id="pfx6.2.1">
+<m id="m6.2.1">to</m>
+<d id="d6.2.1">ب</d>
+<mcat id="mcat6.2.1">n</mcat>
+<p id="p6.2.1">7ae6951e-1812-426a-8a69-15553740de89</p>
+<fd id="fd6.2.1"></fd>
+</pfx>
+<root id="root6.2.2">
+<m id="m6.2.2">what</m>
+<d id="d6.2.2">چه</d>
+<mcat id="mcat6.2.2">n</mcat>
+<p id="p6.2.2">d24d6c1b-8339-4f74-81ec-d09d59f07c8b</p>
+<fd id="fd6.2.2"></fd>
+</root>
+<sfx id="sfx6.2.3">
+<m id="m6.2.3">pl</m>
+<d id="d6.2.3">‌ها</d>
+<mcat id="mcat6.2.3">n</mcat>
+<p id="p6.2.3">e039f1c2-2909-4a5c-8b78-aafd837f8fd3</p>
+<fd id="fd6.2.3"></fd>
+</sfx>
+</a>
+<cat id="cat6.2">n</cat>
+</mparse>
+<mparse id="mparse6.3">
+<a id="a6.3">
+<root id="root6.3.1">
+<m id="m6.3.1">child</m>
+<d id="d6.3.1">بچه</d>
+<mcat id="mcat6.3.1">n</mcat>
+<p id="p6.3.1">250187d2-d5cb-425c-871c-5c6c125fd53b</p>
+<fd id="fd6.3.1">human</fd>
+</root>
+<sfx id="sfx6.3.2">
+<m id="m6.3.2">pl</m>
+<d id="d6.3.2">‌ها</d>
+<mcat id="mcat6.3.2">n</mcat>
+<p id="p6.3.2">1d0fbaef-c0e3-4228-8632-bb86a9bfbbf8</p>
+<fd id="fd6.3.2"></fd>
+</sfx>
+<sfx id="sfx6.3.3">
+<m id="m6.3.3">obl</m>
+<d id="d6.3.3">0</d>
+<mcat id="mcat6.3.3">n</mcat>
+<p id="p6.3.3">ab9da2e4-b3ec-448d-8347-6acd9c919c3c</p>
+<fd id="fd6.3.3">oblique</fd>
+</sfx>
+</a>
+<cat id="cat6.3">n</cat>
+</mparse>
+<mparse id="mparse6.4">
+<a id="a6.4">
+<root id="root6.4.1">
+<m id="m6.4.1">child</m>
+<d id="d6.4.1">بچه</d>
+<mcat id="mcat6.4.1">n</mcat>
+<p id="p6.4.1">8543ff7b-8208-4573-8ae8-5d4ac641e5d8</p>
+<fd id="fd6.4.1">human</fd>
+</root>
+<sfx id="sfx6.4.2">
+<m id="m6.4.2">pl</m>
+<d id="d6.4.2">‌ها</d>
+<mcat id="mcat6.4.2">n</mcat>
+<p id="p6.4.2">7c03f95f-0b4d-4605-b455-c6f99eef3671</p>
+<fd id="fd6.4.2"></fd>
+</sfx>
+<sfx id="sfx6.4.3">
+<m id="m6.4.3">gen</m>
+<d id="d6.4.3">0</d>
+<mcat id="mcat6.4.3">n</mcat>
+<p id="p6.4.3">d65006d1-0cd1-4c91-afbd-f2e3dd6857be</p>
+<fd id="fd6.4.3">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat6.4">n</cat>
+</mparse>
+<mparse id="mparse6.5">
+<a id="a6.5">
+<root id="root6.5.1">
+<m id="m6.5.1">child</m>
+<d id="d6.5.1">بچه</d>
+<mcat id="mcat6.5.1">n</mcat>
+<p id="p6.5.1">0b6296c5-b832-4172-9e73-3980b6956ec5</p>
+<fd id="fd6.5.1">human</fd>
+</root>
+<sfx id="sfx6.5.2">
+<m id="m6.5.2">pl</m>
+<d id="d6.5.2">‌ها</d>
+<mcat id="mcat6.5.2">n</mcat>
+<p id="p6.5.2">ba4c0d96-8c6d-4bd4-84db-0dcdff2c3189</p>
+<fd id="fd6.5.2"></fd>
+</sfx>
+<sfx id="sfx6.5.3">
+<m id="m6.5.3">om</m>
+<d id="d6.5.3">0</d>
+<mcat id="mcat6.5.3">n</mcat>
+<p id="p6.5.3">ee585956-bf2c-4a44-86fb-8a5e211f5a2e</p>
+<fd id="fd6.5.3">object_case</fd>
+</sfx>
+</a>
+<cat id="cat6.5">n</cat>
+</mparse>
+<mparse id="mparse6.6">
+<a id="a6.6">
+<pfx id="pfx6.6.1">
+<m id="m6.6.1">to</m>
+<d id="d6.6.1">ب</d>
+<mcat id="mcat6.6.1">n</mcat>
+<p id="p6.6.1">d41c13a9-f47e-4f15-a736-d40ff0777020</p>
+<fd id="fd6.6.1"></fd>
+</pfx>
+<root id="root6.6.2">
+<m id="m6.6.2">what</m>
+<d id="d6.6.2">چه</d>
+<mcat id="mcat6.6.2">n</mcat>
+<p id="p6.6.2">3147a5c5-d931-4e8d-9416-a1889bca0f0f</p>
+<fd id="fd6.6.2"></fd>
+</root>
+<sfx id="sfx6.6.3">
+<m id="m6.6.3">pl</m>
+<d id="d6.6.3">‌ها</d>
+<mcat id="mcat6.6.3">n</mcat>
+<p id="p6.6.3">6e7d57d3-4767-41ba-a8bf-3a8fa24c64b6</p>
+<fd id="fd6.6.3"></fd>
+</sfx>
+<sfx id="sfx6.6.4">
+<m id="m6.6.4">gen</m>
+<d id="d6.6.4">0</d>
+<mcat id="mcat6.6.4">n</mcat>
+<p id="p6.6.4">1a61da7f-4d01-478f-a19a-25e850f4c785</p>
+<fd id="fd6.6.4">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat6.6">n</cat>
+</mparse>
+<mparse id="mparse6.7">
+<a id="a6.7">
+<pfx id="pfx6.7.1">
+<m id="m6.7.1">to</m>
+<d id="d6.7.1">ب</d>
+<mcat id="mcat6.7.1">n</mcat>
+<p id="p6.7.1">8e12261d-132a-47c5-a502-d618d11c9284</p>
+<fd id="fd6.7.1"></fd>
+</pfx>
+<root id="root6.7.2">
+<m id="m6.7.2">what</m>
+<d id="d6.7.2">چه</d>
+<mcat id="mcat6.7.2">n</mcat>
+<p id="p6.7.2">e7c0c7bb-89f9-4a36-873f-90a5abc9dab4</p>
+<fd id="fd6.7.2"></fd>
+</root>
+<sfx id="sfx6.7.3">
+<m id="m6.7.3">pl</m>
+<d id="d6.7.3">‌ها</d>
+<mcat id="mcat6.7.3">n</mcat>
+<p id="p6.7.3">f031ab94-08ef-4f94-9a2c-59bb852ed9b9</p>
+<fd id="fd6.7.3"></fd>
+</sfx>
+<sfx id="sfx6.7.4">
+<m id="m6.7.4">om</m>
+<d id="d6.7.4">0</d>
+<mcat id="mcat6.7.4">n</mcat>
+<p id="p6.7.4">430cfd3f-68fe-42e6-94b8-4ecb8f057df4</p>
+<fd id="fd6.7.4">object_case</fd>
+</sfx>
+</a>
+<cat id="cat6.7">n</cat>
+</mparse>
+<mparse id="mparse6.8">
+<a id="a6.8">
+<root id="root6.8.1">
+<m id="m6.8.1">child</m>
+<d id="d6.8.1">بچه</d>
+<mcat id="mcat6.8.1">n</mcat>
+<p id="p6.8.1">d89711ce-da56-447e-a592-4696df7a0dc8</p>
+<fd id="fd6.8.1">human</fd>
+</root>
+<sfx id="sfx6.8.2">
+<m id="m6.8.2">pl</m>
+<d id="d6.8.2">‌ها</d>
+<mcat id="mcat6.8.2">n</mcat>
+<p id="p6.8.2">1116e7b0-5e13-4fda-8609-57df749567d4</p>
+<fd id="fd6.8.2"></fd>
+</sfx>
+</a>
+<cat id="cat6.8">n</cat>
+</mparse>
+<n id="n6"> </n>
+</anaRec>
+<anaRec id="anaRec7">
+<w id="w7">خوشحال</w>
+<mparse id="mparse7.1">
+<a id="a7.1">
+<root id="root7.1.1">
+<m id="m7.1.1">happy</m>
+<d id="d7.1.1">خوشحال</d>
+<mcat id="mcat7.1.1">adj</mcat>
+<p id="p7.1.1">587b1f86-88af-48ad-9214-3efcf0910cc1</p>
+<fd id="fd7.1.1">compounds_with_شدن</fd>
+</root>
+<sfx id="sfx7.1.2">
+<m id="m7.1.2">attr</m>
+<d id="d7.1.2">0</d>
+<mcat id="mcat7.1.2">adj</mcat>
+<p id="p7.1.2">24805a9d-46be-4aa5-b02b-4b7c69a75e9f</p>
+<fd id="fd7.1.2"></fd>
+</sfx>
+<sfx id="sfx7.1.3">
+<m id="m7.1.3">om</m>
+<d id="d7.1.3">0</d>
+<mcat id="mcat7.1.3">adj</mcat>
+<p id="p7.1.3">17869ccc-45f1-4f86-81b9-c82d47343ca0</p>
+<fd id="fd7.1.3">object_case</fd>
+</sfx>
+</a>
+<cat id="cat7.1">adj</cat>
+</mparse>
+<mparse id="mparse7.2">
+<a id="a7.2">
+<root id="root7.2.1">
+<m id="m7.2.1">happy</m>
+<d id="d7.2.1">خوشحال</d>
+<mcat id="mcat7.2.1">adj</mcat>
+<p id="p7.2.1">9f0b41e4-230b-456a-ab22-18b7fb06c191</p>
+<fd id="fd7.2.1">compounds_with_شدن</fd>
+</root>
+<sfx id="sfx7.2.2">
+<m id="m7.2.2">attr</m>
+<d id="d7.2.2">0</d>
+<mcat id="mcat7.2.2">adj</mcat>
+<p id="p7.2.2">51bcc615-b7d9-403a-9c0b-e4f660451dba</p>
+<fd id="fd7.2.2"></fd>
+</sfx>
+</a>
+<cat id="cat7.2">adj</cat>
+</mparse>
+<mparse id="mparse7.3">
+<a id="a7.3">
+<root id="root7.3.1">
+<m id="m7.3.1">happy</m>
+<d id="d7.3.1">خوشحال</d>
+<mcat id="mcat7.3.1">adj</mcat>
+<p id="p7.3.1">c10914a5-3dcd-40a2-9018-7ce80e0e1f48</p>
+<fd id="fd7.3.1">compounds_with_شدن</fd>
+</root>
+<sfx id="sfx7.3.2">
+<m id="m7.3.2">om</m>
+<d id="d7.3.2">0</d>
+<mcat id="mcat7.3.2">adj</mcat>
+<p id="p7.3.2">b7329191-448c-41db-a80f-27a1af0c752e</p>
+<fd id="fd7.3.2">object_case</fd>
+</sfx>
+</a>
+<cat id="cat7.3">adj</cat>
+</mparse>
+<mparse id="mparse7.4">
+<a id="a7.4">
+<root id="root7.4.1">
+<m id="m7.4.1">happy</m>
+<d id="d7.4.1">خوشحال</d>
+<mcat id="mcat7.4.1">adj</mcat>
+<p id="p7.4.1">5e5b971d-e3ff-4978-ae33-303c626d7b19</p>
+<fd id="fd7.4.1">compounds_with_شدن</fd>
+</root>
+</a>
+<cat id="cat7.4">adj</cat>
+</mparse>
+<n id="n7"> </n>
+</anaRec>
+<anaRec id="anaRec8">
+<w id="w8">نیستند</w>
+<mparse id="mparse8.1">
+<a id="a8.1">
+<pfx id="pfx8.1.1">
+<m id="m8.1.1">neg</m>
+<d id="d8.1.1">ن</d>
+<mcat id="mcat8.1.1">cop</mcat>
+<p id="p8.1.1">c163179d-4d02-4105-9107-1112bd09dd0e</p>
+<fd id="fd8.1.1"></fd>
+</pfx>
+<root id="root8.1.2">
+<m id="m8.1.2">exist.prs</m>
+<d id="d8.1.2">یست</d>
+<mcat id="mcat8.1.2">cop</mcat>
+<p id="p8.1.2">5c0a602f-8fdb-4f7f-b20d-15deac2ef3ae</p>
+<fd id="fd8.1.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.1.3">
+<m id="m8.1.3">3pl</m>
+<d id="d8.1.3">ند</d>
+<mcat id="mcat8.1.3">cop</mcat>
+<p id="p8.1.3">580885d8-16f8-4248-aa40-57868851314f</p>
+<fd id="fd8.1.3"></fd>
+</sfx>
+</a>
+<cat id="cat8.1">cop</cat>
+</mparse>
+<mparse id="mparse8.2">
+<a id="a8.2">
+<pfx id="pfx8.2.1">
+<m id="m8.2.1">neg</m>
+<d id="d8.2.1">ن</d>
+<mcat id="mcat8.2.1">cop</mcat>
+<p id="p8.2.1">ddc32180-e8f7-4f0a-ad85-98dfba053527</p>
+<fd id="fd8.2.1"></fd>
+</pfx>
+<root id="root8.2.2">
+<m id="m8.2.2">exist.prs</m>
+<d id="d8.2.2">یست</d>
+<mcat id="mcat8.2.2">cop</mcat>
+<p id="p8.2.2">85ddfa53-747d-4add-abee-1cc13e8bbed3</p>
+<fd id="fd8.2.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.2.3">
+<m id="m8.2.3">3pl</m>
+<d id="d8.2.3">ند</d>
+<mcat id="mcat8.2.3">cop</mcat>
+<p id="p8.2.3">e92d5893-8230-4e8e-b0f3-1dbb24a5a510</p>
+<fd id="fd8.2.3"></fd>
+</sfx>
+<sfx id="sfx8.2.4">
+<m id="m8.2.4">1sg.obj</m>
+<d id="d8.2.4">0</d>
+<mcat id="mcat8.2.4">cop</mcat>
+<p id="p8.2.4">2c148d6a-bb53-4e8e-8fa1-3701dbb630f4</p>
+<fd id="fd8.2.4">first_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat8.2">cop</cat>
+</mparse>
+<mparse id="mparse8.3">
+<a id="a8.3">
+<pfx id="pfx8.3.1">
+<m id="m8.3.1">neg</m>
+<d id="d8.3.1">ن</d>
+<mcat id="mcat8.3.1">cop</mcat>
+<p id="p8.3.1">a0c8c25d-b53c-4fdf-8855-ec7c10505904</p>
+<fd id="fd8.3.1"></fd>
+</pfx>
+<root id="root8.3.2">
+<m id="m8.3.2">exist.prs</m>
+<d id="d8.3.2">یست</d>
+<mcat id="mcat8.3.2">cop</mcat>
+<p id="p8.3.2">f37ccf8f-4268-46ad-9b9e-a6b48803d5be</p>
+<fd id="fd8.3.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.3.3">
+<m id="m8.3.3">3pl</m>
+<d id="d8.3.3">ند</d>
+<mcat id="mcat8.3.3">cop</mcat>
+<p id="p8.3.3">2d1ab328-b5d8-45c7-9ee2-5b73a1b23f38</p>
+<fd id="fd8.3.3"></fd>
+</sfx>
+<sfx id="sfx8.3.4">
+<m id="m8.3.4">2pl.obj</m>
+<d id="d8.3.4">0</d>
+<mcat id="mcat8.3.4">cop</mcat>
+<p id="p8.3.4">fd33e373-19a5-4432-9813-9e8d205fb1af</p>
+<fd id="fd8.3.4">plural_object second_object</fd>
+</sfx>
+</a>
+<cat id="cat8.3">cop</cat>
+</mparse>
+<mparse id="mparse8.4">
+<a id="a8.4">
+<pfx id="pfx8.4.1">
+<m id="m8.4.1">neg</m>
+<d id="d8.4.1">ن</d>
+<mcat id="mcat8.4.1">cop</mcat>
+<p id="p8.4.1">316c6340-cc57-41c2-b27b-bf34233f5559</p>
+<fd id="fd8.4.1"></fd>
+</pfx>
+<root id="root8.4.2">
+<m id="m8.4.2">exist.prs</m>
+<d id="d8.4.2">یست</d>
+<mcat id="mcat8.4.2">cop</mcat>
+<p id="p8.4.2">e3cefa89-aafc-4624-a4cd-e12906962724</p>
+<fd id="fd8.4.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.4.3">
+<m id="m8.4.3">3pl</m>
+<d id="d8.4.3">ند</d>
+<mcat id="mcat8.4.3">cop</mcat>
+<p id="p8.4.3">9380409d-af4f-418a-bb55-9bed931a2e85</p>
+<fd id="fd8.4.3"></fd>
+</sfx>
+<sfx id="sfx8.4.4">
+<m id="m8.4.4">2sg.obj</m>
+<d id="d8.4.4">0</d>
+<mcat id="mcat8.4.4">cop</mcat>
+<p id="p8.4.4">c8bfc292-750e-4724-a30b-761512a6a5f9</p>
+<fd id="fd8.4.4">second_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat8.4">cop</cat>
+</mparse>
+<mparse id="mparse8.5">
+<a id="a8.5">
+<pfx id="pfx8.5.1">
+<m id="m8.5.1">neg</m>
+<d id="d8.5.1">ن</d>
+<mcat id="mcat8.5.1">cop</mcat>
+<p id="p8.5.1">f02fa389-9739-4579-a013-11b7d0a70e38</p>
+<fd id="fd8.5.1"></fd>
+</pfx>
+<root id="root8.5.2">
+<m id="m8.5.2">exist.prs</m>
+<d id="d8.5.2">یست</d>
+<mcat id="mcat8.5.2">cop</mcat>
+<p id="p8.5.2">acda2096-326e-4767-9cd8-eed6d6190080</p>
+<fd id="fd8.5.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.5.3">
+<m id="m8.5.3">3pl</m>
+<d id="d8.5.3">ند</d>
+<mcat id="mcat8.5.3">cop</mcat>
+<p id="p8.5.3">e5144233-63f7-4b53-a304-591b00b2cefa</p>
+<fd id="fd8.5.3"></fd>
+</sfx>
+<sfx id="sfx8.5.4">
+<m id="m8.5.4">3sg.obj</m>
+<d id="d8.5.4">0</d>
+<mcat id="mcat8.5.4">cop</mcat>
+<p id="p8.5.4">90af8eb8-6ec4-428a-9434-9a4f8390655c</p>
+<fd id="fd8.5.4">singular_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat8.5">cop</cat>
+</mparse>
+<mparse id="mparse8.6">
+<a id="a8.6">
+<pfx id="pfx8.6.1">
+<m id="m8.6.1">neg</m>
+<d id="d8.6.1">ن</d>
+<mcat id="mcat8.6.1">cop</mcat>
+<p id="p8.6.1">39af38ac-d1de-4a09-b3f3-7c986a73bbbe</p>
+<fd id="fd8.6.1"></fd>
+</pfx>
+<root id="root8.6.2">
+<m id="m8.6.2">exist.prs</m>
+<d id="d8.6.2">یست</d>
+<mcat id="mcat8.6.2">cop</mcat>
+<p id="p8.6.2">9e592f15-12ef-4083-b026-f818fc9b08bc</p>
+<fd id="fd8.6.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.6.3">
+<m id="m8.6.3">3pl</m>
+<d id="d8.6.3">ند</d>
+<mcat id="mcat8.6.3">cop</mcat>
+<p id="p8.6.3">227a4bb5-a629-47d2-8663-45f2d6659740</p>
+<fd id="fd8.6.3"></fd>
+</sfx>
+<sfx id="sfx8.6.4">
+<m id="m8.6.4">1pl.obj</m>
+<d id="d8.6.4">0</d>
+<mcat id="mcat8.6.4">cop</mcat>
+<p id="p8.6.4">6c556bd3-b9f6-414a-9181-0b8d601e92f6</p>
+<fd id="fd8.6.4">first_object plural_object</fd>
+</sfx>
+</a>
+<cat id="cat8.6">cop</cat>
+</mparse>
+<mparse id="mparse8.7">
+<a id="a8.7">
+<pfx id="pfx8.7.1">
+<m id="m8.7.1">neg</m>
+<d id="d8.7.1">ن</d>
+<mcat id="mcat8.7.1">cop</mcat>
+<p id="p8.7.1">1eb3f18d-340e-43e1-a50a-c0a3a22355e8</p>
+<fd id="fd8.7.1"></fd>
+</pfx>
+<root id="root8.7.2">
+<m id="m8.7.2">exist.prs</m>
+<d id="d8.7.2">یست</d>
+<mcat id="mcat8.7.2">cop</mcat>
+<p id="p8.7.2">7ba25369-b388-4ef7-a0e7-21be395982fd</p>
+<fd id="fd8.7.2">-compound copular</fd>
+</root>
+<sfx id="sfx8.7.3">
+<m id="m8.7.3">3pl</m>
+<d id="d8.7.3">ند</d>
+<mcat id="mcat8.7.3">cop</mcat>
+<p id="p8.7.3">55faa0fb-189d-47bc-b452-8a5866b04e42</p>
+<fd id="fd8.7.3"></fd>
+</sfx>
+<sfx id="sfx8.7.4">
+<m id="m8.7.4">3pl.obj</m>
+<d id="d8.7.4">0</d>
+<mcat id="mcat8.7.4">cop</mcat>
+<p id="p8.7.4">a173bfd4-9acc-4f4b-b54c-50f3295b3e38</p>
+<fd id="fd8.7.4">plural_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat8.7">cop</cat>
+</mparse>
+<n id="n8">.</n>
+<Analysis count="0"/>
+</anaRec>
+<anaRec id="anaRec9">
+<w id="w9">بالاچ</w>
+<mparse id="mparse9.1">
+<a id="a9.1">
+<root id="root9.1.1">
+<m id="m9.1.1">Balach</m>
+<d id="d9.1.1">بالاچ</d>
+<mcat id="mcat9.1.1">nprop</mcat>
+<p id="p9.1.1">151abc27-239e-4eb4-8ea1-3f4773b5df70</p>
+<fd id="fd9.1.1"></fd>
+</root>
+</a>
+<cat id="cat9.1">nprop</cat>
+</mparse>
+<n id="n9"> </n>
+</anaRec>
+<anaRec id="anaRec10">
+<w id="w10">اینجا</w>
+<mparse id="mparse10.1">
+<a id="a10.1">
+<root id="root10.1.1">
+<m id="m10.1.1">here</m>
+<d id="d10.1.1">اینجا</d>
+<mcat id="mcat10.1.1">adv</mcat>
+<p id="p10.1.1">6719bbdc-b07a-485d-99ec-061ef51c468c</p>
+<fd id="fd10.1.1">locative</fd>
+</root>
+</a>
+<cat id="cat10.1">adv</cat>
+</mparse>
+<n id="n10"> </n>
+</anaRec>
+<anaRec id="anaRec11">
+<w id="w11">بود</w>
+<mparse id="mparse11.1">
+<a id="a11.1">
+<root id="root11.1.1">
+<m id="m11.1.1">be.pst</m>
+<d id="d11.1.1">بود</d>
+<mcat id="mcat11.1.1">cop</mcat>
+<p id="p11.1.1">58a73db5-f8e2-431d-8146-8e76384e71a3</p>
+<fd id="fd11.1.1">-compound copular past</fd>
+</root>
+<sfx id="sfx11.1.2">
+<m id="m11.1.2">3sg.pst</m>
+<d id="d11.1.2">0</d>
+<mcat id="mcat11.1.2">cop</mcat>
+<p id="p11.1.2">5061cb12-c09e-4ad9-a721-b2ff737b9425</p>
+<fd id="fd11.1.2">past singular_subject third_subject</fd>
+</sfx>
+</a>
+<cat id="cat11.1">cop</cat>
+</mparse>
+<n id="n11">.</n>
+<Analysis count="1">
+<Parse>
+<Node cat="S" rule="S option start symbol -  final ya na &amp; Quote allowed" id="s3_1._1">
+<Fs>
+<F name="cat">
+<Str>S</Str>
+</F>
+<F name="head">
+<Fs id="s3_1.co6">
+<F name="case">
+<Fs>
+<F name="direct">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="embedded">
+<Fs>
+<F name="infl">
+<Fs id="s3_1.co2">
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="infl" fVal="s3_1.co2">
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>be.pst</Str>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs id="s3_1.co5">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s3_1.co4">
+<F name="agr">
+<Fs id="s3_1.co3">
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="possessor">
+<Any />
+</F>
+<F name="reflexive">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr" fVal="s3_1.co3">
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>Balach</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>+</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="auxiliary">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="initialP">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="no_intervening">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="pro-drop">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="root">
+<Str>+</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>start</Str>
+</F>
+</Fs>
+<Node cat="IP" rule="IP option 2cINon-ImpersonalV-PastIntransitive - subject initial, required, root clause" id="s3_1._2">
+<Fs>
+<F name="cat">
+<Str>IP</Str>
+</F>
+<F name="head" fVal="s3_1.co6">
+</F>
+<F name="rule">
+<Str>2cNon-ImpersonalV-PastIntransitive</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s3_1._3">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s3_1.co4">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s3_1._4">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s3_1.co4">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s3_1._5">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s3_1.co4">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s3_1._6">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s3_1.co4">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s3_1._7" gloss="Balach">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>بالاچ</Str>
+</F>
+<F name="gloss">
+<Str>Balach</Str>
+</F>
+<F name="head" fVal="s3_1.co4">
+</F>
+<F name="lex">
+<Str>بالاچ</Str>
+</F>
+<F name="properties">
+<Str>151abc27-239e-4eb4-8ea1-3f4773b5df70</Str>
+</F>
+<F name="rootgloss">
+<Str>Balach</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>بالاچ</Str>
+</F>
+<F name="gloss">
+<Str>Balach</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>+</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>بالاچ</Str>
+</F>
+<F name="properties">
+<Str>151abc27-239e-4eb4-8ea1-3f4773b5df70</Str>
+</F>
+<F name="rootgloss">
+<Str>Balach</Str>
+</F>
+</Lexfs>
+<Str>بالاچ</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node cat="I'" rule="I' option 1 - no auxiliaries" id="s3_1._8">
+<Fs>
+<F name="cat">
+<Str>I'</Str>
+</F>
+<F name="head" fVal="s3_1.co6">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="VP" rule="VP option 1Adv - adjoined AdvP" id="s3_1._9">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s3_1.co6">
+</F>
+<F name="rule">
+<Str>1Adv</Str>
+</F>
+</Fs>
+<Node cat="AdvP" rule="AdvP option 2 - modifiers initial" id="s3_1._10">
+<Fs>
+<F name="cat">
+<Str>AdvP</Str>
+</F>
+<F name="head">
+<Fs id="s3_1.co1">
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>+</Str>
+</F>
+<F name="manner">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="temporal">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>2</Str>
+</F>
+</Fs>
+<Leaf cat="Adv" id="s3_1._11" gloss="here">
+<Fs>
+<F name="cat">
+<Str>Adv</Str>
+</F>
+<F name="decomposition">
+<Str>اینجا</Str>
+</F>
+<F name="featureDescriptors">
+<Str>locative</Str>
+</F>
+<F name="gloss">
+<Str>here</Str>
+</F>
+<F name="head" fVal="s3_1.co1">
+</F>
+<F name="lex">
+<Str>اینجا</Str>
+</F>
+<F name="properties">
+<Str>6719bbdc-b07a-485d-99ec-061ef51c468c</Str>
+</F>
+<F name="rootgloss">
+<Str>here</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>Adv</Str>
+</F>
+<F name="decomposition">
+<Str>اینجا</Str>
+</F>
+<F name="featureDescriptors">
+<Str>locative</Str>
+</F>
+<F name="gloss">
+<Str>here</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>+</Str>
+</F>
+<F name="manner">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="temporal">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>اینجا</Str>
+</F>
+<F name="properties">
+<Str>6719bbdc-b07a-485d-99ec-061ef51c468c</Str>
+</F>
+<F name="rootgloss">
+<Str>here</Str>
+</F>
+</Lexfs>
+<Str>اینجا</Str>
+</Leaf>
+</Node>
+<Node cat="VP" rule="VP option 2a - V initial/final, intransitive or copular" id="s3_1._12">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s3_1.co6">
+</F>
+<F name="rule">
+<Str>2a</Str>
+</F>
+</Fs>
+<Leaf cat="V" id="s3_1._13" gloss="be.pst 3sg.pst">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>بود-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>-compound copular past=past singular_subject third_subject</Str>
+</F>
+<F name="gloss">
+<Str>be.pst 3sg.pst</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>بود</Str>
+</F>
+<F name="properties">
+<Str>58a73db5-f8e2-431d-8146-8e76384e71a3=5061cb12-c09e-4ad9-a721-b2ff737b9425</Str>
+</F>
+<F name="rootgloss">
+<Str>be.pst</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>بود-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>-compound copular past=past singular_subject third_subject</Str>
+</F>
+<F name="gloss">
+<Str>be.pst 3sg.pst</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>بود</Str>
+</F>
+<F name="properties">
+<Str>58a73db5-f8e2-431d-8146-8e76384e71a3=5061cb12-c09e-4ad9-a721-b2ff737b9425</Str>
+</F>
+<F name="rootgloss">
+<Str>be.pst</Str>
+</F>
+</Lexfs>
+<Str>بود</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Parse></Analysis>
+</anaRec>
+<anaRec id="anaRec12">
+<w id="w12">هانی</w>
+<mparse id="mparse12.1">
+<a id="a12.1">
+<root id="root12.1.1">
+<m id="m12.1.1">Hani</m>
+<d id="d12.1.1">هانی</d>
+<mcat id="mcat12.1.1">nprop</mcat>
+<p id="p12.1.1">d23cd842-b07e-45ff-96d7-d94a8656b96e</p>
+<fd id="fd12.1.1"></fd>
+</root>
+</a>
+<cat id="cat12.1">nprop</cat>
+</mparse>
+<n id="n12"> </n>
+</anaRec>
+<anaRec id="anaRec13">
+<w id="w13">انجا</w>
+<mparse id="mparse13.1">
+<a id="a13.1">
+<root id="root13.1.1">
+<m id="m13.1.1">there</m>
+<d id="d13.1.1">انجا</d>
+<mcat id="mcat13.1.1">adv</mcat>
+<p id="p13.1.1">ee97ce0d-b7d1-440a-81d1-b0623b75e3cf</p>
+<fd id="fd13.1.1">locative</fd>
+</root>
+</a>
+<cat id="cat13.1">adv</cat>
+</mparse>
+<n id="n13"> </n>
+</anaRec>
+<anaRec id="anaRec14">
+<w id="w14">نبود</w>
+<mparse id="mparse14.1">
+<a id="a14.1">
+<pfx id="pfx14.1.1">
+<m id="m14.1.1">neg</m>
+<d id="d14.1.1">ن</d>
+<mcat id="mcat14.1.1">cop</mcat>
+<p id="p14.1.1">9b762216-648e-4695-90ef-1fc179b424c5</p>
+<fd id="fd14.1.1"></fd>
+</pfx>
+<root id="root14.1.2">
+<m id="m14.1.2">be.pst</m>
+<d id="d14.1.2">بود</d>
+<mcat id="mcat14.1.2">cop</mcat>
+<p id="p14.1.2">94f85ffb-955b-4e90-b5e4-24287572ff46</p>
+<fd id="fd14.1.2">-compound copular past</fd>
+</root>
+<sfx id="sfx14.1.3">
+<m id="m14.1.3">3sg.pst</m>
+<d id="d14.1.3">0</d>
+<mcat id="mcat14.1.3">cop</mcat>
+<p id="p14.1.3">ac7004cb-a4a1-46b1-a0cd-aa81faf1bcc1</p>
+<fd id="fd14.1.3">past singular_subject third_subject</fd>
+</sfx>
+</a>
+<cat id="cat14.1">cop</cat>
+</mparse>
+<n id="n14">.</n>
+<Analysis count="1">
+<Parse>
+<Node cat="S" rule="S option start symbol -  final ya na &amp; Quote allowed" id="s4_1._1">
+<Fs>
+<F name="cat">
+<Str>S</Str>
+</F>
+<F name="head">
+<Fs id="s4_1.co6">
+<F name="case">
+<Fs>
+<F name="direct">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="embedded">
+<Fs>
+<F name="infl">
+<Fs id="s4_1.co2">
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="infl" fVal="s4_1.co2">
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>be.pst</Str>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs id="s4_1.co5">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s4_1.co4">
+<F name="agr">
+<Fs id="s4_1.co3">
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="possessor">
+<Any />
+</F>
+<F name="reflexive">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr" fVal="s4_1.co3">
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>Hani</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>+</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="auxiliary">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="initialP">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="no_intervening">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="pro-drop">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="root">
+<Str>+</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>start</Str>
+</F>
+</Fs>
+<Node cat="IP" rule="IP option 2cINon-ImpersonalV-PastIntransitive - subject initial, required, root clause" id="s4_1._2">
+<Fs>
+<F name="cat">
+<Str>IP</Str>
+</F>
+<F name="head" fVal="s4_1.co6">
+</F>
+<F name="rule">
+<Str>2cNon-ImpersonalV-PastIntransitive</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s4_1._3">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s4_1.co4">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s4_1._4">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s4_1.co4">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s4_1._5">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s4_1.co4">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s4_1._6">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s4_1.co4">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s4_1._7" gloss="Hani">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>هانی</Str>
+</F>
+<F name="gloss">
+<Str>Hani</Str>
+</F>
+<F name="head" fVal="s4_1.co4">
+</F>
+<F name="lex">
+<Str>هانی</Str>
+</F>
+<F name="properties">
+<Str>d23cd842-b07e-45ff-96d7-d94a8656b96e</Str>
+</F>
+<F name="rootgloss">
+<Str>Hani</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>هانی</Str>
+</F>
+<F name="gloss">
+<Str>Hani</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>+</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>هانی</Str>
+</F>
+<F name="properties">
+<Str>d23cd842-b07e-45ff-96d7-d94a8656b96e</Str>
+</F>
+<F name="rootgloss">
+<Str>Hani</Str>
+</F>
+</Lexfs>
+<Str>هانی</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node cat="I'" rule="I' option 1 - no auxiliaries" id="s4_1._8">
+<Fs>
+<F name="cat">
+<Str>I'</Str>
+</F>
+<F name="head" fVal="s4_1.co6">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="VP" rule="VP option 1Adv - adjoined AdvP" id="s4_1._9">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s4_1.co6">
+</F>
+<F name="rule">
+<Str>1Adv</Str>
+</F>
+</Fs>
+<Node cat="AdvP" rule="AdvP option 2 - modifiers initial" id="s4_1._10">
+<Fs>
+<F name="cat">
+<Str>AdvP</Str>
+</F>
+<F name="head">
+<Fs id="s4_1.co1">
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>+</Str>
+</F>
+<F name="manner">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="temporal">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>2</Str>
+</F>
+</Fs>
+<Leaf cat="Adv" id="s4_1._11" gloss="there">
+<Fs>
+<F name="cat">
+<Str>Adv</Str>
+</F>
+<F name="decomposition">
+<Str>انجا</Str>
+</F>
+<F name="featureDescriptors">
+<Str>locative</Str>
+</F>
+<F name="gloss">
+<Str>there</Str>
+</F>
+<F name="head" fVal="s4_1.co1">
+</F>
+<F name="lex">
+<Str>انجا</Str>
+</F>
+<F name="properties">
+<Str>ee97ce0d-b7d1-440a-81d1-b0623b75e3cf</Str>
+</F>
+<F name="rootgloss">
+<Str>there</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>Adv</Str>
+</F>
+<F name="decomposition">
+<Str>انجا</Str>
+</F>
+<F name="featureDescriptors">
+<Str>locative</Str>
+</F>
+<F name="gloss">
+<Str>there</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>+</Str>
+</F>
+<F name="manner">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="temporal">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>انجا</Str>
+</F>
+<F name="properties">
+<Str>ee97ce0d-b7d1-440a-81d1-b0623b75e3cf</Str>
+</F>
+<F name="rootgloss">
+<Str>there</Str>
+</F>
+</Lexfs>
+<Str>انجا</Str>
+</Leaf>
+</Node>
+<Node cat="VP" rule="VP option 2a - V initial/final, intransitive or copular" id="s4_1._12">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s4_1.co6">
+</F>
+<F name="rule">
+<Str>2a</Str>
+</F>
+</Fs>
+<Leaf cat="V" id="s4_1._13" gloss="neg be.pst 3sg.pst">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>ن-بود-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>=-compound copular past=past singular_subject third_subject</Str>
+</F>
+<F name="gloss">
+<Str>neg be.pst 3sg.pst</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>نبود</Str>
+</F>
+<F name="properties">
+<Str>9b762216-648e-4695-90ef-1fc179b424c5=94f85ffb-955b-4e90-b5e4-24287572ff46=ac7004cb-a4a1-46b1-a0cd-aa81faf1bcc1</Str>
+</F>
+<F name="rootgloss">
+<Str>be.pst</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>ن-بود-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>=-compound copular past=past singular_subject third_subject</Str>
+</F>
+<F name="gloss">
+<Str>neg be.pst 3sg.pst</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>+</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>نبود</Str>
+</F>
+<F name="properties">
+<Str>9b762216-648e-4695-90ef-1fc179b424c5=94f85ffb-955b-4e90-b5e4-24287572ff46=ac7004cb-a4a1-46b1-a0cd-aa81faf1bcc1</Str>
+</F>
+<F name="rootgloss">
+<Str>be.pst</Str>
+</F>
+</Lexfs>
+<Str>نبود</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Parse></Analysis>
+</anaRec>
+<anaRec id="anaRec15">
+<w id="w15">بالاچ</w>
+<mparse id="mparse15.1">
+<a id="a15.1">
+<root id="root15.1.1">
+<m id="m15.1.1">Balach</m>
+<d id="d15.1.1">بالاچ</d>
+<mcat id="mcat15.1.1">nprop</mcat>
+<p id="p15.1.1">151abc27-239e-4eb4-8ea1-3f4773b5df70</p>
+<fd id="fd15.1.1"></fd>
+</root>
+</a>
+<cat id="cat15.1">nprop</cat>
+</mparse>
+<mparse id="mparse15.2">
+<a id="a15.2">
+<root id="root15.2.1">
+<m id="m15.2.1">Balach</m>
+<d id="d15.2.1">بالاچ</d>
+<mcat id="mcat15.2.1">nprop</mcat>
+<p id="p15.2.1">1d6bd4bd-ffe3-42dd-b6a8-e080559b1baa</p>
+<fd id="fd15.2.1"></fd>
+</root>
+<sfx id="sfx15.2.2">
+<m id="m15.2.2">gen</m>
+<d id="d15.2.2">0</d>
+<mcat id="mcat15.2.2">nprop</mcat>
+<p id="p15.2.2">450b7eed-553f-4020-ade3-db729a7e2f62</p>
+<fd id="fd15.2.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat15.2">nprop</cat>
+</mparse>
+<mparse id="mparse15.3">
+<a id="a15.3">
+<root id="root15.3.1">
+<m id="m15.3.1">Balach</m>
+<d id="d15.3.1">بالاچ</d>
+<mcat id="mcat15.3.1">nprop</mcat>
+<p id="p15.3.1">ea8ba4ca-2843-432a-9222-2fc66d8302a0</p>
+<fd id="fd15.3.1"></fd>
+</root>
+<sfx id="sfx15.3.2">
+<m id="m15.3.2">obl</m>
+<d id="d15.3.2">0</d>
+<mcat id="mcat15.3.2">nprop</mcat>
+<p id="p15.3.2">4cdedc7e-e3f2-43f7-93d9-8688368aea88</p>
+<fd id="fd15.3.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat15.3">nprop</cat>
+</mparse>
+<mparse id="mparse15.4">
+<a id="a15.4">
+<root id="root15.4.1">
+<m id="m15.4.1">Balach</m>
+<d id="d15.4.1">بالاچ</d>
+<mcat id="mcat15.4.1">nprop</mcat>
+<p id="p15.4.1">7bfa009b-0e33-4f8c-b7af-2d63d3a52b91</p>
+<fd id="fd15.4.1"></fd>
+</root>
+<sfx id="sfx15.4.2">
+<m id="m15.4.2">om</m>
+<d id="d15.4.2">0</d>
+<mcat id="mcat15.4.2">nprop</mcat>
+<p id="p15.4.2">77b51e8e-343e-4084-82dc-f6d45d6d3dfe</p>
+<fd id="fd15.4.2">object_case</fd>
+</sfx>
+</a>
+<cat id="cat15.4">nprop</cat>
+</mparse>
+<n id="n15"> </n>
+</anaRec>
+<anaRec id="anaRec16">
+<w id="w16">و</w>
+<mparse id="mparse16.1">
+<a id="a16.1">
+<root id="root16.1.1">
+<m id="m16.1.1">and</m>
+<d id="d16.1.1">و</d>
+<mcat id="mcat16.1.1">conn</mcat>
+<p id="p16.1.1">16f42922-d1ff-4be3-9f0b-7dd8bc66a2f2</p>
+<fd id="fd16.1.1">-DP-final -DP-initial</fd>
+</root>
+</a>
+<cat id="cat16.1">conn</cat>
+</mparse>
+<mparse id="mparse16.2">
+<a id="a16.2">
+<root id="root16.2.1">
+<m id="m16.2.1">pn.3sg</m>
+<d id="d16.2.1">و</d>
+<mcat id="mcat16.2.1">pro</mcat>
+<p id="p16.2.1">ff572170-3b5f-4a03-a732-979d187ec765</p>
+<fd id="fd16.2.1">singular third</fd>
+</root>
+</a>
+<cat id="cat16.2">conn</cat>
+</mparse>
+<mparse id="mparse16.3">
+<a id="a16.3">
+<root id="root16.3.1">
+<m id="m16.3.1">pn.3sg</m>
+<d id="d16.3.1">و</d>
+<mcat id="mcat16.3.1">pro</mcat>
+<p id="p16.3.1">0d3263fa-8006-44b6-83c0-36cd5ba971d7</p>
+<fd id="fd16.3.1">singular third</fd>
+</root>
+<sfx id="sfx16.3.2">
+<m id="m16.3.2">obl</m>
+<d id="d16.3.2">0</d>
+<mcat id="mcat16.3.2">pro</mcat>
+<p id="p16.3.2">e8454b5d-de44-4291-ad26-e6e905d4f640</p>
+<fd id="fd16.3.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat16.3">conn</cat>
+</mparse>
+<n id="n16"> </n>
+</anaRec>
+<anaRec id="anaRec17">
+<w id="w17">هانی</w>
+<mparse id="mparse17.1">
+<a id="a17.1">
+<root id="root17.1.1">
+<m id="m17.1.1">Hani</m>
+<d id="d17.1.1">هانی</d>
+<mcat id="mcat17.1.1">nprop</mcat>
+<p id="p17.1.1">06d9fba0-6cd3-401e-9b76-7770853e2ea4</p>
+<fd id="fd17.1.1"></fd>
+</root>
+<sfx id="sfx17.1.2">
+<m id="m17.1.2">om</m>
+<d id="d17.1.2">0</d>
+<mcat id="mcat17.1.2">nprop</mcat>
+<p id="p17.1.2">a57dc91b-c786-4a85-aaeb-62f31c46ceaa</p>
+<fd id="fd17.1.2">object_case</fd>
+</sfx>
+</a>
+<cat id="cat17.1">nprop</cat>
+</mparse>
+<mparse id="mparse17.2">
+<a id="a17.2">
+<root id="root17.2.1">
+<m id="m17.2.1">Hani</m>
+<d id="d17.2.1">هانی</d>
+<mcat id="mcat17.2.1">nprop</mcat>
+<p id="p17.2.1">652b9744-d008-4c9a-bca6-a9e19480a7e2</p>
+<fd id="fd17.2.1"></fd>
+</root>
+<sfx id="sfx17.2.2">
+<m id="m17.2.2">gen</m>
+<d id="d17.2.2">0</d>
+<mcat id="mcat17.2.2">nprop</mcat>
+<p id="p17.2.2">e50a539d-ed0f-4460-8021-832c0aefdfcd</p>
+<fd id="fd17.2.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat17.2">nprop</cat>
+</mparse>
+<mparse id="mparse17.3">
+<a id="a17.3">
+<root id="root17.3.1">
+<m id="m17.3.1">Hani</m>
+<d id="d17.3.1">هانی</d>
+<mcat id="mcat17.3.1">nprop</mcat>
+<p id="p17.3.1">7b595488-6a09-4555-9489-b67eb790bb25</p>
+<fd id="fd17.3.1"></fd>
+</root>
+<sfx id="sfx17.3.2">
+<m id="m17.3.2">obl</m>
+<d id="d17.3.2">0</d>
+<mcat id="mcat17.3.2">nprop</mcat>
+<p id="p17.3.2">c5388c72-b773-4d10-80c7-fd6fb3615004</p>
+<fd id="fd17.3.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat17.3">nprop</cat>
+</mparse>
+<mparse id="mparse17.4">
+<a id="a17.4">
+<root id="root17.4.1">
+<m id="m17.4.1">Hani</m>
+<d id="d17.4.1">هانی</d>
+<mcat id="mcat17.4.1">nprop</mcat>
+<p id="p17.4.1">d23cd842-b07e-45ff-96d7-d94a8656b96e</p>
+<fd id="fd17.4.1"></fd>
+</root>
+</a>
+<cat id="cat17.4">nprop</cat>
+</mparse>
+<n id="n17"> </n>
+</anaRec>
+<anaRec id="anaRec18">
+<w id="w18">برادر</w>
+<mparse id="mparse18.1">
+<a id="a18.1">
+<root id="root18.1.1">
+<m id="m18.1.1">brother</m>
+<d id="d18.1.1">برادر</d>
+<mcat id="mcat18.1.1">n</mcat>
+<p id="p18.1.1">b3b68fca-b214-4e4e-861b-91828a9c7c94</p>
+<fd id="fd18.1.1">human</fd>
+</root>
+<sfx id="sfx18.1.2">
+<m id="m18.1.2">om</m>
+<d id="d18.1.2">0</d>
+<mcat id="mcat18.1.2">n</mcat>
+<p id="p18.1.2">ad46cb7b-a36d-4e61-95b0-f90cdbd8112b</p>
+<fd id="fd18.1.2">object_case</fd>
+</sfx>
+</a>
+<cat id="cat18.1">n</cat>
+</mparse>
+<mparse id="mparse18.2">
+<a id="a18.2">
+<root id="root18.2.1">
+<m id="m18.2.1">brother</m>
+<d id="d18.2.1">برادر</d>
+<mcat id="mcat18.2.1">n</mcat>
+<p id="p18.2.1">4c46add5-f454-44a5-81d8-bf1b110ded26</p>
+<fd id="fd18.2.1">human</fd>
+</root>
+<sfx id="sfx18.2.2">
+<m id="m18.2.2">ez</m>
+<d id="d18.2.2">THIS_WAS_zero</d>
+<mcat id="mcat18.2.2">n</mcat>
+<p id="p18.2.2">cb2dc8cd-6a5e-4009-80c8-45bcb6fc9b1e</p>
+<fd id="fd18.2.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat18.2">n</cat>
+</mparse>
+<mparse id="mparse18.3">
+<a id="a18.3">
+<root id="root18.3.1">
+<m id="m18.3.1">brother</m>
+<d id="d18.3.1">برادر</d>
+<mcat id="mcat18.3.1">n</mcat>
+<p id="p18.3.1">e91460fb-abea-4c16-bfa5-c09f8da93e24</p>
+<fd id="fd18.3.1">human</fd>
+</root>
+</a>
+<cat id="cat18.3">n</cat>
+</mparse>
+<mparse id="mparse18.4">
+<a id="a18.4">
+<root id="root18.4.1">
+<m id="m18.4.1">brother</m>
+<d id="d18.4.1">برادر</d>
+<mcat id="mcat18.4.1">n</mcat>
+<p id="p18.4.1">7e0fe534-37ce-42f9-a85c-acce8f9164b7</p>
+<fd id="fd18.4.1">human</fd>
+</root>
+<sfx id="sfx18.4.2">
+<m id="m18.4.2">gen</m>
+<d id="d18.4.2">0</d>
+<mcat id="mcat18.4.2">n</mcat>
+<p id="p18.4.2">c26018b1-5e08-45a8-9a92-7c4a5f54ffd7</p>
+<fd id="fd18.4.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat18.4">n</cat>
+</mparse>
+<mparse id="mparse18.5">
+<a id="a18.5">
+<root id="root18.5.1">
+<m id="m18.5.1">brother</m>
+<d id="d18.5.1">برادر</d>
+<mcat id="mcat18.5.1">n</mcat>
+<p id="p18.5.1">cb188839-c52f-4f87-b5a0-071a93120a82</p>
+<fd id="fd18.5.1">human</fd>
+</root>
+<sfx id="sfx18.5.2">
+<m id="m18.5.2">obl</m>
+<d id="d18.5.2">0</d>
+<mcat id="mcat18.5.2">n</mcat>
+<p id="p18.5.2">351f4e83-e3d5-4c18-b044-0a4b194fdacc</p>
+<fd id="fd18.5.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat18.5">n</cat>
+</mparse>
+<n id="n18"> </n>
+</anaRec>
+<anaRec id="anaRec19">
+<w id="w19">و</w>
+<mparse id="mparse19.1">
+<a id="a19.1">
+<root id="root19.1.1">
+<m id="m19.1.1">and</m>
+<d id="d19.1.1">و</d>
+<mcat id="mcat19.1.1">conn</mcat>
+<p id="p19.1.1">16f42922-d1ff-4be3-9f0b-7dd8bc66a2f2</p>
+<fd id="fd19.1.1">-DP-final -DP-initial</fd>
+</root>
+</a>
+<cat id="cat19.1">conn</cat>
+</mparse>
+<mparse id="mparse19.2">
+<a id="a19.2">
+<root id="root19.2.1">
+<m id="m19.2.1">pn.3sg</m>
+<d id="d19.2.1">و</d>
+<mcat id="mcat19.2.1">pro</mcat>
+<p id="p19.2.1">ff572170-3b5f-4a03-a732-979d187ec765</p>
+<fd id="fd19.2.1">singular third</fd>
+</root>
+</a>
+<cat id="cat19.2">conn</cat>
+</mparse>
+<mparse id="mparse19.3">
+<a id="a19.3">
+<root id="root19.3.1">
+<m id="m19.3.1">pn.3sg</m>
+<d id="d19.3.1">و</d>
+<mcat id="mcat19.3.1">pro</mcat>
+<p id="p19.3.1">0d3263fa-8006-44b6-83c0-36cd5ba971d7</p>
+<fd id="fd19.3.1">singular third</fd>
+</root>
+<sfx id="sfx19.3.2">
+<m id="m19.3.2">obl</m>
+<d id="d19.3.2">0</d>
+<mcat id="mcat19.3.2">pro</mcat>
+<p id="p19.3.2">e8454b5d-de44-4291-ad26-e6e905d4f640</p>
+<fd id="fd19.3.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat19.3">conn</cat>
+</mparse>
+<n id="n19"> </n>
+</anaRec>
+<anaRec id="anaRec20">
+<w id="w20">خواهر</w>
+<mparse id="mparse20.1">
+<a id="a20.1">
+<root id="root20.1.1">
+<m id="m20.1.1">sister</m>
+<d id="d20.1.1">خواهر</d>
+<mcat id="mcat20.1.1">n</mcat>
+<p id="p20.1.1">cecb4ecd-aac2-450c-a47e-135cc3f25708</p>
+<fd id="fd20.1.1">human</fd>
+</root>
+<sfx id="sfx20.1.2">
+<m id="m20.1.2">om</m>
+<d id="d20.1.2">0</d>
+<mcat id="mcat20.1.2">n</mcat>
+<p id="p20.1.2">989f25d7-57d3-44d9-9a19-f805bae79b77</p>
+<fd id="fd20.1.2">object_case</fd>
+</sfx>
+</a>
+<cat id="cat20.1">n</cat>
+</mparse>
+<mparse id="mparse20.2">
+<a id="a20.2">
+<root id="root20.2.1">
+<m id="m20.2.1">sister</m>
+<d id="d20.2.1">خواهر</d>
+<mcat id="mcat20.2.1">n</mcat>
+<p id="p20.2.1">7d3e0c1c-461b-4670-89e7-d04587f3ba0f</p>
+<fd id="fd20.2.1">human</fd>
+</root>
+</a>
+<cat id="cat20.2">n</cat>
+</mparse>
+<mparse id="mparse20.3">
+<a id="a20.3">
+<root id="root20.3.1">
+<m id="m20.3.1">sister</m>
+<d id="d20.3.1">خواهر</d>
+<mcat id="mcat20.3.1">n</mcat>
+<p id="p20.3.1">b856e024-843c-4ee6-b975-9f2e95018e72</p>
+<fd id="fd20.3.1">human</fd>
+</root>
+</a>
+<cat id="cat20.3">n</cat>
+</mparse>
+<mparse id="mparse20.4">
+<a id="a20.4">
+<root id="root20.4.1">
+<m id="m20.4.1">sister</m>
+<d id="d20.4.1">خواهر</d>
+<mcat id="mcat20.4.1">n</mcat>
+<p id="p20.4.1">c34de1e4-2054-41ca-b6a7-53bbace4f91c</p>
+<fd id="fd20.4.1">human</fd>
+</root>
+<sfx id="sfx20.4.2">
+<m id="m20.4.2">gen</m>
+<d id="d20.4.2">0</d>
+<mcat id="mcat20.4.2">n</mcat>
+<p id="p20.4.2">f90bb1d8-f778-4db1-912b-32ab89053cd9</p>
+<fd id="fd20.4.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat20.4">n</cat>
+</mparse>
+<mparse id="mparse20.5">
+<a id="a20.5">
+<root id="root20.5.1">
+<m id="m20.5.1">sister</m>
+<d id="d20.5.1">خواهر</d>
+<mcat id="mcat20.5.1">n</mcat>
+<p id="p20.5.1">cdeccc5d-3375-4419-9e29-3f8a13600fa4</p>
+<fd id="fd20.5.1">human</fd>
+</root>
+<sfx id="sfx20.5.2">
+<m id="m20.5.2">obl</m>
+<d id="d20.5.2">0</d>
+<mcat id="mcat20.5.2">n</mcat>
+<p id="p20.5.2">6ebfaec5-b482-48ef-98c5-f27ca18ae07a</p>
+<fd id="fd20.5.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat20.5">n</cat>
+</mparse>
+<n id="n20"> </n>
+</anaRec>
+<anaRec id="anaRec21">
+<w id="w21">بودند</w>
+<mparse id="mparse21.1">
+<a id="a21.1">
+<root id="root21.1.1">
+<m id="m21.1.1">be.aux</m>
+<d id="d21.1.1">بود</d>
+<mcat id="mcat21.1.1">aux</mcat>
+<p id="p21.1.1">0ac8adcc-fc34-4bce-a046-9914e637fdb2</p>
+<fd id="fd21.1.1">past perfective</fd>
+</root>
+<sfx id="sfx21.1.2">
+<m id="m21.1.2">3pl</m>
+<d id="d21.1.2">ند</d>
+<mcat id="mcat21.1.2">aux</mcat>
+<p id="p21.1.2">8ac707d3-9cf8-4026-9e3e-42ac48985756</p>
+<fd id="fd21.1.2"></fd>
+</sfx>
+<sfx id="sfx21.1.3">
+<m id="m21.1.3">3sg.obj</m>
+<d id="d21.1.3">0</d>
+<mcat id="mcat21.1.3">aux</mcat>
+<p id="p21.1.3">e612c414-45d9-47c3-969f-b325f6485a68</p>
+<fd id="fd21.1.3">singular_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat21.1">aux</cat>
+</mparse>
+<mparse id="mparse21.2">
+<a id="a21.2">
+<root id="root21.2.1">
+<m id="m21.2.1">be.aux</m>
+<d id="d21.2.1">بود</d>
+<mcat id="mcat21.2.1">aux</mcat>
+<p id="p21.2.1">bb76c01a-4acf-4b53-b63f-c30d5d3fcad4</p>
+<fd id="fd21.2.1">past perfective</fd>
+</root>
+<sfx id="sfx21.2.2">
+<m id="m21.2.2">3pl</m>
+<d id="d21.2.2">ند</d>
+<mcat id="mcat21.2.2">aux</mcat>
+<p id="p21.2.2">7b509598-654e-4f88-bf2a-088c5ce4f338</p>
+<fd id="fd21.2.2"></fd>
+</sfx>
+<sfx id="sfx21.2.3">
+<m id="m21.2.3">2pl.obj</m>
+<d id="d21.2.3">0</d>
+<mcat id="mcat21.2.3">aux</mcat>
+<p id="p21.2.3">d4b30a84-40b2-4d84-83f6-737d6dddea2e</p>
+<fd id="fd21.2.3">plural_object second_object</fd>
+</sfx>
+</a>
+<cat id="cat21.2">aux</cat>
+</mparse>
+<mparse id="mparse21.3">
+<a id="a21.3">
+<root id="root21.3.1">
+<m id="m21.3.1">be.pst</m>
+<d id="d21.3.1">بود</d>
+<mcat id="mcat21.3.1">cop</mcat>
+<p id="p21.3.1">c7a9aa18-1f34-44c0-b131-34b0857e0b32</p>
+<fd id="fd21.3.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.3.2">
+<m id="m21.3.2">3pl</m>
+<d id="d21.3.2">ند</d>
+<mcat id="mcat21.3.2">cop</mcat>
+<p id="p21.3.2">d3704906-3c41-460f-b9dd-50e5053259c2</p>
+<fd id="fd21.3.2"></fd>
+</sfx>
+<sfx id="sfx21.3.3">
+<m id="m21.3.3">3sg.obj</m>
+<d id="d21.3.3">0</d>
+<mcat id="mcat21.3.3">cop</mcat>
+<p id="p21.3.3">85392678-fc0d-4c3a-8c1e-e56acea8e6a8</p>
+<fd id="fd21.3.3">singular_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat21.3">aux</cat>
+</mparse>
+<mparse id="mparse21.4">
+<a id="a21.4">
+<root id="root21.4.1">
+<m id="m21.4.1">be.aux</m>
+<d id="d21.4.1">بود</d>
+<mcat id="mcat21.4.1">aux</mcat>
+<p id="p21.4.1">2677a13e-d483-4428-b2a2-983bbb6a6193</p>
+<fd id="fd21.4.1">past perfective</fd>
+</root>
+<sfx id="sfx21.4.2">
+<m id="m21.4.2">3pl</m>
+<d id="d21.4.2">ند</d>
+<mcat id="mcat21.4.2">aux</mcat>
+<p id="p21.4.2">17f3404e-926a-452b-b2f6-7e2d78cd7dc5</p>
+<fd id="fd21.4.2"></fd>
+</sfx>
+<sfx id="sfx21.4.3">
+<m id="m21.4.3">2sg.obj</m>
+<d id="d21.4.3">0</d>
+<mcat id="mcat21.4.3">aux</mcat>
+<p id="p21.4.3">67bd419f-80da-42ba-a527-51d6643efc34</p>
+<fd id="fd21.4.3">second_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat21.4">aux</cat>
+</mparse>
+<mparse id="mparse21.5">
+<a id="a21.5">
+<root id="root21.5.1">
+<m id="m21.5.1">be.pst</m>
+<d id="d21.5.1">بود</d>
+<mcat id="mcat21.5.1">cop</mcat>
+<p id="p21.5.1">e7ce2a4d-f476-4baa-a5cb-694d6f05c9fe</p>
+<fd id="fd21.5.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.5.2">
+<m id="m21.5.2">3pl</m>
+<d id="d21.5.2">ند</d>
+<mcat id="mcat21.5.2">cop</mcat>
+<p id="p21.5.2">c1e1cb9c-1cc6-4c52-9abf-82962166cf45</p>
+<fd id="fd21.5.2"></fd>
+</sfx>
+<sfx id="sfx21.5.3">
+<m id="m21.5.3">3pl.obj</m>
+<d id="d21.5.3">0</d>
+<mcat id="mcat21.5.3">cop</mcat>
+<p id="p21.5.3">e9c35f08-8286-4b48-8a13-30de26b3978c</p>
+<fd id="fd21.5.3">plural_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat21.5">aux</cat>
+</mparse>
+<mparse id="mparse21.6">
+<a id="a21.6">
+<root id="root21.6.1">
+<m id="m21.6.1">be.pst</m>
+<d id="d21.6.1">بود</d>
+<mcat id="mcat21.6.1">cop</mcat>
+<p id="p21.6.1">6f223c85-06fd-4b20-b8f7-cfd1a1edf0d9</p>
+<fd id="fd21.6.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.6.2">
+<m id="m21.6.2">3pl</m>
+<d id="d21.6.2">ند</d>
+<mcat id="mcat21.6.2">cop</mcat>
+<p id="p21.6.2">77e6e1e8-0d8d-4b1c-9d1b-feec11c1f6b8</p>
+<fd id="fd21.6.2"></fd>
+</sfx>
+<sfx id="sfx21.6.3">
+<m id="m21.6.3">1pl.obj</m>
+<d id="d21.6.3">0</d>
+<mcat id="mcat21.6.3">cop</mcat>
+<p id="p21.6.3">3fbe9d07-78ac-402c-a82b-702e4ebf8175</p>
+<fd id="fd21.6.3">first_object plural_object</fd>
+</sfx>
+</a>
+<cat id="cat21.6">aux</cat>
+</mparse>
+<mparse id="mparse21.7">
+<a id="a21.7">
+<root id="root21.7.1">
+<m id="m21.7.1">be.aux</m>
+<d id="d21.7.1">بود</d>
+<mcat id="mcat21.7.1">aux</mcat>
+<p id="p21.7.1">5b1faa45-386f-45c0-a3b2-5c18abdf4e7a</p>
+<fd id="fd21.7.1">past perfective</fd>
+</root>
+<sfx id="sfx21.7.2">
+<m id="m21.7.2">3pl</m>
+<d id="d21.7.2">ند</d>
+<mcat id="mcat21.7.2">aux</mcat>
+<p id="p21.7.2">c3da3370-5cd4-434b-a55b-0fcaaabfc834</p>
+<fd id="fd21.7.2"></fd>
+</sfx>
+</a>
+<cat id="cat21.7">aux</cat>
+</mparse>
+<mparse id="mparse21.8">
+<a id="a21.8">
+<root id="root21.8.1">
+<m id="m21.8.1">be.pst</m>
+<d id="d21.8.1">بود</d>
+<mcat id="mcat21.8.1">cop</mcat>
+<p id="p21.8.1">1ff52f8e-6b81-4115-904b-bfc73fdd9604</p>
+<fd id="fd21.8.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.8.2">
+<m id="m21.8.2">3pl</m>
+<d id="d21.8.2">ند</d>
+<mcat id="mcat21.8.2">cop</mcat>
+<p id="p21.8.2">934378c5-398b-4871-9737-0774183d3d5f</p>
+<fd id="fd21.8.2"></fd>
+</sfx>
+</a>
+<cat id="cat21.8">aux</cat>
+</mparse>
+<mparse id="mparse21.9">
+<a id="a21.9">
+<root id="root21.9.1">
+<m id="m21.9.1">be.aux</m>
+<d id="d21.9.1">بود</d>
+<mcat id="mcat21.9.1">aux</mcat>
+<p id="p21.9.1">bf7eee56-faf2-42eb-8e22-a5712b4d204d</p>
+<fd id="fd21.9.1">past perfective</fd>
+</root>
+<sfx id="sfx21.9.2">
+<m id="m21.9.2">3pl</m>
+<d id="d21.9.2">ند</d>
+<mcat id="mcat21.9.2">aux</mcat>
+<p id="p21.9.2">42cb23f3-cd4c-47d6-8e8b-8a1b5cef52d2</p>
+<fd id="fd21.9.2"></fd>
+</sfx>
+<sfx id="sfx21.9.3">
+<m id="m21.9.3">1pl.obj</m>
+<d id="d21.9.3">0</d>
+<mcat id="mcat21.9.3">aux</mcat>
+<p id="p21.9.3">b27ba108-550a-4d52-9092-ab8ae8d98a11</p>
+<fd id="fd21.9.3">first_object plural_object</fd>
+</sfx>
+</a>
+<cat id="cat21.9">aux</cat>
+</mparse>
+<mparse id="mparse21.10">
+<a id="a21.10">
+<root id="root21.10.1">
+<m id="m21.10.1">be.aux</m>
+<d id="d21.10.1">بود</d>
+<mcat id="mcat21.10.1">aux</mcat>
+<p id="p21.10.1">d55d09e0-74f5-41a6-923f-4e28ace20d77</p>
+<fd id="fd21.10.1">past perfective</fd>
+</root>
+<sfx id="sfx21.10.2">
+<m id="m21.10.2">3pl</m>
+<d id="d21.10.2">ند</d>
+<mcat id="mcat21.10.2">aux</mcat>
+<p id="p21.10.2">9c5d80e4-e373-4610-9925-620146ed1d0c</p>
+<fd id="fd21.10.2"></fd>
+</sfx>
+<sfx id="sfx21.10.3">
+<m id="m21.10.3">1sg.obj</m>
+<d id="d21.10.3">0</d>
+<mcat id="mcat21.10.3">aux</mcat>
+<p id="p21.10.3">f72ff9b7-e7d4-43ab-8a41-ed8474ea92b2</p>
+<fd id="fd21.10.3">first_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat21.10">aux</cat>
+</mparse>
+<mparse id="mparse21.11">
+<a id="a21.11">
+<root id="root21.11.1">
+<m id="m21.11.1">be.aux</m>
+<d id="d21.11.1">بود</d>
+<mcat id="mcat21.11.1">aux</mcat>
+<p id="p21.11.1">2a221d59-c569-4ecb-a5d3-4bd432119acd</p>
+<fd id="fd21.11.1">past perfective</fd>
+</root>
+<sfx id="sfx21.11.2">
+<m id="m21.11.2">3pl</m>
+<d id="d21.11.2">ند</d>
+<mcat id="mcat21.11.2">aux</mcat>
+<p id="p21.11.2">ccbfe67f-498b-4809-9030-8b001d56e6af</p>
+<fd id="fd21.11.2"></fd>
+</sfx>
+<sfx id="sfx21.11.3">
+<m id="m21.11.3">3pl.obj</m>
+<d id="d21.11.3">0</d>
+<mcat id="mcat21.11.3">aux</mcat>
+<p id="p21.11.3">5fabc054-ce1c-4bf7-8e03-fa648ffb683a</p>
+<fd id="fd21.11.3">plural_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat21.11">aux</cat>
+</mparse>
+<mparse id="mparse21.12">
+<a id="a21.12">
+<root id="root21.12.1">
+<m id="m21.12.1">be.pst</m>
+<d id="d21.12.1">بود</d>
+<mcat id="mcat21.12.1">cop</mcat>
+<p id="p21.12.1">7298f27d-e677-42e2-b31c-b4a53cb3ae31</p>
+<fd id="fd21.12.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.12.2">
+<m id="m21.12.2">3pl</m>
+<d id="d21.12.2">ند</d>
+<mcat id="mcat21.12.2">cop</mcat>
+<p id="p21.12.2">b25f0e8d-86b9-4c6d-9fcf-b655676c794e</p>
+<fd id="fd21.12.2"></fd>
+</sfx>
+<sfx id="sfx21.12.3">
+<m id="m21.12.3">1sg.obj</m>
+<d id="d21.12.3">0</d>
+<mcat id="mcat21.12.3">cop</mcat>
+<p id="p21.12.3">37192288-eec5-4e6d-b3d0-13358b2d9588</p>
+<fd id="fd21.12.3">first_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat21.12">aux</cat>
+</mparse>
+<mparse id="mparse21.13">
+<a id="a21.13">
+<root id="root21.13.1">
+<m id="m21.13.1">be.pst</m>
+<d id="d21.13.1">بود</d>
+<mcat id="mcat21.13.1">cop</mcat>
+<p id="p21.13.1">cd346914-f64f-4a7c-9fb9-9f06252aa1b6</p>
+<fd id="fd21.13.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.13.2">
+<m id="m21.13.2">3pl</m>
+<d id="d21.13.2">ند</d>
+<mcat id="mcat21.13.2">cop</mcat>
+<p id="p21.13.2">9dea41b5-65b7-41a7-9746-d319ef64b37a</p>
+<fd id="fd21.13.2"></fd>
+</sfx>
+<sfx id="sfx21.13.3">
+<m id="m21.13.3">2sg.obj</m>
+<d id="d21.13.3">0</d>
+<mcat id="mcat21.13.3">cop</mcat>
+<p id="p21.13.3">898659fe-87c1-4008-81cd-58423e880047</p>
+<fd id="fd21.13.3">second_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat21.13">aux</cat>
+</mparse>
+<mparse id="mparse21.14">
+<a id="a21.14">
+<root id="root21.14.1">
+<m id="m21.14.1">be.pst</m>
+<d id="d21.14.1">بود</d>
+<mcat id="mcat21.14.1">cop</mcat>
+<p id="p21.14.1">8f5a4701-b50b-40f2-917f-be304c6c529b</p>
+<fd id="fd21.14.1">-compound copular past</fd>
+</root>
+<sfx id="sfx21.14.2">
+<m id="m21.14.2">3pl</m>
+<d id="d21.14.2">ند</d>
+<mcat id="mcat21.14.2">cop</mcat>
+<p id="p21.14.2">785e347f-e548-481a-bf2c-660ea9f64147</p>
+<fd id="fd21.14.2"></fd>
+</sfx>
+<sfx id="sfx21.14.3">
+<m id="m21.14.3">2pl.obj</m>
+<d id="d21.14.3">0</d>
+<mcat id="mcat21.14.3">cop</mcat>
+<p id="p21.14.3">89b3f6d2-ab92-4318-9d98-8849d58bbfd2</p>
+<fd id="fd21.14.3">plural_object second_object</fd>
+</sfx>
+</a>
+<cat id="cat21.14">aux</cat>
+</mparse>
+<n id="n21">.</n>
+<Analysis count="0"/>
+</anaRec>
+<anaRec id="anaRec22">
+<w id="w22">بچه‌ها</w>
+<mparse id="mparse22.1">
+<a id="a22.1">
+<root id="root22.1.1">
+<m id="m22.1.1">child</m>
+<d id="d22.1.1">بچه</d>
+<mcat id="mcat22.1.1">n</mcat>
+<p id="p22.1.1">8543ff7b-8208-4573-8ae8-5d4ac641e5d8</p>
+<fd id="fd22.1.1">human</fd>
+</root>
+<sfx id="sfx22.1.2">
+<m id="m22.1.2">pl</m>
+<d id="d22.1.2">‌ها</d>
+<mcat id="mcat22.1.2">n</mcat>
+<p id="p22.1.2">7c03f95f-0b4d-4605-b455-c6f99eef3671</p>
+<fd id="fd22.1.2"></fd>
+</sfx>
+<sfx id="sfx22.1.3">
+<m id="m22.1.3">gen</m>
+<d id="d22.1.3">0</d>
+<mcat id="mcat22.1.3">n</mcat>
+<p id="p22.1.3">d65006d1-0cd1-4c91-afbd-f2e3dd6857be</p>
+<fd id="fd22.1.3">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat22.1">n</cat>
+</mparse>
+<n id="n22"> </n>
+</anaRec>
+<anaRec id="anaRec23">
+<w id="w23">خانه</w>
+<mparse id="mparse23.1">
+<a id="a23.1">
+<root id="root23.1.1">
+<m id="m23.1.1">khan</m>
+<d id="d23.1.1">خان</d>
+<mcat id="mcat23.1.1">n</mcat>
+<p id="p23.1.1">7b3df9db-decb-48c8-907e-5608c2066806</p>
+<fd id="fd23.1.1"></fd>
+</root>
+<sfx id="sfx23.1.2">
+<m id="m23.1.2">be.prs.3sg</m>
+<d id="d23.1.2">ه</d>
+<mcat id="mcat23.1.2">n</mcat>
+<p id="p23.1.2">3f3e7150-920a-4cb2-ba64-9bc9f27e2875</p>
+<fd id="fd23.1.2"></fd>
+</sfx>
+</a>
+<cat id="cat23.1">n</cat>
+</mparse>
+<n id="n23"> </n>
+</anaRec>
+<anaRec id="anaRec24">
+<w id="w24">رفتند</w>
+<mparse id="mparse24.1">
+<a id="a24.1">
+<root id="root24.1.1">
+<m id="m24.1.1">go.pst</m>
+<d id="d24.1.1">رفت</d>
+<mcat id="mcat24.1.1">v</mcat>
+<p id="p24.1.1">014b2570-797e-4445-977b-d8406206c2ed</p>
+<fd id="fd24.1.1">intransitive motion past</fd>
+</root>
+<sfx id="sfx24.1.2">
+<m id="m24.1.2">3pl</m>
+<d id="d24.1.2">ند</d>
+<mcat id="mcat24.1.2">v</mcat>
+<p id="p24.1.2">c36e6400-10d9-4187-b3d8-c733b9c4507e</p>
+<fd id="fd24.1.2"></fd>
+</sfx>
+</a>
+<cat id="cat24.1">v</cat>
+</mparse>
+<n id="n24">.</n>
+<Analysis count="1">
+<Parse>
+<Node cat="S" rule="S option start symbol -  final ya na &amp; Quote allowed" id="s6_1._1">
+<Fs>
+<F name="cat">
+<Str>S</Str>
+</F>
+<F name="head">
+<Fs id="s6_1.co8">
+<F name="case">
+<Fs>
+<F name="direct">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="embedded">
+<Fs>
+<F name="infl">
+<Fs id="s6_1.co1">
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="infl" fVal="s6_1.co1">
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>go.pst</Str>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs id="s6_1.co7">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s6_1.co6">
+<F name="agr">
+<Fs id="s6_1.co4">
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="possessor">
+<Fs id="s6_1.co3">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s6_1.co2">
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="reflexive">
+<Fs id="s6_1.co5">
+<F name="head">
+<Fs>
+<F name="agr" fVal="s6_1.co4">
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>khan</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="coordination">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="reflexive" fVal="s6_1.co5">
+</F>
+<F name="rootgloss">
+<Str>child</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>+</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>+</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="auxiliary">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>-</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="initialP">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>+</Str>
+</F>
+<F name="no_intervening">
+<Str>+</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="pro-drop">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="root">
+<Str>+</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>start</Str>
+</F>
+</Fs>
+<Node cat="IP" rule="IP option 2cINon-ImpersonalV-PastIntransitive - subject initial, required, root clause" id="s6_1._2">
+<Fs>
+<F name="cat">
+<Str>IP</Str>
+</F>
+<F name="head" fVal="s6_1.co8">
+</F>
+<F name="rule">
+<Str>2cNon-ImpersonalV-PastIntransitive</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s6_1._3">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s6_1.co6">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s6_1._4">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s6_1.co6">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1bposs - no separate marker, possessor final" id="s6_1._5">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s6_1.co6">
+</F>
+<F name="rule">
+<Str>1bposs</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s6_1._6">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s6_1.co6">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s6_1._7" gloss="child pl gen">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>بچه-‌ها-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>human==genitive_suffix</Str>
+</F>
+<F name="gloss">
+<Str>child pl gen</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>+</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>بچه‌ها</Str>
+</F>
+<F name="properties">
+<Str>8543ff7b-8208-4573-8ae8-5d4ac641e5d8=7c03f95f-0b4d-4605-b455-c6f99eef3671=d65006d1-0cd1-4c91-afbd-f2e3dd6857be</Str>
+</F>
+<F name="rootgloss">
+<Str>child</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>بچه-‌ها-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>human==genitive_suffix</Str>
+</F>
+<F name="gloss">
+<Str>child pl gen</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>+</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>+</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>بچه‌ها</Str>
+</F>
+<F name="properties">
+<Str>8543ff7b-8208-4573-8ae8-5d4ac641e5d8=7c03f95f-0b4d-4605-b455-c6f99eef3671=d65006d1-0cd1-4c91-afbd-f2e3dd6857be</Str>
+</F>
+<F name="rootgloss">
+<Str>child</Str>
+</F>
+</Lexfs>
+<Str>بچه‌ها</Str>
+</Leaf>
+</Node>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s6_1._8">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s6_1.co2">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s6_1._9">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s6_1.co2">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s6_1._10">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s6_1.co2">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s6_1._11">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s6_1.co2">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s6_1._12" gloss="khan be.prs.3sg">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>خان-ه</Str>
+</F>
+<F name="gloss">
+<Str>khan be.prs.3sg</Str>
+</F>
+<F name="head" fVal="s6_1.co2">
+</F>
+<F name="lex">
+<Str>خانه</Str>
+</F>
+<F name="properties">
+<Str>7b3df9db-decb-48c8-907e-5608c2066806=3f3e7150-920a-4cb2-ba64-9bc9f27e2875</Str>
+</F>
+<F name="rootgloss">
+<Str>khan</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>خان-ه</Str>
+</F>
+<F name="gloss">
+<Str>khan be.prs.3sg</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>خانه</Str>
+</F>
+<F name="properties">
+<Str>7b3df9db-decb-48c8-907e-5608c2066806=3f3e7150-920a-4cb2-ba64-9bc9f27e2875</Str>
+</F>
+<F name="rootgloss">
+<Str>khan</Str>
+</F>
+</Lexfs>
+<Str>خانه</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node cat="I'" rule="I' option 1 - no auxiliaries" id="s6_1._13" all="true">
+<Fs>
+<F name="cat">
+<Str>I'</Str>
+</F>
+<F name="head" fVal="s6_1.co8">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="VP" rule="VP option 2a - V initial/final, intransitive or copular" id="s6_1._14" all="true">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s6_1.co8">
+</F>
+<F name="rule">
+<Str>2a</Str>
+</F>
+</Fs>
+<Leaf cat="V" id="s6_1._15" all="true" gloss="go.pst 3pl">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>رفت-ند</Str>
+</F>
+<F name="featureDescriptors">
+<Str>intransitive motion past=</Str>
+</F>
+<F name="gloss">
+<Str>go.pst 3pl</Str>
+</F>
+<F name="head" fVal="s6_1.co8">
+</F>
+<F name="lex">
+<Str>رفتند</Str>
+</F>
+<F name="properties">
+<Str>014b2570-797e-4445-977b-d8406206c2ed=c36e6400-10d9-4187-b3d8-c733b9c4507e</Str>
+</F>
+<F name="rootgloss">
+<Str>go.pst</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>رفت-ند</Str>
+</F>
+<F name="featureDescriptors">
+<Str>intransitive motion past=</Str>
+</F>
+<F name="gloss">
+<Str>go.pst 3pl</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>-</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>+</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>رفتند</Str>
+</F>
+<F name="properties">
+<Str>014b2570-797e-4445-977b-d8406206c2ed=c36e6400-10d9-4187-b3d8-c733b9c4507e</Str>
+</F>
+<F name="rootgloss">
+<Str>go.pst</Str>
+</F>
+</Lexfs>
+<Str>رفتند</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Parse></Analysis>
+</anaRec>
+<anaRec id="anaRec25">
+<w id="w25">دوستان</w>
+<mparse id="mparse25.1">
+<a id="a25.1">
+<root id="root25.1.1">
+<m id="m25.1.1">friend</m>
+<d id="d25.1.1">دوست</d>
+<mcat id="mcat25.1.1">n</mcat>
+<p id="p25.1.1">44cd5c6f-1cc9-4294-b100-91a93c4cfb6c</p>
+<fd id="fd25.1.1">compounds_with_داشتن،کردن</fd>
+</root>
+<sfx id="sfx25.1.2">
+<m id="m25.1.2">pl</m>
+<d id="d25.1.2">ان</d>
+<mcat id="mcat25.1.2">n</mcat>
+<p id="p25.1.2">cdf30f82-c49c-4ce2-bcbb-08a1629a2ea8</p>
+<fd id="fd25.1.2"></fd>
+</sfx>
+</a>
+<cat id="cat25.1">n</cat>
+</mparse>
+<n id="n25"> </n>
+</anaRec>
+<anaRec id="anaRec26">
+<w id="w26">گوشت</w>
+<mparse id="mparse26.1">
+<a id="a26.1">
+<root id="root26.1.1">
+<m id="m26.1.1">ear</m>
+<d id="d26.1.1">گوش</d>
+<mcat id="mcat26.1.1">n</mcat>
+<p id="p26.1.1">8fcff64d-39ea-47f4-a6c9-eea72baa6263</p>
+<fd id="fd26.1.1">intransitive</fd>
+</root>
+<sfx id="sfx26.1.2">
+<m id="m26.1.2">pc.2sg</m>
+<d id="d26.1.2">ت</d>
+<mcat id="mcat26.1.2">n</mcat>
+<p id="p26.1.2">3fc80fc2-ff85-4457-87f1-cfd1b5d7cd3c</p>
+<fd id="fd26.1.2"></fd>
+</sfx>
+</a>
+<cat id="cat26.1">n</cat>
+</mparse>
+<n id="n26"> </n>
+</anaRec>
+<anaRec id="anaRec27">
+<w id="w27">نمی‌خورند</w>
+<mparse id="mparse27.1">
+<a id="a27.1">
+<pfx id="pfx27.1.1">
+<m id="m27.1.1">neg</m>
+<d id="d27.1.1">ن</d>
+<mcat id="mcat27.1.1">v</mcat>
+<p id="p27.1.1">7b315bdb-1293-4a4c-93ae-f9394ec95ed3</p>
+<fd id="fd27.1.1"></fd>
+</pfx>
+<pfx id="pfx27.1.2">
+<m id="m27.1.2">ipfv</m>
+<d id="d27.1.2">می‌</d>
+<mcat id="mcat27.1.2">v</mcat>
+<p id="p27.1.2">dc7f3c7c-6032-4d48-be37-fe7346135e9e</p>
+<fd id="fd27.1.2"></fd>
+</pfx>
+<root id="root27.1.3">
+<m id="m27.1.3">eat.prs</m>
+<d id="d27.1.3">خور</d>
+<mcat id="mcat27.1.3">v</mcat>
+<p id="p27.1.3">fd8db353-1039-447f-a553-f8ddcaec70ff</p>
+<fd id="fd27.1.3">transitive</fd>
+</root>
+<sfx id="sfx27.1.4">
+<m id="m27.1.4">3pl</m>
+<d id="d27.1.4">ند</d>
+<mcat id="mcat27.1.4">v</mcat>
+<p id="p27.1.4">e4bef487-c3ce-4784-80a0-2bfbfa374735</p>
+<fd id="fd27.1.4"></fd>
+</sfx>
+</a>
+<cat id="cat27.1">v</cat>
+</mparse>
+<n id="n27">.</n>
+<Analysis count="1">
+<Parse>
+<Node cat="S" rule="S option start symbol -  final ya na &amp; Quote allowed" id="s7_1._1">
+<Fs>
+<F name="cat">
+<Str>S</Str>
+</F>
+<F name="head">
+<Fs id="s7_1.co5">
+<F name="case">
+<Fs>
+<F name="direct">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="embedded">
+<Fs>
+<F name="infl">
+<Fs id="s7_1.co1">
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>-</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="infl" fVal="s7_1.co1">
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>eat.prs</Str>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs id="s7_1.co4">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s7_1.co3">
+<F name="agr">
+<Fs id="s7_1.co2">
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="possessor">
+<Any />
+</F>
+<F name="reflexive">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr" fVal="s7_1.co2">
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>friend</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>+</Str>
+</F>
+<F name="compounds_with1">
+<Str>داشتن</Str>
+</F>
+<F name="compounds_with2">
+<Str>کردن</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="auxiliary">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>+</Str>
+</F>
+<F name="compounded">
+<Str>+</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>-</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="initialP">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="no_intervening">
+<Str>+</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="pro-drop">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="root">
+<Str>+</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>start</Str>
+</F>
+</Fs>
+<Node cat="IP" rule="IP option 2cINon-ImpersonalVNonPast - subject initial, required, root clause" id="s7_1._2">
+<Fs>
+<F name="cat">
+<Str>IP</Str>
+</F>
+<F name="head" fVal="s7_1.co5">
+</F>
+<F name="rule">
+<Str>2cNon-ImpersonalVNonPast</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s7_1._3">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s7_1.co3">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s7_1._4">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s7_1.co3">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s7_1._5">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s7_1.co3">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s7_1._6">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s7_1.co3">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s7_1._7" gloss="friend pl">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>دوست-ان</Str>
+</F>
+<F name="featureDescriptors">
+<Str>compounds_with_داشتن،کردن=</Str>
+</F>
+<F name="gloss">
+<Str>friend pl</Str>
+</F>
+<F name="head" fVal="s7_1.co3">
+</F>
+<F name="lex">
+<Str>دوستان</Str>
+</F>
+<F name="properties">
+<Str>44cd5c6f-1cc9-4294-b100-91a93c4cfb6c=cdf30f82-c49c-4ce2-bcbb-08a1629a2ea8</Str>
+</F>
+<F name="rootgloss">
+<Str>friend</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>دوست-ان</Str>
+</F>
+<F name="featureDescriptors">
+<Str>compounds_with_داشتن،کردن=</Str>
+</F>
+<F name="gloss">
+<Str>friend pl</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>+</Str>
+</F>
+<F name="compounds_with1">
+<Str>داشتن</Str>
+</F>
+<F name="compounds_with2">
+<Str>کردن</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>دوستان</Str>
+</F>
+<F name="properties">
+<Str>44cd5c6f-1cc9-4294-b100-91a93c4cfb6c=cdf30f82-c49c-4ce2-bcbb-08a1629a2ea8</Str>
+</F>
+<F name="rootgloss">
+<Str>friend</Str>
+</F>
+</Lexfs>
+<Str>دوستان</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node cat="I'" rule="I' option 1 - no auxiliaries" id="s7_1._8">
+<Fs>
+<F name="cat">
+<Str>I'</Str>
+</F>
+<F name="head" fVal="s7_1.co5">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="VP" rule="VP option 2a - V initial/final, intransitive or copular" id="s7_1._9">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s7_1.co5">
+</F>
+<F name="rule">
+<Str>2a</Str>
+</F>
+</Fs>
+<Node cat="V" rule="V option 1 - compound with noun" id="s7_1._10">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="head" fVal="s7_1.co5">
+</F>
+<F name="rootgloss">
+<Str>eat.prs</Str>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s7_1._11" gloss="ear pc.2sg">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>گوش-ت</Str>
+</F>
+<F name="featureDescriptors">
+<Str>intransitive=</Str>
+</F>
+<F name="gloss">
+<Str>ear pc.2sg</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with1">
+<Str>eat.prs</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>گوشت</Str>
+</F>
+<F name="properties">
+<Str>8fcff64d-39ea-47f4-a6c9-eea72baa6263=3fc80fc2-ff85-4457-87f1-cfd1b5d7cd3c</Str>
+</F>
+<F name="rootgloss">
+<Str>ear</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>گوش-ت</Str>
+</F>
+<F name="featureDescriptors">
+<Str>intransitive=</Str>
+</F>
+<F name="gloss">
+<Str>ear pc.2sg</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>گوشت</Str>
+</F>
+<F name="properties">
+<Str>8fcff64d-39ea-47f4-a6c9-eea72baa6263=3fc80fc2-ff85-4457-87f1-cfd1b5d7cd3c</Str>
+</F>
+<F name="rootgloss">
+<Str>ear</Str>
+</F>
+</Lexfs>
+<Str>گوشت</Str>
+</Leaf>
+<Leaf cat="V" id="s7_1._12" gloss="neg ipfv eat.prs 3pl">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="decomposition">
+<Str>ن-می‌-خور-ند</Str>
+</F>
+<F name="featureDescriptors">
+<Str>==transitive=</Str>
+</F>
+<F name="gloss">
+<Str>neg ipfv eat.prs 3pl</Str>
+</F>
+<F name="head" fVal="s7_1.co5">
+</F>
+<F name="lex">
+<Str>نمی‌خورند</Str>
+</F>
+<F name="properties">
+<Str>7b315bdb-1293-4a4c-93ae-f9394ec95ed3=dc7f3c7c-6032-4d48-be37-fe7346135e9e=fd8db353-1039-447f-a553-f8ddcaec70ff=e4bef487-c3ce-4784-80a0-2bfbfa374735</Str>
+</F>
+<F name="rootgloss">
+<Str>eat.prs</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>ن-می‌-خور-ند</Str>
+</F>
+<F name="featureDescriptors">
+<Str>==transitive=</Str>
+</F>
+<F name="gloss">
+<Str>neg ipfv eat.prs 3pl</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>-</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Str>none</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>-</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>نمی‌خورند</Str>
+</F>
+<F name="properties">
+<Str>7b315bdb-1293-4a4c-93ae-f9394ec95ed3=dc7f3c7c-6032-4d48-be37-fe7346135e9e=fd8db353-1039-447f-a553-f8ddcaec70ff=e4bef487-c3ce-4784-80a0-2bfbfa374735</Str>
+</F>
+<F name="rootgloss">
+<Str>eat.prs</Str>
+</F>
+</Lexfs>
+<Str>نمی‌خورند</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</Parse></Analysis>
+</anaRec>
+<anaRec id="anaRec28">
+<w id="w28">سگی</w>
+<mparse id="mparse28.1">
+<a id="a28.1">
+<root id="root28.1.1">
+<m id="m28.1.1">dog</m>
+<d id="d28.1.1">سگ</d>
+<mcat id="mcat28.1.1">n</mcat>
+<p id="p28.1.1">ebfe411b-23f6-43f3-a5bb-e109fc5fa5e6</p>
+<fd id="fd28.1.1"></fd>
+</root>
+<sfx id="sfx28.1.2">
+<m id="m28.1.2">adjlz</m>
+<d id="d28.1.2">ی</d>
+<mcat id="mcat28.1.2">n</mcat>
+<p id="p28.1.2">93fd1946-d066-4965-b1b1-6de7f2f212da</p>
+<fd id="fd28.1.2"></fd>
+</sfx>
+<sfx id="sfx28.1.3">
+<m id="m28.1.3">attr</m>
+<d id="d28.1.3">0</d>
+<mcat id="mcat28.1.3">n</mcat>
+<p id="p28.1.3">12ca5715-5d6f-4228-b101-7f805274a91e</p>
+<fd id="fd28.1.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.1">n</cat>
+</mparse>
+<mparse id="mparse28.2">
+<a id="a28.2">
+<root id="root28.2.1">
+<m id="m28.2.1">dog</m>
+<d id="d28.2.1">سگ</d>
+<mcat id="mcat28.2.1">n</mcat>
+<p id="p28.2.1">d2aec5f9-dfe1-4310-9582-e19478b19ada</p>
+<fd id="fd28.2.1"></fd>
+</root>
+<sfx id="sfx28.2.2">
+<m id="m28.2.2">indf</m>
+<d id="d28.2.2">ی</d>
+<mcat id="mcat28.2.2">n</mcat>
+<p id="p28.2.2">115ea178-28f1-433b-a4e9-2e6021915afa</p>
+<fd id="fd28.2.2"></fd>
+</sfx>
+<sfx id="sfx28.2.3">
+<m id="m28.2.3">om</m>
+<d id="d28.2.3">0</d>
+<mcat id="mcat28.2.3">n</mcat>
+<p id="p28.2.3">83ed2af8-cd54-41e5-abef-1a9a78c06db8</p>
+<fd id="fd28.2.3">object_case</fd>
+</sfx>
+</a>
+<cat id="cat28.2">n</cat>
+</mparse>
+<mparse id="mparse28.3">
+<a id="a28.3">
+<root id="root28.3.1">
+<m id="m28.3.1">dog</m>
+<d id="d28.3.1">سگ</d>
+<mcat id="mcat28.3.1">n</mcat>
+<p id="p28.3.1">938ab85f-33a0-45a3-9cf4-c86a47da6ca8</p>
+<fd id="fd28.3.1"></fd>
+</root>
+<sfx id="sfx28.3.2">
+<m id="m28.3.2">obl</m>
+<d id="d28.3.2">0</d>
+<mcat id="mcat28.3.2">n</mcat>
+<p id="p28.3.2">999b0690-1085-4c93-821a-4b74a997e068</p>
+<fd id="fd28.3.2">oblique</fd>
+</sfx>
+<sfx id="sfx28.3.3">
+<m id="m28.3.3">be.prs.2sg</m>
+<d id="d28.3.3">ی</d>
+<mcat id="mcat28.3.3">n</mcat>
+<p id="p28.3.3">4d0e6f41-8715-4b43-ba70-f097d08fd275</p>
+<fd id="fd28.3.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.3">n</cat>
+</mparse>
+<mparse id="mparse28.4">
+<a id="a28.4">
+<root id="root28.4.1">
+<m id="m28.4.1">dog</m>
+<d id="d28.4.1">سگ</d>
+<mcat id="mcat28.4.1">n</mcat>
+<p id="p28.4.1">28a8af90-823c-401b-89c5-5a133c3333ae</p>
+<fd id="fd28.4.1"></fd>
+</root>
+<sfx id="sfx28.4.2">
+<m id="m28.4.2">indf</m>
+<d id="d28.4.2">ی</d>
+<mcat id="mcat28.4.2">n</mcat>
+<p id="p28.4.2">d257ec9d-bfb3-4cc8-9b9c-c6e1f03b1426</p>
+<fd id="fd28.4.2"></fd>
+</sfx>
+<sfx id="sfx28.4.3">
+<m id="m28.4.3">obl</m>
+<d id="d28.4.3">0</d>
+<mcat id="mcat28.4.3">n</mcat>
+<p id="p28.4.3">e4bab170-e605-4f83-b5fe-84b4f83514d6</p>
+<fd id="fd28.4.3">oblique</fd>
+</sfx>
+</a>
+<cat id="cat28.4">n</cat>
+</mparse>
+<mparse id="mparse28.5">
+<a id="a28.5">
+<root id="root28.5.1">
+<m id="m28.5.1">dog</m>
+<d id="d28.5.1">سگ</d>
+<mcat id="mcat28.5.1">n</mcat>
+<p id="p28.5.1">801c5fd3-77ab-459a-a1a8-b9330a23d88a</p>
+<fd id="fd28.5.1"></fd>
+</root>
+<sfx id="sfx28.5.2">
+<m id="m28.5.2">adjlz</m>
+<d id="d28.5.2">ی</d>
+<mcat id="mcat28.5.2">n</mcat>
+<p id="p28.5.2">0519fae9-c2e6-40a0-a96e-a543e524580c</p>
+<fd id="fd28.5.2"></fd>
+</sfx>
+<sfx id="sfx28.5.3">
+<m id="m28.5.3">om</m>
+<d id="d28.5.3">0</d>
+<mcat id="mcat28.5.3">n</mcat>
+<p id="p28.5.3">9e082f35-b722-4d6f-a167-ddedbeb35207</p>
+<fd id="fd28.5.3">object_case</fd>
+</sfx>
+</a>
+<cat id="cat28.5">n</cat>
+</mparse>
+<mparse id="mparse28.6">
+<a id="a28.6">
+<root id="root28.6.1">
+<m id="m28.6.1">dog</m>
+<d id="d28.6.1">سگ</d>
+<mcat id="mcat28.6.1">n</mcat>
+<p id="p28.6.1">cfe3dcaa-8970-441c-a364-2caee9fdd5ae</p>
+<fd id="fd28.6.1"></fd>
+</root>
+<sfx id="sfx28.6.2">
+<m id="m28.6.2">be.prs.2sg</m>
+<d id="d28.6.2">ی</d>
+<mcat id="mcat28.6.2">n</mcat>
+<p id="p28.6.2">babfb557-c81b-4302-a34f-56f6470f9e81</p>
+<fd id="fd28.6.2"></fd>
+</sfx>
+</a>
+<cat id="cat28.6">n</cat>
+</mparse>
+<mparse id="mparse28.7">
+<a id="a28.7">
+<root id="root28.7.1">
+<m id="m28.7.1">dog</m>
+<d id="d28.7.1">سگ</d>
+<mcat id="mcat28.7.1">n</mcat>
+<p id="p28.7.1">903b28b7-1443-473e-b8b4-3220a7c243d5</p>
+<fd id="fd28.7.1"></fd>
+</root>
+<sfx id="sfx28.7.2">
+<m id="m28.7.2">om</m>
+<d id="d28.7.2">0</d>
+<mcat id="mcat28.7.2">n</mcat>
+<p id="p28.7.2">2b5bd18d-fe5c-455a-8d45-954ef787cf5d</p>
+<fd id="fd28.7.2">object_case</fd>
+</sfx>
+<sfx id="sfx28.7.3">
+<m id="m28.7.3">indf</m>
+<d id="d28.7.3">ی</d>
+<mcat id="mcat28.7.3">n</mcat>
+<p id="p28.7.3">f2a05930-da9e-4f4f-95f7-b4696e9fcd20</p>
+<fd id="fd28.7.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.7">n</cat>
+</mparse>
+<mparse id="mparse28.8">
+<a id="a28.8">
+<root id="root28.8.1">
+<m id="m28.8.1">dog</m>
+<d id="d28.8.1">سگ</d>
+<mcat id="mcat28.8.1">n</mcat>
+<p id="p28.8.1">12807b27-7ddf-4475-9e24-dafc30b910d7</p>
+<fd id="fd28.8.1"></fd>
+</root>
+<sfx id="sfx28.8.2">
+<m id="m28.8.2">Nominalizer</m>
+<d id="d28.8.2">ی</d>
+<mcat id="mcat28.8.2">n</mcat>
+<p id="p28.8.2">4593faa6-69ec-43fc-8fd9-eb1d30ff3473</p>
+<fd id="fd28.8.2"></fd>
+</sfx>
+<sfx id="sfx28.8.3">
+<m id="m28.8.3">obl</m>
+<d id="d28.8.3">0</d>
+<mcat id="mcat28.8.3">n</mcat>
+<p id="p28.8.3">8ec2734c-8894-4654-996c-f436b319d817</p>
+<fd id="fd28.8.3">oblique</fd>
+</sfx>
+</a>
+<cat id="cat28.8">n</cat>
+</mparse>
+<mparse id="mparse28.9">
+<a id="a28.9">
+<root id="root28.9.1">
+<m id="m28.9.1">dog</m>
+<d id="d28.9.1">سگ</d>
+<mcat id="mcat28.9.1">n</mcat>
+<p id="p28.9.1">0ad4a516-f834-4e9d-aefa-158b6f9ebb3d</p>
+<fd id="fd28.9.1"></fd>
+</root>
+<sfx id="sfx28.9.2">
+<m id="m28.9.2">indf</m>
+<d id="d28.9.2">ی</d>
+<mcat id="mcat28.9.2">n</mcat>
+<p id="p28.9.2">dd5082fb-5b02-4f09-a3b4-041f12c35d07</p>
+<fd id="fd28.9.2"></fd>
+</sfx>
+</a>
+<cat id="cat28.9">n</cat>
+</mparse>
+<mparse id="mparse28.10">
+<a id="a28.10">
+<root id="root28.10.1">
+<m id="m28.10.1">dog</m>
+<d id="d28.10.1">سگ</d>
+<mcat id="mcat28.10.1">n</mcat>
+<p id="p28.10.1">0b0adeb5-9a44-45b8-b8f8-819486a34c0b</p>
+<fd id="fd28.10.1"></fd>
+</root>
+<sfx id="sfx28.10.2">
+<m id="m28.10.2">be.prs.2sg</m>
+<d id="d28.10.2">ی</d>
+<mcat id="mcat28.10.2">n</mcat>
+<p id="p28.10.2">184694d4-0a9f-4d75-8d7d-4c4bcba75e71</p>
+<fd id="fd28.10.2"></fd>
+</sfx>
+<sfx id="sfx28.10.3">
+<m id="m28.10.3">gen</m>
+<d id="d28.10.3">0</d>
+<mcat id="mcat28.10.3">n</mcat>
+<p id="p28.10.3">17b4b882-c660-4fb4-ac48-b57961918b64</p>
+<fd id="fd28.10.3">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat28.10">n</cat>
+</mparse>
+<mparse id="mparse28.11">
+<a id="a28.11">
+<root id="root28.11.1">
+<m id="m28.11.1">dog</m>
+<d id="d28.11.1">سگ</d>
+<mcat id="mcat28.11.1">n</mcat>
+<p id="p28.11.1">37e7d4d5-ceaa-4ada-a51d-6d7d9b8fcfff</p>
+<fd id="fd28.11.1"></fd>
+</root>
+<sfx id="sfx28.11.2">
+<m id="m28.11.2">Nominalizer</m>
+<d id="d28.11.2">ی</d>
+<mcat id="mcat28.11.2">n</mcat>
+<p id="p28.11.2">f93f4f64-fe9b-4b62-a0a6-6714914419c8</p>
+<fd id="fd28.11.2"></fd>
+</sfx>
+<sfx id="sfx28.11.3">
+<m id="m28.11.3">gen</m>
+<d id="d28.11.3">0</d>
+<mcat id="mcat28.11.3">n</mcat>
+<p id="p28.11.3">816f5f72-abc4-4c1d-8ef5-6b9211a73812</p>
+<fd id="fd28.11.3">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat28.11">n</cat>
+</mparse>
+<mparse id="mparse28.12">
+<a id="a28.12">
+<root id="root28.12.1">
+<m id="m28.12.1">dog</m>
+<d id="d28.12.1">سگ</d>
+<mcat id="mcat28.12.1">n</mcat>
+<p id="p28.12.1">178eb44b-5557-47dc-86d8-b5f2ed91660c</p>
+<fd id="fd28.12.1"></fd>
+</root>
+<sfx id="sfx28.12.2">
+<m id="m28.12.2">indf</m>
+<d id="d28.12.2">ی</d>
+<mcat id="mcat28.12.2">n</mcat>
+<p id="p28.12.2">ed5536f1-01d4-4a42-be70-ed14437b12be</p>
+<fd id="fd28.12.2"></fd>
+</sfx>
+<sfx id="sfx28.12.3">
+<m id="m28.12.3">gen</m>
+<d id="d28.12.3">0</d>
+<mcat id="mcat28.12.3">n</mcat>
+<p id="p28.12.3">4c133fea-1687-4016-ac55-cb8a747342bd</p>
+<fd id="fd28.12.3">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat28.12">n</cat>
+</mparse>
+<mparse id="mparse28.13">
+<a id="a28.13">
+<root id="root28.13.1">
+<m id="m28.13.1">dog</m>
+<d id="d28.13.1">سگ</d>
+<mcat id="mcat28.13.1">n</mcat>
+<p id="p28.13.1">6b2e11cb-78fe-4e59-a1e1-ad89cb689db0</p>
+<fd id="fd28.13.1"></fd>
+</root>
+<sfx id="sfx28.13.2">
+<m id="m28.13.2">be.prs.2sg</m>
+<d id="d28.13.2">ی</d>
+<mcat id="mcat28.13.2">n</mcat>
+<p id="p28.13.2">8e1d6d9a-31ca-4f0c-b294-985b1b2a188f</p>
+<fd id="fd28.13.2"></fd>
+</sfx>
+<sfx id="sfx28.13.3">
+<m id="m28.13.3">om</m>
+<d id="d28.13.3">0</d>
+<mcat id="mcat28.13.3">n</mcat>
+<p id="p28.13.3">0b8585cf-2c46-467e-a348-c32b375ea822</p>
+<fd id="fd28.13.3">object_case</fd>
+</sfx>
+</a>
+<cat id="cat28.13">n</cat>
+</mparse>
+<mparse id="mparse28.14">
+<a id="a28.14">
+<root id="root28.14.1">
+<m id="m28.14.1">dog</m>
+<d id="d28.14.1">سگ</d>
+<mcat id="mcat28.14.1">n</mcat>
+<p id="p28.14.1">a6866791-fef7-46c9-b5b2-d358724c5a11</p>
+<fd id="fd28.14.1"></fd>
+</root>
+<sfx id="sfx28.14.2">
+<m id="m28.14.2">be.prs.2sg</m>
+<d id="d28.14.2">ی</d>
+<mcat id="mcat28.14.2">n</mcat>
+<p id="p28.14.2">a23b1fa2-fc44-4c95-8557-6ccf00446d4e</p>
+<fd id="fd28.14.2"></fd>
+</sfx>
+<sfx id="sfx28.14.3">
+<m id="m28.14.3">obl</m>
+<d id="d28.14.3">0</d>
+<mcat id="mcat28.14.3">n</mcat>
+<p id="p28.14.3">6b63e3f0-fd6f-4018-b7c4-20d153c8aa36</p>
+<fd id="fd28.14.3">oblique</fd>
+</sfx>
+</a>
+<cat id="cat28.14">n</cat>
+</mparse>
+<mparse id="mparse28.15">
+<a id="a28.15">
+<root id="root28.15.1">
+<m id="m28.15.1">dog</m>
+<d id="d28.15.1">سگ</d>
+<mcat id="mcat28.15.1">n</mcat>
+<p id="p28.15.1">ef08ff74-db78-43de-a8c8-d586e3d7765a</p>
+<fd id="fd28.15.1"></fd>
+</root>
+<sfx id="sfx28.15.2">
+<m id="m28.15.2">om</m>
+<d id="d28.15.2">0</d>
+<mcat id="mcat28.15.2">n</mcat>
+<p id="p28.15.2">96a6952e-78cf-4df7-86ab-c9caeaee7530</p>
+<fd id="fd28.15.2">object_case</fd>
+</sfx>
+<sfx id="sfx28.15.3">
+<m id="m28.15.3">be.prs.2sg</m>
+<d id="d28.15.3">ی</d>
+<mcat id="mcat28.15.3">n</mcat>
+<p id="p28.15.3">ab90e18a-e312-4f6b-a591-e767a3a6aff1</p>
+<fd id="fd28.15.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.15">n</cat>
+</mparse>
+<mparse id="mparse28.16">
+<a id="a28.16">
+<root id="root28.16.1">
+<m id="m28.16.1">dog</m>
+<d id="d28.16.1">سگ</d>
+<mcat id="mcat28.16.1">n</mcat>
+<p id="p28.16.1">577eeb67-7789-42d5-9911-366491d7d6ca</p>
+<fd id="fd28.16.1"></fd>
+</root>
+<sfx id="sfx28.16.2">
+<m id="m28.16.2">adjlz</m>
+<d id="d28.16.2">ی</d>
+<mcat id="mcat28.16.2">n</mcat>
+<p id="p28.16.2">7afac48f-a728-4db8-9002-94ecd11853df</p>
+<fd id="fd28.16.2"></fd>
+</sfx>
+</a>
+<cat id="cat28.16">n</cat>
+</mparse>
+<mparse id="mparse28.17">
+<a id="a28.17">
+<root id="root28.17.1">
+<m id="m28.17.1">dog</m>
+<d id="d28.17.1">سگ</d>
+<mcat id="mcat28.17.1">n</mcat>
+<p id="p28.17.1">66f3945d-fa48-4e41-8626-45d5bcfbeb9d</p>
+<fd id="fd28.17.1"></fd>
+</root>
+<sfx id="sfx28.17.2">
+<m id="m28.17.2">Nominalizer</m>
+<d id="d28.17.2">ی</d>
+<mcat id="mcat28.17.2">n</mcat>
+<p id="p28.17.2">902a0170-91f0-4046-a44e-dc475c1f6014</p>
+<fd id="fd28.17.2"></fd>
+</sfx>
+<sfx id="sfx28.17.3">
+<m id="m28.17.3">om</m>
+<d id="d28.17.3">0</d>
+<mcat id="mcat28.17.3">n</mcat>
+<p id="p28.17.3">fa14432e-628b-477e-b07a-500a5ff30320</p>
+<fd id="fd28.17.3">object_case</fd>
+</sfx>
+</a>
+<cat id="cat28.17">n</cat>
+</mparse>
+<mparse id="mparse28.18">
+<a id="a28.18">
+<root id="root28.18.1">
+<m id="m28.18.1">dog</m>
+<d id="d28.18.1">سگ</d>
+<mcat id="mcat28.18.1">n</mcat>
+<p id="p28.18.1">86c53d57-ef3b-4529-95b2-98226851c835</p>
+<fd id="fd28.18.1"></fd>
+</root>
+<sfx id="sfx28.18.2">
+<m id="m28.18.2">Nominalizer</m>
+<d id="d28.18.2">ی</d>
+<mcat id="mcat28.18.2">n</mcat>
+<p id="p28.18.2">16c4db33-acdb-411e-b652-0e252513d25f</p>
+<fd id="fd28.18.2"></fd>
+</sfx>
+</a>
+<cat id="cat28.18">n</cat>
+</mparse>
+<mparse id="mparse28.19">
+<a id="a28.19">
+<root id="root28.19.1">
+<m id="m28.19.1">dog</m>
+<d id="d28.19.1">سگ</d>
+<mcat id="mcat28.19.1">n</mcat>
+<p id="p28.19.1">58074061-d14f-4323-8112-63642a8bae7c</p>
+<fd id="fd28.19.1"></fd>
+</root>
+<sfx id="sfx28.19.2">
+<m id="m28.19.2">gen</m>
+<d id="d28.19.2">0</d>
+<mcat id="mcat28.19.2">n</mcat>
+<p id="p28.19.2">a779b11a-cc23-4cbc-871a-829bdb54d3a9</p>
+<fd id="fd28.19.2">genitive_suffix</fd>
+</sfx>
+<sfx id="sfx28.19.3">
+<m id="m28.19.3">indf</m>
+<d id="d28.19.3">ی</d>
+<mcat id="mcat28.19.3">n</mcat>
+<p id="p28.19.3">18aec03d-e458-4b41-8f36-9a8135f9bdbe</p>
+<fd id="fd28.19.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.19">n</cat>
+</mparse>
+<mparse id="mparse28.20">
+<a id="a28.20">
+<root id="root28.20.1">
+<m id="m28.20.1">dog</m>
+<d id="d28.20.1">سگ</d>
+<mcat id="mcat28.20.1">n</mcat>
+<p id="p28.20.1">15b51254-9398-49a7-a0d1-7bf0184d18b0</p>
+<fd id="fd28.20.1"></fd>
+</root>
+<sfx id="sfx28.20.2">
+<m id="m28.20.2">gen</m>
+<d id="d28.20.2">0</d>
+<mcat id="mcat28.20.2">n</mcat>
+<p id="p28.20.2">ad0a2154-bfa4-46f2-9b14-ee1c60fe799f</p>
+<fd id="fd28.20.2">genitive_suffix</fd>
+</sfx>
+<sfx id="sfx28.20.3">
+<m id="m28.20.3">be.prs.2sg</m>
+<d id="d28.20.3">ی</d>
+<mcat id="mcat28.20.3">n</mcat>
+<p id="p28.20.3">77601924-c035-4945-9a2d-437f5d661d2f</p>
+<fd id="fd28.20.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.20">n</cat>
+</mparse>
+<mparse id="mparse28.21">
+<a id="a28.21">
+<root id="root28.21.1">
+<m id="m28.21.1">dog</m>
+<d id="d28.21.1">سگ</d>
+<mcat id="mcat28.21.1">n</mcat>
+<p id="p28.21.1">c447e9af-303a-4770-92f8-f79ab1f9165d</p>
+<fd id="fd28.21.1"></fd>
+</root>
+<sfx id="sfx28.21.2">
+<m id="m28.21.2">obl</m>
+<d id="d28.21.2">0</d>
+<mcat id="mcat28.21.2">n</mcat>
+<p id="p28.21.2">6f2f83ac-9570-4b36-99e3-61b0d7ed4dcf</p>
+<fd id="fd28.21.2">oblique</fd>
+</sfx>
+<sfx id="sfx28.21.3">
+<m id="m28.21.3">indf</m>
+<d id="d28.21.3">ی</d>
+<mcat id="mcat28.21.3">n</mcat>
+<p id="p28.21.3">ababf76b-47f0-46ba-9046-a76df0744cfb</p>
+<fd id="fd28.21.3"></fd>
+</sfx>
+</a>
+<cat id="cat28.21">n</cat>
+</mparse>
+<n id="n28"> </n>
+</anaRec>
+<anaRec id="anaRec29">
+<w id="w29">می‌بینم</w>
+<mparse id="mparse29.1">
+<a id="a29.1">
+<pfx id="pfx29.1.1">
+<m id="m29.1.1">ipfv</m>
+<d id="d29.1.1">می</d>
+<mcat id="mcat29.1.1">v</mcat>
+<p id="p29.1.1">d03119ff-0e4e-4cbe-8a10-aa17a0e4be3a</p>
+<fd id="fd29.1.1"></fd>
+</pfx>
+<root id="root29.1.2">
+<m id="m29.1.2">see.prs</m>
+<d id="d29.1.2">‌بین</d>
+<mcat id="mcat29.1.2">v</mcat>
+<p id="p29.1.2">e62f9672-e8f9-4214-bfc0-01041e38128d</p>
+<fd id="fd29.1.2"></fd>
+</root>
+<sfx id="sfx29.1.3">
+<m id="m29.1.3">1sg</m>
+<d id="d29.1.3">م</d>
+<mcat id="mcat29.1.3">v</mcat>
+<p id="p29.1.3">47af04e4-9a29-468c-ae6e-e738ecc6122a</p>
+<fd id="fd29.1.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx29.1.4">
+<m id="m29.1.4">3sg.obj</m>
+<d id="d29.1.4">0</d>
+<mcat id="mcat29.1.4">v</mcat>
+<p id="p29.1.4">2acd8ba3-3452-4a53-9aad-0a117f9cc965</p>
+<fd id="fd29.1.4">singular_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat29.1">v</cat>
+</mparse>
+<mparse id="mparse29.2">
+<a id="a29.2">
+<pfx id="pfx29.2.1">
+<m id="m29.2.1">ipfv</m>
+<d id="d29.2.1">می</d>
+<mcat id="mcat29.2.1">v</mcat>
+<p id="p29.2.1">caf6fde2-b244-4a73-9c04-f4714e47c570</p>
+<fd id="fd29.2.1"></fd>
+</pfx>
+<root id="root29.2.2">
+<m id="m29.2.2">see.prs</m>
+<d id="d29.2.2">‌بین</d>
+<mcat id="mcat29.2.2">v</mcat>
+<p id="p29.2.2">e9a90c0d-422f-48ee-a851-b11e91ba2474</p>
+<fd id="fd29.2.2"></fd>
+</root>
+<sfx id="sfx29.2.3">
+<m id="m29.2.3">1sg</m>
+<d id="d29.2.3">م</d>
+<mcat id="mcat29.2.3">v</mcat>
+<p id="p29.2.3">1e7391e7-ac9e-4c2b-aedd-33305bc89682</p>
+<fd id="fd29.2.3">first_subject singular_subject</fd>
+</sfx>
+</a>
+<cat id="cat29.2">v</cat>
+</mparse>
+<mparse id="mparse29.3">
+<a id="a29.3">
+<pfx id="pfx29.3.1">
+<m id="m29.3.1">ipfv</m>
+<d id="d29.3.1">می</d>
+<mcat id="mcat29.3.1">v</mcat>
+<p id="p29.3.1">658c9f82-b545-4ce4-8350-9abd7f35411c</p>
+<fd id="fd29.3.1"></fd>
+</pfx>
+<root id="root29.3.2">
+<m id="m29.3.2">see.prs</m>
+<d id="d29.3.2">‌بین</d>
+<mcat id="mcat29.3.2">v</mcat>
+<p id="p29.3.2">96980f68-bf31-47bf-8c76-b4d847d6855b</p>
+<fd id="fd29.3.2"></fd>
+</root>
+<sfx id="sfx29.3.3">
+<m id="m29.3.3">1sg</m>
+<d id="d29.3.3">م</d>
+<mcat id="mcat29.3.3">v</mcat>
+<p id="p29.3.3">4ad4d132-3eac-407b-b616-3779cc90a71f</p>
+<fd id="fd29.3.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx29.3.4">
+<m id="m29.3.4">1sg.obj</m>
+<d id="d29.3.4">0</d>
+<mcat id="mcat29.3.4">v</mcat>
+<p id="p29.3.4">16d5e75c-43eb-4ada-8de9-83808551570e</p>
+<fd id="fd29.3.4">first_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat29.3">v</cat>
+</mparse>
+<mparse id="mparse29.4">
+<a id="a29.4">
+<pfx id="pfx29.4.1">
+<m id="m29.4.1">ipfv</m>
+<d id="d29.4.1">می</d>
+<mcat id="mcat29.4.1">v</mcat>
+<p id="p29.4.1">7e2495c2-dcbf-429c-9d85-89a7a7aad9cc</p>
+<fd id="fd29.4.1"></fd>
+</pfx>
+<root id="root29.4.2">
+<m id="m29.4.2">see.prs</m>
+<d id="d29.4.2">‌بین</d>
+<mcat id="mcat29.4.2">v</mcat>
+<p id="p29.4.2">1090c151-a66f-4115-8419-61d0a4e5cfe7</p>
+<fd id="fd29.4.2"></fd>
+</root>
+<sfx id="sfx29.4.3">
+<m id="m29.4.3">1sg</m>
+<d id="d29.4.3">م</d>
+<mcat id="mcat29.4.3">v</mcat>
+<p id="p29.4.3">08647d86-4985-4911-b88a-1fd29cde13a2</p>
+<fd id="fd29.4.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx29.4.4">
+<m id="m29.4.4">2pl.obj</m>
+<d id="d29.4.4">0</d>
+<mcat id="mcat29.4.4">v</mcat>
+<p id="p29.4.4">e0a843e2-09b8-484f-bbd0-f5003a138273</p>
+<fd id="fd29.4.4">plural_object second_object</fd>
+</sfx>
+</a>
+<cat id="cat29.4">v</cat>
+</mparse>
+<mparse id="mparse29.5">
+<a id="a29.5">
+<pfx id="pfx29.5.1">
+<m id="m29.5.1">ipfv</m>
+<d id="d29.5.1">می</d>
+<mcat id="mcat29.5.1">v</mcat>
+<p id="p29.5.1">35ddd800-3be4-49ab-9a2f-387e5c892cf0</p>
+<fd id="fd29.5.1"></fd>
+</pfx>
+<root id="root29.5.2">
+<m id="m29.5.2">see.prs</m>
+<d id="d29.5.2">‌بین</d>
+<mcat id="mcat29.5.2">v</mcat>
+<p id="p29.5.2">37c3d737-3a2a-48c3-afac-a8d60f22a12b</p>
+<fd id="fd29.5.2"></fd>
+</root>
+<sfx id="sfx29.5.3">
+<m id="m29.5.3">1sg</m>
+<d id="d29.5.3">م</d>
+<mcat id="mcat29.5.3">v</mcat>
+<p id="p29.5.3">b17db015-0222-4846-a8bd-f75af335c10f</p>
+<fd id="fd29.5.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx29.5.4">
+<m id="m29.5.4">2sg.obj</m>
+<d id="d29.5.4">0</d>
+<mcat id="mcat29.5.4">v</mcat>
+<p id="p29.5.4">b1c0b76f-38fa-4350-89d6-980212309a70</p>
+<fd id="fd29.5.4">second_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat29.5">v</cat>
+</mparse>
+<mparse id="mparse29.6">
+<a id="a29.6">
+<pfx id="pfx29.6.1">
+<m id="m29.6.1">ipfv</m>
+<d id="d29.6.1">می</d>
+<mcat id="mcat29.6.1">v</mcat>
+<p id="p29.6.1">eb1dad83-d78b-4f86-bca4-43e9c90f5ece</p>
+<fd id="fd29.6.1"></fd>
+</pfx>
+<root id="root29.6.2">
+<m id="m29.6.2">see.prs</m>
+<d id="d29.6.2">‌بین</d>
+<mcat id="mcat29.6.2">v</mcat>
+<p id="p29.6.2">3d1ab457-c7f0-4ac9-8db5-c56eb5259004</p>
+<fd id="fd29.6.2"></fd>
+</root>
+<sfx id="sfx29.6.3">
+<m id="m29.6.3">1sg</m>
+<d id="d29.6.3">م</d>
+<mcat id="mcat29.6.3">v</mcat>
+<p id="p29.6.3">325976ec-0c2f-4d8f-b6fc-25da66431103</p>
+<fd id="fd29.6.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx29.6.4">
+<m id="m29.6.4">1pl.obj</m>
+<d id="d29.6.4">0</d>
+<mcat id="mcat29.6.4">v</mcat>
+<p id="p29.6.4">f7b81647-e6d5-49f3-b7ca-f5ef13cb3b5e</p>
+<fd id="fd29.6.4">first_object plural_object</fd>
+</sfx>
+</a>
+<cat id="cat29.6">v</cat>
+</mparse>
+<mparse id="mparse29.7">
+<a id="a29.7">
+<pfx id="pfx29.7.1">
+<m id="m29.7.1">ipfv</m>
+<d id="d29.7.1">می</d>
+<mcat id="mcat29.7.1">v</mcat>
+<p id="p29.7.1">db628494-9968-4be3-a71b-c4a19dfac2dc</p>
+<fd id="fd29.7.1"></fd>
+</pfx>
+<root id="root29.7.2">
+<m id="m29.7.2">see.prs</m>
+<d id="d29.7.2">‌بین</d>
+<mcat id="mcat29.7.2">v</mcat>
+<p id="p29.7.2">23b29a8d-7d91-482d-800b-d640555fe8e0</p>
+<fd id="fd29.7.2"></fd>
+</root>
+<sfx id="sfx29.7.3">
+<m id="m29.7.3">1sg</m>
+<d id="d29.7.3">م</d>
+<mcat id="mcat29.7.3">v</mcat>
+<p id="p29.7.3">0615d08a-bc01-47db-bbab-0762c64b3e80</p>
+<fd id="fd29.7.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx29.7.4">
+<m id="m29.7.4">3pl.obj</m>
+<d id="d29.7.4">0</d>
+<mcat id="mcat29.7.4">v</mcat>
+<p id="p29.7.4">54ebdfbb-cc65-4775-8fd2-77080558498f</p>
+<fd id="fd29.7.4">plural_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat29.7">v</cat>
+</mparse>
+<n id="n29">.</n>
+<Analysis count="0"/>
+</anaRec>
+<anaRec id="anaRec30">
+<w id="w30">من</w>
+<mparse id="mparse30.1">
+<a id="a30.1">
+<root id="root30.1.1">
+<m id="m30.1.1">pn.1sg</m>
+<d id="d30.1.1">من</d>
+<mcat id="mcat30.1.1">pro</mcat>
+<p id="p30.1.1">79589367-fa7a-42bb-b136-d5697060d04c</p>
+<fd id="fd30.1.1">first singular</fd>
+</root>
+<sfx id="sfx30.1.2">
+<m id="m30.1.2">obl</m>
+<d id="d30.1.2">0</d>
+<mcat id="mcat30.1.2">pro</mcat>
+<p id="p30.1.2">03b07ffc-e649-462a-88fc-142c961c96ef</p>
+<fd id="fd30.1.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat30.1">pro</cat>
+</mparse>
+<mparse id="mparse30.2">
+<a id="a30.2">
+<root id="root30.2.1">
+<m id="m30.2.1">pn.1sg</m>
+<d id="d30.2.1">من</d>
+<mcat id="mcat30.2.1">pro</mcat>
+<p id="p30.2.1">7e4e73e2-9efd-40bb-a328-138f3e3dffaa</p>
+<fd id="fd30.2.1">first singular</fd>
+</root>
+</a>
+<cat id="cat30.2">pro</cat>
+</mparse>
+<mparse id="mparse30.3">
+<a id="a30.3">
+<root id="root30.3.1">
+<m id="m30.3.1">pn.1sg</m>
+<d id="d30.3.1">من</d>
+<mcat id="mcat30.3.1">pro</mcat>
+<p id="p30.3.1">af900a8a-9891-48b8-8bf9-10ee0b667258</p>
+<fd id="fd30.3.1">first singular</fd>
+</root>
+<sfx id="sfx30.3.2">
+<m id="m30.3.2">ez</m>
+<d id="d30.3.2">ِ</d>
+<mcat id="mcat30.3.2">pro</mcat>
+<p id="p30.3.2">14bfdd61-00a0-4c41-9cce-8888fee67705</p>
+<fd id="fd30.3.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat30.3">pro</cat>
+</mparse>
+<mparse id="mparse30.4">
+<a id="a30.4">
+<root id="root30.4.1">
+<m id="m30.4.1">pn.1sg</m>
+<d id="d30.4.1">من</d>
+<mcat id="mcat30.4.1">pro</mcat>
+<p id="p30.4.1">39029f5c-c055-4756-a1a3-6af4fa7718a8</p>
+<fd id="fd30.4.1">first singular</fd>
+</root>
+</a>
+<cat id="cat30.4">pro</cat>
+</mparse>
+<mparse id="mparse30.5">
+<a id="a30.5">
+<root id="root30.5.1">
+<m id="m30.5.1">pn.1sg</m>
+<d id="d30.5.1">من</d>
+<mcat id="mcat30.5.1">pro</mcat>
+<p id="p30.5.1">f8a6a304-327f-4b02-ab4c-200876bb07f5</p>
+<fd id="fd30.5.1">first singular</fd>
+</root>
+<sfx id="sfx30.5.2">
+<m id="m30.5.2">gen</m>
+<d id="d30.5.2">0</d>
+<mcat id="mcat30.5.2">pro</mcat>
+<p id="p30.5.2">5cc9d3b3-bdae-46a4-8bc1-befc24328f57</p>
+<fd id="fd30.5.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat30.5">pro</cat>
+</mparse>
+<n id="n30"> </n>
+</anaRec>
+<anaRec id="anaRec31">
+<w id="w31">کتاب</w>
+<mparse id="mparse31.1">
+<a id="a31.1">
+<root id="root31.1.1">
+<m id="m31.1.1">book</m>
+<d id="d31.1.1">کتاب</d>
+<mcat id="mcat31.1.1">n-irreg</mcat>
+<p id="p31.1.1">3c103ad7-9b67-4208-993a-ab67e40ce74d</p>
+<fd id="fd31.1.1">-animate compounds_with_خواندن intransitive</fd>
+</root>
+<sfx id="sfx31.1.2">
+<m id="m31.1.2">om</m>
+<d id="d31.1.2">0</d>
+<mcat id="mcat31.1.2">n-irreg</mcat>
+<p id="p31.1.2">685d9c4f-9644-44b4-bd7a-d68369e83e14</p>
+<fd id="fd31.1.2">object_case</fd>
+</sfx>
+</a>
+<cat id="cat31.1">n-irreg</cat>
+</mparse>
+<mparse id="mparse31.2">
+<a id="a31.2">
+<root id="root31.2.1">
+<m id="m31.2.1">book</m>
+<d id="d31.2.1">کتاب</d>
+<mcat id="mcat31.2.1">n-irreg</mcat>
+<p id="p31.2.1">22069f42-9e98-4172-9fc3-692f0c1b6011</p>
+<fd id="fd31.2.1">-animate compounds_with_خواندن intransitive</fd>
+</root>
+</a>
+<cat id="cat31.2">n-irreg</cat>
+</mparse>
+<mparse id="mparse31.3">
+<a id="a31.3">
+<root id="root31.3.1">
+<m id="m31.3.1">book</m>
+<d id="d31.3.1">کتاب</d>
+<mcat id="mcat31.3.1">n-irreg</mcat>
+<p id="p31.3.1">11f2f36a-d79c-4d89-99c9-023415f135fb</p>
+<fd id="fd31.3.1">-animate compounds_with_خواندن intransitive</fd>
+</root>
+<sfx id="sfx31.3.2">
+<m id="m31.3.2">gen</m>
+<d id="d31.3.2">0</d>
+<mcat id="mcat31.3.2">n-irreg</mcat>
+<p id="p31.3.2">2363a1ae-db39-42ef-8a2c-0a8fac373ec9</p>
+<fd id="fd31.3.2">genitive_suffix</fd>
+</sfx>
+</a>
+<cat id="cat31.3">n-irreg</cat>
+</mparse>
+<mparse id="mparse31.4">
+<a id="a31.4">
+<root id="root31.4.1">
+<m id="m31.4.1">book</m>
+<d id="d31.4.1">کتاب</d>
+<mcat id="mcat31.4.1">n-irreg</mcat>
+<p id="p31.4.1">27457e06-3160-4f76-9820-1e4986b04989</p>
+<fd id="fd31.4.1">-animate compounds_with_خواندن intransitive</fd>
+</root>
+<sfx id="sfx31.4.2">
+<m id="m31.4.2">obl</m>
+<d id="d31.4.2">0</d>
+<mcat id="mcat31.4.2">n-irreg</mcat>
+<p id="p31.4.2">3a51c3d0-6082-43f8-81ca-a79d3bca7605</p>
+<fd id="fd31.4.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat31.4">n-irreg</cat>
+</mparse>
+<n id="n31"> </n>
+</anaRec>
+<anaRec id="anaRec32">
+<w id="w32">می‌خرم</w>
+<mparse id="mparse32.1">
+<a id="a32.1">
+<pfx id="pfx32.1.1">
+<m id="m32.1.1">ipfv</m>
+<d id="d32.1.1">می‌</d>
+<mcat id="mcat32.1.1">v</mcat>
+<p id="p32.1.1">4a1e794a-fbbb-4e1b-8213-19331976e864</p>
+<fd id="fd32.1.1"></fd>
+</pfx>
+<root id="root32.1.2">
+<m id="m32.1.2">buy.prs</m>
+<d id="d32.1.2">خر</d>
+<mcat id="mcat32.1.2">v</mcat>
+<p id="p32.1.2">cd81f4c2-c436-4518-904f-62939668cc62</p>
+<fd id="fd32.1.2">transitive</fd>
+</root>
+<sfx id="sfx32.1.3">
+<m id="m32.1.3">1sg</m>
+<d id="d32.1.3">م</d>
+<mcat id="mcat32.1.3">v</mcat>
+<p id="p32.1.3">0c981ab8-a622-46eb-a0e9-f04cd3e3f8d6</p>
+<fd id="fd32.1.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx32.1.4">
+<m id="m32.1.4">1sg.obj</m>
+<d id="d32.1.4">0</d>
+<mcat id="mcat32.1.4">v</mcat>
+<p id="p32.1.4">b5bacc9e-15ec-4184-8d10-eed091819291</p>
+<fd id="fd32.1.4">first_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat32.1">v</cat>
+</mparse>
+<mparse id="mparse32.2">
+<a id="a32.2">
+<pfx id="pfx32.2.1">
+<m id="m32.2.1">ipfv</m>
+<d id="d32.2.1">می‌</d>
+<mcat id="mcat32.2.1">v</mcat>
+<p id="p32.2.1">8906732b-3a8b-408f-89ac-b06525e79f1b</p>
+<fd id="fd32.2.1"></fd>
+</pfx>
+<root id="root32.2.2">
+<m id="m32.2.2">buy.prs</m>
+<d id="d32.2.2">خر</d>
+<mcat id="mcat32.2.2">v</mcat>
+<p id="p32.2.2">127b75e0-cc1d-417a-80e9-831c6fcae366</p>
+<fd id="fd32.2.2">transitive</fd>
+</root>
+<sfx id="sfx32.2.3">
+<m id="m32.2.3">1sg</m>
+<d id="d32.2.3">م</d>
+<mcat id="mcat32.2.3">v</mcat>
+<p id="p32.2.3">b0590be3-38e0-4891-824a-6961c1aab4f7</p>
+<fd id="fd32.2.3">first_subject singular_subject</fd>
+</sfx>
+</a>
+<cat id="cat32.2">v</cat>
+</mparse>
+<mparse id="mparse32.3">
+<a id="a32.3">
+<pfx id="pfx32.3.1">
+<m id="m32.3.1">ipfv</m>
+<d id="d32.3.1">می‌</d>
+<mcat id="mcat32.3.1">v</mcat>
+<p id="p32.3.1">b249f648-2c96-4ce8-8d13-a29d209ca2e1</p>
+<fd id="fd32.3.1"></fd>
+</pfx>
+<root id="root32.3.2">
+<m id="m32.3.2">buy.prs</m>
+<d id="d32.3.2">خر</d>
+<mcat id="mcat32.3.2">v</mcat>
+<p id="p32.3.2">fb451ba6-ed1c-4a09-acac-5dc6f62ca926</p>
+<fd id="fd32.3.2">transitive</fd>
+</root>
+<sfx id="sfx32.3.3">
+<m id="m32.3.3">1sg</m>
+<d id="d32.3.3">م</d>
+<mcat id="mcat32.3.3">v</mcat>
+<p id="p32.3.3">11fac7d6-3ed3-41e3-af4b-13f9c84ae22a</p>
+<fd id="fd32.3.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx32.3.4">
+<m id="m32.3.4">2sg.obj</m>
+<d id="d32.3.4">0</d>
+<mcat id="mcat32.3.4">v</mcat>
+<p id="p32.3.4">f71de456-ff18-44c3-8cca-3f3f24f99f72</p>
+<fd id="fd32.3.4">second_object singular_object</fd>
+</sfx>
+</a>
+<cat id="cat32.3">v</cat>
+</mparse>
+<mparse id="mparse32.4">
+<a id="a32.4">
+<pfx id="pfx32.4.1">
+<m id="m32.4.1">ipfv</m>
+<d id="d32.4.1">می‌</d>
+<mcat id="mcat32.4.1">v</mcat>
+<p id="p32.4.1">b8a1ca25-123f-4e42-912b-2bd6d3bc6e31</p>
+<fd id="fd32.4.1"></fd>
+</pfx>
+<root id="root32.4.2">
+<m id="m32.4.2">buy.prs</m>
+<d id="d32.4.2">خر</d>
+<mcat id="mcat32.4.2">v</mcat>
+<p id="p32.4.2">30c3ea3f-6264-4cca-8fb4-b79d0e3061c6</p>
+<fd id="fd32.4.2">transitive</fd>
+</root>
+<sfx id="sfx32.4.3">
+<m id="m32.4.3">1sg</m>
+<d id="d32.4.3">م</d>
+<mcat id="mcat32.4.3">v</mcat>
+<p id="p32.4.3">084ee71a-817f-4f25-8a68-7ae7c81ca4f6</p>
+<fd id="fd32.4.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx32.4.4">
+<m id="m32.4.4">3pl.obj</m>
+<d id="d32.4.4">0</d>
+<mcat id="mcat32.4.4">v</mcat>
+<p id="p32.4.4">24788a7c-b496-49d4-94ee-8bfcc30d7ced</p>
+<fd id="fd32.4.4">plural_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat32.4">v</cat>
+</mparse>
+<mparse id="mparse32.5">
+<a id="a32.5">
+<pfx id="pfx32.5.1">
+<m id="m32.5.1">ipfv</m>
+<d id="d32.5.1">می‌</d>
+<mcat id="mcat32.5.1">v</mcat>
+<p id="p32.5.1">6de3b189-0fcb-446f-968f-ed7f00655fcb</p>
+<fd id="fd32.5.1"></fd>
+</pfx>
+<root id="root32.5.2">
+<m id="m32.5.2">buy.prs</m>
+<d id="d32.5.2">خر</d>
+<mcat id="mcat32.5.2">v</mcat>
+<p id="p32.5.2">a4a488d3-8a00-4c0b-afde-066d0465d5bf</p>
+<fd id="fd32.5.2">transitive</fd>
+</root>
+<sfx id="sfx32.5.3">
+<m id="m32.5.3">1sg</m>
+<d id="d32.5.3">م</d>
+<mcat id="mcat32.5.3">v</mcat>
+<p id="p32.5.3">e5011388-d86f-49bf-8935-d8b0096272a4</p>
+<fd id="fd32.5.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx32.5.4">
+<m id="m32.5.4">1pl.obj</m>
+<d id="d32.5.4">0</d>
+<mcat id="mcat32.5.4">v</mcat>
+<p id="p32.5.4">256a1c1e-6fc2-4e63-a4b5-2e7ab2eae1a8</p>
+<fd id="fd32.5.4">first_object plural_object</fd>
+</sfx>
+</a>
+<cat id="cat32.5">v</cat>
+</mparse>
+<mparse id="mparse32.6">
+<a id="a32.6">
+<pfx id="pfx32.6.1">
+<m id="m32.6.1">ipfv</m>
+<d id="d32.6.1">می‌</d>
+<mcat id="mcat32.6.1">v</mcat>
+<p id="p32.6.1">e5e77c66-7d5a-4df4-8f2f-a374534e552c</p>
+<fd id="fd32.6.1"></fd>
+</pfx>
+<root id="root32.6.2">
+<m id="m32.6.2">buy.prs</m>
+<d id="d32.6.2">خر</d>
+<mcat id="mcat32.6.2">v</mcat>
+<p id="p32.6.2">1d2312f8-4af4-40bc-8502-d303a277688c</p>
+<fd id="fd32.6.2">transitive</fd>
+</root>
+<sfx id="sfx32.6.3">
+<m id="m32.6.3">1sg</m>
+<d id="d32.6.3">م</d>
+<mcat id="mcat32.6.3">v</mcat>
+<p id="p32.6.3">4b44589f-93b5-4416-8aed-c8443e9a281d</p>
+<fd id="fd32.6.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx32.6.4">
+<m id="m32.6.4">2pl.obj</m>
+<d id="d32.6.4">0</d>
+<mcat id="mcat32.6.4">v</mcat>
+<p id="p32.6.4">7160b6c0-074d-437d-940f-782075d6cd8e</p>
+<fd id="fd32.6.4">plural_object second_object</fd>
+</sfx>
+</a>
+<cat id="cat32.6">v</cat>
+</mparse>
+<mparse id="mparse32.7">
+<a id="a32.7">
+<pfx id="pfx32.7.1">
+<m id="m32.7.1">ipfv</m>
+<d id="d32.7.1">می‌</d>
+<mcat id="mcat32.7.1">v</mcat>
+<p id="p32.7.1">271e4052-cad9-4f7e-a049-cb5806356bd6</p>
+<fd id="fd32.7.1"></fd>
+</pfx>
+<root id="root32.7.2">
+<m id="m32.7.2">buy.prs</m>
+<d id="d32.7.2">خر</d>
+<mcat id="mcat32.7.2">v</mcat>
+<p id="p32.7.2">6e7f1c0c-d2f2-4d22-a3ec-34e4dff57f5d</p>
+<fd id="fd32.7.2">transitive</fd>
+</root>
+<sfx id="sfx32.7.3">
+<m id="m32.7.3">1sg</m>
+<d id="d32.7.3">م</d>
+<mcat id="mcat32.7.3">v</mcat>
+<p id="p32.7.3">2db3105f-75b8-494c-98c5-d3a36314e4fb</p>
+<fd id="fd32.7.3">first_subject singular_subject</fd>
+</sfx>
+<sfx id="sfx32.7.4">
+<m id="m32.7.4">3sg.obj</m>
+<d id="d32.7.4">0</d>
+<mcat id="mcat32.7.4">v</mcat>
+<p id="p32.7.4">054bd4d9-b3f3-4e15-9b35-f0ffd548b91e</p>
+<fd id="fd32.7.4">singular_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat32.7">v</cat>
+</mparse>
+<n id="n32">.</n>
+<Analysis count="0"/>
+</anaRec>
+<anaRec id="anaRec33">
+<w id="w33">مرد</w>
+<mparse id="mparse33.1">
+<a id="a33.1">
+<root id="root33.1.1">
+<m id="m33.1.1">man</m>
+<d id="d33.1.1">مرد</d>
+<mcat id="mcat33.1.1">n</mcat>
+<p id="p33.1.1">b4791977-6e09-4799-ab2a-14d734ea20d7</p>
+<fd id="fd33.1.1">human</fd>
+</root>
+<sfx id="sfx33.1.2">
+<m id="m33.1.2">obl</m>
+<d id="d33.1.2">0</d>
+<mcat id="mcat33.1.2">n</mcat>
+<p id="p33.1.2">e439a536-33f9-4b97-9075-a1a5f7f0afa8</p>
+<fd id="fd33.1.2">oblique</fd>
+</sfx>
+</a>
+<cat id="cat33.1">n</cat>
+</mparse>
+<n id="n33"> </n>
+</anaRec>
+<anaRec id="anaRec34">
+<w id="w34">پول</w>
+<mparse id="mparse34.1">
+<a id="a34.1">
+<root id="root34.1.1">
+<m id="m34.1.1">money</m>
+<d id="d34.1.1">پول</d>
+<mcat id="mcat34.1.1">n</mcat>
+<p id="p34.1.1">e3319427-9156-4ad0-a713-f0327e5d044b</p>
+<fd id="fd34.1.1">plural</fd>
+</root>
+</a>
+<cat id="cat34.1">n</cat>
+</mparse>
+<n id="n34"> </n>
+</anaRec>
+<anaRec id="anaRec35">
+<w id="w35">را</w>
+<mparse id="mparse35.1">
+<a id="a35.1">
+<root id="root35.1.1">
+<m id="m35.1.1">om</m>
+<d id="d35.1.1">را</d>
+<mcat id="mcat35.1.1">post</mcat>
+<p id="p35.1.1">f3731c79-5705-4d6e-9638-9581f50b9583</p>
+<fd id="fd35.1.1">makeCase object_case</fd>
+</root>
+</a>
+<cat id="cat35.1">post</cat>
+</mparse>
+<n id="n35"> </n>
+</anaRec>
+<anaRec id="anaRec36">
+<w id="w36">کرد</w>
+<mparse id="mparse36.1">
+<a id="a36.1">
+<root id="root36.1.1">
+<m id="m36.1.1">do.pst</m>
+<d id="d36.1.1">کرد</d>
+<mcat id="mcat36.1.1">vcomp</mcat>
+<p id="p36.1.1">75ce5dc7-e452-4d4f-b2d0-bf4e21867f51</p>
+<fd id="fd36.1.1">past</fd>
+</root>
+<sfx id="sfx36.1.2">
+<m id="m36.1.2">3sg.pst</m>
+<d id="d36.1.2">0</d>
+<mcat id="mcat36.1.2">vcomp</mcat>
+<p id="p36.1.2">3c110e6c-11ab-4be3-b2c4-2fbc35a90b4c</p>
+<fd id="fd36.1.2">past singular_subject third_subject</fd>
+</sfx>
+<sfx id="sfx36.1.3">
+<m id="m36.1.3">3pl.obj</m>
+<d id="d36.1.3">0</d>
+<mcat id="mcat36.1.3">vcomp</mcat>
+<p id="p36.1.3">ec14859c-3e45-41c1-b607-514878592cbb</p>
+<fd id="fd36.1.3">plural_object third_object</fd>
+</sfx>
+</a>
+<cat id="cat36.1">vcomp</cat>
+</mparse>
+<n id="n36">.</n>
+<Analysis count="1">
+<Parse>
+<Node cat="S" rule="S option start symbol -  final ya na &amp; Quote allowed" id="s10_1._1">
+<Fs>
+<F name="cat">
+<Str>S</Str>
+</F>
+<F name="head">
+<Fs id="s10_1.co9">
+<F name="case">
+<Fs>
+<F name="direct">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="embedded">
+<Fs>
+<F name="infl">
+<Fs id="s10_1.co5">
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="infl" fVal="s10_1.co5">
+</F>
+<F name="object">
+<Fs id="s10_1.co4">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s10_1.co3">
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>+</Str>
+</F>
+<F name="singular">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="reflexive">
+<Fs id="s10_1.co8">
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head">
+<Fs id="s10_1.co7">
+<F name="agr">
+<Fs id="s10_1.co6">
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="case_for_position">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="possessor">
+<Any />
+</F>
+<F name="reflexive">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr" fVal="s10_1.co6">
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>man</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>money</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>+</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>-</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="mother_node">
+<Any id="s10_1.co2" />
+</F>
+<F name="rule">
+<Str>casePst</Str>
+</F>
+</Fs>
+</F>
+<F name="rootgloss">
+<Str>do.pst</Str>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject" fVal="s10_1.co8">
+</F>
+<F name="type">
+<Fs>
+<F name="auxiliary">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>-</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="initialP">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="no_intervening">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="pro-drop">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="root">
+<Str>+</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>start</Str>
+</F>
+</Fs>
+<Node cat="IP" rule="IP option 2cINon-ImpersonalV-PastTransitive - subject initial, required, root clause" id="s10_1._2">
+<Fs>
+<F name="cat">
+<Str>IP</Str>
+</F>
+<F name="head" fVal="s10_1.co9">
+</F>
+<F name="rule">
+<Str>2cNon-ImpersonalV-PastTransitive</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s10_1._3">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s10_1.co7">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s10_1._4">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head" fVal="s10_1.co7">
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s10_1._5">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s10_1.co7">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s10_1._6">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s10_1.co7">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s10_1._7" gloss="man obl">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>مرد-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>human=oblique</Str>
+</F>
+<F name="gloss">
+<Str>man obl</Str>
+</F>
+<F name="head" fVal="s10_1.co7">
+</F>
+<F name="lex">
+<Str>مرد</Str>
+</F>
+<F name="properties">
+<Str>b4791977-6e09-4799-ab2a-14d734ea20d7=e439a536-33f9-4b97-9075-a1a5f7f0afa8</Str>
+</F>
+<F name="rootgloss">
+<Str>man</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>مرد-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>human=oblique</Str>
+</F>
+<F name="gloss">
+<Str>man obl</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>-</Str>
+</F>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>+</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>+</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>مرد</Str>
+</F>
+<F name="properties">
+<Str>b4791977-6e09-4799-ab2a-14d734ea20d7=e439a536-33f9-4b97-9075-a1a5f7f0afa8</Str>
+</F>
+<F name="rootgloss">
+<Str>man</Str>
+</F>
+</Lexfs>
+<Str>مرد</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+<Node cat="I'" rule="I' option 1 - no auxiliaries" id="s10_1._8">
+<Fs>
+<F name="cat">
+<Str>I'</Str>
+</F>
+<F name="head" fVal="s10_1.co9">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="VP" rule="VP option 5cPast - V final, transitive" id="s10_1._9">
+<Fs>
+<F name="cat">
+<Str>VP</Str>
+</F>
+<F name="head" fVal="s10_1.co9">
+</F>
+<F name="rule">
+<Str>5cPast</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option casePst - case-marked DP" id="s10_1._10">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s10_1.co3">
+</F>
+<F name="mother_node" fVal="s10_1.co2">
+</F>
+<F name="rule">
+<Str>casePst</Str>
+</F>
+</Fs>
+<Node cat="DP" rule="DP option 1 - no modifiers" id="s10_1._11">
+<Fs>
+<F name="cat">
+<Str>DP</Str>
+</F>
+<F name="conjoined">
+<Str>-</Str>
+</F>
+<F name="head" fVal="s10_1.co3">
+</F>
+<F name="mother_node" fVal="s10_1.co2">
+</F>
+<F name="rule">
+<Str>1</Str>
+</F>
+</Fs>
+<Node cat="D'" rule="D' option 4a - no modifiers" id="s10_1._12">
+<Fs>
+<F name="cat">
+<Str>D'</Str>
+</F>
+<F name="head">
+<Fs id="s10_1.co1">
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>+</Str>
+</F>
+<F name="singular">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="participle">
+<Str>none</Str>
+</F>
+<F name="rootgloss">
+<Str>money</Str>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="no_head_N">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rule">
+<Str>4a</Str>
+</F>
+</Fs>
+<Node cat="NP" rule="NP option 1a - no possessor" id="s10_1._13">
+<Fs>
+<F name="cat">
+<Str>NP</Str>
+</F>
+<F name="head" fVal="s10_1.co1">
+</F>
+<F name="rule">
+<Str>1a</Str>
+</F>
+</Fs>
+<Node cat="N'" rule="N' option 3b - noun" id="s10_1._14">
+<Fs>
+<F name="cat">
+<Str>N'</Str>
+</F>
+<F name="head" fVal="s10_1.co1">
+</F>
+<F name="rule">
+<Str>3b</Str>
+</F>
+</Fs>
+<Leaf cat="N" id="s10_1._15" gloss="money">
+<Fs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>پول</Str>
+</F>
+<F name="featureDescriptors">
+<Str>plural</Str>
+</F>
+<F name="gloss">
+<Str>money</Str>
+</F>
+<F name="head" fVal="s10_1.co1">
+</F>
+<F name="lex">
+<Str>پول</Str>
+</F>
+<F name="properties">
+<Str>e3319427-9156-4ad0-a713-f0327e5d044b</Str>
+</F>
+<F name="rootgloss">
+<Str>money</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>N</Str>
+</F>
+<F name="decomposition">
+<Str>پول</Str>
+</F>
+<F name="featureDescriptors">
+<Str>plural</Str>
+</F>
+<F name="gloss">
+<Str>money</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>+</Str>
+</F>
+<F name="singular">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>+</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>-</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="DO_contraction">
+<Str>-</Str>
+</F>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="animate">
+<Str>-</Str>
+</F>
+<F name="apposition">
+<Str>-</Str>
+</F>
+<F name="case-marked">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="comp_suffix">
+<Str>-</Str>
+</F>
+<F name="compound">
+<Str>unspecified</Str>
+</F>
+<F name="compounds_with2">
+<Str>none</Str>
+</F>
+<F name="compounds_with3">
+<Str>none</Str>
+</F>
+<F name="compounds_with4">
+<Str>none</Str>
+</F>
+<F name="generic">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="human">
+<Str>-</Str>
+</F>
+<F name="indefinite">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="modifier-final">
+<Str>-</Str>
+</F>
+<F name="modifier-initial">
+<Str>-</Str>
+</F>
+<F name="nonfinalcoordination">
+<Str>-</Str>
+</F>
+<F name="pronoun">
+<Str>-</Str>
+</F>
+<F name="proper">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="reflexive">
+<Str>-</Str>
+</F>
+<F name="relative">
+<Str>-</Str>
+</F>
+<F name="relcl">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+<F name="transitive">
+<Str>+</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>پول</Str>
+</F>
+<F name="properties">
+<Str>e3319427-9156-4ad0-a713-f0327e5d044b</Str>
+</F>
+<F name="rootgloss">
+<Str>money</Str>
+</F>
+</Lexfs>
+<Str>پول</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+<Leaf cat="Case" id="s10_1._16" gloss="om">
+<Fs>
+<F name="cat">
+<Str>Case</Str>
+</F>
+<F name="decomposition">
+<Str>را</Str>
+</F>
+<F name="featureDescriptors">
+<Str>makeCase object_case</Str>
+</F>
+<F name="gloss">
+<Str>om</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>+</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="partitive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="prefix_Prep">
+<Str>-</Str>
+</F>
+<F name="stand-alone">
+<Str>-</Str>
+</F>
+<F name="suffix_Pn">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>را</Str>
+</F>
+<F name="properties">
+<Str>f3731c79-5705-4d6e-9638-9581f50b9583</Str>
+</F>
+<F name="rootgloss">
+<Str>om</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>Case</Str>
+</F>
+<F name="decomposition">
+<Str>را</Str>
+</F>
+<F name="featureDescriptors">
+<Str>makeCase object_case</Str>
+</F>
+<F name="gloss">
+<Str>om</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="case">
+<Fs>
+<F name="benefactor">
+<Str>-</Str>
+</F>
+<F name="direct">
+<Str>-</Str>
+</F>
+<F name="genitive">
+<Str>-</Str>
+</F>
+<F name="objective">
+<Str>+</Str>
+</F>
+<F name="oblique">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="NPrep">
+<Str>-</Str>
+</F>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="genitive_suffix">
+<Str>-</Str>
+</F>
+<F name="locative">
+<Str>-</Str>
+</F>
+<F name="partitive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="prefix_Prep">
+<Str>-</Str>
+</F>
+<F name="stand-alone">
+<Str>-</Str>
+</F>
+<F name="suffix_Pn">
+<Str>-</Str>
+</F>
+<F name="wh">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>را</Str>
+</F>
+<F name="properties">
+<Str>f3731c79-5705-4d6e-9638-9581f50b9583</Str>
+</F>
+<F name="rootgloss">
+<Str>om</Str>
+</F>
+</Lexfs>
+<Str>را</Str>
+</Leaf>
+</Node>
+<Leaf cat="V" id="s10_1._17" gloss="do.pst 3sg.pst 3pl.obj">
+<Fs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>کرد-0-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>past=past singular_subject third_subject=plural_object third_object</Str>
+</F>
+<F name="gloss">
+<Str>do.pst 3sg.pst 3pl.obj</Str>
+</F>
+<F name="head" fVal="s10_1.co9">
+</F>
+<F name="lex">
+<Str>کرد</Str>
+</F>
+<F name="properties">
+<Str>75ce5dc7-e452-4d4f-b2d0-bf4e21867f51=3c110e6c-11ab-4be3-b2c4-2fbc35a90b4c=ec14859c-3e45-41c1-b607-514878592cbb</Str>
+</F>
+<F name="rootgloss">
+<Str>do.pst</Str>
+</F>
+</Fs>
+<Lexfs>
+<F name="cat">
+<Str>V</Str>
+</F>
+<F name="decomposition">
+<Str>کرد-0-0</Str>
+</F>
+<F name="featureDescriptors">
+<Str>past=past singular_subject third_subject=plural_object third_object</Str>
+</F>
+<F name="gloss">
+<Str>do.pst 3sg.pst 3pl.obj</Str>
+</F>
+<F name="head">
+<Fs>
+<F name="infl">
+<Fs>
+<F name="finite">
+<Str>+</Str>
+</F>
+<F name="mood">
+<Fs>
+<F name="realis">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="polarity">
+<Str>+</Str>
+</F>
+<F name="tense">
+<Fs>
+<F name="past">
+<Str>+</Str>
+</F>
+<F name="present">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="object">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="plural">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="rootgloss_V_2">
+<Str>none</Str>
+</F>
+<F name="subject">
+<Fs>
+<F name="head">
+<Fs>
+<F name="agr">
+<Fs>
+<F name="number">
+<Fs>
+<F name="singular">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+<F name="person">
+<Fs>
+<F name="first">
+<Str>-</Str>
+</F>
+<F name="second">
+<Str>-</Str>
+</F>
+<F name="third">
+<Str>+</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="type">
+<Fs>
+<F name="comma">
+<Str>-</Str>
+</F>
+<F name="compounded">
+<Str>-</Str>
+</F>
+<F name="conj_suffix">
+<Str>-</Str>
+</F>
+<F name="copular">
+<Str>-</Str>
+</F>
+<F name="copular_suffix">
+<Str>-</Str>
+</F>
+<F name="impersonal">
+<Str>-</Str>
+</F>
+<F name="motion">
+<Str>-</Str>
+</F>
+<F name="participle">
+<Str>-</Str>
+</F>
+<F name="participle_passive">
+<Str>-</Str>
+</F>
+<F name="passive">
+<Str>-</Str>
+</F>
+<F name="reciprocal">
+<Str>-</Str>
+</F>
+<F name="sentential">
+<Str>-</Str>
+</F>
+</Fs>
+</F>
+</Fs>
+</F>
+<F name="lex">
+<Str>کرد</Str>
+</F>
+<F name="properties">
+<Str>75ce5dc7-e452-4d4f-b2d0-bf4e21867f51=3c110e6c-11ab-4be3-b2c4-2fbc35a90b4c=ec14859c-3e45-41c1-b607-514878592cbb</Str>
+</F>
+<F name="rootgloss">
+<Str>do.pst</Str>
+</F>
+</Lexfs>
+<Str>کرد</Str>
+</Leaf>
+</Node>
+</Node>
+</Node>
+</Node>
+</Parse></Analysis>
+</anaRec>
+</XAmpleANA>
