@@ -8,6 +8,7 @@ using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
+using SIL.LCModel.Infrastructure;
 using SIL.WritingSystems;
 using System;
 using System.Collections.Generic;
@@ -121,6 +122,28 @@ namespace SIL.DisambiguateInFLExDBTests
 			analysis = segment.AnalysesRS.ElementAt(7); // happy
 			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
+		}
+
+		/// <summary>
+		/// Test disambiguating segment in a text
+		/// </summary>
+		[Test]
+		public void EnsureMorphBundleHasSenseTest()
+		{
+			//myCache = Loader.CreateCache();
+			Assert.IsNotNull(myCache);
+			Assert.AreEqual(ProjId.UiName, myCache.ProjectId.UiName);
+			Guid wfiMorphBundleGuidToUse = new Guid("01e77f47-a055-4053-8640-18d27f672085");
+			var bundle = myCache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundleGuidToUse) as IWfiMorphBundle;
+			Assert.IsNotNull(bundle);
+			Assert.IsNull(bundle.SenseRA);
+			NonUndoableUnitOfWorkHelper.Do(myCache.ActionHandlerAccessor, () =>
+			{
+				var segmentDisam = new SegmentDisambiguation(null, null);
+				segmentDisam.EnsureMorphBundleHasSense(bundle);
+				Assert.IsNotNull(bundle.SenseRA);
+				Assert.AreEqual("run-PST-MOT", bundle.SenseRA.Gloss.AnalysisDefaultWritingSystem.Text);
+			});
 		}
 	}
 }

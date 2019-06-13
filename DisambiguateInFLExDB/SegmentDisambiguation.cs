@@ -38,6 +38,8 @@ namespace SIL.DisambiguateInFLExDB
 						var wfiWordform = analysis as IWfiWordform;
 						var wfiMorphBundleGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
 						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundleGuidToUse);
+						var bundle = wfiMorphBundle as IWfiMorphBundle;
+						EnsureMorphBundleHasSense(bundle);
 						if (wfiMorphBundle.Owner is IWfiAnalysis wfiAnalysisToUse)
 						{
 							wfiAnalysisToUse.SetAgentOpinion(cache.LanguageProject.DefaultUserAgent, Opinions.approves);
@@ -49,5 +51,29 @@ namespace SIL.DisambiguateInFLExDB
 			});
 		}
 
+		public void EnsureMorphBundleHasSense(IWfiMorphBundle bundle)
+		{
+			if (bundle != null)
+			{
+				var sense = bundle.SenseRA;
+				if (sense == null)
+				{ // bundle does not have a sense (due to coming from parser)
+				  // find its sense and set it in bundle
+					var msa = bundle.MsaRA;
+					if (msa != null)
+					{
+						var entry = msa.Owner as ILexEntry;
+						if (entry != null)
+						{
+							sense = entry.SenseWithMsa(msa);
+							if (sense != null)
+							{
+								bundle.SenseRA = sense;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

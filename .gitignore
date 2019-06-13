@@ -18,3 +18,4 @@ XLingPaperPDFTemp/
 #UsePcPatrWithFLExSetup.exe
 UserDocumentation.css
 UserDocumentation.htm
+*.csproj.user
