@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018 SIL International
+﻿// Copyright (c) 2018-2019 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -14,5 +14,8 @@ namespace SIL.LcmLoaderUI
 	{
 		public const string PcPatrFeatureDescriptorCustomField = "PCPATR";
 		public const string PcPatrFeatureDescriptorList = "PCPATR Feature Descriptors";
+		public const string ToneParsPropertiesSenseCustomField = "ToneParsSense";
+		public const string ToneParsPropertiesFormCustomField = "ToneParsForm";
+		public const string ToneParsPropertiesList = "TonePars Properties";
 	}
 }

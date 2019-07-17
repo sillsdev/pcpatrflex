@@ -1,0 +1,2 @@
+
+<utility assemblyPath="c:\fwrepo\fw\Output\Release\ToneParsFLExDll.dll" class="SIL.ToneParsFLEx.FLExUtility"/>
