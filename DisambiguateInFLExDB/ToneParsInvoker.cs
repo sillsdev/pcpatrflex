@@ -28,6 +28,7 @@ namespace SIL.DisambiguateInFLExDB
 		public String DatabaseName { get; set; }
 		public String InputFile { get; set; }
 		public String IntxCtlFile { get; set; }
+		public String ParserFilerXMLString { get; set; }
 		public String ToneParsBatchFile { get; set; }
 		public String ToneParsCmdFile { get; set; }
 		public String ToneParsLogFile { get; set; }
@@ -36,7 +37,9 @@ namespace SIL.DisambiguateInFLExDB
 		public String XAmpleBatchFile { get; set; }
 		public String XAmpleCmdFile { get; set; }
 		public String XAmpleLogFile { get; set; }
+		public Char DecompSeparationChar { get; set; }
 
+		protected String[] AntRecords { get; set; }
 		protected const String kAdCtl = "adctl.txt";
 		protected const String kTPAdCtl = "TPadctl.txt";
 
@@ -49,6 +52,7 @@ namespace SIL.DisambiguateInFLExDB
 			Cache = cache;
 			DatabaseName = ConvertNameToUseAnsiCharacters(cache.ProjectId.Name);
 			InitFileNames();
+			DecompSeparationChar = '-';
 		}
 
 		private void InitFileNames()
@@ -228,15 +232,35 @@ namespace SIL.DisambiguateInFLExDB
 			// now tonepars handles it:RemoveAllomorphHvoFromLexiconFile();
 			AppendToneParsPropertiesToAdCtlFile();
 			ConvertMorphnameIsToUseHvosInToneRuleFile();
-
 			CreateBatchFile();
 			CreateXAmpleCmdFile();
 			CreateToneParsCmdFile();
 
-			//File.Delete(InputFile);
-			//File.Delete(LogFile);
-
 			var processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + XAmpleBatchFile + "\"");
+			InvokeBatchFile(processInfo);
+
+			processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
+			InvokeBatchFile(processInfo);
+			CreateAntRecords();
+		}
+
+		private void CreateAntRecords()
+		{
+			AntRecords = new string[] { "" };
+			String antFileContents = "";
+			using (var streamReader = new StreamReader(AntFile, Encoding.UTF8))
+			{
+				antFileContents = streamReader.ReadToEnd().Replace("\r", "");
+			}
+			if (String.IsNullOrEmpty(antFileContents))
+			{
+				return;
+			}
+			AntRecords = antFileContents.Split(new string[] { "\\a " }, StringSplitOptions.None);
+		}
+
+		private static void InvokeBatchFile(ProcessStartInfo processInfo)
+		{
 			processInfo.CreateNoWindow = true;
 			processInfo.UseShellExecute = false;
 			processInfo.RedirectStandardError = true;
@@ -247,51 +271,110 @@ namespace SIL.DisambiguateInFLExDB
 			string stdOutput = process.StandardOutput.ReadToEnd();
 			string stdError = process.StandardError.ReadToEnd();
 			process.WaitForExit();
-			//string stdOutput = process.StandardOutput.ReadToEnd();
-			//string stdError = process.StandardError.ReadToEnd();
-			//Console.WriteLine("==========");
-			//Console.WriteLine("XAmple stdout=");
-			//Console.WriteLine("==========");
-			//Console.Write(stdOutput);
-			//Console.WriteLine("==========");
-			//Console.WriteLine("XAmple stderr=");
-			//Console.WriteLine("==========");
-			//Console.Write(stdError);
-			//Console.WriteLine("XAmple the end\n");
 			process.StandardOutput.Close();
 			process.StandardError.Close();
-			//Console.WriteLine("XAmple process has exited:" + process.HasExited);
 			process.Close();
-
+			// Give it time to completely finish or the output file won't be available
 			Thread.Sleep(1000);
+		}
 
-			processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
-			processInfo.CreateNoWindow = true;
-			processInfo.UseShellExecute = false;
-			processInfo.RedirectStandardError = true;
-			processInfo.RedirectStandardOutput = true;
+		public Boolean ConvertAntToParserFilerXML(int word)
+		{
+			ParserFilerXMLString = "";
+			if (word > 0 && word < AntRecords.Length)
+			{
+				String record = AntRecords[word];
+				if (String.IsNullOrEmpty(record))
+					return false;
+				string wordform = GetFieldFromAntRecord(record, "\\w ");
+				var sb = new StringBuilder();
+				CreateWordFormElementBegin(wordform, sb);
+				Boolean parseFailed = record.Contains("%0%");
+				if (parseFailed)
+				{
+					sb.Append("<WfiAnalysis/>\n");
+				}
+				else
+				{
+					int analysisEnd = record.IndexOf("\n");
+					String analysis = record.Substring(0, analysisEnd);
+					string decomp = GetFieldFromAntRecord(record, "\\d ");
+					string underlying = GetFieldFromAntRecord(record, "\\u ");
+					if (record.StartsWith("%"))
+					{ // multiple analyses
+						string[] analyses = analysis.Split('%');
+						string[] decomps = decomp.Split('%');
+						string[] underlyings = underlying.Split('%');
+						for (int i = 2; i < analyses.Length - 1; i++)
+						{
+							CreateWfiAnalysisElement(sb, analyses[i], decomps[i], underlyings[i]);
+						}
+					}
+					else
+					{ // only one analysis
+						CreateWfiAnalysisElement(sb, analysis, decomp, underlying);
+					}
+				}
+				sb.Append("</Wordform>\n");
+				ParserFilerXMLString = sb.ToString();
+				return true;
+			}
+			return false;
+		}
 
-			process = Process.Start(processInfo);
-			process.Start();
-			stdOutput = process.StandardOutput.ReadToEnd();
-			stdError = process.StandardError.ReadToEnd();
-			process.WaitForExit();
-			//string stdOutput = process.StandardOutput.ReadToEnd();
-			//string stdError = process.StandardError.ReadToEnd();
-			//Console.WriteLine("==========");
-			//Console.WriteLine("TonePars stdout=");
-			//Console.WriteLine("==========");
-			//Console.Write(stdOutput);
-			//Console.WriteLine("==========");
-			//Console.WriteLine("TonePars stderr=");
-			//Console.WriteLine("==========");
-			//Console.Write(stdError);
-			//Console.WriteLine("TonePars the end\n");
-			//process.StandardOutput.Close();
-			process.StandardError.Close();
-			//Console.WriteLine("TonePars process has exited:" + process.HasExited);
-			process.Close();
+		private void CreateWfiAnalysisElement(StringBuilder sb, string analysis, string decomp, string underlying)
+		{
+			string[] msaHvos = analysis.Split(' ');
+			string[] alloForms = decomp.Split(DecompSeparationChar);
+			string[] alloHvos = underlying.Split(DecompSeparationChar);
+			sb.Append("<WfiAnalysis>\n");
+			sb.Append("<Morphs>\n");
+			int i = 0;
+			foreach (string msa in msaHvos)
+			{
+				if (msa == "<" || msa == "W" || msa == ">")
+					continue;
+				sb.Append("<Morph>\n");
+				sb.Append("<MoForm DbRef=\"");
+				sb.Append(alloHvos[i]);
+				sb.Append("\" Label=\"");
+				sb.Append(alloForms[i]);
+				sb.Append("\" wordType=\"\"/>\n"); // we hope wordType is not used
+				sb.Append("<MSI DbRef=\"");
+				sb.Append(msa);
+				sb.Append("\"/>");
+				sb.Append("</Morph>\n");
+				i++;
+			}
+			sb.Append("</Morphs>\n");
+			sb.Append("</WfiAnalysis>\n");
+		}
 
+		private void CreateWordFormElementBegin(string wordform, StringBuilder sb)
+		{
+			sb.Append("<Wordform DbRef=\"");
+			//  what do about capitalization???
+			//if (wordform == "mbumbukiam")
+			//{
+			//	wordform = "Mbumbukiam";
+			//}
+			// find hvo of wordform and append it
+			var thiswf = Cache.ServiceLocator.GetInstance<IWfiWordformRepository>().AllInstances().Where(wf => wf.Form.VernacularDefaultWritingSystem.Text == wordform).FirstOrDefault();
+			if (thiswf != null)
+			{
+				sb.Append(thiswf.Hvo);
+			}
+			sb.Append("\" Form=\"");
+			sb.Append(wordform);
+			sb.Append("\">\n");
+		}
+
+		private static string GetFieldFromAntRecord(string record, string fieldMarker)
+		{
+			int fieldBegin = record.IndexOf(fieldMarker) + fieldMarker.Length;
+			int fieldEnd = record.Substring(fieldBegin).IndexOf("\n");
+			String field = record.Substring(fieldBegin, fieldEnd);
+			return field;
 		}
 
 		private void ConvertMorphnameIsToUseHvosInToneRuleFile()

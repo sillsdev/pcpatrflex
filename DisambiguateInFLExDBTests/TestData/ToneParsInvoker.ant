@@ -2,8 +2,9 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
 \f ﻿
+\c 1
 
 \a < W 6666 >
 \d fia
@@ -22,7 +23,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 
 \a %2%< W 6666 > 9716%< W 6666 > 4966%
 \d %2%fia+0%fia+0%
@@ -41,7 +43,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 
 \a < W 6666 >
 \d fia
@@ -60,7 +63,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 
 \a %2%< W 6666 > 9716%< W 6666 > 4966%
 \d %2%fia+0%fia+0%
@@ -79,7 +83,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 
 \a < W 6666 >
 \d fia
@@ -98,7 +103,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 
 \a < W 6666 >
 \d fia
@@ -117,7 +123,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 
 \a < W 6666 > 1133
 \d fia+0
@@ -136,7 +143,8 @@
 \d mbumbuki+am
 \p RootPOS6700=
 \u 9062+1728
-\w mbumbukiam
+\w Mbumbukiam
+\c 1
 \n , 
 
 \a < W 6666 >

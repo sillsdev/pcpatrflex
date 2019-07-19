@@ -20,8 +20,13 @@ namespace SIL.DisambiguateInFLExDBTests
 	{
 		String AnaExpectedString { get; set; }
 		String AntExpectedString { get; set; }
+		String ParserFilerXMLString { get; set; }
 		String ToneParsBatchExpectedString { get; set; }
 		String ToneParsCmdExpectedString { get; set; }
+		String Word1ExpectedString { get; set; }
+		String Word2ExpectedString { get; set; }
+		String Word3ExpectedString { get; set; }
+		String Word24ExpectedString { get; set; }
 		String XAmpleBatchExpectedString { get; set; }
 		String XAmpleCmdExpectedString { get; set; }
 		ToneParsInvoker invoker { get; set; }
@@ -60,6 +65,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			String intxCtlFile = Path.Combine(TestDataDir, "KVGintx.ctl");
 			String inputFile = Path.Combine(TestDataDir, "KVGinput.txt");
 			invoker = new ToneParsInvoker(toneParsRuleFile, intxCtlFile, inputFile, "", myCache);
+			invoker.DecompSeparationChar = '+';
 			CreateExpectedFileStrings();
 			invoker.Invoke();
 			CompareResultToExpectedFile(XAmpleBatchExpectedString, invoker.XAmpleBatchFile);
@@ -68,6 +74,26 @@ namespace SIL.DisambiguateInFLExDBTests
 			CompareResultToExpectedFile(ToneParsCmdExpectedString, invoker.ToneParsCmdFile);
 			CompareResultToExpectedFile(AnaExpectedString, invoker.AnaFile);
 			CompareResultToExpectedFile(AntExpectedString, invoker.AntFile);
+
+			Boolean found = invoker.ConvertAntToParserFilerXML(0);
+			Assert.AreEqual(false, found);
+			found = invoker.ConvertAntToParserFilerXML(1);
+			Assert.AreEqual(true, found);
+			Assert.AreEqual(Word1ExpectedString, invoker.ParserFilerXMLString);
+			found = invoker.ConvertAntToParserFilerXML(2);
+			Assert.AreEqual(true, found);
+			Assert.AreEqual(Word2ExpectedString, invoker.ParserFilerXMLString);
+			found = invoker.ConvertAntToParserFilerXML(3);
+			Assert.AreEqual(true, found);
+			Assert.AreEqual(Word3ExpectedString, invoker.ParserFilerXMLString);
+			// find last one and then look for one beyond it
+			found = invoker.ConvertAntToParserFilerXML(24);
+			Assert.AreEqual(true, found);
+			Assert.AreEqual(Word24ExpectedString, invoker.ParserFilerXMLString);
+			found = invoker.ConvertAntToParserFilerXML(25);
+			Assert.AreEqual(false, found);
+
+
 
 			//checkRootGlossState(invoker, null);
 			//checkRootGlossState(invoker, "off");
@@ -95,6 +121,10 @@ namespace SIL.DisambiguateInFLExDBTests
 		{
 			AnaExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.AnaFile)));
 			AntExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.AntFile)));
+			Word1ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word1Expected.xml"));
+			Word2ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word2Expected.xml"));
+			Word3ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word3Expected.xml"));
+			Word24ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word24Expected.xml"));
 			XAmpleBatchExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.XAmpleBatchFile)));
 			XAmpleCmdExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.XAmpleCmdFile)));
 			ToneParsBatchExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.ToneParsBatchFile)));
