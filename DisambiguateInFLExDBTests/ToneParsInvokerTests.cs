@@ -93,7 +93,19 @@ namespace SIL.DisambiguateInFLExDBTests
 			found = invoker.ConvertAntToParserFilerXML(25);
 			Assert.AreEqual(false, found);
 
-
+			var wf﻿Mbumbukiam = invoker.GetWordformFromString("Mbumbukiam");
+			Assert.NotNull(wfMbumbukiam);
+			Assert.AreEqual(0, wfMbumbukiam.ParserCount);
+			var wffia = invoker.GetWordformFromString("fia");
+			Assert.NotNull(wffia);
+			Assert.AreEqual(0, wffia.ParserCount);
+			var wfndot = invoker.GetWordformFromString("ndø-tá");
+			Assert.NotNull(wfndot);
+			Assert.AreEqual(0, wfndot.ParserCount);
+			invoker.SaveResultsInDatabase();
+			Assert.AreEqual(1, wfMbumbukiam.ParserCount);
+			Assert.AreEqual(1, wffia.ParserCount);
+			Assert.AreEqual(3, wfndot.ParserCount);
 
 			//checkRootGlossState(invoker, null);
 			//checkRootGlossState(invoker, "off");

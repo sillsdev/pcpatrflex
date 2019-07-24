@@ -306,8 +306,12 @@ namespace SIL.ToneParsFLEx
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
 			Console.WriteLine("parse clicked");
-			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, @"C:\Users\Andy Black\Documents\FieldWorks\PcPatrFLEx\DisambiguateInFLExDBTests\TestData\KVGInput.txt", "", Cache);
+			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
+			File.WriteAllText(inputFile, selectedSegmentToShow.Baseline);
+			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, "", Cache);
+			invoker.DecompSeparationChar = GetDecompSeparationCharacter();
 			invoker.Invoke();
+			invoker.SaveResultsInDatabase();
 			//string ana = GetAnaForm(selectedSegmentToShow);
 			//string andResult;
 			//PcPatrBrowserApp browser;
@@ -318,6 +322,13 @@ namespace SIL.ToneParsFLEx
 			//	DisambiguateSegment(selectedSegmentToShow, result[0]);
 			//}
 			Cursor.Current = Cursors.Default;
+		}
+
+		private char GetDecompSeparationCharacter()
+		{
+			String textInptControlFileContents = File.ReadAllText(tbIntxCtlFile.Text);
+			string decompSeparationCharacter = ToneParsInvoker.GetFieldFromAntRecord(textInptControlFileContents, "\\dsc ").Trim();
+			return decompSeparationCharacter[0];
 		}
 
 		private void DisambiguateSegment(SegmentToShow selectedSegmentToShow, string result)

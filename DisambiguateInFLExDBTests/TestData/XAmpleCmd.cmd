@@ -1,5 +1,5 @@
 KuniToneParsTestadctl.txt
-C:\Users\ANDYBL~1\AppData\Local\Temp\XAmplecd.tab
+XAmplecd.tab
 
 KuniToneParsTestlex.txt
 

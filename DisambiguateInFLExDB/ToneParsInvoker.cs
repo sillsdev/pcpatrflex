@@ -16,6 +16,10 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using SIL.LCModel.DomainServices;
 using SIL.LcmLoaderUI;
+using XCore;
+using SIL.FieldWorks.WordWorks.Parser;
+using System.Xml.Linq;
+using SIL.LCModel.Infrastructure;
 
 namespace SIL.DisambiguateInFLExDB
 {
@@ -163,9 +167,7 @@ namespace SIL.DisambiguateInFLExDB
 			sbCmdFile.Append(DatabaseName);
 			sbCmdFile.Append(kAdCtl);
 			sbCmdFile.Append(Environment.NewLine);
-			StringBuilder sbCdTabFileShortPath = new StringBuilder(255);
-			int i = GetShortPathName(Path.GetTempPath() + "XAmplecd.tab", sbCdTabFileShortPath, sbCdTabFileShortPath.Capacity);
-			sbCmdFile.Append(sbCdTabFileShortPath.ToString());
+			sbCmdFile.Append("XAmplecd.tab");
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(DatabaseName);
@@ -173,7 +175,7 @@ namespace SIL.DisambiguateInFLExDB
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			StringBuilder sbIntxCtlFileShortPath = new StringBuilder(255);
-			i = GetShortPathName(IntxCtlFile, sbIntxCtlFileShortPath, sbIntxCtlFileShortPath.Capacity);
+			int i = GetShortPathName(IntxCtlFile, sbIntxCtlFileShortPath, sbIntxCtlFileShortPath.Capacity);
 			sbCmdFile.Append(sbIntxCtlFileShortPath.ToString());
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append("y");
@@ -183,10 +185,6 @@ namespace SIL.DisambiguateInFLExDB
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
-			//Console.WriteLine("==========");
-			//Console.WriteLine("XAmple cmd");
-			//Console.WriteLine("==========");
-			//Console.Write(sbCmdFile.ToString());
 			File.WriteAllText(XAmpleCmdFile, sbCmdFile.ToString());
 		}
 
@@ -200,9 +198,7 @@ namespace SIL.DisambiguateInFLExDB
 			int i = GetShortPathName(ToneParsRuleFile + ".hvo", sbToneRuleFileShortPath, sbToneRuleFileShortPath.Capacity);
 			sbCmdFile.Append(sbToneRuleFileShortPath.ToString());
 			sbCmdFile.Append(Environment.NewLine);
-			StringBuilder sbCdTabFileShortPath = new StringBuilder(255);
-			i = GetShortPathName(Path.GetTempPath() + "ToneParscd.tab", sbCdTabFileShortPath, sbCdTabFileShortPath.Capacity);
-			sbCmdFile.Append(sbCdTabFileShortPath.ToString());
+			sbCmdFile.Append("ToneParscd.tab");
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(DatabaseName);
@@ -214,10 +210,6 @@ namespace SIL.DisambiguateInFLExDB
 			sbCmdFile.Append(sbIntxCtlFileShortPath.ToString());
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
-			//Console.WriteLine("============");
-			//Console.WriteLine("TonePars Cmd");
-			//Console.WriteLine("============");
-			//Console.Write(sbCmdFile.ToString());
 			File.WriteAllText(ToneParsCmdFile, sbCmdFile.ToString());
 		}
 
@@ -354,12 +346,8 @@ namespace SIL.DisambiguateInFLExDB
 		{
 			sb.Append("<Wordform DbRef=\"");
 			//  what do about capitalization???
-			//if (wordform == "mbumbukiam")
-			//{
-			//	wordform = "Mbumbukiam";
-			//}
 			// find hvo of wordform and append it
-			var thiswf = Cache.ServiceLocator.GetInstance<IWfiWordformRepository>().AllInstances().Where(wf => wf.Form.VernacularDefaultWritingSystem.Text == wordform).FirstOrDefault();
+			var thiswf = GetWordformFromString(wordform);
 			if (thiswf != null)
 			{
 				sb.Append(thiswf.Hvo);
@@ -369,7 +357,7 @@ namespace SIL.DisambiguateInFLExDB
 			sb.Append("\">\n");
 		}
 
-		private static string GetFieldFromAntRecord(string record, string fieldMarker)
+		public static string GetFieldFromAntRecord(string record, string fieldMarker)
 		{
 			int fieldBegin = record.IndexOf(fieldMarker) + fieldMarker.Length;
 			int fieldEnd = record.Substring(fieldBegin).IndexOf("\n");
@@ -551,5 +539,183 @@ namespace SIL.DisambiguateInFLExDB
 
 			return result;
 		}
+
+		public void SaveResultsInDatabase()
+		{
+			var idleQueue = new IdleQueue { IsPaused = true };
+			var m_parseFiler = new ParseFiler(Cache, task => { }, idleQueue, Cache.LanguageProject.DefaultParserAgent);
+			int i = 1;
+			while (ConvertAntToParserFilerXML(i))
+			{
+				// call parser filer on
+				//Console.WriteLine(ParserFilerXMLString);
+				int wordformBegin = ParserFilerXMLString.IndexOf("Form=\"") + 6;
+				int wordformEnd = ParserFilerXMLString.Substring(wordformBegin).IndexOf("\"");
+				var wordform = ParserFilerXMLString.Substring(wordformBegin, wordformEnd);
+				IWfiWordform thiswf = GetWordformFromString(wordform);
+				if (thiswf != null)
+				{
+					var parseResult = ParseWord(ParserFilerXMLString);
+					m_parseFiler.ProcessParse(thiswf, ParserPriority.Low, parseResult);
+				}
+				i++;
+			}
+			ExecuteIdleQueue(idleQueue);
+		}
+
+		// Used in Unit Testing
+		public IWfiWordform GetWordformFromString(string wordform)
+		{
+			return Cache.ServiceLocator.GetInstance<IWfiWordformRepository>().AllInstances().Where(wf => wf.Form.VernacularDefaultWritingSystem.Text == wordform).FirstOrDefault();
+		}
+
+		protected void ExecuteIdleQueue(IdleQueue idleQueue)
+		{
+			foreach (var task in idleQueue)
+				task.Delegate(task.Parameter);
+			idleQueue.Clear();
+		}
+
+		//-----------------------
+		// ParseWord(), TryCreateParseMorph(), and ProcessMsaHvo() are from XAmpleParser.cs
+		// Ideally, we'd expose them from XAmpleParser.cs
+		public ParseResult ParseWord(string results)
+		{
+			//TODO: fix! CheckDisposed();
+
+			results = results.Replace("DB_REF_HERE", "'0'");
+			results = results.Replace("<...>", "[...]");
+			var wordformElem = XElement.Parse(results.ToString());
+			string errorMessage = null;
+			var exceptionElem = wordformElem.Element("Exception");
+			if (exceptionElem != null)
+			{
+				var totalAnalysesValue = (string)exceptionElem.Attribute("totalAnalyses");
+				switch ((string)exceptionElem.Attribute("code"))
+				{
+					case "ReachedMaxAnalyses":
+						errorMessage = String.Format("Maximum permitted analyses ({0}) reached." /*ParserCoreStrings.ksReachedMaxAnalysesAllowed*/,
+							totalAnalysesValue);
+						break;
+					case "ReachedMaxBufferSize":
+						errorMessage = String.Format("Maximum internal buffer size ({0}) reached." /*ParserCoreStrings.ksReachedMaxInternalBufferSize*/,
+							totalAnalysesValue);
+						break;
+				}
+			}
+			else
+			{
+				errorMessage = (string)wordformElem.Element("Error");
+			}
+
+			ParseResult result;
+			using (new WorkerThreadReadHelper(Cache.ServiceLocator.GetInstance<IWorkerThreadReadHandler>()))
+			{
+				var analyses = new List<ParseAnalysis>();
+				foreach (XElement analysisElem in wordformElem.Descendants("WfiAnalysis"))
+				{
+					var morphs = new List<ParseMorph>();
+					bool skip = false;
+					foreach (XElement morphElem in analysisElem.Descendants("Morph"))
+					{
+						ParseMorph morph;
+						if (!TryCreateParseMorph(Cache, morphElem, out morph))
+						{
+							skip = true;
+							break;
+						}
+						if (morph != null)
+							morphs.Add(morph);
+					}
+
+					if (!skip && morphs.Count > 0)
+						analyses.Add(new ParseAnalysis(morphs));
+				}
+				result = new ParseResult(analyses, errorMessage);
+			}
+
+			return result;
+		}
+
+		private static bool TryCreateParseMorph(LcmCache cache, XElement morphElem, out ParseMorph morph)
+		{
+			XElement formElement = morphElem.Element("MoForm");
+			Debug.Assert(formElement != null);
+			var formHvo = (string)formElement.Attribute("DbRef");
+
+			XElement msiElement = morphElem.Element("MSI");
+			Debug.Assert(msiElement != null);
+			var msaHvo = (string)msiElement.Attribute("DbRef");
+
+			// Normally, the hvo for MoForm is a MoForm and the hvo for MSI is an MSA
+			// There are four exceptions, though, when an irregularly inflected form is involved:
+			// 1. <MoForm DbRef="x"... and x is an hvo for a LexEntryInflType.
+			//       This is one of the null allomorphs we create when building the
+			//       input for the parser in order to still get the Word Grammar to have something in any
+			//       required slots in affix templates.  The parser filer can ignore these.
+			// 2. <MSI DbRef="y"... and y is an hvo for a LexEntryInflType.
+			//       This is one of the null allomorphs we create when building the
+			//       input for the parser in order to still get the Word Grammar to have something in any
+			//       required slots in affix templates.  The parser filer can ignore these.
+			// 3. <MSI DbRef="y"... and y is an hvo for a LexEntry.
+			//       The LexEntry is a variant form for the first set of LexEntryRefs.
+			// 4. <MSI DbRef="y"... and y is an hvo for a LexEntry followed by a period and an index digit.
+			//       The LexEntry is a variant form and the (non-zero) index indicates
+			//       which set of LexEntryRefs it is for.
+			ICmObject objForm;
+			if (!cache.ServiceLocator.GetInstance<ICmObjectRepository>().TryGetObject(int.Parse(formHvo), out objForm))
+			{
+				morph = null;
+				return false;
+			}
+			var form = objForm as IMoForm;
+			if (form == null)
+			{
+				morph = null;
+				return true;
+			}
+
+			// Irregulary inflected forms can have a combination MSA hvo: the LexEntry hvo, a period, and an index to the LexEntryRef
+			Tuple<int, int> msaTuple = ProcessMsaHvo(msaHvo);
+			ICmObject objMsa;
+			if (!cache.ServiceLocator.GetInstance<ICmObjectRepository>().TryGetObject(msaTuple.Item1, out objMsa))
+			{
+				morph = null;
+				return false;
+			}
+			var msa = objMsa as IMoMorphSynAnalysis;
+			if (msa != null)
+			{
+				morph = new ParseMorph(form, msa);
+				return true;
+			}
+
+			var msaAsLexEntry = objMsa as ILexEntry;
+			if (msaAsLexEntry != null)
+			{
+				// is an irregularly inflected form
+				// get the MoStemMsa of its variant
+				if (msaAsLexEntry.EntryRefsOS.Count > 0)
+				{
+					ILexEntryRef lexEntryRef = msaAsLexEntry.EntryRefsOS[msaTuple.Item2];
+					ILexSense sense = MorphServices.GetMainOrFirstSenseOfVariant(lexEntryRef);
+					var inflType = lexEntryRef.VariantEntryTypesRS[0] as ILexEntryInflType;
+					morph = new ParseMorph(form, sense.MorphoSyntaxAnalysisRA, inflType);
+					return true;
+				}
+			}
+
+			// if it is anything else, we ignore it
+			morph = null;
+			return true;
+		}
+
+		private static Tuple<int, int> ProcessMsaHvo(string msaHvo)
+		{
+			string[] msaHvoParts = msaHvo.Split('.');
+			return Tuple.Create(int.Parse(msaHvoParts[0]), msaHvoParts.Length == 2 ? int.Parse(msaHvoParts[1]) : 0);
+		}
+		// -----------------------
+
 	}
 }
