@@ -102,10 +102,15 @@ namespace SIL.DisambiguateInFLExDBTests
 			var wfndot = invoker.GetWordformFromString("ndø-tá");
 			Assert.NotNull(wfndot);
 			Assert.AreEqual(0, wfndot.ParserCount);
+			var wfndot2 = invoker.GetWordformFromString("ndǿ-ta");
+			Assert.NotNull(wfndot2);
+			Assert.AreEqual(0, wfndot2.ParserCount);
+
 			invoker.SaveResultsInDatabase();
 			Assert.AreEqual(1, wfMbumbukiam.ParserCount);
 			Assert.AreEqual(1, wffia.ParserCount);
 			Assert.AreEqual(3, wfndot.ParserCount);
+			Assert.AreEqual(9, wfndot2.ParserCount);
 
 			//checkRootGlossState(invoker, null);
 			//checkRootGlossState(invoker, "off");

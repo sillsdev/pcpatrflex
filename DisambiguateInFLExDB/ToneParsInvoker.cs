@@ -20,6 +20,7 @@ using XCore;
 using SIL.FieldWorks.WordWorks.Parser;
 using System.Xml.Linq;
 using SIL.LCModel.Infrastructure;
+using SIL.LCModel.Core.Text;
 
 namespace SIL.DisambiguateInFLExDB
 {
@@ -344,15 +345,8 @@ namespace SIL.DisambiguateInFLExDB
 
 		private void CreateWordFormElementBegin(string wordform, StringBuilder sb)
 		{
-			sb.Append("<Wordform DbRef=\"");
+			sb.Append("<Wordform DbRef=\"\" Form=\"");
 			//  what do about capitalization???
-			// find hvo of wordform and append it
-			var thiswf = GetWordformFromString(wordform);
-			if (thiswf != null)
-			{
-				sb.Append(thiswf.Hvo);
-			}
-			sb.Append("\" Form=\"");
 			sb.Append(wordform);
 			sb.Append("\">\n");
 		}
@@ -566,7 +560,16 @@ namespace SIL.DisambiguateInFLExDB
 		// Used in Unit Testing
 		public IWfiWordform GetWordformFromString(string wordform)
 		{
-			return Cache.ServiceLocator.GetInstance<IWfiWordformRepository>().AllInstances().Where(wf => wf.Form.VernacularDefaultWritingSystem.Text == wordform).FirstOrDefault();
+			ILcmServiceLocator servLoc = Cache.ServiceLocator;
+			IWfiWordform wf = servLoc.GetInstance<IWfiWordformRepository>().GetMatchingWordform(Cache.DefaultVernWs, wordform);
+			if (wf == null)
+			{
+				NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
+				{
+					wf = servLoc.GetInstance<IWfiWordformFactory>().Create(TsStringUtils.MakeString(wordform, Cache.DefaultVernWs));
+				});
+			}
+			return wf;
 		}
 
 		protected void ExecuteIdleQueue(IdleQueue idleQueue)
