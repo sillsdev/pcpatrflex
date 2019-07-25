@@ -64,14 +64,23 @@
     <Reference Include="FwCoreDlgs">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Release\FwCoreDlgs.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="ParserCore, Version=9.0.6.23410, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\ParserCore.dll</HintPath>
+    </Reference>
+    <Reference Include="ParserUI">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\ParserUI.dll</HintPath>
+    </Reference>
     <Reference Include="PrepFLExDB">
       <HintPath>..\PrepFLExDB\bin\x64\Debug\PrepFLExDB.exe</HintPath>
     </Reference>
-    <Reference Include="SIL.Core">
-      <HintPath>..\FWDlls\SIL.Core.dll</HintPath>
-    </Reference>
     <Reference Include="SIL.Core.Desktop">
       <HintPath>..\FWDlls\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core6">
+      <HintPath>..\FWDlls\SIL.Core6.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DisambiguateInFLExDB">
       <HintPath>..\DisambiguateInFLExDB\bin\x64\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>

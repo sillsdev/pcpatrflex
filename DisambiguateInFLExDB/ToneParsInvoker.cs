@@ -43,6 +43,7 @@ namespace SIL.DisambiguateInFLExDB
 		public String XAmpleCmdFile { get; set; }
 		public String XAmpleLogFile { get; set; }
 		public Char DecompSeparationChar { get; set; }
+		public IdleQueue Queue { get; set; }
 
 		protected String[] AntRecords { get; set; }
 		protected const String kAdCtl = "adctl.txt";
@@ -58,6 +59,7 @@ namespace SIL.DisambiguateInFLExDB
 			DatabaseName = ConvertNameToUseAnsiCharacters(cache.ProjectId.Name);
 			InitFileNames();
 			DecompSeparationChar = '-';
+			Queue = new IdleQueue { IsPaused = true };
 		}
 
 		private void InitFileNames()
@@ -462,43 +464,6 @@ namespace SIL.DisambiguateInFLExDB
 			return sb.ToString();
 		}
 
-		//private void CreateTakeFile()
-		//{
-		//	String takeFile = Path.Combine(Path.GetTempPath(), takeFileName);
-		//	StringBuilder sbTakeFileShortPath = new StringBuilder(255);
-		//	int i = GetShortPathName(takeFile, sbTakeFileShortPath, sbTakeFileShortPath.Capacity);
-		//	var sbTake = new StringBuilder();
-		//	sbTake.Append("set comment |\n");
-		//	sbTake.Append("log ");
-		//	sbTake.Append(logFileName);
-		//	sbTake.Append("\n");
-		//	sbTake.Append("load grammar ");
-		//	StringBuilder sbGrammarFileShortPath = new StringBuilder(255);
-		//	i = GetShortPathName(ToneParsRuleFile, sbGrammarFileShortPath, sbGrammarFileShortPath.Capacity);
-		//	sbTake.Append(sbGrammarFileShortPath.ToString() + "\n");
-		//	sbTake.Append("set timing on\n");
-		//	sbTake.Append("set gloss on\n");
-		//	sbTake.Append("set features all\n");
-		//	HandleRootGloss(sbTake);
-		//	sbTake.Append("set tree xml\n");
-		//	sbTake.Append("set ambiguities 100\n");
-		//	sbTake.Append("set write-ample-parses on\n");
-		//	sbTake.Append("file disambiguate ");
-		//	StringBuilder sbAnaFileShortPath = new StringBuilder(255);
-		//	i = GetShortPathName(AnaFile, sbAnaFileShortPath, sbAnaFileShortPath.Capacity);
-		//	String anashort = sbAnaFileShortPath.ToString();
-		//	sbTake.Append(anashort);
-		//	//Console.WriteLine("anashort='" + anashort + "'");
-		//	sbTake.Append(" ");
-		//	//String andshort = "";
-		//	String result = anashort.Substring(0, anashort.Length - 1) + "d";
-		//	sbTake.Append(result + "\n");
-		//	sbTake.Append("exit\n");
-		//	//Console.Write(sbTake.ToString());
-		//	File.WriteAllText(takeFile, sbTake.ToString());
-		//	InputFile = result;
-		//}
-
 		private void HandleRootGloss(StringBuilder sbTake)
 		{
 			if (String.IsNullOrEmpty(TraceOptions))
@@ -536,8 +501,7 @@ namespace SIL.DisambiguateInFLExDB
 
 		public void SaveResultsInDatabase()
 		{
-			var idleQueue = new IdleQueue { IsPaused = true };
-			var m_parseFiler = new ParseFiler(Cache, task => { }, idleQueue, Cache.LanguageProject.DefaultParserAgent);
+			var m_parseFiler = new ParseFiler(Cache, task => { }, Queue, Cache.LanguageProject.DefaultParserAgent);
 			int i = 1;
 			while (ConvertAntToParserFilerXML(i))
 			{
@@ -554,7 +518,7 @@ namespace SIL.DisambiguateInFLExDB
 				}
 				i++;
 			}
-			ExecuteIdleQueue(idleQueue);
+			ExecuteIdleQueue(Queue);
 		}
 
 		// Used in Unit Testing

@@ -4,6 +4,8 @@
 
 using Microsoft.Win32;
 using SIL.DisambiguateInFLExDB;
+using SIL.FieldWorks.LexText.Controls;
+using SIL.FieldWorks.WordWorks.Parser;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.Core.WritingSystems;
@@ -20,8 +22,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using XCore;
 
 namespace SIL.ToneParsFLEx
 {
@@ -68,6 +72,7 @@ namespace SIL.ToneParsFLEx
 		public string RetrievedLastSegment { get; set; }
 
 		private RegistryKey regkey;
+		private ParserConnection m_parserConnection;
 
 		private ContextMenuStrip helpContextMenu;
 		const string UserDocumentation = "User Documentation";
@@ -134,6 +139,7 @@ namespace SIL.ToneParsFLEx
 				Console.WriteLine(e.Message);
 				Console.WriteLine(e.InnerException);
 				Console.WriteLine(e.StackTrace);
+				MessageBox.Show(e.Message + e.InnerException + e.StackTrace);
 			}
 		}
 
@@ -275,8 +281,12 @@ namespace SIL.ToneParsFLEx
 
 		private void OnFormClosing(object sender, EventArgs e)
 		{
-			Console.WriteLine("form closing");
 			saveRegistryInfo();
+			if (m_parserConnection != null)
+			{
+				m_parserConnection.Dispose();
+			}
+			m_parserConnection = null;
 		}
 
 		private void Texts_SelectedIndexChanged(object sender, EventArgs e)
@@ -305,23 +315,45 @@ namespace SIL.ToneParsFLEx
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
-			Console.WriteLine("parse clicked");
 			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
 			File.WriteAllText(inputFile, selectedSegmentToShow.Baseline);
 			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, "", Cache);
+			if (ConnectToParser(invoker.Queue))
+			{
+				m_parserConnection.ReloadGrammarAndLexicon();
+				WaitForLoadToFinish();
+			}
 			invoker.DecompSeparationChar = GetDecompSeparationCharacter();
 			invoker.Invoke();
 			invoker.SaveResultsInDatabase();
-			//string ana = GetAnaForm(selectedSegmentToShow);
-			//string andResult;
-			//PcPatrBrowserApp browser;
-			//var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
-			//if (grammarOK && browser.PropertiesChosen.Count() != 0)
-			//{
-			//	var result = browser.PropertiesChosen;
-			//	DisambiguateSegment(selectedSegmentToShow, result[0]);
-			//}
 			Cursor.Current = Cursors.Default;
+		}
+
+		private void WaitForLoadToFinish()
+		{
+			while (m_parserConnection.GetQueueSize(ParserPriority.ReloadGrammarAndLexicon) > 0)
+			{
+				Thread.Sleep(250);
+			}
+		}
+
+		public bool ConnectToParser(IdleQueue idleQueue)
+		{
+			//CheckDisposed();
+
+			if (m_parserConnection == null)
+			{
+				// Don't bother if the lexicon is empty.  See FWNX-1019.
+				if (Cache.ServiceLocator.GetInstance<ILexEntryRepository>().Count == 0)
+				{
+					//MessageBox.Show("ConnectToParser returns false");
+					return false;
+				}
+				m_parserConnection = new ParserConnection(Cache, idleQueue);
+			}
+			//StartProgressUpdateTimer();
+			//MessageBox.Show("ConnectToParser returns true");
+			return true;
 		}
 
 		private char GetDecompSeparationCharacter()
@@ -439,7 +471,6 @@ namespace SIL.ToneParsFLEx
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
-			Console.WriteLine("disambiguate clicked");
 			//string ana = GetAnaForm(selectedTextToShow);
 			//string andResult;
 			//PcPatrBrowserApp browser;
@@ -531,7 +562,6 @@ namespace SIL.ToneParsFLEx
 				// for some reason the following is needed to keep the dialog within the form
 				Point pt = dialog.PointToClient(System.Windows.Forms.Cursor.Position);
 				dialog.Location = new Point(this.Location.X + 20, this.Location.Y + 20);
-				Console.WriteLine("dialog result=" + dialog.Location.X + "," + dialog.Location.Y);
 				dialog.Show();
 			}
 		}
