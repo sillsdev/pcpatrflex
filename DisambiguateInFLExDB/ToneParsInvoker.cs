@@ -224,12 +224,12 @@ namespace SIL.DisambiguateInFLExDB
 		}
 		public void Invoke()
 		{
-			// now tonepars handles it:RemoveAllomorphHvoFromLexiconFile();
 			AppendToneParsPropertiesToAdCtlFile();
 			ConvertMorphnameIsToUseHvosInToneRuleFile();
 			CreateBatchFile();
 			CreateXAmpleCmdFile();
 			CreateToneParsCmdFile();
+			CopyCodeTableFilesToTemp();
 
 			var processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + XAmpleBatchFile + "\"");
 			InvokeBatchFile(processInfo);
@@ -237,6 +237,16 @@ namespace SIL.DisambiguateInFLExDB
 			processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
 			InvokeBatchFile(processInfo);
 			CreateAntRecords();
+		}
+
+		private void CopyCodeTableFilesToTemp()
+		{
+			const string kTPcdtab = "ToneParscd.tab";
+			const string kXAcdtab = "XAmplecd.tab";
+			Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+			var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+			File.Copy(Path.Combine(rootdir, kTPcdtab), Path.Combine(Path.GetTempPath(), kTPcdtab), true);
+			File.Copy(Path.Combine(rootdir, kXAcdtab), Path.Combine(Path.GetTempPath(), kXAcdtab), true);
 		}
 
 		private void CreateAntRecords()
