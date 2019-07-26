@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToneParsFLExForm));
-			this.btnParse = new System.Windows.Forms.Button();
+			this.btnParseSegment = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.lbTexts = new System.Windows.Forms.ListBox();
 			this.lbSegments = new System.Windows.Forms.ListBox();
@@ -38,7 +38,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.tbGrammarFile = new System.Windows.Forms.TextBox();
 			this.btnBrowseToneRule = new System.Windows.Forms.Button();
-			this.btnDisambiguate = new System.Windows.Forms.Button();
+			this.btnParseText = new System.Windows.Forms.Button();
 			this.btnHelp = new System.Windows.Forms.Button();
 			this.btnBrowseIntxCtl = new System.Windows.Forms.Button();
 			this.tbIntxCtlFile = new System.Windows.Forms.TextBox();
@@ -60,16 +60,16 @@
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// btnParse
+			// btnParseSegment
 			// 
-			this.btnParse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnParse.Location = new System.Drawing.Point(519, 289);
-			this.btnParse.Name = "btnParse";
-			this.btnParse.Size = new System.Drawing.Size(267, 38);
-			this.btnParse.TabIndex = 10;
-			this.btnParse.Text = "&Parse && show this segment";
-			this.btnParse.UseVisualStyleBackColor = true;
-			this.btnParse.Click += new System.EventHandler(this.Parse_Click);
+			this.btnParseSegment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnParseSegment.Location = new System.Drawing.Point(519, 289);
+			this.btnParseSegment.Name = "btnParseSegment";
+			this.btnParseSegment.Size = new System.Drawing.Size(267, 38);
+			this.btnParseSegment.TabIndex = 10;
+			this.btnParseSegment.Text = "&Parse this segment";
+			this.btnParseSegment.UseVisualStyleBackColor = true;
+			this.btnParseSegment.Click += new System.EventHandler(this.ParseSegment_Click);
 			// 
 			// splitContainer1
 			// 
@@ -160,15 +160,15 @@
 			this.btnBrowseToneRule.UseVisualStyleBackColor = true;
 			this.btnBrowseToneRule.Click += new System.EventHandler(this.Browse_Click);
 			// 
-			// btnDisambiguate
+			// btnParseText
 			// 
-			this.btnDisambiguate.Location = new System.Drawing.Point(77, 289);
-			this.btnDisambiguate.Name = "btnDisambiguate";
-			this.btnDisambiguate.Size = new System.Drawing.Size(282, 38);
-			this.btnDisambiguate.TabIndex = 8;
-			this.btnDisambiguate.Text = "&Disambiguate && show this text";
-			this.btnDisambiguate.UseVisualStyleBackColor = true;
-			this.btnDisambiguate.Click += new System.EventHandler(this.Disambiguate_Click);
+			this.btnParseText.Location = new System.Drawing.Point(77, 289);
+			this.btnParseText.Name = "btnParseText";
+			this.btnParseText.Size = new System.Drawing.Size(282, 38);
+			this.btnParseText.TabIndex = 8;
+			this.btnParseText.Text = "&Parse this text";
+			this.btnParseText.UseVisualStyleBackColor = true;
+			this.btnParseText.Click += new System.EventHandler(this.ParseText_Click);
 			// 
 			// btnHelp
 			// 
@@ -328,14 +328,14 @@
 			this.Controls.Add(this.tbIntxCtlFile);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.btnHelp);
-			this.Controls.Add(this.btnDisambiguate);
+			this.Controls.Add(this.btnParseText);
 			this.Controls.Add(this.btnBrowseToneRule);
 			this.Controls.Add(this.tbGrammarFile);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.lblSegments);
 			this.Controls.Add(this.lblTexts);
 			this.Controls.Add(this.splitContainer1);
-			this.Controls.Add(this.btnParse);
+			this.Controls.Add(this.btnParseSegment);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "ToneParsFLExForm";
 			this.Text = "Use TonePars with FLEx";
@@ -353,7 +353,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button btnParse;
+		private System.Windows.Forms.Button btnParseSegment;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Label lblTexts;
 		private System.Windows.Forms.ListBox lbTexts;
@@ -362,7 +362,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox tbGrammarFile;
 		private System.Windows.Forms.Button btnBrowseToneRule;
-		private System.Windows.Forms.Button btnDisambiguate;
+		private System.Windows.Forms.Button btnParseText;
 		private System.Windows.Forms.Button btnHelp;
 		private System.Windows.Forms.Button btnBrowseIntxCtl;
 		private System.Windows.Forms.TextBox tbIntxCtlFile;

@@ -82,7 +82,7 @@ namespace SIL.ToneParsFLEx
 		public ToneParsFLExForm()
 		{
 			InitializeComponent();
-			btnParse.Enabled = false;
+			btnParseSegment.Enabled = false;
 
 			splitContainer1.Dock = DockStyle.Bottom;
 			splitContainer1.SplitterWidth = 3;
@@ -127,9 +127,9 @@ namespace SIL.ToneParsFLEx
 					//	}
 					//}
 					if (Cache != null && Cache.LangProject.Texts.Count > 0)
-						btnDisambiguate.Enabled = true;
+						btnParseText.Enabled = true;
 					else
-						btnDisambiguate.Enabled = false;
+						btnParseText.Enabled = false;
 					Cursor.Current = Cursors.Default;
 				}
 				AdjustSplitterLocation();
@@ -148,7 +148,7 @@ namespace SIL.ToneParsFLEx
 			int x = splitContainer1.Location.X;
 			// Make the Y location be where the bottom of the disambiguate
 			//  button is plus a gap of 15 pixels
-			int y = this.ClientSize.Height - (btnDisambiguate.Bottom + 15);
+			int y = this.ClientSize.Height - (btnParseText.Bottom + 15);
 			splitContainer1.Size = new Size(x, y);
 		}
 
@@ -262,7 +262,7 @@ namespace SIL.ToneParsFLEx
 				OrderBy(t => t.ShortName).ToList();
 			lbTexts.DataSource = Texts;
 			if (Texts.Count > 0)
-				btnDisambiguate.Enabled = true;
+				btnParseText.Enabled = true;
 			// select last used text and segment, if any
 			if (!String.IsNullOrEmpty(LastText))
 			{
@@ -310,13 +310,19 @@ namespace SIL.ToneParsFLEx
 			lbSegments.DataSource = SegmentsInListBox;
 		}
 
-		private void Parse_Click(object sender, EventArgs e)
+		private void ParseSegment_Click(object sender, EventArgs e)
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
 			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
 			File.WriteAllText(inputFile, selectedSegmentToShow.Baseline);
+			InvokeToneParser(inputFile);
+			Cursor.Current = Cursors.Default;
+		}
+
+		private void InvokeToneParser(string inputFile)
+		{
 			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, "", Cache);
 			if (ConnectToParser(invoker.Queue))
 			{
@@ -326,7 +332,6 @@ namespace SIL.ToneParsFLEx
 			invoker.DecompSeparationChar = GetDecompSeparationCharacter();
 			invoker.Invoke();
 			invoker.SaveResultsInDatabase();
-			Cursor.Current = Cursors.Default;
 		}
 
 		private void WaitForLoadToFinish()
@@ -346,13 +351,10 @@ namespace SIL.ToneParsFLEx
 				// Don't bother if the lexicon is empty.  See FWNX-1019.
 				if (Cache.ServiceLocator.GetInstance<ILexEntryRepository>().Count == 0)
 				{
-					//MessageBox.Show("ConnectToParser returns false");
 					return false;
 				}
 				m_parserConnection = new ParserConnection(Cache, idleQueue);
 			}
-			//StartProgressUpdateTimer();
-			//MessageBox.Show("ConnectToParser returns true");
 			return true;
 		}
 
@@ -380,7 +382,7 @@ namespace SIL.ToneParsFLEx
 			return ana;
 		}
 
-		private string GetAnaForm(IText selectedTextToShow)
+		private string GetTextBaselines(IText selectedTextToShow)
 		{
 			var sb = new StringBuilder();
 			var contents = selectedTextToShow.ContentsOA;
@@ -392,10 +394,8 @@ namespace SIL.ToneParsFLEx
 				{
 					foreach (var segment in paraUse.SegmentsOS)
 					{
-						var ana = Extractor.ExtractTextSegmentAsANA(segment);
-						sb.Append(ana.Substring(0, ana.Length-1)); // skip final extra nl
-						// Now add period so PcPatr will treat it as an end of a sentence
-						sb.Append("\\n .\n\n");
+						sb.Append(segment.BaselineText);
+						sb.Append("\n");
 					}
 				}
 			}
@@ -409,13 +409,13 @@ namespace SIL.ToneParsFLEx
 			var ana = GetAnaForm(selectedSegmentToShow);
 			if (ana.Contains("\\a \n"))
 			{
-				btnParse.Enabled = false;
+				btnParseSegment.Enabled = false;
 			}
 			else
 			{
-				btnParse.Enabled = true;
+				btnParseSegment.Enabled = true;
 			}
-			btnParse.Enabled = true;
+			btnParseSegment.Enabled = true;
 		}
 
 		private void Browse_Click(object sender, EventArgs e)
@@ -463,47 +463,20 @@ namespace SIL.ToneParsFLEx
 		private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
 		{
 			lblSegments.Left = e.SplitX + 10;
-			btnParse.Left = lblSegments.Right + 10;
+			btnParseSegment.Left = lblSegments.Right + 10;
 		}
 
-		private void Disambiguate_Click(object sender, EventArgs e)
+		private void ParseText_Click(object sender, EventArgs e)
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
-			//string ana = GetAnaForm(selectedTextToShow);
-			//string andResult;
-			//PcPatrBrowserApp browser;
-			//var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
-			//if (grammarOK)
-			//{
-			//	var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
-			//	textdisambiguator.Disambiguate(Cache);
-			//}
-			Cursor.Current = Cursors.Default;
+			var selectedTextBaselines = GetTextBaselines(selectedTextToShow);
+			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
+			File.WriteAllText(inputFile, selectedTextBaselines);
+			InvokeToneParser(inputFile);
+			Cursor.Current = Cursors.Default; Cursor.Current = Cursors.Default;
 		}
-
-		//private bool ProcessANAFileAndShowResults(string ana, out string andResult, out PcPatrBrowserApp browser)
-		//{
-		//	String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
-		//	File.WriteAllText(anaFile, ana);
-		//	var invoker = new PCPatrInvoker(ToneRuleFile, anaFile, LastTraceOption);
-		//	invoker.Invoke();
-		//	andResult = invoker.AndFile;
-		//	if (File.Exists(andResult))
-		//	{
-		//		browser = ShowPcPatrBrowser(andResult);
-		//		return true;
-		//	}
-		//	else
-		//	{
-		//		browser = null;
-		//		MessageBox.Show("The PC-PATR grammar file had an error in it and failed to load.\nWe will show the error log after you click on OK.\nPlease fix all errors in the grammar file and then try again.",
-		//			"Grammar Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		//		Process.Start(andResult.Replace(".and", ".log"));
-		//		return false;
-		//	}
-		//}
 
 		private void btnHelp_Click(object sender, EventArgs e)
 		{
