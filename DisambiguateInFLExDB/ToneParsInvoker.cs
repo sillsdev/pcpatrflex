@@ -38,7 +38,6 @@ namespace SIL.DisambiguateInFLExDB
 		public String ToneParsCmdFile { get; set; }
 		public String ToneParsLogFile { get; set; }
 		public String ToneParsRuleFile { get; set; }
-		public String TraceOptions { get; set; }
 		public String XAmpleBatchFile { get; set; }
 		public String XAmpleCmdFile { get; set; }
 		public String XAmpleLogFile { get; set; }
@@ -49,16 +48,15 @@ namespace SIL.DisambiguateInFLExDB
 		protected const String kAdCtl = "adctl.txt";
 		protected const String kTPAdCtl = "TPadctl.txt";
 
-		public ToneParsInvoker(string toneParsRuleFile, string intxCtlFile, string inputFile, string traceOptions, LcmCache cache)
+		public ToneParsInvoker(string toneParsRuleFile, string intxCtlFile, string inputFile, char decomp, LcmCache cache)
 		{
 			ToneParsRuleFile = toneParsRuleFile;
 			IntxCtlFile = intxCtlFile;
 			InputFile = inputFile;
-			TraceOptions = traceOptions;
+			DecompSeparationChar = decomp;
 			Cache = cache;
 			DatabaseName = ConvertNameToUseAnsiCharacters(cache.ProjectId.Name);
 			InitFileNames();
-			DecompSeparationChar = '-';
 			Queue = new IdleQueue { IsPaused = true };
 		}
 
@@ -146,7 +144,9 @@ namespace SIL.DisambiguateInFLExDB
 			sbBatchFile.Append(Environment.NewLine);
 			sbBatchFile.Append("\"");
 			sbBatchFile.Append(GetXAmpleExePath());
-			sbBatchFile.Append("\\tonepars64\" -b -u -v -f \"");
+			sbBatchFile.Append("\\tonepars64\" -b -u ");
+			sbBatchFile.Append(ToneParsInvokerOptions.Instance.GetOptionsString());
+			sbBatchFile.Append(" -f \"");
 			sbBatchFile.Append(ToneParsCmdFile);
 			sbBatchFile.Append("\" -i \"");
 			sbBatchFile.Append(AnaFile);
@@ -472,41 +472,6 @@ namespace SIL.DisambiguateInFLExDB
 				sb.Append("\n");
 			}
 			return sb.ToString();
-		}
-
-		private void HandleRootGloss(StringBuilder sbTake)
-		{
-			if (String.IsNullOrEmpty(TraceOptions))
-			{
-				return;
-			}
-			sbTake.Append("set rootgloss ");
-			String result;
-			result = GetRootGlossStateValue();
-			sbTake.Append(result + "\n");
-		}
-
-		public string GetRootGlossStateValue()
-		{
-			string result;
-			String sBeginning = TraceOptions.Substring(0, 1).ToLower();
-			switch (sBeginning)
-			{
-				case "l":
-					result = "leftheaded";
-					break;
-				case "r":
-					result = "rightheaded";
-					break;
-				case "a":
-					result = "all";
-					break;
-				default:
-					result = "off";
-					break;
-			}
-
-			return result;
 		}
 
 		public void SaveResultsInDatabase()

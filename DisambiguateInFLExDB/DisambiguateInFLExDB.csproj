@@ -103,6 +103,7 @@
     <Compile Include="SegmentDisambiguation.cs" />
     <Compile Include="TextDisambiguation.cs" />
     <Compile Include="ToneParsInvoker.cs" />
+    <Compile Include="ToneParsInvokerOptions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

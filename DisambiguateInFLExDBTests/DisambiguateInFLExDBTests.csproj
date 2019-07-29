@@ -130,6 +130,7 @@
     <Compile Include="FLExDBExtractorTests.cs" />
     <Compile Include="GuidConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToneParsInvokerOptionsTest.cs" />
     <Compile Include="ToneParsInvokerTests.cs" />
   </ItemGroup>
   <ItemGroup>

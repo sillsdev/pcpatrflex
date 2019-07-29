@@ -41,6 +41,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			TestDirInit();
 			TestFile = Path.Combine(TestDataDir, "KuniToneParsTest.fwdata");
 			SavedTestFile = Path.Combine(TestDataDir, "KuniToneParsTestB4.fwdata");
+			ToneParsInvokerOptions.Instance.ResetAllOptions();
 
 			base.FixtureSetup();
 	}
@@ -53,7 +54,7 @@ namespace SIL.DisambiguateInFLExDBTests
 		}
 
 		/// <summary>
-		/// Test extracting of lexicon.
+		/// Test invoking of XAmple followed by TonePars.
 		/// </summary>
 		[Test]
 		public void ToneParsInvokerTest()
@@ -64,9 +65,9 @@ namespace SIL.DisambiguateInFLExDBTests
 			String toneParsRuleFile = Path.Combine(TestDataDir, "KvgTP.ctl");
 			String intxCtlFile = Path.Combine(TestDataDir, "KVGintx.ctl");
 			String inputFile = Path.Combine(TestDataDir, "KVGinput.txt");
-			invoker = new ToneParsInvoker(toneParsRuleFile, intxCtlFile, inputFile, "", myCache);
-			invoker.DecompSeparationChar = '+';
+			invoker = new ToneParsInvoker(toneParsRuleFile, intxCtlFile, inputFile, '+', myCache);
 			CreateExpectedFileStrings();
+			ToneParsInvokerOptions.Instance.VerifyInformation = true;
 			invoker.Invoke();
 			CompareResultToExpectedFile(XAmpleBatchExpectedString, invoker.XAmpleBatchFile);
 			CompareResultToExpectedFile(XAmpleCmdExpectedString, invoker.XAmpleCmdFile);
@@ -158,44 +159,5 @@ namespace SIL.DisambiguateInFLExDBTests
 			}
 			return result;
 		}
-
-		//private void checkRootGlossState(PCPatrInvoker invoker, string state)
-		//{
-		//	String takeFile = Path.Combine(Path.GetTempPath(), "PcPatrFLEx.tak");
-
-		//	invoker.RootGlossState = state;
-		//	invoker.Invoke();
-		//	using (var streamReader = new StreamReader(takeFile, Encoding.UTF8))
-		//	{
-		//		TakeString = streamReader.ReadToEnd().Replace("\r", "");
-		//	}
-		//	if (String.IsNullOrEmpty(state))
-		//	{
-		//		Assert.IsFalse(TakeString.Contains("set rootgloss "));
-		//	}
-		//	else
-		//	{
-		//		Assert.IsTrue(TakeString.Contains("set rootgloss " + state + "\n"));
-		//	}
-		//}
-		//private void checkRootGlossStateValue(PCPatrInvoker invoker, string state, string expectedValue)
-		//{
-		//	String takeFile = Path.Combine(Path.GetTempPath(), "PcPatrFLEx.tak");
-
-		//	invoker.RootGlossState = state;
-		//	invoker.Invoke();
-		//	using (var streamReader = new StreamReader(takeFile, Encoding.UTF8))
-		//	{
-		//		TakeString = streamReader.ReadToEnd().Replace("\r", "");
-		//	}
-		//	if (String.IsNullOrEmpty(state))
-		//	{
-		//		Assert.IsFalse(TakeString.Contains("set rootgloss "));
-		//	}
-		//	else
-		//	{
-		//		Assert.IsTrue(TakeString.Contains("set rootgloss " + expectedValue + "\n"));
-		//	}
-		//}
 	}
 }
