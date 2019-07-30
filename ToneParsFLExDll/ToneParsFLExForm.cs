@@ -25,6 +25,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToneParsFLExDll;
 using XCore;
 
 namespace SIL.ToneParsFLEx
@@ -48,11 +49,22 @@ namespace SIL.ToneParsFLEx
 		const string m_strLastIntxCtlFile = "LastIntxCtlFile";
 		const string m_strLastText = "LastText";
 		const string m_strLastSegment = "LastSegment";
-		const string m_strLastTraceOptions = "LastTraceOptions";
+		const string m_strLastVerify = "LastVerify";
+		const string m_strLastDoTracing = "LastDoTracing";
+		const string m_strLastRuleTrace = "LastRuleTrace";
+		const string m_strLastTierAssignmentTrace = "LastTierAssignmentTrace";
+		const string m_strLastDomainAssignmentTrace = "LastDomainAssignmentTrace";
+		const string m_strLastMorphemeToneAssignmentTrace = "LastMorphemeToneAssignmentTrace";
+		const string m_strLastTBUAssignmentTrace = "LastTBUAssignmentTrace";
+		const string m_strLastSyllableParsingTrace = "LastSyllableParsingTrace";
+		const string m_strLastMoraParsingTrace = "LastMoraParsingTrace";
+		const string m_strLastMorphemeLinkingTrace = "LastMorphemeLinkingTrace";
+		const string m_strLastSegmentParsingTrace = "LastSegmentParsingTrace";
 		const string m_strLocationX = "LocationX";
 		const string m_strLocationY = "LocationY";
 		const string m_strSizeHeight = "SizeHeight";
 		const string m_strSizeWidth = "SizeWidth";
+		const string m_strSplitterDistance = "SplitterDistance";
 		const string m_strWindowState = "WindowState";
 
 		const string m_strAll = "All";
@@ -67,7 +79,7 @@ namespace SIL.ToneParsFLEx
 		public string LastIntxCtlFile { get; set; }
 		public string LastText { get; set; }
 		public string LastSegment { get; set; }
-		public string LastTraceOption { get; set; }
+		public bool LastDoTracing { get; set; }
 		public string RetrievedLastText { get; set; }
 		public string RetrievedLastSegment { get; set; }
 
@@ -108,24 +120,6 @@ namespace SIL.ToneParsFLEx
 						tbGrammarFile.Text = LastToneRuleFile;
 					if (!String.IsNullOrEmpty(LastIntxCtlFile))
 						tbIntxCtlFile.Text = LastIntxCtlFile;
-					//if (!String.IsNullOrEmpty(LastTraceOption))
-					//{
-					//	switch (LastTraceOption)
-					//	{
-					//		case m_strLeftmost:
-					//			rbLeftmost.Checked = true;
-					//			break;
-					//		case m_strRightmost:
-					//			rbRightmost.Checked = true;
-					//			break;
-					//		case m_strAll:
-					//			rbAll.Checked = true;
-					//			break;
-					//		default:
-					//			rbOff.Checked = true;
-					//			break;
-					//	}
-					//}
 					if (Cache != null && Cache.LangProject.Texts.Count > 0)
 						btnParseText.Enabled = true;
 					else
@@ -146,7 +140,7 @@ namespace SIL.ToneParsFLEx
 		private void AdjustSplitterLocation()
 		{
 			int x = splitContainer1.Location.X;
-			// Make the Y location be where the bottom of the disambiguate
+			// Make the Y location be where the bottom of the parse text
 			//  button is plus a gap of 15 pixels
 			int y = this.ClientSize.Height - (btnParseText.Bottom + 15);
 			splitContainer1.Size = new Size(x, y);
@@ -180,13 +174,24 @@ namespace SIL.ToneParsFLEx
 			RectNormal = new Rectangle(iX, iY, iWidth, iHeight);
 			// Set form properties
 			WindowState = (FormWindowState)regkey.GetValue(m_strWindowState, 0);
+			splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterDistance, 390);
 
 			LastDatabase = (string)regkey.GetValue(m_strLastDatabase);
 			ToneRuleFile = LastToneRuleFile = (string)regkey.GetValue(m_strLastToneRuleFile);
 			IntxCtlFile = LastIntxCtlFile = (string)regkey.GetValue(m_strLastIntxCtlFile);
 			RetrievedLastText = LastText = (string)regkey.GetValue(m_strLastText);
 			RetrievedLastSegment = LastSegment = (string)regkey.GetValue(m_strLastSegment);
-			LastTraceOption = (string)regkey.GetValue(m_strLastTraceOptions);
+			cbVerify.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastVerify, false));
+			cbTraceToneProcessing.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastDoTracing, false));
+			ToneParsInvokerOptions.Instance.RuleTrace = Convert.ToBoolean(regkey.GetValue(m_strLastRuleTrace, false));
+			ToneParsInvokerOptions.Instance.TierAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastTierAssignmentTrace, false));
+			ToneParsInvokerOptions.Instance.DomainAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastDomainAssignmentTrace, false));
+			ToneParsInvokerOptions.Instance.MorphemeToneAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastMorphemeToneAssignmentTrace, false));
+			ToneParsInvokerOptions.Instance.TBUAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastTBUAssignmentTrace, false));
+			ToneParsInvokerOptions.Instance.SyllableParsingTrace = Convert.ToBoolean(regkey.GetValue(m_strLastSyllableParsingTrace, false));
+			ToneParsInvokerOptions.Instance.MoraParsingTrace = Convert.ToBoolean(regkey.GetValue(m_strLastMoraParsingTrace, false));
+			ToneParsInvokerOptions.Instance.MorphemeLinkingTrace = Convert.ToBoolean(regkey.GetValue(m_strLastMorphemeLinkingTrace, false));
+			ToneParsInvokerOptions.Instance.SegmentParsingTrace = Convert.ToBoolean(regkey.GetValue(m_strLastSegmentParsingTrace, false));
 		}
 		public void saveRegistryInfo()
 		{
@@ -206,14 +211,25 @@ namespace SIL.ToneParsFLEx
 				regkey.SetValue(m_strLastText, LastText);
 			if (LastSegment != null)
 				regkey.SetValue(m_strLastSegment, LastSegment);
-			if (LastTraceOption != null)
-				regkey.SetValue(m_strLastTraceOptions, LastTraceOption);
+			regkey.SetValue(m_strLastVerify, cbVerify.Checked);
+			regkey.SetValue(m_strLastDoTracing, cbTraceToneProcessing.Checked);
+			regkey.SetValue(m_strLastRuleTrace, ToneParsInvokerOptions.Instance.RuleTrace);
+			regkey.SetValue(m_strLastTierAssignmentTrace, ToneParsInvokerOptions.Instance.TierAssignmentTrace);
+			regkey.SetValue(m_strLastDomainAssignmentTrace, ToneParsInvokerOptions.Instance.DomainAssignmentTrace);
+			regkey.SetValue(m_strLastMorphemeToneAssignmentTrace, ToneParsInvokerOptions.Instance.MorphemeToneAssignmentTrace);
+			regkey.SetValue(m_strLastTBUAssignmentTrace, ToneParsInvokerOptions.Instance.TBUAssignmentTrace);
+			regkey.SetValue(m_strLastSyllableParsingTrace, ToneParsInvokerOptions.Instance.SyllableParsingTrace);
+			regkey.SetValue(m_strLastMoraParsingTrace, ToneParsInvokerOptions.Instance.MoraParsingTrace);
+			regkey.SetValue(m_strLastMorphemeLinkingTrace, ToneParsInvokerOptions.Instance.MorphemeLinkingTrace);
+			regkey.SetValue(m_strLastSegmentParsingTrace, ToneParsInvokerOptions.Instance.SegmentParsingTrace);
+
 			// Window position and location
 			regkey.SetValue(m_strWindowState, (int)WindowState);
 			regkey.SetValue(m_strLocationX, RectNormal.X);
 			regkey.SetValue(m_strLocationY, RectNormal.Y);
 			regkey.SetValue(m_strSizeWidth, RectNormal.Width);
 			regkey.SetValue(m_strSizeHeight, RectNormal.Height);
+			regkey.SetValue(m_strSplitterDistance, splitContainer1.SplitterDistance);
 
 			regkey.Close();
 		}
@@ -323,7 +339,7 @@ namespace SIL.ToneParsFLEx
 
 		private void InvokeToneParser(string inputFile)
 		{
-			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, "", Cache);
+			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, GetDecompSeparationCharacter(), Cache);
 			if (ConnectToParser(invoker.Queue))
 			{
 				m_parserConnection.ReloadGrammarAndLexicon();
@@ -539,26 +555,31 @@ namespace SIL.ToneParsFLEx
 			}
 		}
 
-		//private void rbOff_CheckedChanged(object sender, EventArgs e)
-		//{
-		//	LastTraceOption = m_strOff;
-		//}
+		private void ShowLog_Click(object sender, EventArgs e)
+		{
+			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, "", ' ', Cache);
+			if (File.Exists(invoker.ToneParsLogFile))
+				Process.Start(invoker.ToneParsLogFile);
+			else
+				MessageBox.Show("Log file does not exist; please parse a segment or a text.");
+		}
 
-		//private void rbLeftmost_CheckedChanged(object sender, EventArgs e)
-		//{
-		//	LastTraceOption = m_strLeftmost;
-		//}
+		private void cbVerify_CheckedChanged(object sender, EventArgs e)
+		{
+			ToneParsInvokerOptions.Instance.VerifyInformation = cbVerify.Checked;
+		}
 
-		//private void rbRightmost_CheckedChanged(object sender, EventArgs e)
-		//{
-		//	LastTraceOption = m_strRightmost;
-		//}
+		private void cbTraceToneProcessing_CheckedChanged(object sender, EventArgs e)
+		{
+			ToneParsInvokerOptions.Instance.DoTracing = cbTraceToneProcessing.Checked;
+			ToneParsInvokerOptions.Instance.RuleTrace = cbTraceToneProcessing.Checked;
+		}
 
-		//private void rbAll_CheckedChanged(object sender, EventArgs e)
-		//{
-		//	LastTraceOption = m_strAll;
-		//}
-
+		private void btnTracingOptions_Click(object sender, EventArgs e)
+		{
+			var optionsDialog = new TracingOptionsDialog();
+			optionsDialog.ShowDialog();
+		}
 	}
 
 	public class SegmentToShow

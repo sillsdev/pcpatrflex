@@ -43,21 +43,14 @@
 			this.btnBrowseIntxCtl = new System.Windows.Forms.Button();
 			this.tbIntxCtlFile = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.cbRuleTrace = new System.Windows.Forms.CheckBox();
-			this.cbTierAssignmentTrace = new System.Windows.Forms.CheckBox();
-			this.cbDomainAssignmentTrace = new System.Windows.Forms.CheckBox();
-			this.cbMorphemeToneAssignmentTrace = new System.Windows.Forms.CheckBox();
-			this.cbTBUAssignmentTrace = new System.Windows.Forms.CheckBox();
-			this.cbSyllableParsingTrace = new System.Windows.Forms.CheckBox();
-			this.cbMoraParsingTrace = new System.Windows.Forms.CheckBox();
-			this.cbMorphemeLinkingTrace = new System.Windows.Forms.CheckBox();
-			this.cbSegmentParsingTrace = new System.Windows.Forms.CheckBox();
+			this.cbTraceToneProcessing = new System.Windows.Forms.CheckBox();
+			this.btnTracingOptions = new System.Windows.Forms.Button();
+			this.cbVerify = new System.Windows.Forms.CheckBox();
+			this.btnShowLog = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnParseSegment
@@ -74,7 +67,7 @@
 			// splitContainer1
 			// 
 			this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.splitContainer1.Location = new System.Drawing.Point(3, 359);
+			this.splitContainer1.Location = new System.Drawing.Point(3, 358);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
@@ -84,8 +77,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.lbSegments);
-			this.splitContainer1.Size = new System.Drawing.Size(796, 790);
-			this.splitContainer1.SplitterDistance = 356;
+			this.splitContainer1.Size = new System.Drawing.Size(1194, 1215);
+			this.splitContainer1.SplitterDistance = 534;
 			this.splitContainer1.TabIndex = 4;
 			this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
 			// 
@@ -96,7 +89,7 @@
 			this.lbTexts.ItemHeight = 20;
 			this.lbTexts.Location = new System.Drawing.Point(0, 0);
 			this.lbTexts.Name = "lbTexts";
-			this.lbTexts.Size = new System.Drawing.Size(356, 790);
+			this.lbTexts.Size = new System.Drawing.Size(534, 1215);
 			this.lbTexts.TabIndex = 0;
 			this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.Texts_SelectedIndexChanged);
 			// 
@@ -107,7 +100,7 @@
 			this.lbSegments.ItemHeight = 20;
 			this.lbSegments.Location = new System.Drawing.Point(0, 0);
 			this.lbSegments.Name = "lbSegments";
-			this.lbSegments.Size = new System.Drawing.Size(436, 790);
+			this.lbSegments.Size = new System.Drawing.Size(656, 1215);
 			this.lbSegments.TabIndex = 0;
 			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
 			// 
@@ -115,7 +108,7 @@
 			// 
 			this.lblTexts.AutoSize = true;
 			this.lblTexts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTexts.Location = new System.Drawing.Point(9, 299);
+			this.lblTexts.Location = new System.Drawing.Point(9, 298);
 			this.lblTexts.Name = "lblTexts";
 			this.lblTexts.Size = new System.Drawing.Size(61, 25);
 			this.lblTexts.TabIndex = 7;
@@ -125,7 +118,7 @@
 			// 
 			this.lblSegments.AutoSize = true;
 			this.lblSegments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblSegments.Location = new System.Drawing.Point(367, 299);
+			this.lblSegments.Location = new System.Drawing.Point(368, 298);
 			this.lblSegments.Name = "lblSegments";
 			this.lblSegments.Size = new System.Drawing.Size(101, 25);
 			this.lblSegments.TabIndex = 9;
@@ -134,7 +127,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(13, 32);
+			this.label1.Location = new System.Drawing.Point(14, 32);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(139, 20);
 			this.label1.TabIndex = 0;
@@ -146,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tbGrammarFile.Location = new System.Drawing.Point(216, 28);
 			this.tbGrammarFile.Name = "tbGrammarFile";
-			this.tbGrammarFile.Size = new System.Drawing.Size(885, 26);
+			this.tbGrammarFile.Size = new System.Drawing.Size(884, 26);
 			this.tbGrammarFile.TabIndex = 1;
 			// 
 			// btnBrowseToneRule
@@ -162,11 +155,11 @@
 			// 
 			// btnParseText
 			// 
-			this.btnParseText.Location = new System.Drawing.Point(77, 289);
+			this.btnParseText.Location = new System.Drawing.Point(76, 289);
 			this.btnParseText.Name = "btnParseText";
 			this.btnParseText.Size = new System.Drawing.Size(282, 38);
 			this.btnParseText.TabIndex = 8;
-			this.btnParseText.Text = "&Parse this text";
+			this.btnParseText.Text = "Parse this &text";
 			this.btnParseText.UseVisualStyleBackColor = true;
 			this.btnParseText.Click += new System.EventHandler(this.ParseText_Click);
 			// 
@@ -184,11 +177,11 @@
 			// btnBrowseIntxCtl
 			// 
 			this.btnBrowseIntxCtl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnBrowseIntxCtl.Location = new System.Drawing.Point(1128, 79);
+			this.btnBrowseIntxCtl.Location = new System.Drawing.Point(1128, 78);
 			this.btnBrowseIntxCtl.Name = "btnBrowseIntxCtl";
 			this.btnBrowseIntxCtl.Size = new System.Drawing.Size(94, 38);
 			this.btnBrowseIntxCtl.TabIndex = 14;
-			this.btnBrowseIntxCtl.Text = "&Browse";
+			this.btnBrowseIntxCtl.Text = "Br&owse";
 			this.btnBrowseIntxCtl.UseVisualStyleBackColor = true;
 			this.btnBrowseIntxCtl.Click += new System.EventHandler(this.btnBrowseIntxCtl_Click);
 			// 
@@ -196,9 +189,9 @@
 			// 
 			this.tbIntxCtlFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbIntxCtlFile.Location = new System.Drawing.Point(216, 79);
+			this.tbIntxCtlFile.Location = new System.Drawing.Point(216, 78);
 			this.tbIntxCtlFile.Name = "tbIntxCtlFile";
-			this.tbIntxCtlFile.Size = new System.Drawing.Size(885, 26);
+			this.tbIntxCtlFile.Size = new System.Drawing.Size(884, 26);
 			this.tbIntxCtlFile.TabIndex = 13;
 			// 
 			// label2
@@ -210,120 +203,61 @@
 			this.label2.TabIndex = 12;
 			this.label2.Text = "AMPLE intx.ctl file: ";
 			// 
-			// groupBox1
+			// cbTraceToneProcessing
 			// 
-			this.groupBox1.Controls.Add(this.cbRuleTrace);
-			this.groupBox1.Controls.Add(this.cbTierAssignmentTrace);
-			this.groupBox1.Controls.Add(this.cbDomainAssignmentTrace);
-			this.groupBox1.Controls.Add(this.cbMorphemeToneAssignmentTrace);
-			this.groupBox1.Controls.Add(this.cbTBUAssignmentTrace);
-			this.groupBox1.Controls.Add(this.cbSyllableParsingTrace);
-			this.groupBox1.Controls.Add(this.cbMoraParsingTrace);
-			this.groupBox1.Controls.Add(this.cbMorphemeLinkingTrace);
-			this.groupBox1.Controls.Add(this.cbSegmentParsingTrace);
-			this.groupBox1.Location = new System.Drawing.Point(48, 120);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(1053, 147);
-			this.groupBox1.TabIndex = 15;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Tone Processing Tracing Options";
+			this.cbTraceToneProcessing.AutoSize = true;
+			this.cbTraceToneProcessing.Location = new System.Drawing.Point(20, 134);
+			this.cbTraceToneProcessing.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.cbTraceToneProcessing.Name = "cbTraceToneProcessing";
+			this.cbTraceToneProcessing.Size = new System.Drawing.Size(197, 24);
+			this.cbTraceToneProcessing.TabIndex = 15;
+			this.cbTraceToneProcessing.Text = "T&race Tone Processing";
+			this.cbTraceToneProcessing.UseVisualStyleBackColor = true;
+			this.cbTraceToneProcessing.CheckedChanged += new System.EventHandler(this.cbTraceToneProcessing_CheckedChanged);
 			// 
-			// cbRuleTrace
+			// btnTracingOptions
 			// 
-			this.cbRuleTrace.AutoSize = true;
-			this.cbRuleTrace.Location = new System.Drawing.Point(648, 114);
-			this.cbRuleTrace.Name = "cbRuleTrace";
-			this.cbRuleTrace.Size = new System.Drawing.Size(250, 24);
-			this.cbRuleTrace.TabIndex = 8;
-			this.cbRuleTrace.Text = "Rule application (normal trace)";
-			this.cbRuleTrace.UseVisualStyleBackColor = true;
+			this.btnTracingOptions.Location = new System.Drawing.Point(262, 134);
+			this.btnTracingOptions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.btnTracingOptions.Name = "btnTracingOptions";
+			this.btnTracingOptions.Size = new System.Drawing.Size(178, 35);
+			this.btnTracingOptions.TabIndex = 16;
+			this.btnTracingOptions.Text = "Tracing &Options";
+			this.btnTracingOptions.UseVisualStyleBackColor = true;
+			this.btnTracingOptions.Click += new System.EventHandler(this.btnTracingOptions_Click);
 			// 
-			// cbTierAssignmentTrace
+			// cbVerify
 			// 
-			this.cbTierAssignmentTrace.AutoSize = true;
-			this.cbTierAssignmentTrace.Location = new System.Drawing.Point(648, 72);
-			this.cbTierAssignmentTrace.Name = "cbTierAssignmentTrace";
-			this.cbTierAssignmentTrace.Size = new System.Drawing.Size(298, 24);
-			this.cbTierAssignmentTrace.TabIndex = 7;
-			this.cbTierAssignmentTrace.Text = "Primary and Register Tier assignment";
-			this.cbTierAssignmentTrace.UseVisualStyleBackColor = true;
+			this.cbVerify.AutoSize = true;
+			this.cbVerify.Location = new System.Drawing.Point(20, 195);
+			this.cbVerify.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.cbVerify.Name = "cbVerify";
+			this.cbVerify.Size = new System.Drawing.Size(244, 24);
+			this.cbVerify.TabIndex = 17;
+			this.cbVerify.Text = "&Verify Control File Information";
+			this.cbVerify.UseVisualStyleBackColor = true;
+			this.cbVerify.CheckedChanged += new System.EventHandler(this.cbVerify_CheckedChanged);
 			// 
-			// cbDomainAssignmentTrace
+			// btnShowLog
 			// 
-			this.cbDomainAssignmentTrace.AutoSize = true;
-			this.cbDomainAssignmentTrace.Location = new System.Drawing.Point(648, 30);
-			this.cbDomainAssignmentTrace.Name = "cbDomainAssignmentTrace";
-			this.cbDomainAssignmentTrace.Size = new System.Drawing.Size(176, 24);
-			this.cbDomainAssignmentTrace.TabIndex = 6;
-			this.cbDomainAssignmentTrace.Text = "Domain assignment";
-			this.cbDomainAssignmentTrace.UseVisualStyleBackColor = true;
-			// 
-			// cbMorphemeToneAssignmentTrace
-			// 
-			this.cbMorphemeToneAssignmentTrace.AutoSize = true;
-			this.cbMorphemeToneAssignmentTrace.Location = new System.Drawing.Point(353, 115);
-			this.cbMorphemeToneAssignmentTrace.Name = "cbMorphemeToneAssignmentTrace";
-			this.cbMorphemeToneAssignmentTrace.Size = new System.Drawing.Size(233, 24);
-			this.cbMorphemeToneAssignmentTrace.TabIndex = 5;
-			this.cbMorphemeToneAssignmentTrace.Text = "Morpheme tone assignment";
-			this.cbMorphemeToneAssignmentTrace.UseVisualStyleBackColor = true;
-			// 
-			// cbTBUAssignmentTrace
-			// 
-			this.cbTBUAssignmentTrace.AutoSize = true;
-			this.cbTBUAssignmentTrace.Location = new System.Drawing.Point(353, 73);
-			this.cbTBUAssignmentTrace.Name = "cbTBUAssignmentTrace";
-			this.cbTBUAssignmentTrace.Size = new System.Drawing.Size(153, 24);
-			this.cbTBUAssignmentTrace.TabIndex = 4;
-			this.cbTBUAssignmentTrace.Text = "TBU assignment";
-			this.cbTBUAssignmentTrace.UseVisualStyleBackColor = true;
-			// 
-			// cbSyllableParsingTrace
-			// 
-			this.cbSyllableParsingTrace.AutoSize = true;
-			this.cbSyllableParsingTrace.Location = new System.Drawing.Point(353, 31);
-			this.cbSyllableParsingTrace.Name = "cbSyllableParsingTrace";
-			this.cbSyllableParsingTrace.Size = new System.Drawing.Size(145, 24);
-			this.cbSyllableParsingTrace.TabIndex = 3;
-			this.cbSyllableParsingTrace.Text = "Syllable parsing";
-			this.cbSyllableParsingTrace.UseVisualStyleBackColor = true;
-			// 
-			// cbMoraParsingTrace
-			// 
-			this.cbMoraParsingTrace.AutoSize = true;
-			this.cbMoraParsingTrace.Location = new System.Drawing.Point(7, 115);
-			this.cbMoraParsingTrace.Name = "cbMoraParsingTrace";
-			this.cbMoraParsingTrace.Size = new System.Drawing.Size(127, 24);
-			this.cbMoraParsingTrace.TabIndex = 2;
-			this.cbMoraParsingTrace.Text = "Mora parsing";
-			this.cbMoraParsingTrace.UseVisualStyleBackColor = true;
-			// 
-			// cbMorphemeLinkingTrace
-			// 
-			this.cbMorphemeLinkingTrace.AutoSize = true;
-			this.cbMorphemeLinkingTrace.Location = new System.Drawing.Point(7, 73);
-			this.cbMorphemeLinkingTrace.Name = "cbMorphemeLinkingTrace";
-			this.cbMorphemeLinkingTrace.Size = new System.Drawing.Size(289, 24);
-			this.cbMorphemeLinkingTrace.TabIndex = 1;
-			this.cbMorphemeLinkingTrace.Text = "Linking of morphemes to root nodes";
-			this.cbMorphemeLinkingTrace.UseVisualStyleBackColor = true;
-			// 
-			// cbSegmentParsingTrace
-			// 
-			this.cbSegmentParsingTrace.AutoSize = true;
-			this.cbSegmentParsingTrace.Location = new System.Drawing.Point(7, 31);
-			this.cbSegmentParsingTrace.Name = "cbSegmentParsingTrace";
-			this.cbSegmentParsingTrace.Size = new System.Drawing.Size(266, 24);
-			this.cbSegmentParsingTrace.TabIndex = 0;
-			this.cbSegmentParsingTrace.Text = "Segment parsing into root nodes";
-			this.cbSegmentParsingTrace.UseVisualStyleBackColor = true;
+			this.btnShowLog.Location = new System.Drawing.Point(499, 134);
+			this.btnShowLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.btnShowLog.Name = "btnShowLog";
+			this.btnShowLog.Size = new System.Drawing.Size(138, 35);
+			this.btnShowLog.TabIndex = 18;
+			this.btnShowLog.Text = "Show &Log";
+			this.btnShowLog.UseVisualStyleBackColor = true;
+			this.btnShowLog.Click += new System.EventHandler(this.ShowLog_Click);
 			// 
 			// ToneParsFLExForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1228, 1146);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.btnShowLog);
+			this.Controls.Add(this.cbVerify);
+			this.Controls.Add(this.btnTracingOptions);
+			this.Controls.Add(this.cbTraceToneProcessing);
 			this.Controls.Add(this.btnBrowseIntxCtl);
 			this.Controls.Add(this.tbIntxCtlFile);
 			this.Controls.Add(this.label2);
@@ -344,8 +278,6 @@
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -367,16 +299,10 @@
 		private System.Windows.Forms.Button btnBrowseIntxCtl;
 		private System.Windows.Forms.TextBox tbIntxCtlFile;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.CheckBox cbRuleTrace;
-		private System.Windows.Forms.CheckBox cbTierAssignmentTrace;
-		private System.Windows.Forms.CheckBox cbDomainAssignmentTrace;
-		private System.Windows.Forms.CheckBox cbMorphemeToneAssignmentTrace;
-		private System.Windows.Forms.CheckBox cbTBUAssignmentTrace;
-		private System.Windows.Forms.CheckBox cbSyllableParsingTrace;
-		private System.Windows.Forms.CheckBox cbMoraParsingTrace;
-		private System.Windows.Forms.CheckBox cbMorphemeLinkingTrace;
-		private System.Windows.Forms.CheckBox cbSegmentParsingTrace;
+		private System.Windows.Forms.CheckBox cbTraceToneProcessing;
+		private System.Windows.Forms.Button btnTracingOptions;
+		private System.Windows.Forms.CheckBox cbVerify;
+		private System.Windows.Forms.Button btnShowLog;
 	}
 }
 

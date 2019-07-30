@@ -51,6 +51,12 @@
     <Compile Include="ToneParsFLExForm.designer.cs">
       <DependentUpon>ToneParsFLExForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TracingOptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TracingOptionsDialog.Designer.cs">
+      <DependentUpon>TracingOptionsDialog.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBox.resx">
@@ -58,6 +64,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ToneParsFLExForm.resx">
       <DependentUpon>ToneParsFLExForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TracingOptionsDialog.resx">
+      <DependentUpon>TracingOptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +113,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
     <Reference Include="xCoreInterfaces">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Release\xCoreInterfaces.dll</HintPath>
     </Reference>
