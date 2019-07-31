@@ -385,4 +385,11 @@
 \a 0 {5547} /_#  | /_# 
 		
 \eType suffix
- 
+
+\lx 10648
+\g know
+\c W
+\wc root
+\mp RootPOS5394
+\a te {10644}
+\a nøten {8160}

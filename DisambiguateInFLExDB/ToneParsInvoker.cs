@@ -47,6 +47,8 @@ namespace SIL.DisambiguateInFLExDB
 		protected String[] AntRecords { get; set; }
 		protected const String kAdCtl = "adctl.txt";
 		protected const String kTPAdCtl = "TPadctl.txt";
+		protected const String kLexicon = "lex.txt";
+		protected const String kTPLexicon = "TPlex.txt";
 
 		public ToneParsInvoker(string toneParsRuleFile, string intxCtlFile, string inputFile, char decomp, LcmCache cache)
 		{
@@ -174,7 +176,7 @@ namespace SIL.DisambiguateInFLExDB
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(DatabaseName);
-			sbCmdFile.Append("lex.txt");
+			sbCmdFile.Append(kTPLexicon);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			StringBuilder sbIntxCtlFileShortPath = new StringBuilder(255);
@@ -205,7 +207,7 @@ namespace SIL.DisambiguateInFLExDB
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(DatabaseName);
-			sbCmdFile.Append("lex.txt");
+			sbCmdFile.Append(kTPLexicon);
 			sbCmdFile.Append(Environment.NewLine);
 			sbCmdFile.Append(Environment.NewLine);
 			StringBuilder sbIntxCtlFileShortPath = new StringBuilder(255);
@@ -225,6 +227,7 @@ namespace SIL.DisambiguateInFLExDB
 		public void Invoke()
 		{
 			AppendToneParsPropertiesToAdCtlFile();
+			AddToneParsPropertiesToLexiconFile();
 			ConvertMorphnameIsToUseHvosInToneRuleFile();
 			CreateBatchFile();
 			CreateXAmpleCmdFile();
@@ -472,6 +475,62 @@ namespace SIL.DisambiguateInFLExDB
 				sb.Append("\n");
 			}
 			return sb.ToString();
+		}
+
+		private void AddToneParsPropertiesToLexiconFile()
+		{
+			String xAmpleLexiconFile = Path.GetTempPath() + DatabaseName + kLexicon;
+			String xAmpleLexicon = File.ReadAllText(xAmpleLexiconFile);
+			var allomorphHvoPropertyMapper = new Dictionary<string, string> { };
+			var morphemePropertyMapper = new Dictionary<string, string> { };
+			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.ToneParsPropertiesList);
+			BuildAllomorphPropertyMapper(allomorphHvoPropertyMapper, toneParsList);
+			BuildMorphemePropertyMapper(morphemePropertyMapper, toneParsList);
+			// Add allomorph properties
+			var lexWithAlloProps = allomorphHvoPropertyMapper.Aggregate(xAmpleLexicon, (current, replacement) => current.Replace(replacement.Key, replacement.Value));
+			// Add morpheme properties
+			var lexWithAlloAndMorphProps = morphemePropertyMapper.Aggregate(lexWithAlloProps, (current, replacement) => current.Replace(replacement.Key, replacement.Value));
+
+			String toneParsLexiconFile = Path.GetTempPath() + DatabaseName + kTPLexicon;
+			File.WriteAllText(toneParsLexiconFile, lexWithAlloAndMorphProps);
+		}
+
+		private static void BuildAllomorphPropertyMapper(Dictionary<string, string> allomorphHvoPropertyMapper, ICmPossibilityList toneParsList)
+		{
+			foreach (var prop in toneParsList.PossibilitiesOS)
+			{
+				var refObjs = prop.ReferringObjects.Select(o => o).Where(o => !(o is ILexSense));
+				foreach (ICmObject obj in refObjs)
+				{
+					var sHvo = obj.Hvo.ToString();
+					if (!allomorphHvoPropertyMapper.ContainsKey(sHvo))
+					{
+						var hvoMatch = " {" + sHvo + "}";
+						var replaceWith = hvoMatch + " " + prop.Name.AnalysisDefaultWritingSystem.Text;
+						allomorphHvoPropertyMapper.Add(hvoMatch, replaceWith);
+					}
+				}
+			}
+		}
+
+		private static void BuildMorphemePropertyMapper(Dictionary<string, string> morphemePropertyMapper, ICmPossibilityList toneParsList)
+		{
+			foreach (var prop in toneParsList.PossibilitiesOS)
+			{
+				var refObjs = prop.ReferringObjects.Select(o => o).Where(o => o is ILexSense);
+				foreach (ICmObject obj in refObjs)
+				{
+					var sense = obj as ILexSense;
+					var sHvo = sense.MorphoSyntaxAnalysisRA.Hvo.ToString();
+					if (!morphemePropertyMapper.ContainsKey(sHvo))
+					{
+						var hvoMatch = "\\lx " + sHvo + "\r\n";
+						var replaceWith = hvoMatch + "\\mp " + prop.Name.AnalysisDefaultWritingSystem.Text + "\r\n";
+						morphemePropertyMapper.Add(hvoMatch, replaceWith);
+					}
+				}
+			}
 		}
 
 		public void SaveResultsInDatabase()

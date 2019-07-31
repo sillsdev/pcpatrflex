@@ -1,7 +1,7 @@
 KuniToneParsTestadctl.txt
 XAmplecd.tab
 
-KuniToneParsTestlex.txt
+KuniToneParsTestTPlex.txt
 
 C:\Users\ANDYBL~1\DOCUME~1\FIELDW~1\PCPATR~1\DISAMB~2\TestData\KVGintx.ctl
 y

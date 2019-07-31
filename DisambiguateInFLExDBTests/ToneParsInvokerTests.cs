@@ -20,6 +20,7 @@ namespace SIL.DisambiguateInFLExDBTests
 	{
 		String AnaExpectedString { get; set; }
 		String AntExpectedString { get; set; }
+		String LexExpectedString { get; set; }
 		String ParserFilerXMLString { get; set; }
 		String ToneParsBatchExpectedString { get; set; }
 		String ToneParsCmdExpectedString { get; set; }
@@ -33,6 +34,7 @@ namespace SIL.DisambiguateInFLExDBTests
 		const String kADCtlFile = "KuniToneParsTestadctl.txt";
 		const String kGrammarFile = "KuniToneParsTestgram.txt";
 		const String kLexiconFile = "KuniToneParsTestlex.txt";
+		const String kLexiconTPFile = "KuniToneParsTestTPlex.txt";
 
 		[TestFixtureSetUp]
 		public override void FixtureSetup()
@@ -76,6 +78,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			File.Copy(Path.Combine(TestDataDir, kADCtlFile), Path.Combine(Path.GetTempPath(), kADCtlFile), true);
 			File.Copy(Path.Combine(TestDataDir, kGrammarFile), Path.Combine(Path.GetTempPath(), kGrammarFile), true);
 			File.Copy(Path.Combine(TestDataDir, kLexiconFile), Path.Combine(Path.GetTempPath(), kLexiconFile), true);
+			String toneParsLexFile = Path.Combine(TestDataDir, "KvgTP.ctl");
 			String toneParsRuleFile = Path.Combine(TestDataDir, "KvgTP.ctl");
 			String intxCtlFile = Path.Combine(TestDataDir, "KVGintx.ctl");
 			String inputFile = Path.Combine(TestDataDir, "KVGinput.txt");
@@ -89,6 +92,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			CompareResultToExpectedFile(ToneParsCmdExpectedString, invoker.ToneParsCmdFile);
 			CompareResultToExpectedFile(AnaExpectedString, invoker.AnaFile);
 			CompareResultToExpectedFile(AntExpectedString, invoker.AntFile);
+			CompareResultToExpectedFile(LexExpectedString, Path.Combine(Path.GetTempPath(),kLexiconTPFile));
 
 			Boolean found = invoker.ConvertAntToParserFilerXML(0);
 			Assert.AreEqual(false, found);
@@ -126,21 +130,6 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.AreEqual(1, wffia.ParserCount);
 			Assert.AreEqual(3, wfndot.ParserCount);
 			Assert.AreEqual(9, wfndot2.ParserCount);
-
-			//checkRootGlossState(invoker, null);
-			//checkRootGlossState(invoker, "off");
-			//checkRootGlossState(invoker, "leftheaded");
-			//checkRootGlossState(invoker, "rightheaded");
-			//checkRootGlossState(invoker, "all");
-			//checkRootGlossStateValue(invoker, null, null);
-			//checkRootGlossStateValue(invoker, "Off", "off");
-			//checkRootGlossStateValue(invoker, "Leftheaded", "leftheaded");
-			//checkRootGlossStateValue(invoker, "Rightheaded", "rightheaded");
-			//checkRootGlossStateValue(invoker, "All", "all");
-			//checkRootGlossStateValue(invoker, "Of course", "off");
-			//checkRootGlossStateValue(invoker, "Luis", "leftheaded");
-			//checkRootGlossStateValue(invoker, "Rival", "rightheaded");
-			//checkRootGlossStateValue(invoker, "Alone", "all");
 		}
 
 		private void CompareResultToExpectedFile(String expectedFileString, String actualFile)
@@ -153,6 +142,7 @@ namespace SIL.DisambiguateInFLExDBTests
 		{
 			AnaExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.AnaFile)));
 			AntExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(invoker.AntFile)));
+			LexExpectedString = CreateFileString(Path.Combine(TestDataDir, Path.GetFileName(kLexiconTPFile)));
 			Word1ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word1Expected.xml"));
 			Word2ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word2Expected.xml"));
 			Word3ExpectedString = CreateFileString(Path.Combine(TestDataDir, "Word3Expected.xml"));
