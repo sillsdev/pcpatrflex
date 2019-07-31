@@ -559,7 +559,15 @@ namespace SIL.ToneParsFLEx
 		{
 			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, "", ' ', Cache);
 			if (File.Exists(invoker.ToneParsLogFile))
+			{
+				if (ToneParsInvokerOptions.Instance.DoTracing)
+				{
+					var converter = new ToneParsLogConverter(Cache, invoker.ToneParsLogFile);
+					var result = converter.ConvertHvosToMorphnames();
+					File.WriteAllText(invoker.ToneParsLogFile, result);
+				}
 				Process.Start(invoker.ToneParsLogFile);
+			}
 			else
 				MessageBox.Show("Log file does not exist; please parse a segment or a text.");
 		}

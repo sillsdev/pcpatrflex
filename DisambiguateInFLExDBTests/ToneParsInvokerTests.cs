@@ -54,6 +54,20 @@ namespace SIL.DisambiguateInFLExDBTests
 		}
 
 		/// <summary>
+		/// Test conversion of log file using hvos to using glosses.
+		/// </summary>
+		[Test]
+		public void ToneParsHvoToGlossInLogTest()
+		{
+			var logFileWithHvos = Path.Combine(TestDataDir, "ToneParsInvokerWithHvos.log");
+			var logFileWithMorphnames = Path.Combine(TestDataDir, "ToneParsInvokerWithMorphnames.log");
+			var converter = new ToneParsLogConverter(myCache, logFileWithHvos);
+			var expected = File.ReadAllText(logFileWithMorphnames);
+			var result = converter.ConvertHvosToMorphnames();
+			Assert.AreEqual(expected, result);
+		}
+
+		/// <summary>
 		/// Test invoking of XAmple followed by TonePars.
 		/// </summary>
 		[Test]

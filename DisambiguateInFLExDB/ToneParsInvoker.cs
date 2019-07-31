@@ -371,10 +371,10 @@ namespace SIL.DisambiguateInFLExDB
 			return field;
 		}
 
+		// TonePars rule file can have 'morphname is' statements, but the morphname there is the gloss, not the hvo of the MSA.
+		// We need to convert all of these from gloss to MSA hvo.
 		private void ConvertMorphnameIsToUseHvosInToneRuleFile()
 		{
-			// TonePars rule file can have 'morphname is' statements, but the morphname there is the gloss, not the hvo of the MSA.
-			// We need to convert all of these from gloss to MSA hvo.
 
 			String toneParsRuleFileContents = File.ReadAllText(ToneParsRuleFile);
 			
@@ -658,6 +658,5 @@ namespace SIL.DisambiguateInFLExDB
 			return Tuple.Create(int.Parse(msaHvoParts[0]), msaHvoParts.Length == 2 ? int.Parse(msaHvoParts[1]) : 0);
 		}
 		// -----------------------
-
 	}
 }
