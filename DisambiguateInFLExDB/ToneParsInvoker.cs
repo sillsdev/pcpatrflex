@@ -558,6 +558,8 @@ namespace SIL.DisambiguateInFLExDB
 		// Used in Unit Testing
 		public IWfiWordform GetWordformFromString(string wordform)
 		{
+			if (String.IsNullOrEmpty(wordform))
+				return null;
 			ILcmServiceLocator servLoc = Cache.ServiceLocator;
 			IWfiWordform wf = servLoc.GetInstance<IWfiWordformRepository>().GetMatchingWordform(Cache.DefaultVernWs, wordform);
 			if (wf == null)
