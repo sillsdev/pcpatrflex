@@ -44,6 +44,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="FLExUtility.cs" />
     <Compile Include="ToneParsFLExForm.cs">
       <SubType>Form</SubType>

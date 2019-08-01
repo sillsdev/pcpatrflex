@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TracingOptionsDialog));
 			this.cbRuleTrace = new System.Windows.Forms.CheckBox();
 			this.cbTierAssignmentTrace = new System.Windows.Forms.CheckBox();
 			this.cbDomainAssignmentTrace = new System.Windows.Forms.CheckBox();
@@ -170,6 +171,7 @@
 			this.Controls.Add(this.cbMoraParsingTrace);
 			this.Controls.Add(this.cbTBUAssignmentTrace);
 			this.Controls.Add(this.cbSyllableParsingTrace);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "TracingOptionsDialog";
 			this.Text = "TracingOptionsDialog";
