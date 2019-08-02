@@ -295,6 +295,8 @@ namespace SIL.DisambiguateInFLExDB
 				if (String.IsNullOrEmpty(record))
 					return false;
 				string wordform = GetFieldFromAntRecord(record, "\\w ");
+				if (String.IsNullOrEmpty(wordform))
+					return false;
 				var sb = new StringBuilder();
 				CreateWordFormElementBegin(wordform, sb);
 				Boolean parseFailed = record.Contains("%0%");
