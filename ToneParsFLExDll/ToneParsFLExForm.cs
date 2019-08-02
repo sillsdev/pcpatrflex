@@ -89,6 +89,7 @@ namespace SIL.ToneParsFLEx
 		private ContextMenuStrip helpContextMenu;
 		const string UserDocumentation = "User Documentation";
 		const string ToneParsDocumentation = "TonePars Documentation";
+		const string ToneParsGrammarDocumentation = "TonePars Grammar Documentation";
 		const string About = "About";
 
 		public ToneParsFLExForm()
@@ -152,14 +153,18 @@ namespace SIL.ToneParsFLEx
 			ToolStripMenuItem userDoc = new ToolStripMenuItem(UserDocumentation);
 			userDoc.Click += new EventHandler(UserDoc_Click);
 			userDoc.Name = UserDocumentation;
-			ToolStripMenuItem pcpatrDoc = new ToolStripMenuItem(ToneParsDocumentation);
-			pcpatrDoc.Click += new EventHandler(PCPATRDoc_Click);
-			pcpatrDoc.Name = ToneParsDocumentation;
+			ToolStripMenuItem toneParsDoc = new ToolStripMenuItem(ToneParsDocumentation);
+			toneParsDoc.Click += new EventHandler(ToneParsDoc_Click);
+			toneParsDoc.Name = ToneParsDocumentation;
+			ToolStripMenuItem toneParsGrammarDoc = new ToolStripMenuItem(ToneParsGrammarDocumentation);
+			toneParsGrammarDoc.Click += new EventHandler(ToneParsGrammarDoc_Click);
+			toneParsGrammarDoc.Name = ToneParsGrammarDocumentation;
 			ToolStripMenuItem about = new ToolStripMenuItem(About);
 			about.Click += new EventHandler(About_Click);
 			about.Name = About;
 			helpContextMenu.Items.Add(userDoc);
-			helpContextMenu.Items.Add(pcpatrDoc);
+			helpContextMenu.Items.Add(toneParsDoc);
+			helpContextMenu.Items.Add(toneParsGrammarDoc);
 			helpContextMenu.Items.Add("-");
 			helpContextMenu.Items.Add(about);
 		}
@@ -508,7 +513,7 @@ namespace SIL.ToneParsFLEx
 			if (menuItem.Name == UserDocumentation)
 			{
 				String basedir = GetAppBaseDir();
-				Process.Start(Path.Combine(basedir, "doc", "UserDocumentation.pdf"));
+				Process.Start(Path.Combine(basedir, "doc", "ToneParsFLExUserDocumentation.pdf"));
 			}
 		}
 
@@ -532,13 +537,23 @@ namespace SIL.ToneParsFLEx
 			indexOfBinInPath = rootdir.LastIndexOf("bin");
 		}
 
-		void PCPATRDoc_Click(object sender, EventArgs e)
+		void ToneParsDoc_Click(object sender, EventArgs e)
 		{
 			ToolStripItem menuItem = (ToolStripItem)sender;
 			if (menuItem.Name == ToneParsDocumentation)
 			{
 				String basedir = GetAppBaseDir();
-				Process.Start(Path.Combine(basedir, "doc", "pcpatr.html"));
+				Process.Start(Path.Combine(basedir, "doc", "silewp2007_002.pdf"));
+			}
+		}
+
+		void ToneParsGrammarDoc_Click(object sender, EventArgs e)
+		{
+			ToolStripItem menuItem = (ToolStripItem)sender;
+			if (menuItem.Name == ToneParsGrammarDocumentation)
+			{
+				String basedir = GetAppBaseDir();
+				Process.Start(Path.Combine(basedir, "doc", "ToneParsGrammar.txt"));
 			}
 		}
 
