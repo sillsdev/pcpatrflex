@@ -303,7 +303,7 @@ namespace SIL.ToneParsFLEx
 		private void OnFormClosing(object sender, EventArgs e)
 		{
 			saveRegistryInfo();
-			if (m_parserConnection != null)
+			if (m_parserConnection != null && Cache != null && !Cache.IsDisposed)
 			{
 				m_parserConnection.Dispose();
 			}
@@ -350,7 +350,6 @@ namespace SIL.ToneParsFLEx
 				m_parserConnection.ReloadGrammarAndLexicon();
 				WaitForLoadToFinish();
 			}
-			invoker.DecompSeparationChar = GetDecompSeparationCharacter();
 			invoker.Invoke();
 			invoker.SaveResultsInDatabase();
 		}
@@ -384,16 +383,6 @@ namespace SIL.ToneParsFLEx
 			String textInptControlFileContents = File.ReadAllText(tbIntxCtlFile.Text);
 			string decompSeparationCharacter = ToneParsInvoker.GetFieldFromAntRecord(textInptControlFileContents, "\\dsc ").Trim();
 			return decompSeparationCharacter[0];
-		}
-
-		private void DisambiguateSegment(SegmentToShow selectedSegmentToShow, string result)
-		{
-			if (!String.IsNullOrEmpty(result))
-			{
-				var guids = DisambiguateInFLExDB.GuidConverter.CreateListFromString(result);
-				var disambiguator = new SegmentDisambiguation(selectedSegmentToShow.Segment, guids);
-				disambiguator.Disambiguate(Cache);
-			}
 		}
 
 		private string GetAnaForm(SegmentToShow selectedSegmentToShow)
