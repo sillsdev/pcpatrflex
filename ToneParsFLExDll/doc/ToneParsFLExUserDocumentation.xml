@@ -20,7 +20,7 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->5 August, 2019</date
+>8 August, 2019</date
 ><version
 >Version 0.1.0 Beta</version
 ><version
@@ -116,8 +116,8 @@ id="sInstallation"
 type="tToneParsFLEx"
 ></object
 >, obtain the installer from <link
-href="https://github.com/sillsdev/pcpatrflex/tree/master/Installer/Output/UseToneParsWithFLExDllSetup.exe"
->https://​github.com/​sillsdev/pcpatrflex/​tree/​master/​Installer/​Output/​UseToneParsWithFLExDllSetup.exe</link
+href="https://github.com/sillsdev/pcpatrflex/blob/ToneParsFLEx/InstallerTonePars/Output/UseToneParsWithFLExDllSetup.exe"
+>https://​github.com/​sillsdev/​pcpatrflex/​blob/​ToneParsFLEx/​InstallerTonePars/​Output/​UseToneParsWithFLExDllSetup.exe</link
 >. The installer will check to see if you have installed <object
 type="tFieldWorks"
 ></object
@@ -374,7 +374,7 @@ type="tXAmple"
 > and then <object
 type="tTonePars"
 ></object
->.  The mouse icon will change to the “busy” shape until it is done.  The results will show in <object
+>. The mouse icon will change to the “busy” shape until it is done. The results will show in <object
 type="tFLEx"
 ></object
 > the same way as using one of the morphological parsers that come with <object
@@ -393,7 +393,7 @@ type="tXAmple"
 > and then <object
 type="tTonePars"
 ></object
->.  The mouse icon will change to the “busy” shape until it is done.  The results will show in <object
+>. The mouse icon will change to the “busy” shape until it is done. The results will show in <object
 type="tFLEx"
 ></object
 > the same way as using one of the morphological parsers that come with <object
@@ -495,7 +495,7 @@ type="tFLEx"
 > or there may a version of <object
 type="tFLEx"
 ></object
-> running in the background.  This can prevent <object
+> running in the background. This can prevent <object
 type="tFLEx"
 ></object
 > from starting again.</li
@@ -503,7 +503,7 @@ type="tFLEx"
 ><object
 type="tToneParsFLEx"
 ></object
-> produces a copy of the Tone Rule file with an extension of “.hvo” in the directory where the Tone Rule file is.  This file is used by <object
+> produces a copy of the Tone Rule file with an extension of “.hvo” in the directory where the Tone Rule file is. This file is used by <object
 type="tTonePars"
 ></object
 > in order to correctly handle “morphname is” statements in the rule file.</li
@@ -517,10 +517,10 @@ id="sOutputFiles"
 >When you parse a segment or a text, <object
 type="tToneParsFLEx"
 ></object
-> produces several temporary files.  There may be times when seeing these files will prove useful, especially if you are used to seeing such files in <object
+> produces several temporary files. There may be times when seeing these files will prove useful, especially if you are used to seeing such files in <object
 type="tCarlaStudio"
 ></object
->.  To see the files, open a Windows Explorer window in the temp directory.  One way to do this is to click in the address bar and then replace its contents with “%TEMP%” (without the quotes).  Next, view the directory showing details and click on the "Date modified” column header so that the most recently used files are ordered first.  The files used by <object
+>. To see the files, open a Windows Explorer window in the temp directory. One way to do this is to click in the address bar and then replace its contents with “%TEMP%” (without the quotes). Next, view the directory showing details and click on the "Date modified” column header so that the most recently used files are ordered first. The files used by <object
 type="tToneParsFLEx"
 ></object
 > are shown in example <exampleRef
@@ -563,7 +563,7 @@ type="tTool"
 > grammar file used by <object
 type="tXAmple"
 ></object
->.  (Most likely this file will not make much sense unless you have a lot of experience with <object
+>. (Most likely this file will not make much sense unless you have a lot of experience with <object
 type="tTool"
 >PC-PATR</object
 > grammar files.</td
@@ -650,7 +650,7 @@ type="tTonePars"
 >The log file produced by <object
 type="tTonePars"
 ></object
->.  See section <sectionRef
+>. See section <sectionRef
 sec="sShowLog"
 ></sectionRef
 > for an easier way to see this.</td
@@ -685,7 +685,7 @@ type="tXAmple"
 ></table
 ></example
 ><p
->Note that most of these files use numbers instead of text for things like morph-names.  This is how it needs to be done for <object
+>Note that most of these files use numbers instead of text for things like morph-names. This is how it needs to be done for <object
 type="tFLEx"
 ></object
 > to properly process the data.</p
