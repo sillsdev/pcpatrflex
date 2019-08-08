@@ -70,7 +70,7 @@ Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
      end
      else
      begin
-       MsgBox('FieldWorks 9 is not installed.  Please install it first.', mbCriticalError, MB_OK);
+       MsgBox('64-bit FieldWorks 9 is not installed.  Please install it first.', mbCriticalError, MB_OK);
        Result := False;
      end;
    end;
