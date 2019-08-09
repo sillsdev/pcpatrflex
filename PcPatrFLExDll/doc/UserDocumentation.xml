@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->28 May, 2019</date
+>8 August, 2019</date
 ><version
->Version 1.2.0 Beta</version
+>Version 1.2.2 Beta</version
 ><version
 >Copyright © 2018-2019 SIL International</version
 ><contents
@@ -354,10 +354,10 @@ type="tFLEx"
 >If you are using the <object
 type="tTool"
 >TreeTran</object
-> program, you can save the results of the disambiguated parses in a file called Invoker.xml in the %TEMP% directory.  You do this by using <object
+> program, you can save the results of the disambiguated parses in a file called Invoker.xml in the %TEMP% directory. You do this by using <object
 type="tMenuItem"
 >File / Save for TreeTran</object
-> to make sure there is a check mark before it.  Alternatively, you can click on the <img
+> to make sure there is a check mark before it. Alternatively, you can click on the <img
 src="resources/TreeTranOutput.png"
 ></img
 > item in the tool bar.</p
@@ -578,8 +578,8 @@ id="sSupport"
 type="tPcPatrFLEx"
 ></object
 > or find bugs in it, please send an email to <link
-href="mailto:lingtree_support@sil.org"
->andy_black@sil.org</link
+href="mailto:blackhandrew@gmail.com"
+>blackhandrew@gmail.com</link
 >.</p
 ></section1
 ><backMatter
@@ -715,11 +715,11 @@ type="tPcPatrGrammar"
 > files are quite slow to load into the <object
 type="tXXE"
 ></object
->.</p
+>.s</p
 ><p
 >If you are interested in trying this, please contact <link
-href="mailto:lingtree_support@sil.org"
->andy_black@sil.org</link
+href="mailto:blackhandrew@gmail.com"
+>blackhandrew@gmail.com</link
 >.</p
 ></appendix
 ><endnotes

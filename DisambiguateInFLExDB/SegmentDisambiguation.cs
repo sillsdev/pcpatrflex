@@ -6,6 +6,7 @@ using SIL.LCModel;
 using SIL.LCModel.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,14 @@ namespace SIL.DisambiguateInFLExDB
 {
 	public class SegmentDisambiguation
 	{
+		String tempFileName = "";
 		public SegmentDisambiguation(ISegment segment, List<Guid> disambiguatedMorphBundleGuids)
 		{
 			Segment = segment;
 			DisambiguatedMorphBundles = disambiguatedMorphBundleGuids;
+			tempFileName = Path.Combine(Path.GetTempPath(), "PcPatrFLExDebug.txt");
+			if (File.Exists(tempFileName))
+				File.Delete(tempFileName);
 		}
 
 		public ISegment Segment { get; set; }
@@ -27,23 +32,57 @@ namespace SIL.DisambiguateInFLExDB
 		{
 			NonUndoableUnitOfWorkHelper.Do(cache.ActionHandlerAccessor, () =>
 			{
+				using (StreamWriter file = new StreamWriter(tempFileName, true))
+				{
+					file.WriteLine("DisambiguatedMorphBundles count=" + DisambiguatedMorphBundles.Count);
+					int ig = 0;
+					foreach (Guid g in DisambiguatedMorphBundles)
+					{
+						file.WriteLine("\t i=" + ig +" guid=\"" + g + "\"");
+					}
+				}
 				int i = 0;
 				foreach (IAnalysis analysis in Segment.AnalysesRS)
 				{
+					// The Analyses can be:
+					//	  a WfiWordForm when it is unanalyzed,
+					//    a WfiAnalysis when it is partially analyzed, and
+					//    a WfiGloss when it is fully analyzed.
+					//    a PunctuationForm.
+					// Partial means the user/parser has gotten it down to one analysis, but no word gloss has been chosen.
+					// Full means the user/parser has gotten it down to one analysis and has chosen a word gloss.
 					if ((analysis.ClassID == WfiWordformTags.kClassId
 						|| analysis.ClassID == WfiGlossTags.kClassId
 						|| analysis.ClassID == WfiAnalysisTags.kClassId)
 						&& i < DisambiguatedMorphBundles.Count)
 					{
-						var wfiWordform = analysis as IWfiWordform;
 						var wfiMorphBundleGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
 						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundleGuidToUse);
 						var bundle = wfiMorphBundle as IWfiMorphBundle;
 						EnsureMorphBundleHasSense(bundle);
 						if (wfiMorphBundle.Owner is IWfiAnalysis wfiAnalysisToUse)
 						{
+							using (StreamWriter file = new StreamWriter(tempFileName, true))
+							{
+								file.WriteLine("wfiAnalysis guid=\"" + wfiAnalysisToUse.Guid + "\"");
+							}
 							wfiAnalysisToUse.SetAgentOpinion(cache.LanguageProject.DefaultUserAgent, Opinions.approves);
-							Segment.AnalysesRS[i] = wfiAnalysisToUse;
+							if (wfiAnalysisToUse.MeaningsOC.Count == 1)
+							{
+								Segment.AnalysesRS[i] = wfiAnalysisToUse.MeaningsOC.ElementAt(0);
+							}
+							else
+							{
+								Segment.AnalysesRS[i] = wfiAnalysisToUse;
+							}
+							foreach (IWfiMorphBundle b in wfiAnalysisToUse.MorphBundlesOS)
+							{
+								if (b != bundle)
+								{
+									// make sure all bundles in the analysis have a sense
+									EnsureMorphBundleHasSense(b);
+								}
+							}
 						}
 					}
 					i++;
@@ -55,24 +94,37 @@ namespace SIL.DisambiguateInFLExDB
 		{
 			if (bundle != null)
 			{
+				using (StreamWriter file = new StreamWriter(tempFileName, true))
+				{
+				file.WriteLine("\tEMBHS: bundle guid=\"" + bundle.Guid + "\"");
 				var sense = bundle.SenseRA;
 				if (sense == null)
 				{ // bundle does not have a sense (due to coming from parser)
 				  // find its sense and set it in bundle
+					file.WriteLine("\t\tbundle missing sense");
 					var msa = bundle.MsaRA;
 					if (msa != null)
 					{
+						file.WriteLine("\t\tmsa guid=\"" + msa.Guid + "\"");
 						var entry = msa.Owner as ILexEntry;
 						if (entry != null)
 						{
+							file.WriteLine("\t\tentry guid=\"" + entry.Guid + "\"");
 							sense = entry.SenseWithMsa(msa);
 							if (sense != null)
 							{
+								file.WriteLine("\t\tsense guid=\"" + sense.Guid + "\"");
 								bundle.SenseRA = sense;
 							}
 						}
 					}
 				}
+					else
+					{
+						file.WriteLine("\t\tsense guid=\"" + sense.Guid + "\"");
+					}
+				}
+
 			}
 		}
 	}

@@ -99,10 +99,10 @@ namespace SIL.DisambiguateInFLExDBTests
 			//After disambiguation
 			Assert.AreEqual(9, segment.AnalysesRS.Count);
 			analysis = segment.AnalysesRS.ElementAt(0); // we
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(1); // want
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(2); // to (ambiguous)
 			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
@@ -111,16 +111,16 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(4); // married
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(5); // and
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(6); // be (ambiguous)
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 			analysis = segment.AnalysesRS.ElementAt(7); // happy
-			Assert.AreEqual(WfiAnalysisTags.kClassId, analysis.ClassID);
+			Assert.AreEqual(WfiGlossTags.kClassId, analysis.ClassID);
 			Assert.AreEqual(Opinions.approves, analysis.Analysis.GetAgentOpinion(defaultAgent));
 		}
 
