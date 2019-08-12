@@ -1945,16 +1945,34 @@ namespace SIL.PcPatrBrowser
 					WindowState = (FormWindowState) regkey.GetValue(m_ksWindowState, 0);
 					StartPosition = FormStartPosition.Manual;
 					// For some reason .Net now forces the SplitPosition to be no more than
-					// MinSize.  We set both.
+					// MinSize.  We set both if needed.
 					int iSize = (int)regkey.GetValue(m_ksSplitterBetweenInterAndTreeFeat, 100);
-					splitterBetweenInterlinearAndTreeFeat.MinSize = iSize;
-					splitterBetweenInterlinearAndTreeFeat.SplitPosition = iSize;
+					if (splitterBetweenInterlinearAndTreeFeat.MinSize < iSize)
+					{
+						splitterBetweenInterlinearAndTreeFeat.MinSize = iSize;
+						splitterBetweenInterlinearAndTreeFeat.SplitPosition = iSize;
+						splitterBetweenInterlinearAndTreeFeat.MinSize = 25;
+					}
+					else
+						splitterBetweenInterlinearAndTreeFeat.SplitPosition = iSize;
 					iSize = (int)regkey.GetValue(m_ksSplitterBetweenTreeAndFeat, 192);
-					splitterBetweenTreeAndFeat.MinSize = iSize;
-					splitterBetweenTreeAndFeat.SplitPosition = iSize;
+					if (splitterBetweenTreeAndFeat.MinSize < iSize)
+					{
+						splitterBetweenTreeAndFeat.MinSize = iSize;
+						splitterBetweenTreeAndFeat.SplitPosition = iSize;
+						splitterBetweenTreeAndFeat.MinSize = 25;
+					}
+					else
+						splitterBetweenTreeAndFeat.SplitPosition = iSize;
 					iSize = (int)regkey.GetValue(m_ksSplitterBetweenTreeFeatAndRule, 100);
-					splitterBetweenTreeFeatAndRule.MinSize = iSize;
-					splitterBetweenTreeFeatAndRule.SplitPosition = iSize;
+					if (splitterBetweenTreeFeatAndRule.MinSize < iSize)
+					{
+						splitterBetweenTreeFeatAndRule.MinSize = iSize;
+						splitterBetweenTreeFeatAndRule.SplitPosition = iSize;
+						splitterBetweenTreeFeatAndRule.MinSize = 25;
+					}
+					else
+						splitterBetweenTreeFeatAndRule.SplitPosition = iSize;
 
 					m_sLogOrAnaFileName = (string)regkey.GetValue(m_ksLastLogFile);
 
@@ -1994,7 +2012,7 @@ namespace SIL.PcPatrBrowser
 			regkey.SetValue(m_ksLocationX, this.m_RectNormal.X);
 			regkey.SetValue(m_ksLocationY, this.m_RectNormal.Y);
 			regkey.SetValue(m_ksSizeWidth, this.m_RectNormal.Width);
-			regkey.SetValue(m_ksSizeHeight, this.m_RectNormal.Height-20); // not sure why it's 20 off...
+			regkey.SetValue(m_ksSizeHeight, this.m_RectNormal.Height); // -20); // not sure why it's 20 off...
 			regkey.SetValue(m_ksSplitterBetweenInterAndTreeFeat, splitterBetweenInterlinearAndTreeFeat.SplitPosition);
 			regkey.SetValue(m_ksSplitterBetweenTreeAndFeat, splitterBetweenTreeAndFeat.SplitPosition);
 			regkey.SetValue(m_ksSplitterBetweenTreeFeatAndRule, splitterBetweenTreeFeatAndRule.SplitPosition);
