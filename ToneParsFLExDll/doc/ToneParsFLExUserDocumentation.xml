@@ -20,7 +20,7 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->8 August, 2019</date
+>14 August, 2019</date
 ><version
 >Version 0.1.0 Beta</version
 ><version
@@ -482,7 +482,33 @@ type="tFLEx"
 >The current version of <object
 type="tFLEx"
 ></object
-> does not always parse a capitalized word.</li
+> does not always parse a capitalized word.  Here is one way to try and deal with this:<endnote
+id="nLT5722"
+><p
+>This is a slightly modified version of Kevin Warfel's work-around in <object
+type="tFLEx"
+></object
+>'s issue tracking system at <link
+href="https://jira.sil.org/browse/LT-5722"
+>LT-5722</link
+>.</p
+></endnote
+><ol
+><li
+>Go to the Baseline tab and change the upper-case letter to lower case.</li
+><li
+>Return to the Analyze tab and parse the segment in <object
+type="tToneParsFLEx"
+></object
+>.</li
+><li
+>If there are multiple parser-generated analyses available, select the correct one, then click on the green check mark. (This marks that particular analysis as “user-approved” in the Word Analyses area, which the interlinear view uses as one of its default sources.)</li
+><li
+>Go back to the Baseline tab and change the letter back to upper case.</li
+><li
+>Return to the Analyze tab, click on the word, then use the drop-down arrow on the Morphemes line to select the lower-case form of the word. (This should enable FLEx to associate the previously generated analysis of the lower-case form with the current instance.)</li
+></ol
+></li
 ><li
 >The user interface is in English only.</li
 ><li
