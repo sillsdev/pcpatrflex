@@ -54,6 +54,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			}
 			var invoker = new PCPatrInvoker(grammarFile, anaFile, "Off");
 			invoker.Invoke();
+			Assert.AreEqual(true, invoker.InvocationSucceeded);
 			String andResult = "";
 			using (var streamReader = new StreamReader(invoker.AndFile, Encoding.UTF8))
 			{
@@ -121,5 +122,17 @@ namespace SIL.DisambiguateInFLExDBTests
 				Assert.IsTrue(TakeString.Contains("set rootgloss " + expectedValue + "\n"));
 			}
 		}
+		/// <summary>
+		/// Test extracting of lexicon.
+		/// </summary>
+		[Test]
+		public void PcPatrInvokerFailureTest()
+		{
+			String grammarFile = Path.Combine(TestDataDir, "GrammarFail.grm");
+			String anaFile = Path.Combine(TestDataDir, "InvokerFail.ana");
+			var invoker = new PCPatrInvoker(grammarFile, anaFile, "Off");
+			invoker.Invoke();
+			Assert.AreEqual(false, invoker.InvocationSucceeded);
+		}
+		}
 	}
-}

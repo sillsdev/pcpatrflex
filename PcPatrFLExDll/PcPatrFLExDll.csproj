@@ -92,9 +92,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FWDlls\SIL.Core.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DisambiguateInFLExDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="SIL.DisambiguateInFLExDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DisambiguateInFLExDB\bin\x64\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
+      <HintPath>..\DisambiguateInFLExDB\bin\x64\Release\SIL.DisambiguateInFLExDB.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

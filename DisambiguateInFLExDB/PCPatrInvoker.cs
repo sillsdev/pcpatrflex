@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018 SIL International
+﻿// Copyright (c) 2018-2019 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -24,6 +24,7 @@ namespace SIL.DisambiguateInFLExDB
 		public String LogFile { get; set; }
 		public String BatchFile { get; set; }
 		public String RootGlossState { get; set; }
+		public Boolean InvocationSucceeded { get; set; }
 
 		public PCPatrInvoker(string grammarFile, string anaFile, string rootglossState)
 		{
@@ -75,8 +76,16 @@ namespace SIL.DisambiguateInFLExDB
 			var process = Process.Start(processInfo);
 			process.Start();
 			process.WaitForExit();
-			string output = process.StandardOutput.ReadToEnd();
-			string error = process.StandardError.ReadToEnd();
+			if (process.ExitCode == 0)
+			{
+				InvocationSucceeded = true;
+			}
+			else
+			{
+				InvocationSucceeded = false;
+			}
+			//string output = process.StandardOutput.ReadToEnd();
+			//string error = process.StandardError.ReadToEnd();
 			//Console.Write(output);
 			//Console.Write(error);
 		}

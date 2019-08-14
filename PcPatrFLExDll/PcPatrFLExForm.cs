@@ -433,7 +433,7 @@ namespace SIL.PcPatrFLEx
 			var invoker = new PCPatrInvoker(GrammarFile, anaFile, LastRootGlossSelection);
 			invoker.Invoke();
 			andResult = invoker.AndFile;
-			if (File.Exists(andResult))
+			if (File.Exists(andResult) && invoker.InvocationSucceeded)
 			{
 				browser = ShowPcPatrBrowser(andResult);
 				return true;
@@ -441,8 +441,17 @@ namespace SIL.PcPatrFLEx
 			else
 			{
 				browser = null;
-				MessageBox.Show("The PC-PATR grammar file had an error in it and failed to load.\nWe will show the error log after you click on OK.\nPlease fix all errors in the grammar file and then try again.",
-					"Grammar Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				string message = "";
+				if (File.Exists(andResult))
+				{
+					message = "The PC-PATR processing failed!\nPerhaps there are incompatible feature values in one of the forms.\nWe will show the error log after you click on OK.\nYou may also want to try and run the PcPatrFLEx.bat file in the %TEMP% diretory.\nThis may or may not show which features are incompatible or some other PC-PATR error or warning message.";
+				}
+				else
+				{
+					message = "The PC-PATR grammar file had an error in it and failed to load.\nWe will show the error log after you click on OK.\nPlease fix all errors in the grammar file and then try again.";
+				}
+				MessageBox.Show(message + "",
+				"Grammar Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Process.Start(andResult.Replace(".and", ".log"));
 				return false;
 			}
