@@ -55,7 +55,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.IsNotNull(myCache);
 			Assert.AreEqual(ProjId.UiName, myCache.ProjectId.UiName);
 			Assert.AreEqual(26, myCache.LangProject.AllPartsOfSpeech.Count);
-			Assert.AreEqual(328, myCache.LangProject.LexDbOA.Entries.Count());
+			Assert.AreEqual(335, myCache.LangProject.LexDbOA.Entries.Count());
 			var extractor = new FLExDBExtractor(myCache);
 			String lexicon = extractor.ExtractPcPatrLexicon();
 			//Console.Write(lexicon);
@@ -99,7 +99,7 @@ namespace SIL.DisambiguateInFLExDBTests
 			var wordCat = extractor.GetOrComputeWordCategory(null);
 			Assert.AreEqual("", wordCat);
 
-			var text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text == "Mulit-morphemic").First();
+			var text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text == "Multi-morphemic").First();
 			var paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(1);
 			var segment = paragraph.SegmentsOS.First();
 			var analysis = segment.AnalysesRS.ElementAtOrDefault(3);
@@ -153,8 +153,8 @@ namespace SIL.DisambiguateInFLExDBTests
 			Assert.IsNotNull(myCache);
 			Assert.AreEqual(ProjId.UiName, myCache.ProjectId.UiName);
 			Assert.AreEqual(26, myCache.LangProject.AllPartsOfSpeech.Count);
-			Assert.AreEqual(328, myCache.LangProject.LexDbOA.Entries.Count());
-			Assert.AreEqual(5, myCache.LangProject.InterlinearTexts.Count);
+			Assert.AreEqual(335, myCache.LangProject.LexDbOA.Entries.Count());
+			Assert.AreEqual(7, myCache.LangProject.InterlinearTexts.Count);
 			var extractor = new FLExDBExtractor(myCache);
 			var text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text == "Part 4").First();
 			var paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(3);
@@ -167,7 +167,8 @@ namespace SIL.DisambiguateInFLExDBTests
 			segmentAsANA = extractor.ExtractTextSegmentAsANA(segment);
 			expectedANA = ExpectedSegmentAsANA("ItIsHardToPickUpTheDullBrokenGlass.ana");
 			Assert.AreEqual(expectedANA, segmentAsANA);
-			text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text == "Mulit-morphemic").First();
+
+			text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text == "Multi-morphemic").First();
 			paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(0);
 			segment = paragraph.SegmentsOS.First();
 			segmentAsANA = extractor.ExtractTextSegmentAsANA(segment);
@@ -190,6 +191,15 @@ namespace SIL.DisambiguateInFLExDBTests
 			segment = paragraph.SegmentsOS.First();
 			segmentAsANA = extractor.ExtractTextSegmentAsANA(segment);
 			expectedANA = ExpectedSegmentAsANA("SiPro.ana");
+			//Console.WriteLine("ana='" + segmentAsANA + "'");
+			Assert.AreEqual(expectedANA, segmentAsANA);
+
+			text = myCache.LangProject.InterlinearTexts.Where(t => t.Title.BestAnalysisAlternative.Text ==
+				"Testing for dual-sense bug").First();
+			paragraph = (IStTxtPara)text.ParagraphsOS.ElementAt(0);
+			segment = paragraph.SegmentsOS.First();
+			segmentAsANA = extractor.ExtractTextSegmentAsANA(segment);
+			expectedANA = ExpectedSegmentAsANA("BahBook.ana");
 			//Console.WriteLine("ana='" + segmentAsANA + "'");
 			Assert.AreEqual(expectedANA, segmentAsANA);
 		}

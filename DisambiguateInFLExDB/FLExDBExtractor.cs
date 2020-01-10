@@ -46,6 +46,10 @@ namespace SIL.DisambiguateInFLExDB
 		protected void formatEntry(ILexEntry entry, StringBuilder sb)
 		{
 			var sense = entry.SensesOS.FirstOrDefault<ILexSense>();
+			if (sense == null)
+			{  // ignore variants for now
+				return;
+			}
 			var msa = sense.MorphoSyntaxAnalysisRA as IMoStemMsa;
 			if (msa == null)
 				return;
@@ -174,8 +178,14 @@ namespace SIL.DisambiguateInFLExDB
 						}
 						var sense = bundle.SenseRA;
 						if (sense == null)
-						{
-							if (morph != null)
+						{ // a sense can be missing from a bundle if the bundle is built by the parser filer
+							var entryOfMsa = (ILexEntry)msa.Owner;
+							sense = entryOfMsa.SensesOS.FirstOrDefault(s => s.MorphoSyntaxAnalysisRA == msa);
+							if (sense != null)
+							{
+								HandleSense(sbA, sbFD, sense);
+							}
+							else if (morph != null)
 							{
 								var entry = (ILexEntry)morph.Owner;
 								var sense2 = entry.SensesOS.FirstOrDefault();

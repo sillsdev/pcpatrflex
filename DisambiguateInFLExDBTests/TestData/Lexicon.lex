@@ -128,6 +128,11 @@
 \g away
 \f locative
 
+\w bah
+\c dem
+\g this
+\f
+
 \w ball
 \c n
 \g ball
