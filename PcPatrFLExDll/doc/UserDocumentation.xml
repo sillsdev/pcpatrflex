@@ -22,9 +22,9 @@ type="tPcPatrFLEx"
 ><date
 >8 August, 2019</date
 ><version
->Version 1.2.2 Beta</version
+>Version 1.2.5 Beta</version
 ><version
->Copyright © 2018-2019 SIL International</version
+>Copyright © 2018-2020 SIL International</version
 ><contents
 ></contents
 ></frontMatter
@@ -524,7 +524,7 @@ id="sKnownProblems"
 type="tPcPatrFLEx"
 ></object
 >:</p
-><ul
+><ol
 ><li
 ><object
 type="tPcPatrFLEx"
@@ -566,8 +566,12 @@ type="tFLEx"
 >.</pc
 ></li
 ><li
+>When a morpheme in a word analysis has just the form but no sense or grammatical info, then the gloss showing in the output will be the gloss of the first sense of the entry for the morpheme.</li
+><li
+>When a morpheme in a word analysis has the form and grammatical info but no sense overtly indicated and there are two or more senses using the grammatical info in the entry, then the gloss showing in the output will be the gloss of the first sense which uses the grammatical info.</li
+><li
 >The user interface is in English only.</li
-></ul
+></ol
 ></section1
 ><section1
 id="sSupport"
