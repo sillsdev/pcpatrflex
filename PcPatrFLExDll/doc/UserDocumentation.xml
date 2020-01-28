@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->8 August, 2019</date
+>28 January, 2020</date
 ><version
->Version 1.2.5 Beta</version
+>Version 1.3.0 Beta</version
 ><version
 >Copyright © 2018-2020 SIL International</version
 ><contents
@@ -656,7 +656,10 @@ src="resources/PcPatrBrowser2.png"
 >When there is more than one segment, you can use the <object
 type="tMenuItem"
 >Sentence</object
-> menu item options or the first set of arrow buttons on the tool bar to navigate from one sentence to another. (Please note that with <object
+> menu item options or the first set of arrow buttons on the tool bar to navigate from one sentence to another.  See appendix <appendixRef
+app="sKeyBoardShortcuts"
+></appendixRef
+> for keyboard shortcuts. (Please note that with <object
 type="tPcPatrFLEx"
 ></object
 >, “sentence” is the same as “segment.”)</p
@@ -664,7 +667,10 @@ type="tPcPatrFLEx"
 >When there is more than one parse for a given segment, you can use the <object
 type="tMenuItem"
 >Parse</object
-> menu item options or the second set of arrow buttons on the tool bar to navigate from one parse to another.</p
+> menu item options or the second set of arrow buttons on the tool bar to navigate from one parse to another.  See appendix <appendixRef
+app="sKeyBoardShortcuts"
+></appendixRef
+> for keyboard shortcuts.</p
 ></section1
 ><section1
 id="sRightToLeft"
@@ -684,6 +690,108 @@ type="tPcPatrBrowser"
 type="tMenuItem"
 >Language</object
 > menu item, though, and uncheck and then check the “Use right-to-left orientation in parse tree and interlinear” option.</p
+></section1
+><section1
+id="sKeyBoardShortcuts"
+><secTitle
+>Keyboard shortcuts</secTitle
+><p
+>To make processing texts faster, there are several keyboard shortcuts available.  These only work when the “focus" is in the interlinear, tree, or feature panes.  When <object
+type="tPcPatrBrowser"
+></object
+> begins, the default is to have the “focus” on the feature pane.  If you have clicked in the <object
+type="tPcPatr"
+></object
+> grammar file pane or if you are using the keyboard to select a menu item, then these shortcuts will not work.  You will need to click in the interlinear, tree, or feature pane first.</p
+><p
+>The shortcuts are as in example <exampleRef
+letter="xPcPatrBowserShortcuts"
+num="xPcPatrBowserShortcuts"
+></exampleRef
+>:</p
+><example
+num="xPcPatrBowserShortcuts"
+><table
+border="1"
+><tr
+><th
+>Shortcut</th
+><th
+>Operation</th
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+Down Arrow</object
+></td
+><td
+>Next sentence</td
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+Up Arrow</object
+></td
+><td
+>Previous sentence</td
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+Right Arrow</object
+></td
+><td
+>Next parse</td
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+Left Arrow</object
+></td
+><td
+>Previous parse</td
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+Shift+Down Arrow</object
+></td
+><td
+>Use this parse &amp; go to next sentence</td
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+/</object
+><endnote
+id="nCtrlSlash"
+><p
+>Some keyboards may not work with this sequence.  Therefore we also offer the <object
+type="tKey"
+>Ctrl+L</object
+> option.</p
+></endnote
+></td
+><td
+>Use this parse</td
+></tr
+><tr
+><td
+><object
+type="tKey"
+>Ctrl+L</object
+></td
+><td
+>Use this parse</td
+></tr
+></table
+></example
 ></section1
 ></appendix
 ><appendix

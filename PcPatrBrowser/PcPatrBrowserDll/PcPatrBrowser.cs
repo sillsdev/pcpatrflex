@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2019 SIL International
+// Copyright (c) 2011-2020 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 using System;
@@ -140,6 +140,7 @@ namespace SIL.PcPatrBrowser
 		private ToolBarButton tbbtnSeparator6;
 		private ToolBarButton tbbtnSaveForTreeTran;
 		private MenuItem miSaveForTreeTran;
+		private MenuItem miUseThisParseNextSentence;
 		private const string m_ksGrammarMessage = "When you click on a node in the tree in the panel above and " +
 			"a grammar file has been loaded, the corresponding rule will show here.";
 
@@ -174,6 +175,7 @@ namespace SIL.PcPatrBrowser
 			//
 			InitializeComponent();
 			richTextBox1.Text = m_ksGrammarMessage;
+			pnlRule.PreviewKeyDown += new PreviewKeyDownEventHandler(BrowserPreviewKeyDownHandler);
 
 			InitToolBar();
 
@@ -227,12 +229,14 @@ namespace SIL.PcPatrBrowser
 			miFileOpenAna.Visible = false;
 			miFileOpenGrammar.Visible = false;
 			miUseThisParse.Visible = true;
+			miUseThisParseNextSentence.Visible = true;
 			tbbtnOpenAnalysis.Visible = false;
 		}
 
 		private void InitLanguageInfo()
 		{
 			miUseThisParse.Visible = false;
+			miUseThisParseNextSentence.Visible = false;
 			MyFontInfo nt = new MyFontInfo(new Font("Times New Roman", 14.0f), Color.Black);
 			MyFontInfo lex = new MyFontInfo(new Font("Courier New", 12.0f), Color.Blue);
 			MyFontInfo gloss = new MyFontInfo(new Font("Times New Roman", 12.0f), Color.Green);
@@ -293,6 +297,8 @@ namespace SIL.PcPatrBrowser
 			{
 				miParse.Enabled = false;
 				miSentence.Enabled = false;
+				miUseThisParse.Enabled = false;
+				miUseThisParseNextSentence.Enabled = false;
 				tbbtnFirstParse.Enabled = false;
 				tbbtnFirstSentence.Enabled = false;
 				tbbtnLastParse.Enabled = false;
@@ -308,8 +314,15 @@ namespace SIL.PcPatrBrowser
 			{
 				EnableDisableSentenceItems();
 				EnableDisableParseItems();
-				miUseThisParse.Enabled = true;
-				tbbtnUseThisParse.Enabled = true;
+				bool parsesExist = false;
+				if (m_doc.CurrentSentence != null)
+				{
+					if (m_doc.CurrentSentence.NumberOfParses > 0)
+						parsesExist = true;
+				}
+				miUseThisParse.Enabled = parsesExist;
+				tbbtnUseThisParse.Enabled = parsesExist;
+				miUseThisParseNextSentence.Enabled = parsesExist;
 			}
 			if (m_tree == null)
 				miViewRightToLeft.Enabled = false;
@@ -441,8 +454,41 @@ namespace SIL.PcPatrBrowser
 			browser.TabIndex = 6;
 			//browser.TheaterMode = false;
 			browser.Url = null;
+			browser.PreviewKeyDown += new PreviewKeyDownEventHandler(BrowserPreviewKeyDownHandler);
 			//browser.XPThemed = false;
 		}
+
+		private void BrowserPreviewKeyDownHandler(object sender, PreviewKeyDownEventArgs e)
+		{
+			if (e.Control && !e.Shift)
+			{
+				switch (e.KeyCode)
+				{
+					case Keys.Down:
+						miSentenceNext_Click(sender, e);
+						break;
+					case Keys.Up:
+						miSentencePrevious_Click(sender, e);
+						break;
+					case Keys.Right:
+						miParseNext_Click(sender, e);
+						break;
+					case Keys.Left:
+						miParsePrevious_Click(sender, e);
+						break;
+					case Keys.OemQuestion: // fall through
+					case Keys.L:
+						miUseThisParse_Click(sender, e);
+						MessageBox.Show("Ctrl-L");
+						break;
+				}
+			}
+			else if (e.Control && e.Shift && e.KeyCode == Keys.Down)
+			{
+				miUseThisParseNextSentence_Click(sender, e);
+			}
+		}
+
 		private void InitFeatureStructureBrowser()
 		{
 			wbFeatureStructure = new WebBrowser();
@@ -523,6 +569,7 @@ namespace SIL.PcPatrBrowser
 			this.menuItem4 = new System.Windows.Forms.MenuItem();
 			this.miParserGoTo = new System.Windows.Forms.MenuItem();
 			this.miUseThisParse = new System.Windows.Forms.MenuItem();
+			this.miUseThisParseNextSentence = new System.Windows.Forms.MenuItem();
 			this.miLanguage = new System.Windows.Forms.MenuItem();
 			this.menuItem1 = new System.Windows.Forms.MenuItem();
 			this.miHelpAbout = new System.Windows.Forms.MenuItem();
@@ -773,7 +820,8 @@ namespace SIL.PcPatrBrowser
             this.miParseLast,
             this.menuItem4,
             this.miParserGoTo,
-            this.miUseThisParse});
+            this.miUseThisParse,
+            this.miUseThisParseNextSentence});
 			this.miParse.Text = "Parse";
 			// 
 			// miParseFirst
@@ -816,6 +864,12 @@ namespace SIL.PcPatrBrowser
 			this.miUseThisParse.Index = 6;
 			this.miUseThisParse.Text = "&Use This Parse";
 			this.miUseThisParse.Click += new System.EventHandler(this.miUseThisParse_Click);
+			// 
+			// miUseThisParseNextSentence
+			// 
+			this.miUseThisParseNextSentence.Index = 7;
+			this.miUseThisParseNextSentence.Text = "Use This Parse && Go to Ne&xt Sentence";
+			this.miUseThisParseNextSentence.Click += new System.EventHandler(this.miUseThisParseNextSentence_Click);
 			// 
 			// miLanguage
 			// 
@@ -1063,7 +1117,7 @@ namespace SIL.PcPatrBrowser
 			// tbbtnSaveForTreeTran
 			// 
 			this.tbbtnSaveForTreeTran.ImageIndex = 11;
-			this.tbbtnSaveForTreeTran.Name = "tbbtnTreeTranOutput";
+			this.tbbtnSaveForTreeTran.Name = "tbbtnSaveForTreeTran";
 			this.tbbtnSaveForTreeTran.Style = System.Windows.Forms.ToolBarButtonStyle.ToggleButton;
 			this.tbbtnSaveForTreeTran.ToolTipText = "Save for TreeTran";
 			// 
@@ -1103,6 +1157,7 @@ namespace SIL.PcPatrBrowser
 			this.PerformLayout();
 
 		}
+
 		#endregion
 		/// <summary>
 		/// The main entry point for the application.
@@ -1575,6 +1630,8 @@ namespace SIL.PcPatrBrowser
 		{
 			PcPatrSentence sent = m_doc.CurrentSentence;
 			PcPatrParse parse = sent.CurrentParse;
+			if (parse == null)
+				return;
 			int i = sent.CurrentParseNumber;
 			// build and save result value
 			var guids = parse.Node.SelectNodes("//Parse[" + i + "]//Lexfs/F[@name='properties']/Str");
@@ -1585,6 +1642,12 @@ namespace SIL.PcPatrBrowser
 			}
 			PropertiesChosen[m_doc.CurrentSentenceNumber-1] = sb.ToString();
 			ParsesChosen[m_doc.CurrentSentenceNumber - 1] = sent.CurrentParseNumber;
+		}
+
+		private void miUseThisParseNextSentence_Click(object sender, EventArgs e)
+		{
+			miUseThisParse_Click(sender, e);
+			miSentenceNext_Click(sender, e);
 		}
 
 		private void miViewStatusBar_Click(object sender, System.EventArgs e)
