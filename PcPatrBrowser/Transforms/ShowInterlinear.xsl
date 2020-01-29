@@ -28,6 +28,7 @@ Preamble
 	<xsl:param name="sUnderFormFont" select="'Courier New'"/>
 	<!-- text message -->
 	<xsl:param name="sTextMessage" select="'Sentence 1 of 33'"/>
+	<xsl:param name="bParseAccepted" select="'N'"/>
 	<xsl:param name="bRightToLeft" select="'Y'"/>
 
 	<xsl:variable name="bDoUnderlyingForm" select="//UnderForm"/>
@@ -44,8 +45,20 @@ Main template
 			<body>
 				<table>
 					<tr>
-						<td valign="top" style="font-size=75%">
-							<xsl:value-of select="$sTextMessage"/>
+						<td valign="top">
+							<table border="0">
+								<tr>
+									<td>
+										<xsl:attribute name="style">
+											<xsl:text>font-size=75%</xsl:text>
+											<xsl:if test="$bParseAccepted='Y'">
+												<xsl:text>; background-color:yellow</xsl:text>
+											</xsl:if>
+										</xsl:attribute>
+										<xsl:value-of select="$sTextMessage"/>
+									</td>
+								</tr>
+							</table>
 						</td>
 						<td>
 							<table border="1">

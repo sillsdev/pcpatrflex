@@ -479,7 +479,6 @@ namespace SIL.PcPatrBrowser
 					case Keys.OemQuestion: // fall through
 					case Keys.L:
 						miUseThisParse_Click(sender, e);
-						MessageBox.Show("Ctrl-L");
 						break;
 				}
 			}
@@ -1252,6 +1251,8 @@ namespace SIL.PcPatrBrowser
 			Cursor.Current = Cursors.WaitCursor;
 			string sGrammarFile;
 			m_doc = new PcPatrDocument(m_sLogOrAnaFileName, out sGrammarFile);
+			PropertiesChosen = new String[m_doc.NumberOfSentences];
+			ParsesChosen = new int[m_doc.NumberOfSentences];
 			if (sGrammarFile != null)
 			{
 				m_sGrammarFileName = sGrammarFile;
@@ -1278,8 +1279,6 @@ namespace SIL.PcPatrBrowser
 			ShowInterlinear(sent);
 			Cursor.Current = Cursors.Arrow;
 			SetTitle();
-			PropertiesChosen = new String[m_doc.NumberOfSentences];
-			ParsesChosen = new int[m_doc.NumberOfSentences];
 		}
 
 		private void FileOpenGrammar_Click(object sender, System.EventArgs e)
@@ -1333,6 +1332,7 @@ namespace SIL.PcPatrBrowser
 			XmlTextWriter writer = new XmlTextWriter(m_sInterFile, null);
 			XsltArgumentList argList = new XsltArgumentList();
 			argList.AddParam("sTextMessage", "", "Sentence " + m_doc.CurrentSentenceNumber.ToString() + " of " + m_doc.NumberOfSentences.ToString());
+			argList.AddParam("bParseAccepted", "", ParsesChosen[m_doc.CurrentSentenceNumber - 1] == 0 ? "N" : "Y");
 			argList.AddParam("bRightToLeft", "", miViewRightToLeft.Checked ? "Y" : "N");
 			argList.AddParam("sDecompSeparationCharacter", "", m_language.DecompChar);
 			argList.AddParam("sCategoryFont", "", m_language.NTFontFace);
@@ -1438,6 +1438,10 @@ namespace SIL.PcPatrBrowser
 			m_tree.SetTreeParameters(treeDoc);
 			m_tree.ParseXmlTreeDescription(xmlTree);
 			m_tree.MessageText = "Parse " + sentence.CurrentParseNumber.ToString() + " of " + sentence.NumberOfParses.ToString();
+			if (ParsesChosen[m_doc.CurrentSentenceNumber - 1] == sentence.CurrentParseNumber)
+			{
+				m_tree.BackgroundColor = Color.Yellow;
+			}
 			Graphics grfx = CreateGraphics();
 			m_tree.CalculateCoordinates(grfx);
 			m_tree.Draw(grfx, Color.Black);
@@ -1642,6 +1646,8 @@ namespace SIL.PcPatrBrowser
 			}
 			PropertiesChosen[m_doc.CurrentSentenceNumber-1] = sb.ToString();
 			ParsesChosen[m_doc.CurrentSentenceNumber - 1] = sent.CurrentParseNumber;
+			ShowInterlinear(sent);
+			ShowParseTree(sent, parse);
 		}
 
 		private void miUseThisParseNextSentence_Click(object sender, EventArgs e)
