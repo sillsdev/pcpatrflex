@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018 SIL International
+﻿// Copyright (c) 2018-2020 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -40,10 +40,20 @@ namespace SIL.DisambiguateInFLExDB
 					{
 						file.WriteLine("\t i=" + ig +" guid=\"" + g + "\"");
 					}
+					file.WriteLine("Segment.Analyses count=" + Segment.AnalysesRS.Count);
+					file.WriteLine("WfiWordForm     ID=" + WfiWordformTags.kClassId);
+					file.WriteLine("WfiGloss        ID=" + WfiGlossTags.kClassId);
+					file.WriteLine("WfiAnalysis     ID=" + WfiAnalysisTags.kClassId);
+					file.WriteLine("PunctuationForm ID=" + PunctuationFormTags.kClassId);
 				}
 				int i = 0;
 				foreach (IAnalysis analysis in Segment.AnalysesRS)
 				{
+					using (StreamWriter file = new StreamWriter(tempFileName, true))
+					{
+						file.WriteLine("\tAnalysis guid=\"" + analysis.Guid + "\"");
+						file.WriteLine("\tClass id=\"" + analysis.ClassID + "\"");
+					}
 					// The Analyses can be:
 					//	  a WfiWordForm when it is unanalyzed,
 					//    a WfiAnalysis when it is partially analyzed, and
@@ -59,6 +69,14 @@ namespace SIL.DisambiguateInFLExDB
 						var wfiMorphBundleGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
 						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundleGuidToUse);
 						var bundle = wfiMorphBundle as IWfiMorphBundle;
+						using (StreamWriter file = new StreamWriter(tempFileName, true))
+						{
+							file.WriteLine("\t\twfiMorphBundleGuidToUse=\"" + wfiMorphBundleGuidToUse + "\"");
+							String s = (wfiMorphBundle == null) ? "null" : wfiMorphBundle.Guid.ToString();
+							file.WriteLine("\t\twfiMorphBundle=\"" +  s + "\"");
+							s = (bundle == null) ? "null" : bundle.Guid.ToString();
+							file.WriteLine("\t\tbundle=" + s + "\"");
+						}
 						EnsureMorphBundleHasSense(bundle);
 						if (wfiMorphBundle.Owner is IWfiAnalysis wfiAnalysisToUse)
 						{
@@ -84,8 +102,8 @@ namespace SIL.DisambiguateInFLExDB
 								}
 							}
 						}
+						i++;
 					}
-					i++;
 				}
 			});
 		}
@@ -123,6 +141,14 @@ namespace SIL.DisambiguateInFLExDB
 					{
 						file.WriteLine("\t\tsense guid=\"" + sense.Guid + "\"");
 					}
+				}
+
+			}
+			else
+			{
+				using (StreamWriter file = new StreamWriter(tempFileName, true))
+				{
+					file.WriteLine("\tEMBHS: bundle is null");
 				}
 
 			}

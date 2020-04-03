@@ -71,8 +71,7 @@
     <Reference Include="nunit.framework">
       <HintPath>..\NUnit-2.6.4\bin\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SIL.Core">
       <HintPath>..\FWDlls\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core.Desktop">
@@ -109,8 +108,7 @@
     <Reference Include="SIL.Lexicon">
       <HintPath>..\FWDlls\SIL.Lexicon.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SIL.WritingSystems">
       <HintPath>..\FWDlls\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -126,6 +124,7 @@
     <Compile Include="AndFileLoaderTest.cs" />
     <Compile Include="DisambiguateSegmentTest.cs" />
     <Compile Include="DisambiguateTest.cs" />
+    <Compile Include="DisambiguateText2Test.cs" />
     <Compile Include="DisambiguateTextTest.cs" />
     <Compile Include="FLExDBExtractorTests.cs" />
     <Compile Include="GuidConverterTest.cs" />
