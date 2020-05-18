@@ -154,6 +154,8 @@ namespace SIL.DisambiguateInFLExDB
 						if (msa == null)
 							continue;
 						var morph = bundle.MorphRA;
+						if (morph == null)
+							continue;
 						if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
 						{
 							if (previous == null)
