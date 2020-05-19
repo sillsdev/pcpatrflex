@@ -291,7 +291,7 @@ namespace SIL.DisambiguateInFLExDB
 				return GetStemsCategory(bundle);
 			}
 			var stems = wfiAnalysis.MorphBundlesOS.Where(b => b.MsaRA is IMoStemMsa
-				&& !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
+				&& b.MorphRA != null && !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
 			if (stems.Count() == 1)
 			{
 				var firstStem = wfiAnalysis.MorphBundlesOS.First(b => b.MsaRA is IMoStemMsa
