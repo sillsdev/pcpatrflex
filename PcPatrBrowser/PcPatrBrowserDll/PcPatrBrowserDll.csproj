@@ -145,6 +145,9 @@
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LingTreeTree">
       <HintPath>..\..\LingTreeTree\bin\x64\Release\LingTreeTree.dll</HintPath>

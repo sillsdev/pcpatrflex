@@ -87,7 +87,7 @@ namespace SIL.PcPatrFLEx
 				{
 					Cursor.Current = Cursors.WaitCursor;
 					Application.DoEvents();
-					retrieveRegistryInfo();
+					RetrieveRegistryInfo();
 					regkey.Close();
 					DesktopBounds = RectNormal;
 					WindowState = WindowState;
@@ -155,7 +155,7 @@ namespace SIL.PcPatrFLEx
 			helpContextMenu.Items.Add(about);
 		}
 
-		void retrieveRegistryInfo()
+		void RetrieveRegistryInfo()
 		{
 			// Window location
 			int iX = (int)regkey.GetValue(m_strLocationX, 100);
@@ -172,7 +172,7 @@ namespace SIL.PcPatrFLEx
 			RetrievedLastSegment = LastSegment = (string)regkey.GetValue(m_strLastSegment);
 			LastRootGlossSelection = (string)regkey.GetValue(m_strLastRootGlossSelection);
 		}
-		public void saveRegistryInfo()
+		public void SaveRegistryInfo()
 		{
 			regkey = Registry.CurrentUser.OpenSubKey(m_strRegKey, true);
 			if (regkey == null)
@@ -263,7 +263,7 @@ namespace SIL.PcPatrFLEx
 		private void OnFormClosing(object sender, EventArgs e)
 		{
 			Console.WriteLine("form closing");
-			saveRegistryInfo();
+			SaveRegistryInfo();
 		}
 
 		private void Texts_SelectedIndexChanged(object sender, EventArgs e)
@@ -374,6 +374,15 @@ namespace SIL.PcPatrFLEx
 			}
 		}
 
+		private void lbSegments_DoubleClick(object sender, EventArgs e)
+		{
+			if (lbSegments.SelectedItem != null)
+			{
+				Segments_SelectedIndexChanged(sender, e);
+				if (btnParse.Enabled)
+					Parse_Click(sender, e);
+			}
+		}
 		private void Browse_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog dlg = new OpenFileDialog();

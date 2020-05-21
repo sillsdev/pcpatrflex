@@ -1139,7 +1139,9 @@ namespace SIL.PcPatrBrowser
 			// 
 			// PcPatrBrowserApp
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
+			//this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(592, 449);
 			this.Controls.Add(this.pnlTreeFeat);
 			this.Controls.Add(this.splitterBetweenInterlinearAndTreeFeat);
@@ -1941,18 +1943,19 @@ namespace SIL.PcPatrBrowser
 				m_sLanguageFileName = value;
 			}
 		}
+
 		protected override void OnClosed(EventArgs e)
 		{
 			if (IsDisposed)
 				// if user uses Exit menu item, we dispose and this gets called a second time
 				return;
+			SaveRegistryInfo();
 			if (miSaveForTreeTran.Checked)
 			{
 				SaveForTreeTran();
 			}
 			if (m_fNeedToSaveLanguageInfo)
 				miFileSaveLangAs_Click(null, null);
-			SaveRegistryInfo();
 			if (File.Exists(m_sFSFile))
 				File.Delete(m_sFSFile);
 			if (File.Exists(m_sInterFile))
@@ -1991,6 +1994,9 @@ namespace SIL.PcPatrBrowser
 				RegistryKey regkey = Registry.CurrentUser.OpenSubKey(m_sRegKey);
 				if (regkey != null)
 				{
+					Cursor.Current = Cursors.WaitCursor;
+					Application.DoEvents();
+
 					// View settings
 					miViewFeatStruct.Checked = Convert.ToBoolean((string) regkey.GetValue(m_ksViewFeatStruct));
 					miViewInterlinear.Checked = Convert.ToBoolean((string)regkey.GetValue(m_ksViewInterlinear));
@@ -2044,12 +2050,15 @@ namespace SIL.PcPatrBrowser
 						splitterBetweenTreeFeatAndRule.SplitPosition = iSize;
 
 					m_sLogOrAnaFileName = (string)regkey.GetValue(m_ksLastLogFile);
-
+					Cursor.Current = Cursors.Default;
 					regkey.Close();
 				}
 			}
-			catch
+			catch (Exception e)
 			{
+				Console.WriteLine(e.Message);
+				Console.WriteLine(e.InnerException);
+				Console.WriteLine(e.StackTrace);
 			}
 
 		}
@@ -2081,7 +2090,7 @@ namespace SIL.PcPatrBrowser
 			regkey.SetValue(m_ksLocationX, this.m_RectNormal.X);
 			regkey.SetValue(m_ksLocationY, this.m_RectNormal.Y);
 			regkey.SetValue(m_ksSizeWidth, this.m_RectNormal.Width);
-			regkey.SetValue(m_ksSizeHeight, this.m_RectNormal.Height); // -20); // not sure why it's 20 off...
+			regkey.SetValue(m_ksSizeHeight, this.m_RectNormal.Height - 20); // not sure why it's 20 off...
 			regkey.SetValue(m_ksSplitterBetweenInterAndTreeFeat, splitterBetweenInterlinearAndTreeFeat.SplitPosition);
 			regkey.SetValue(m_ksSplitterBetweenTreeAndFeat, splitterBetweenTreeAndFeat.SplitPosition);
 			regkey.SetValue(m_ksSplitterBetweenTreeFeatAndRule, splitterBetweenTreeFeatAndRule.SplitPosition);

@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->29 January, 2020</date
+>21 May, 2020</date
 ><version
->Version 1.4.0 Beta</version
+>Version 1.5.0 Beta</version
 ><version
 >Copyright © 2018-2020 SIL International</version
 ><contents
@@ -310,7 +310,7 @@ id="sParsingSegment"
 ><secTitle
 >Parsing a segment</secTitle
 ><p
->When you use the “Parse &amp; show this segment” button for a segment, <object
+>When you use the “Parse &amp; show this segment” button for a segment or double click on that segment, <object
 type="tPcPatrFLEx"
 ></object
 > will pass the parsing information that you entered in <object
@@ -672,7 +672,7 @@ app="sKeyBoardShortcuts"
 ></appendixRef
 > for keyboard shortcuts.</p
 ><p
->When you manually select to use a parse, then the entire tree description will be highlighted in yellow.  In addition, the sentence number in the interlinear pane will be highlighted in yellow.</p
+>When you manually select to use a parse, then the entire tree description will be highlighted in yellow. In addition, the sentence number in the interlinear pane will be highlighted in yellow.</p
 ></section1
 ><section1
 id="sRightToLeft"

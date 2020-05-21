@@ -102,6 +102,7 @@
 			this.lbSegments.Size = new System.Drawing.Size(436, 790);
 			this.lbSegments.TabIndex = 0;
 			this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
+			this.lbSegments.DoubleClick += new System.EventHandler(lbSegments_DoubleClick);
 			// 
 			// lblTexts
 			// 
