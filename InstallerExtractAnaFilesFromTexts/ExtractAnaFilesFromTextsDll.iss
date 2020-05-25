@@ -35,7 +35,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "..\ExtractAnaFilesFromTexts\bin\x64\Release\ExtractAnaFilesFromTextsDll.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ExtractAnaFilesFromTexts\bin\x64\Release\ExtractAnaFilesFromTextsDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\ExtractAnaFilesFromTexts\bin\x64\Release\ExtractAnaFilesFromTextsDll.pdb"; DestDir: "{app}"; Flags: ignoreversion; AfterInstall: SetLineInFile('C:\Program Files\SIL\FieldWorks 9\Language Explorer\Configuration\UtilityCatalogInclude.xml', '<utility assemblyPath=''C:\Program Files\SIL\UsePcPatrWithFLEx\ExtractAnaFilesFromTextsDll.dll'' class=''SIL.PcPatrFLEx.FLExUtilityExtract''/>');
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
