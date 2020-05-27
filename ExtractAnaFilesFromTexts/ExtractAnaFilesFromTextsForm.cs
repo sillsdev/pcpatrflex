@@ -281,6 +281,7 @@ namespace SIL.PcPatrFLEx
 				var textName = selectedText.Name.BestAnalysisVernacularAlternative.Text;
 				if (String.IsNullOrEmpty(textName))
 					textName = "text" + selectedText.Guid.ToString();
+				textName = MakeValidFileName(textName);
 				String anaFile = Path.Combine(Path.GetTempPath(), textName + ".ana");
 				File.WriteAllText(anaFile, ana);
 			}
@@ -295,6 +296,15 @@ namespace SIL.PcPatrFLEx
 			dialog.Location = new Point(this.Location.X + 20, this.Location.Y + 20);
 			//Console.WriteLine("dialog result=" + dialog.Location.X + "," + dialog.Location.Y);
 			dialog.Show();
+		}
+
+		// Following taken from https://stackoverflow.com/questions/309485/c-sharp-sanitize-file-name
+		private static string MakeValidFileName(string name)
+		{
+			string invalidChars = System.Text.RegularExpressions.Regex.Escape(new string(System.IO.Path.GetInvalidFileNameChars()));
+			string invalidRegStr = string.Format(@"([{0}]*\.+$)|([{0}]+)", invalidChars);
+
+			return System.Text.RegularExpressions.Regex.Replace(name, invalidRegStr, "_").TrimEnd('.');
 		}
 	}
 }
