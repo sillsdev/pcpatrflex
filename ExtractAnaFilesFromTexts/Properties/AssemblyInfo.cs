@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ExtractAnaFilesFromTexts")]
 [assembly: AssemblyDescription("This program enables one to extract selected FLEx texts in ANA form for creating regression test files.\r\nIt is compatible with FLEx database version 7000072 such as in version 9.0.4 Beta of FLEx.\r\n\r\nThis software is licensed under the LGPL, version 2.1 or later\r\n(http://www.gnu.org/licenses/lgpl-2.1.html)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("SIL International")]
 [assembly: AssemblyProduct("ExtractAnaFilesFromTexts")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

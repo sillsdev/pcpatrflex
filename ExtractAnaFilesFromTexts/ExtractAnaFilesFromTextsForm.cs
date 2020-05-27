@@ -166,14 +166,15 @@ namespace SIL.PcPatrFLEx
 				lbTexts.ClearSelected();
 				var selectedTexts = LastSelectedTexts.Split(' ');
 				var texts = lbTexts.Items;
-				foreach (string sGuid in selectedTexts)
+				for (int i = 0; i < lbTexts.Items.Count; i++)
 				{
-					for (int i = 0; i < lbTexts.Items.Count; i++)
+					var itext = lbTexts.Items[i] as IText;
+					foreach (string sGuid in selectedTexts)
 					{
-						var itext = lbTexts.Items[i] as IText;
 						if ((itext.Guid.ToString()).Equals(sGuid))
 						{
 							lbTexts.SetSelected(i, true);
+							break;
 						}
 					}
 				}
@@ -292,7 +293,7 @@ namespace SIL.PcPatrFLEx
 			// for some reason the following is needed to keep the dialog within the form
 			Point pt = dialog.PointToClient(System.Windows.Forms.Cursor.Position);
 			dialog.Location = new Point(this.Location.X + 20, this.Location.Y + 20);
-			Console.WriteLine("dialog result=" + dialog.Location.X + "," + dialog.Location.Y);
+			//Console.WriteLine("dialog result=" + dialog.Location.X + "," + dialog.Location.Y);
 			dialog.Show();
 		}
 	}
