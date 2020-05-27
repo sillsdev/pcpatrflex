@@ -161,7 +161,7 @@ namespace SIL.PcPatrFLEx
 
 		private void SetLastSelectedItems()
 		{
-			if (LastSelectedTexts.Length > 1)
+			if (!String.IsNullOrEmpty(LastSelectedTexts) && LastSelectedTexts.Length > 1)
 			{
 				lbTexts.ClearSelected();
 				var selectedTexts = LastSelectedTexts.Split(' ');
