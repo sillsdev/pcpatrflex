@@ -350,7 +350,8 @@ namespace SIL.PcPatrFLEx
 					foreach (var segment in paraUse.SegmentsOS)
 					{
 						var ana = Extractor.ExtractTextSegmentAsANA(segment);
-						sb.Append(ana.Substring(0, ana.Length-1)); // skip final extra nl
+                        int iEnd = Math.Max(ana.Length - 1, 0);
+						sb.Append(ana.Substring(0, iEnd)); // skip final extra nl, if any
 						// Now add period so PcPatr will treat it as an end of a sentence
 						sb.Append("\\n .\n\n");
 					}
