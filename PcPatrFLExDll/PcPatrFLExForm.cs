@@ -273,17 +273,20 @@ namespace SIL.PcPatrFLEx
 			LastText = text.Guid.ToString();
 			var contents = text.ContentsOA;
 			IList<IStPara> paragraphs = contents.ParagraphsOS;
-			foreach (IStPara para in paragraphs)
-			{
-				var paraUse = para as IStTxtPara;
-				if (paraUse != null)
-				{
-					foreach (var segment in paraUse.SegmentsOS)
-					{
-						SegmentsInListBox.Add(new SegmentToShow(segment, segment.BaselineText.Text));
-					}
-				}
-			}
+            if (paragraphs != null)
+            {
+                foreach (IStPara para in paragraphs)
+                {
+                    var paraUse = para as IStTxtPara;
+                    if (paraUse != null)
+                    {
+                        foreach (var segment in paraUse.SegmentsOS)
+                        {
+                            SegmentsInListBox.Add(new SegmentToShow(segment, segment.BaselineText.Text));
+                        }
+                    }
+                }
+            }
 			lbSegments.DataSource = SegmentsInListBox;
 		}
 
