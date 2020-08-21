@@ -46,7 +46,8 @@ namespace SIL.DisambiguateInFLExDB
 					file.WriteLine("WfiAnalysis     ID=" + WfiAnalysisTags.kClassId);
 					file.WriteLine("PunctuationForm ID=" + PunctuationFormTags.kClassId);
 				}
-				int i = 0;
+				int guidsIndex = 0;
+                int analysesIndex = 0;
 				foreach (IAnalysis analysis in Segment.AnalysesRS)
 				{
 					using (StreamWriter file = new StreamWriter(tempFileName, true))
@@ -64,9 +65,9 @@ namespace SIL.DisambiguateInFLExDB
 					if ((analysis.ClassID == WfiWordformTags.kClassId
 						|| analysis.ClassID == WfiGlossTags.kClassId
 						|| analysis.ClassID == WfiAnalysisTags.kClassId)
-						&& i < DisambiguatedMorphBundles.Count)
+						&& guidsIndex < DisambiguatedMorphBundles.Count)
 					{
-						var wfiMorphBundleGuidToUse = DisambiguatedMorphBundles.ElementAt(i);
+						var wfiMorphBundleGuidToUse = DisambiguatedMorphBundles.ElementAt(guidsIndex);
 						var wfiMorphBundle = cache.ServiceLocator.ObjectRepository.GetObject(wfiMorphBundleGuidToUse);
 						var bundle = wfiMorphBundle as IWfiMorphBundle;
 						using (StreamWriter file = new StreamWriter(tempFileName, true))
@@ -87,11 +88,11 @@ namespace SIL.DisambiguateInFLExDB
 							wfiAnalysisToUse.SetAgentOpinion(cache.LanguageProject.DefaultUserAgent, Opinions.approves);
 							if (wfiAnalysisToUse.MeaningsOC.Count == 1)
 							{
-								Segment.AnalysesRS[i] = wfiAnalysisToUse.MeaningsOC.ElementAt(0);
+								Segment.AnalysesRS[analysesIndex] = wfiAnalysisToUse.MeaningsOC.ElementAt(0);
 							}
 							else
 							{
-								Segment.AnalysesRS[i] = wfiAnalysisToUse;
+								Segment.AnalysesRS[analysesIndex] = wfiAnalysisToUse;
 							}
 							foreach (IWfiMorphBundle b in wfiAnalysisToUse.MorphBundlesOS)
 							{
@@ -102,10 +103,11 @@ namespace SIL.DisambiguateInFLExDB
 								}
 							}
 						}
-						i++;
+						guidsIndex++;
 					}
-				}
-			});
+                    analysesIndex++;
+                }
+            });
 		}
 
 		public void EnsureMorphBundleHasSense(IWfiMorphBundle bundle)
