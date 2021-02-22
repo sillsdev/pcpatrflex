@@ -428,7 +428,18 @@ namespace SIL.PcPatrFLEx
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
 			string ana = GetAnaForm(selectedTextToShow);
-			string andResult;
+            if (ana.Contains("\\a \n"))
+            {
+                int iA = ana.IndexOf("\\a \n");
+                String sA = ana.Substring(iA);
+                int iW = sA.IndexOf("\\w ");
+                String sW = sA.Substring(iW);
+                int iWEnd = sW.IndexOf("\n");
+                String word = sW.Substring(3, iWEnd - 3);
+                MessageBox.Show("Sorry, but not every sentence has every word parsed. At least the word '" + word + "' did not parse.  Please make sure every word is parsed and try again.");
+                return;
+            }
+            string andResult;
 			PcPatrBrowserApp browser;
 			var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
 			if (grammarOK)

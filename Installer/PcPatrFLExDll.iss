@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Use PC-PATR with FLEx"
-#define MyAppVersion "1.5.3 Beta"
+#define MyAppVersion "1.5.4 Beta"
 #define MyAppPublisher "SIL Iternational"
 #define MyAppURL "https://software.sil.org/"
 #define MyAppExeName "PcPatrFLExDll.dll"
@@ -44,6 +44,7 @@ Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.dll"; DestDir
 Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrBrowser\PcPatrBrowserDll\bin\x64\Release\SIL.PcPatrBrowserDll.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrBrowser\PcPatrBrowserDll\bin\x64\Release\SIL.PcPatrBrowserDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrBrowser\PcPatrBrowserExe\bin\x64\Release\SIL.PcPatrBrowserExe.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\Transforms\InitFeature.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\Transforms\InitInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\Transforms\NoInterlinear.htm"; DestDir: "{app}\Transforms"; Flags: ignoreversion

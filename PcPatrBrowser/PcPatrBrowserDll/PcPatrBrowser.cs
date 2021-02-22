@@ -1168,6 +1168,43 @@ namespace SIL.PcPatrBrowser
 		{
 			Application.Run(new PcPatrBrowserApp());
 		}
+
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        public static void Main(string[] rgArgs)
+        {
+            if (rgArgs.Length > 1)
+            {
+                string startupDirectory = rgArgs[0];
+                string andFile = rgArgs[1];
+                if (!Directory.Exists(startupDirectory))
+                {
+                    Console.WriteLine("Could not find directory '" + startupDirectory + "'");
+                }
+                else
+                {
+                    if (!File.Exists(andFile))
+                    {
+                        Console.WriteLine("Could not find file '" + andFile + "'");
+                    }
+                    else
+                    {
+                        PcPatrBrowserApp browserApp = new PcPatrBrowserApp(startupDirectory);
+                        browserApp.LoadAnaFile(andFile);
+                        Application.Run(browserApp);
+                        //Application.Run(new PcPatrBrowserApp(rgArgs[0]));
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Usage: SIL.PcPatrBrowserExe 'FLEx program directory' 'Invoker.and file'");
+            }
+        }
+
+
 #if ItWouldBeNiceToHaveInsteadButICouldNotGetItToWorkAndAmNotGoingToSpendMoreTimeOnItNow
 		/// -----------------------------------------------------------------------------------
 		/// <summary>
@@ -1222,7 +1259,7 @@ namespace SIL.PcPatrBrowser
 		}
 #endif
 
-		private void FileOpenAna_Click(object sender, System.EventArgs e)
+        private void FileOpenAna_Click(object sender, System.EventArgs e)
 		{
 			OpenFileDialog dlg = new OpenFileDialog();
 			if (m_sLogOrAnaFileName != null && m_sLogOrAnaFileName.Length > 0)

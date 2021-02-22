@@ -6,12 +6,12 @@ using System.Runtime.CompilerServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("PcPatrBrowser")]
-[assembly: AssemblyDescription("A tool to aid in studying syntactic tree output from PC-PATR.")]
+[assembly: AssemblyTitle("")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SIL International")]
-[assembly: AssemblyProduct("PC-PATR Browser")]
-[assembly: AssemblyCopyright("2011-2021")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -26,8 +26,8 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("1.4.2.0")]
-[assembly: AssemblyFileVersion("1.4.2.0")]
+[assembly: AssemblyVersion("0.2.2.*")]
+
 //
 // In order to sign your assembly you must specify a key to use. Refer to the
 // Microsoft .NET Framework documentation for more information on assembly signing.
