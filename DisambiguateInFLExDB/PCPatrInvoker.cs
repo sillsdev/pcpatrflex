@@ -36,17 +36,6 @@ namespace SIL.DisambiguateInFLExDB
 
 		[DllImport("kernel32.dll", SetLastError = true)]
         private static extern int GetShortPathName(String pathName, StringBuilder shortName, int cbShortName);
-        // No longer works on Andy's machine:
-        // Edition: Windows 10 Pro
-        // Version: 2004
-        // Installed on: 8/27/2020
-        // OS build: 19041.804
-        // Experience: Windows Feature Experience Pack 120.2212.5510
-        // The kernel2.dll details are:
-        // File version: 10.0.19041.804
-        // Product version: 10.0.19041.804
-        // Date modified: 2/10/2021 1:49 PM
-        // (Today's date is February 19, 2021)
 
         private void CreateBatchFile()
 		{
@@ -111,39 +100,24 @@ namespace SIL.DisambiguateInFLExDB
 			sbTake.Append("log ");
 			sbTake.Append(logFileName);
 			sbTake.Append("\n");
-            String sGrammarFleName = GrammarFile.Substring(GrammarFile.LastIndexOf("\\") + 1);
-            File.Copy(GrammarFile, Path.Combine(Path.GetTempPath(), sGrammarFleName), true);
             sbTake.Append("load grammar ");
-            sbTake.Append(sGrammarFleName);
-            sbTake.Append("\n");
-   //         StringBuilder sbGrammarFileShortPath = new StringBuilder(255);
-			//i = GetShortPathName(GrammarFile, sbGrammarFileShortPath, sbGrammarFileShortPath.Capacity);
-			//sbTake.Append(sbGrammarFileShortPath.ToString() + "\n");
-			sbTake.Append("set timing on\n");
+            StringBuilder sbGrammarFileShortPath = new StringBuilder(255);
+            i = GetShortPathName(GrammarFile, sbGrammarFileShortPath, sbGrammarFileShortPath.Capacity);
+            sbTake.Append(sbGrammarFileShortPath.ToString() + "\n");
+            sbTake.Append("set timing on\n");
 			sbTake.Append("set gloss on\n");
 			sbTake.Append("set features all\n");
 			HandleRootGloss(sbTake);
 			sbTake.Append("set tree xml\n");
 			sbTake.Append("set ambiguities 100\n");
 			sbTake.Append("set write-ample-parses on\n");
-            // since the short path no longer works, we just use the invoker files as they are
+            // since the batch fle defaults to the temp directory, we just use the invoker files as they are
             sbTake.Append("file disambiguate Invoker.ana Invoker.and\n");
-            //sbTake.Append("file disambiguate ");
-            //Console.WriteLine("AnaFilet='" + AnaFile + "'");
-            StringBuilder sbAnaFileShortPath = new StringBuilder(255);
-			i = GetShortPathName(AnaFile, sbAnaFileShortPath, sbAnaFileShortPath.Capacity);
-			String anashort = sbAnaFileShortPath.ToString();
-			//sbTake.Append(anashort);
-			//Console.WriteLine("anashort='" + anashort + "'");
-			//sbTake.Append(" ");
-			//String andshort = "";
-			String result = anashort.Substring(0, anashort.Length - 1) + "d";
-			//sbTake.Append(result + "\n");
-			sbTake.Append("exit\n");
+            sbTake.Append("exit\n");
 			//Console.Write(sbTake.ToString());
 			File.WriteAllText(takeFile, sbTake.ToString());
-			AndFile = result;
-		}
+            AndFile = Path.Combine(Path.GetTempPath(), "Invoker.and");
+        }
 
 		private void HandleRootGloss(StringBuilder sbTake)
 		{
