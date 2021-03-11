@@ -44,8 +44,9 @@ namespace SIL.PcPatrFLEx
 		const string m_strSizeHeight = "SizeHeight";
 		const string m_strSizeWidth = "SizeWidth";
 		const string m_strWindowState = "WindowState";
+        const string m_strSplitterLocationX = "SplitterLocationX";
 
-		const string m_strAll = "All";
+        const string m_strAll = "All";
 		const string m_strLeftmost = "Leftmost";
 		const string m_strOff = "Off";
 		const string m_strRightmost = "Rightmos";
@@ -171,8 +172,9 @@ namespace SIL.PcPatrFLEx
 			RetrievedLastText = LastText = (string)regkey.GetValue(m_strLastText);
 			RetrievedLastSegment = LastSegment = (string)regkey.GetValue(m_strLastSegment);
 			LastRootGlossSelection = (string)regkey.GetValue(m_strLastRootGlossSelection);
-		}
-		public void SaveRegistryInfo()
+            splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterLocationX, 150);
+        }
+        public void SaveRegistryInfo()
 		{
 			regkey = Registry.CurrentUser.OpenSubKey(m_strRegKey, true);
 			if (regkey == null)
@@ -196,8 +198,8 @@ namespace SIL.PcPatrFLEx
 			regkey.SetValue(m_strLocationY, RectNormal.Y);
 			regkey.SetValue(m_strSizeWidth, RectNormal.Width);
 			regkey.SetValue(m_strSizeHeight, RectNormal.Height);
-
-			regkey.Close();
+            regkey.SetValue(m_strSplitterLocationX, splitContainer1.SplitterDistance);
+            regkey.Close();
 		}
 
 		private static Font CreateFont(CoreWritingSystemDefinition wsDef)
@@ -366,6 +368,7 @@ namespace SIL.PcPatrFLEx
 		private void Segments_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
+            lbStatusSegments.Text = (lbSegments.SelectedIndex + 1).ToString() + "/" + lbSegments.Items.Count;
 			LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
 			var ana = GetAnaForm(selectedSegmentToShow);
 			if (ana.Contains("\\a \n"))
