@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->21 May, 2020</date
+>6 May, 2021</date
 ><version
->Version 1.5.0 Beta</version
+>Version 1.7.0 Beta</version
 ><version
 >Copyright © 2018-2020 SIL International</version
 ><contents
@@ -506,6 +506,18 @@ type="tPcPatr"
 sec="sHelp"
 ></sectionRef
 >.)</td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>The following glosses contain a space. Please fix them and try again.</object
+></td
+><td
+>At least one gloss used in one of the segments has a space in it.  This will produce incorrect values in some of the files used.  You will continue to get this message until you find and fix the gloss.  You should be able to search for the gloss in Lexicon Edit in <object
+type="tFLEx"
+></object
+>.</td
 ></tr
 ></table
 ></example

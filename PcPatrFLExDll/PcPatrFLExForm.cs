@@ -32,6 +32,7 @@ namespace SIL.PcPatrFLEx
 		private String GrammarFile { get; set; }
 		private Font AnalysisFont { get; set; }
 		private Font VernacularFont { get; set; }
+        private Boolean BadGlossesFound = false;
 
 		public static string m_strRegKey = "Software\\SIL\\PcPatrFLEx";
 		const string m_strLastDatabase = "LastDatabase";
@@ -297,16 +298,20 @@ namespace SIL.PcPatrFLEx
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
+            BadGlossesFound = false;
 			string ana = GetAnaForm(selectedSegmentToShow);
-			string andResult;
-			PcPatrBrowserApp browser;
-			var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
-			if (grammarOK && browser.PropertiesChosen.Count() != 0)
-			{
-				var result = browser.PropertiesChosen;
-				DisambiguateSegment(selectedSegmentToShow, result[0]);
-			}
-			Cursor.Current = Cursors.Default;
+            if (!BadGlossesFound)
+            {
+                string andResult;
+                PcPatrBrowserApp browser;
+                var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
+                if (grammarOK && browser.PropertiesChosen.Count() != 0)
+                {
+                    var result = browser.PropertiesChosen;
+                    DisambiguateSegment(selectedSegmentToShow, result[0]);
+                }
+            }
+            Cursor.Current = Cursors.Default;
 		}
 
 		private PcPatrBrowserApp ShowPcPatrBrowser(string andResult)
@@ -339,6 +344,7 @@ namespace SIL.PcPatrFLEx
 		{
 			var segment = selectedSegmentToShow.Segment;
 			var ana = Extractor.ExtractTextSegmentAsANA(segment);
+            ReportAnyBadGlossesFound();
 			return ana;
 		}
 
@@ -355,6 +361,7 @@ namespace SIL.PcPatrFLEx
 					foreach (var segment in paraUse.SegmentsOS)
 					{
 						var ana = Extractor.ExtractTextSegmentAsANA(segment);
+                        ReportAnyBadGlossesFound();
                         int iEnd = Math.Max(ana.Length - 1, 0);
 						sb.Append(ana.Substring(0, iEnd)); // skip final extra nl, if any
 						// Now add period so PcPatr will treat it as an end of a sentence
@@ -365,7 +372,25 @@ namespace SIL.PcPatrFLEx
 			return sb.ToString();
 		}
 
-		private void Segments_SelectedIndexChanged(object sender, EventArgs e)
+        private void ReportAnyBadGlossesFound()
+        {
+            if (Extractor.BadGlosses.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("The following glosses contain a space.\nPlease fix them and try again.\n");
+                foreach (var gloss in Extractor.BadGlosses)
+                {
+                    sb.Append("\t");
+                    sb.Append(gloss);
+                    sb.Append("\n");
+                }
+                MessageBox.Show(sb.ToString());
+                BadGlossesFound = true;
+            }
+
+        }
+
+        private void Segments_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
             lbStatusSegments.Text = (lbSegments.SelectedIndex + 1).ToString() + "/" + lbSegments.Items.Count;
@@ -430,7 +455,8 @@ namespace SIL.PcPatrFLEx
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
-			string ana = GetAnaForm(selectedTextToShow);
+            BadGlossesFound = false;
+            string ana = GetAnaForm(selectedTextToShow);
             if (ana.Contains("\\a \n"))
             {
                 int iA = ana.IndexOf("\\a \n");
@@ -442,15 +468,18 @@ namespace SIL.PcPatrFLEx
                 MessageBox.Show("Sorry, but not every sentence has every word parsed. At least the word '" + word + "' did not parse.  Please make sure every word is parsed and try again.");
                 return;
             }
-            string andResult;
-			PcPatrBrowserApp browser;
-			var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
-			if (grammarOK)
-			{
-				var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
-				textdisambiguator.Disambiguate(Cache);
-			}
-			Cursor.Current = Cursors.Default;
+            if (!BadGlossesFound)
+            {
+                string andResult;
+                PcPatrBrowserApp browser;
+                var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
+                if (grammarOK)
+                {
+                    var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
+                    textdisambiguator.Disambiguate(Cache);
+                }
+            }
+            Cursor.Current = Cursors.Default;
 		}
 
 		private bool ProcessANAFileAndShowResults(string ana, out string andResult, out PcPatrBrowserApp browser)

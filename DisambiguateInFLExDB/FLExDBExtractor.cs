@@ -20,6 +20,8 @@ namespace SIL.DisambiguateInFLExDB
 
 		FieldDescription CustomField { get; set; }
 
+        public List<String> BadGlosses { get; set; }
+
 		public FLExDBExtractor(LcmCache cache)
 		{
 			Cache = cache;
@@ -29,12 +31,13 @@ namespace SIL.DisambiguateInFLExDB
 
 			var customFields = GetListOfCustomFields();
 			CustomField = customFields.Find(fd => fd.Name == Constants.PcPatrFeatureDescriptorCustomField);
+            BadGlosses = new List<string>();
 
 		}
 
 		public string ExtractPcPatrLexicon()
 		{
-			var sb = new StringBuilder();
+            var sb = new StringBuilder();
 			var lexEntries = Cache.LanguageProject.LexDbOA.Entries;
 			foreach (ILexEntry entry in lexEntries.OrderBy(e => e.ShortName))
 			{
@@ -63,7 +66,7 @@ namespace SIL.DisambiguateInFLExDB
 			else
 				sb.Append("any");
 			sb.Append("\n\\g ");
-			sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
+            sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
 			sb.Append("\n\\f");
 			sb.Append(GetFeatureDescriptorsFromSense(sense));
 			sb.Append("\n\n");
@@ -104,6 +107,7 @@ namespace SIL.DisambiguateInFLExDB
 
 		public string ExtractTextSegmentAsANA(ISegment segment)
 		{
+            BadGlosses.Clear();
 			var sb = new StringBuilder();
 			var sbA = new StringBuilder();
 			var sbD = new StringBuilder();
@@ -261,7 +265,11 @@ namespace SIL.DisambiguateInFLExDB
 		{
 			var gloss = sense.Gloss.BestAnalysisAlternative.Text;
 			sbA.Append(gloss);
-			var fds = GetFeatureDescriptorsFromSense(sense);
+            if (gloss.Contains(" ") && !BadGlosses.Contains(gloss))
+            {
+                BadGlosses.Add(gloss);
+            }
+            var fds = GetFeatureDescriptorsFromSense(sense);
 			fds = (fds.Length > 1) ? fds.Substring(1) : fds;
 			sbFD.Append(fds);
 		}
