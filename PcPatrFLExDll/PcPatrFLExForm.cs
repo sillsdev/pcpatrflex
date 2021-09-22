@@ -258,7 +258,13 @@ namespace SIL.PcPatrFLEx
 				var selectedSegment = SegmentsInListBox.Where(s => s.Segment.Guid.ToString() == RetrievedLastSegment).FirstOrDefault();
 				if (selectedSegment != null)
 				{
-					lbSegments.SelectedIndex = SegmentsInListBox.IndexOf(selectedSegment);
+                    int index = SegmentsInListBox.IndexOf(selectedSegment);
+                    lbSegments.SelectedIndex = index;
+                    if (lbSegments.GetSelected(0) && index != 0)
+                    {
+                        // Only select the non-initial one
+                        lbSegments.SetSelected(0, false);
+                    }
 				}
 			}
 		}
@@ -297,9 +303,11 @@ namespace SIL.PcPatrFLEx
 		{
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
-			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
+            var selectedSegmentsToShow = lbSegments.SelectedItems;
             BadGlossesFound = false;
-			string ana = GetAnaForm(selectedSegmentToShow);
+			string ana = GetAnaForm(selectedSegmentsToShow);
+            if (!AllWordsAreParsed(ana))
+                return;
             if (!BadGlossesFound)
             {
                 string andResult;
@@ -308,7 +316,16 @@ namespace SIL.PcPatrFLEx
                 if (grammarOK && browser.PropertiesChosen.Count() != 0)
                 {
                     var result = browser.PropertiesChosen;
-                    DisambiguateSegment(selectedSegmentToShow, result[0]);
+                    int i = 0;
+                    foreach (var segToShow in selectedSegmentsToShow)
+                    {
+                        var selectedSegmentToShow = segToShow as SegmentToShow;
+                        if (segToShow != null)
+                        {
+                            DisambiguateSegment(selectedSegmentToShow, result[i]);
+                            i++;
+                        }
+                    }
                 }
             }
             Cursor.Current = Cursors.Default;
@@ -348,7 +365,36 @@ namespace SIL.PcPatrFLEx
 			return ana;
 		}
 
-		private string GetAnaForm(IText selectedTextToShow)
+        private string GetAnaForm(ListBox.SelectedObjectCollection selectedSegmentsToShow)
+        {
+            var sb = new StringBuilder();
+            if (selectedSegmentsToShow.Count > 0)
+            {
+                foreach (var seg in selectedSegmentsToShow)
+                {
+                    var segToShow = seg as SegmentToShow;
+                    if (segToShow != null)
+                    {
+                        var segment = segToShow.Segment;
+                        ProcessSegmentToAnaForm(sb, segment);
+                    }
+                }
+
+            }
+            return sb.ToString();
+        }
+
+        private void ProcessSegmentToAnaForm(StringBuilder sb, ISegment segment)
+        {
+            var ana = Extractor.ExtractTextSegmentAsANA(segment);
+            ReportAnyBadGlossesFound();
+            int iEnd = Math.Max(ana.Length - 1, 0);
+            sb.Append(ana.Substring(0, iEnd)); // skip final extra nl, if any
+                                               // Now add period so PcPatr will treat it as an end of a sentence
+            sb.Append("\\n .\n\n");
+        }
+
+        private string GetAnaForm(IText selectedTextToShow)
 		{
 			var sb = new StringBuilder();
 			var contents = selectedTextToShow.ContentsOA;
@@ -360,12 +406,7 @@ namespace SIL.PcPatrFLEx
 				{
 					foreach (var segment in paraUse.SegmentsOS)
 					{
-						var ana = Extractor.ExtractTextSegmentAsANA(segment);
-                        ReportAnyBadGlossesFound();
-                        int iEnd = Math.Max(ana.Length - 1, 0);
-						sb.Append(ana.Substring(0, iEnd)); // skip final extra nl, if any
-						// Now add period so PcPatr will treat it as an end of a sentence
-						sb.Append("\\n .\n\n");
+                        ProcessSegmentToAnaForm(sb, segment);
 					}
 				}
 			}
@@ -391,22 +432,45 @@ namespace SIL.PcPatrFLEx
         }
 
         private void Segments_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
-            lbStatusSegments.Text = (lbSegments.SelectedIndex + 1).ToString() + "/" + lbSegments.Items.Count;
-			LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
-			var ana = GetAnaForm(selectedSegmentToShow);
-			if (ana.Contains("\\a \n"))
-			{
-				btnParse.Enabled = false;
-			}
-			else
-			{
-				btnParse.Enabled = true;
-			}
-		}
+        {
+            int lastOne = lbSegments.SelectedItems.Count - 1;
+            var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItems[lastOne];
 
-		private void lbSegments_DoubleClick(object sender, EventArgs e)
+            String sSelectedIndicies = FormatSelectedSegmentIndices();
+            lbStatusSegments.Text = sSelectedIndicies + "/" + lbSegments.Items.Count;
+            LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
+            var ana = GetAnaForm(selectedSegmentToShow);
+            if (ana.Contains("\\a \n"))
+            {
+                btnParse.Enabled = false;
+            }
+            else
+            {
+                btnParse.Enabled = true;
+            }
+        }
+
+        private String FormatSelectedSegmentIndices()
+        {
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            foreach (var seg in lbSegments.SelectedItems)
+            {
+                var selectedSegment = seg as SegmentToShow;
+                if (selectedSegment != null)
+                {
+                    sb.Append(SegmentsInListBox.IndexOf(selectedSegment) + 1);
+                    if (++i < lbSegments.SelectedItems.Count)
+                    {
+                        sb.Append(",");
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        private void lbSegments_DoubleClick(object sender, EventArgs e)
 		{
 			if (lbSegments.SelectedItem != null)
 			{
@@ -451,23 +515,14 @@ namespace SIL.PcPatrFLEx
 		}
 
 		private void Disambiguate_Click(object sender, EventArgs e)
-		{
-			Cursor.Current = Cursors.WaitCursor;
-			Application.DoEvents();
-			var selectedTextToShow = lbTexts.SelectedItem as IText;
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            var selectedTextToShow = lbTexts.SelectedItem as IText;
             BadGlossesFound = false;
             string ana = GetAnaForm(selectedTextToShow);
-            if (ana.Contains("\\a \n"))
-            {
-                int iA = ana.IndexOf("\\a \n");
-                String sA = ana.Substring(iA);
-                int iW = sA.IndexOf("\\w ");
-                String sW = sA.Substring(iW);
-                int iWEnd = sW.IndexOf("\n");
-                String word = sW.Substring(3, iWEnd - 3);
-                MessageBox.Show("Sorry, but not every sentence has every word parsed. At least the word '" + word + "' did not parse.  Please make sure every word is parsed and try again.");
+            if (!AllWordsAreParsed(ana))
                 return;
-            }
             if (!BadGlossesFound)
             {
                 string andResult;
@@ -480,9 +535,25 @@ namespace SIL.PcPatrFLEx
                 }
             }
             Cursor.Current = Cursors.Default;
-		}
+        }
 
-		private bool ProcessANAFileAndShowResults(string ana, out string andResult, out PcPatrBrowserApp browser)
+        private Boolean AllWordsAreParsed(string ana)
+        {
+            if (ana.Contains("\\a \n"))
+            {
+                int iA = ana.IndexOf("\\a \n");
+                String sA = ana.Substring(iA);
+                int iW = sA.IndexOf("\\w ");
+                String sW = sA.Substring(iW);
+                int iWEnd = sW.IndexOf("\n");
+                String word = sW.Substring(3, iWEnd - 3);
+                MessageBox.Show("Sorry, but not every sentence has every word parsed. At least the word '" + word + "' did not parse.  Please make sure every word is parsed and try again.");
+                return false;
+            }
+            return true;
+        }
+
+        private bool ProcessANAFileAndShowResults(string ana, out string andResult, out PcPatrBrowserApp browser)
 		{
 			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
 			File.WriteAllText(anaFile, ana);

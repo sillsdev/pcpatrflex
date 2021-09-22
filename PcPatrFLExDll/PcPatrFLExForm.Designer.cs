@@ -134,6 +134,7 @@
             this.lbSegments.Name = "lbSegments";
             this.lbSegments.Size = new System.Drawing.Size(291, 513);
             this.lbSegments.TabIndex = 0;
+            this.lbSegments.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
             this.lbSegments.DoubleClick += new System.EventHandler(this.lbSegments_DoubleClick);
             // 
