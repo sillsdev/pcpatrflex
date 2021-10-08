@@ -665,9 +665,26 @@ namespace SIL.PcPatrFLEx
 		{
 			LastRootGlossSelection = m_strAll;
 		}
-	}
 
-	public class SegmentToShow
+        private void lblTexts_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            var selectedTextToShow = lbTexts.SelectedItem as IText;
+            BadGlossesFound = false;
+            string ana = GetAnaForm(selectedTextToShow);
+            if (!AllWordsAreParsed(ana))
+                return;
+            if (!BadGlossesFound)
+            {
+                String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
+                File.WriteAllText(anaFile, ana);
+            }
+            Cursor.Current = Cursors.Default;
+        }
+    }
+
+    public class SegmentToShow
 	{
 		public ISegment Segment { get; set; }
 		public String Baseline { get; set; }

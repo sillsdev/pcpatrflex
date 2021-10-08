@@ -33,6 +33,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lbTexts = new System.Windows.Forms.ListBox();
             this.ssSegments = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbStatusSegments = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbSegments = new System.Windows.Forms.ListBox();
             this.lblTexts = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.rbRightmost = new System.Windows.Forms.RadioButton();
             this.rbLeftmost = new System.Windows.Forms.RadioButton();
             this.rbOff = new System.Windows.Forms.RadioButton();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -113,6 +113,12 @@
             this.ssSegments.TabIndex = 1;
             this.ssSegments.Text = "SegmentsStatusBar";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(158, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
             // lbStatusSegments
             // 
             this.lbStatusSegments.BackColor = System.Drawing.SystemColors.Control;
@@ -132,9 +138,9 @@
             this.lbSegments.Location = new System.Drawing.Point(0, 0);
             this.lbSegments.Margin = new System.Windows.Forms.Padding(2);
             this.lbSegments.Name = "lbSegments";
+            this.lbSegments.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbSegments.Size = new System.Drawing.Size(291, 513);
             this.lbSegments.TabIndex = 0;
-            this.lbSegments.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
             this.lbSegments.DoubleClick += new System.EventHandler(this.lbSegments_DoubleClick);
             // 
@@ -148,6 +154,7 @@
             this.lblTexts.Size = new System.Drawing.Size(42, 17);
             this.lblTexts.TabIndex = 7;
             this.lblTexts.Text = "Texts";
+            this.lblTexts.Click += new System.EventHandler(this.lblTexts_Click);
             // 
             // lblSegments
             // 
@@ -279,12 +286,6 @@
             this.rbOff.Text = "off";
             this.rbOff.UseVisualStyleBackColor = true;
             this.rbOff.CheckedChanged += new System.EventHandler(this.rbOff_CheckedChanged);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(127, 17);
-            this.toolStripStatusLabel1.Spring = true;
             // 
             // PcPatrFLExForm
             // 
