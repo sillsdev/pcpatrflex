@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->22 September, 2021</date
+>28 October, 2021</date
 ><version
->Version 1.8.0 Beta</version
+>Version 1.9.0 Beta</version
 ><version
 >Copyright © 2018-2021 SIL International</version
 ><contents
@@ -191,7 +191,7 @@ num="xNewPcPatrFLEx"
 ><chart
 ><img
 XeLaTeXSpecial="scaled='600'"
-src="resources/PcPatrFLExEmpty.png "
+src="resources/PcPatrFLExEmpty.png"
 width="450"
 ></img
 ></chart
@@ -277,6 +277,22 @@ id="sHelp"
 >Help button</secTitle
 ><p
 >The “Help...” button is used to get this user documentation file, show the PC-PATR Reference Manual, or to show the “About” dialog box.</p
+></section2
+><section2
+id="sRefresh"
+><secTitle
+>Refresh texts button</secTitle
+><p
+>Whenever you click on the “Refresh texts” button, <object
+type="tPcPatrFLEx"
+></object
+> will reload all of the texts from <object
+type="tFLEx"
+></object
+>.  This is so if you know that if some texts have been added, deleted or changed since you first started <object
+type="tPcPatrFLEx"
+></object
+>, you can get the most current list of texts.</p
 ></section2
 ><section2
 id="sDisambiguate"
@@ -370,7 +386,7 @@ type="tPcPatrFLEx"
 ></object
 >.</p
 ><p
->You can also select more than one segment.  When you then use the “Parse &amp; show this segment” button, <object
+>You can also select more than one segment. When you then use the “Parse &amp; show this segment” button, <object
 type="tPcPatrFLEx"
 ></object
 > will parse and show all of the selected segments.</p
@@ -444,6 +460,8 @@ type="tPcPatrFLEx"
 ></object
 >, it will do the following:</p
 ><ol
+><li
+>remember its window size, location, and layout;</li
 ><li
 >remember which <object
 type="tPcPatrGrammar"

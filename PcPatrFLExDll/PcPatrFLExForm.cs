@@ -250,11 +250,11 @@ namespace SIL.PcPatrFLEx
 			lbTexts.DataSource = Texts;
 			if (Texts.Count > 0)
 				btnDisambiguate.Enabled = true;
-			// select last used text and segment, if any
+            // select last used text and segment, if any
 			if (!String.IsNullOrEmpty(LastText))
 			{
 				var selectedText = Texts.Where(t => t.Guid.ToString() == RetrievedLastText).FirstOrDefault();
-				if (selectedText != null)
+                if (selectedText != null)
 				{
 					lbTexts.SelectedIndex = Texts.IndexOf(selectedText);
 				}
@@ -683,6 +683,15 @@ namespace SIL.PcPatrFLEx
                 String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
                 File.WriteAllText(anaFile, ana);
             }
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            RetrievedLastText = LastText;
+            FillTextsListBox();
             Cursor.Current = Cursors.Default;
         }
     }
