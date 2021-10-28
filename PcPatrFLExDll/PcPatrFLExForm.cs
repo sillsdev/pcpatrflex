@@ -46,6 +46,7 @@ namespace SIL.PcPatrFLEx
 		const string m_strSizeWidth = "SizeWidth";
 		const string m_strWindowState = "WindowState";
         const string m_strSplitterLocationX = "SplitterLocationX";
+        private int SplitterLocationRetrieved { get; set; }
 
         const string m_strAll = "All";
 		const string m_strLeftmost = "Leftmost";
@@ -121,8 +122,8 @@ namespace SIL.PcPatrFLEx
 					Cursor.Current = Cursors.Default;
 				}
 				AdjustSplitterLocation();
-			}
-			catch (Exception e)
+            }
+            catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
 				Console.WriteLine(e.InnerException);
@@ -137,9 +138,9 @@ namespace SIL.PcPatrFLEx
 			//  button is plus a gap of 15 pixels
 			int y = this.ClientSize.Height - (btnDisambiguate.Bottom + 15);
 			splitContainer1.Size = new Size(x, y);
-		}
+        }
 
-		private void BuildHelpContextMenu()
+        private void BuildHelpContextMenu()
 		{
 			helpContextMenu = new ContextMenuStrip();
 			ToolStripMenuItem userDoc = new ToolStripMenuItem(UserDocumentation);
@@ -174,6 +175,7 @@ namespace SIL.PcPatrFLEx
 			RetrievedLastSegment = LastSegment = (string)regkey.GetValue(m_strLastSegment);
 			LastRootGlossSelection = (string)regkey.GetValue(m_strLastRootGlossSelection);
             splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterLocationX, 150);
+            SplitterLocationRetrieved = splitContainer1.SplitterDistance;
         }
         public void SaveRegistryInfo()
 		{
@@ -227,7 +229,8 @@ namespace SIL.PcPatrFLEx
 
 		public void PrepareForm()
 		{
-			if (Cache != null)
+            splitContainer1.SplitterDistance = SplitterLocationRetrieved;
+            if (Cache != null)
 			{
 				EnsureDatabaseHasBeenPrepped();
 				Extractor = new FLExDBExtractor(Cache);
@@ -238,9 +241,9 @@ namespace SIL.PcPatrFLEx
 				lbSegments.RightToLeft = Cache.LanguageProject.DefaultVernacularWritingSystem.RightToLeftScript ? RightToLeft.Yes : RightToLeft.No;
 				FillTextsListBox();
 			}
-		}
+        }
 
-		public void FillTextsListBox()
+        public void FillTextsListBox()
 		{
 			Texts = Cache.LanguageProject.Texts.Where(t => t.ContentsOA != null).Cast<IText>().
 				OrderBy(t => t.ShortName).ToList();
