@@ -142,6 +142,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdvancedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvancedForm.Designer.cs">
+      <DependentUpon>AdvancedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FLExUtility.cs" />
     <Compile Include="PcPatrFLExForm.cs">
       <SubType>Form</SubType>
@@ -152,6 +158,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedForm.resx">
+      <DependentUpon>AdvancedForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PcPatrFLExForm.resx">
       <DependentUpon>PcPatrFLExForm.cs</DependentUpon>

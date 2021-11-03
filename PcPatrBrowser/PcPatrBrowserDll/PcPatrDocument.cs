@@ -22,7 +22,7 @@ namespace SIL.PcPatrBrowser
 		/// <param name="sAnaFile">AMPLE 'ana' file</param>
 		public PcPatrDocument(string sAnaFile, out string sGrammarFile)
 		{
-			m_sAnaFile = sAnaFile;
+            m_sAnaFile = sAnaFile;
 			string sText = ReadFileIntoString(sAnaFile);
 
 			sGrammarFile = m_sGrammarFile = GetGrammarFile(sText);
@@ -54,10 +54,12 @@ namespace SIL.PcPatrBrowser
 			int iBegin = 0;
 			while (iBegin >= 0)
 			{
-				XmlNode sentenceNode = GetNextSentence(sText, ref iBegin);
+                bool outOfTimeFailure = false;
+				XmlNode sentenceNode = GetNextSentence(sText, ref iBegin, out outOfTimeFailure);
 				if (sentenceNode != null)
 				{
 					PcPatrSentence sentence = new PcPatrSentence(sentenceNode);
+                    sentence.OutOfTimeFailure = outOfTimeFailure;
 					m_aSentences.SetValue(sentence, iIndex++);
 				}
 			}
@@ -191,13 +193,21 @@ namespace SIL.PcPatrBrowser
 		/// <param name="sDoc">Document text file</param>
 		/// <param name="iBegin">index of where to begin looking;  is set at end of the next analysis; if negative, it indicates nothing was found</param>
 		/// <returns>xml node containing the analysis element</returns>
-		protected XmlNode GetNextSentence(string sDoc, ref int iBegin)
+		protected XmlNode GetNextSentence(string sDoc, ref int iBegin, out bool outOfTimeFailure)
 		{
+            outOfTimeFailure = false;
 			if (iBegin >= 0)
 			{
 				string sText = sDoc.Substring(iBegin);
 				int iBeg = sText.IndexOf("<Analysis");
-				int iEnd = sText.IndexOf("</Analysis>") + 13;  // 13 is for skipping past the </Analysis> + nl
+                int iEnd = sText.IndexOf("</Analysis>") + 13;  // 13 is for skipping past the </Analysis> + nl
+                int iFailure = sText.IndexOf("\\failure");
+                if (iFailure >= 0 && iFailure < iBeg)
+                {
+                    int iOutOfTime = sText.Substring(iFailure, 50).IndexOf("**** Out of Time");
+                    if (iOutOfTime >= 0)
+                        outOfTimeFailure = true;
+                }
 				if (iBeg > 0)
 				{
 					iBegin += iEnd;

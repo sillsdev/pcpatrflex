@@ -42,13 +42,14 @@
             this.tbGrammarFile = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnDisambiguate = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.gbRootGloss = new System.Windows.Forms.GroupBox();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.rbRightmost = new System.Windows.Forms.RadioButton();
             this.rbLeftmost = new System.Windows.Forms.RadioButton();
             this.rbOff = new System.Windows.Forms.RadioButton();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAdvanced = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -186,7 +187,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(1128, 28);
+            this.btnBrowse.Location = new System.Drawing.Point(1128, 17);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(94, 38);
             this.btnBrowse.TabIndex = 2;
@@ -203,17 +204,6 @@
             this.btnDisambiguate.Text = "&Disambiguate && show this text";
             this.btnDisambiguate.UseVisualStyleBackColor = true;
             this.btnDisambiguate.Click += new System.EventHandler(this.Disambiguate_Click);
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.Location = new System.Drawing.Point(1146, 95);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(76, 40);
-            this.btnHelp.TabIndex = 6;
-            this.btnHelp.Text = "Help...";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // gbRootGloss
             // 
@@ -284,14 +274,37 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnAdvanced
+            // 
+            this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdvanced.Location = new System.Drawing.Point(1112, 60);
+            this.btnAdvanced.Name = "btnAdvanced";
+            this.btnAdvanced.Size = new System.Drawing.Size(110, 40);
+            this.btnAdvanced.TabIndex = 13;
+            this.btnAdvanced.Text = "Advanced";
+            this.btnAdvanced.UseVisualStyleBackColor = true;
+            this.btnAdvanced.Click += new System.EventHandler(this.btnAdvanced_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.Location = new System.Drawing.Point(1146, 106);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(76, 40);
+            this.btnHelp.TabIndex = 14;
+            this.btnHelp.Text = "Help...";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // PcPatrFLExForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 995);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.gbRootGloss);
-            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnDisambiguate);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.tbGrammarFile);
@@ -330,7 +343,6 @@
 		private System.Windows.Forms.TextBox tbGrammarFile;
 		private System.Windows.Forms.Button btnBrowse;
 		private System.Windows.Forms.Button btnDisambiguate;
-		private System.Windows.Forms.Button btnHelp;
 		private System.Windows.Forms.GroupBox gbRootGloss;
 		private System.Windows.Forms.RadioButton rbAll;
 		private System.Windows.Forms.RadioButton rbRightmost;
@@ -340,6 +352,8 @@
         private System.Windows.Forms.ToolStripStatusLabel lbStatusSegments;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnAdvanced;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 

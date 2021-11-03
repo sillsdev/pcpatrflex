@@ -46,6 +46,9 @@ namespace SIL.PcPatrFLEx
 		const string m_strSizeWidth = "SizeWidth";
 		const string m_strWindowState = "WindowState";
         const string m_strSplitterLocationX = "SplitterLocationX";
+        const string m_strMaxAmbiguities = "MaxAmbiguities";
+        const string m_strTimeLimit = "TimeLimit";
+        const string m_strRunIndividually = "RunIndividually";
         private int SplitterLocationRetrieved { get; set; }
 
         const string m_strAll = "All";
@@ -62,8 +65,11 @@ namespace SIL.PcPatrFLEx
 		public string LastRootGlossSelection { get; set; }
 		public string RetrievedLastText { get; set; }
 		public string RetrievedLastSegment { get; set; }
+        public int MaxAmbiguities { get; set; }
+        public int TimeLimit { get; set; }
+        public bool RunIndividually { get; set; }
 
-		private RegistryKey regkey;
+        private RegistryKey regkey;
 
 		private ContextMenuStrip helpContextMenu;
 		const string UserDocumentation = "User Documentation";
@@ -176,7 +182,15 @@ namespace SIL.PcPatrFLEx
 			LastRootGlossSelection = (string)regkey.GetValue(m_strLastRootGlossSelection);
             splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterLocationX, 150);
             SplitterLocationRetrieved = splitContainer1.SplitterDistance;
+            MaxAmbiguities = (int)regkey.GetValue(m_strMaxAmbiguities, 100);
+            TimeLimit = (int)regkey.GetValue(m_strTimeLimit, 0);
+            string sTemp = (string)regkey.GetValue(m_strRunIndividually, "False");
+            if (sTemp.Equals("True"))
+                RunIndividually = true;
+            else
+                RunIndividually = false;
         }
+
         public void SaveRegistryInfo()
 		{
 			regkey = Registry.CurrentUser.OpenSubKey(m_strRegKey, true);
@@ -202,6 +216,9 @@ namespace SIL.PcPatrFLEx
 			regkey.SetValue(m_strSizeWidth, RectNormal.Width);
 			regkey.SetValue(m_strSizeHeight, RectNormal.Height);
             regkey.SetValue(m_strSplitterLocationX, splitContainer1.SplitterDistance);
+            regkey.SetValue(m_strMaxAmbiguities, MaxAmbiguities);
+            regkey.SetValue(m_strTimeLimit, TimeLimit);
+            regkey.SetValue(m_strRunIndividually, RunIndividually);
             regkey.Close();
 		}
 
@@ -530,7 +547,11 @@ namespace SIL.PcPatrFLEx
             {
                 string andResult;
                 PcPatrBrowserApp browser;
-                var grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
+                bool grammarOK = false;
+                if (RunIndividually)
+                    grammarOK = ProcessIndividuallyAndShowResults(selectedTextToShow, out andResult, out browser);
+                else
+                    grammarOK = ProcessANAFileAndShowResults(ana, out andResult, out browser);
                 if (grammarOK)
                 {
                     var textdisambiguator = new TextDisambiguation(selectedTextToShow, browser.PropertiesChosen, andResult);
@@ -561,7 +582,9 @@ namespace SIL.PcPatrFLEx
 			String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
 			File.WriteAllText(anaFile, ana);
 			var invoker = new PCPatrInvoker(GrammarFile, anaFile, LastRootGlossSelection);
-			invoker.Invoke();
+            invoker.MaxAmbiguities = MaxAmbiguities.ToString();
+            invoker.TimeLimit = TimeLimit.ToString();
+            invoker.Invoke();
 			andResult = invoker.AndFile;
 			if (File.Exists(andResult) && invoker.InvocationSucceeded)
 			{
@@ -569,25 +592,94 @@ namespace SIL.PcPatrFLEx
 				return true;
 			}
 			else
-			{
-				browser = null;
-				string message = "";
-				if (File.Exists(andResult))
-				{
-					message = "The PC-PATR processing failed!\nPerhaps there are incompatible feature values in one of the forms.\nWe will show the error log after you click on OK.\nYou may also want to try and run the PcPatrFLEx.bat file in the %TEMP% diretory.\nThis may or may not show which features are incompatible or some other PC-PATR error or warning message.";
-				}
-				else
-				{
-					message = "The PC-PATR grammar file had an error in it and failed to load.\nWe will show the error log after you click on OK.\nPlease fix all errors in the grammar file and then try again.";
-				}
-				MessageBox.Show(message + "",
-				"Grammar Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				Process.Start(andResult.Replace(".and", ".log"));
-				return false;
-			}
-		}
+            {
+                browser = null;
+                ReportFailure(andResult);
+                return false;
+            }
+        }
 
-		private void btnHelp_Click(object sender, EventArgs e)
+        private static void ReportFailure(string andResult)
+        {
+            string message;
+            if (File.Exists(andResult))
+            {
+                message = "The PC-PATR processing failed!\nPerhaps there are incompatible feature values in one of the forms.\nWe will show the error log after you click on OK.\nYou may also want to try and run the PcPatrFLEx.bat file in the %TEMP% diretory.\nThis may or may not show which features are incompatible or some other PC-PATR error or warning message.";
+            }
+            else
+            {
+                message = "The PC-PATR grammar file had an error in it and failed to load.\nWe will show the error log after you click on OK.\nPlease fix all errors in the grammar file and then try again.";
+            }
+            MessageBox.Show(message + "",
+            "Grammar Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Process.Start(andResult.Replace(".and", ".log"));
+            return;
+        }
+
+        private bool ProcessIndividuallyAndShowResults(IText selectedTextToShow, out string andResult, out PcPatrBrowserApp browser)
+        {
+            var sb = new StringBuilder();
+            var sbAND = new StringBuilder();
+            var contents = selectedTextToShow.ContentsOA;
+            IList<IStPara> paragraphs = contents.ParagraphsOS;
+            String andFile = "";
+            String statusMessage = lbStatusSegments.Text;
+            int i = 1;
+            foreach (IStPara para in paragraphs)
+            {
+                var paraUse = para as IStTxtPara;
+                if (paraUse != null)
+                {
+                    foreach (var segment in paraUse.SegmentsOS)
+                    {
+                        // update status bar
+                        lbStatusSegments.Text = "Processing segment " + i++ + "/" + lbSegments.Items.Count;
+                        sb.Clear();
+                        ProcessSegmentToAnaForm(sb, segment);
+                        String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
+                        File.WriteAllText(anaFile, sb.ToString());
+                        var invoker = new PCPatrInvoker(GrammarFile, anaFile, LastRootGlossSelection);
+                        invoker.MaxAmbiguities = MaxAmbiguities.ToString();
+                        invoker.TimeLimit = TimeLimit.ToString();
+                        invoker.Invoke();
+                        andFile = andResult = invoker.AndFile;
+                        if (File.Exists(andResult) && invoker.InvocationSucceeded)
+                        {
+                            try
+                            {
+                                sbAND.Append(File.ReadAllText(andResult));
+                            }
+                            catch (IOException e)
+                            {
+                                MessageBox.Show("read failed for i=" + (i-1) + "; " + e.Message);
+                            }
+                        }
+                        else
+                        {
+                            browser = null;
+                            ReportFailure(andResult);
+                            return false;
+                        }
+                    }
+                }
+            }
+            andResult = andFile;
+            File.WriteAllText(andResult, sbAND.ToString());
+            lbStatusSegments.Text = statusMessage;
+            if (File.Exists(andResult))
+            {
+                browser = ShowPcPatrBrowser(andResult);
+                return true;
+            }
+            else
+            {
+                browser = null;
+                ReportFailure(andResult);
+                return false;
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
 		{
 			Button btnSender = (Button)sender;
 			Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -693,6 +785,21 @@ namespace SIL.PcPatrFLEx
             RetrievedLastText = LastText;
             FillTextsListBox();
             Cursor.Current = Cursors.Default;
+        }
+
+        private void btnAdvanced_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new AdvancedForm())
+            {
+                dialog.initialize(MaxAmbiguities, TimeLimit, RunIndividually);
+                dialog.ShowDialog();
+                if (dialog.OkPressed)
+                {
+                    MaxAmbiguities = dialog.MaxAmbigs;
+                    TimeLimit = dialog.TimeLimit;
+                    RunIndividually = dialog.RunIndividually;
+                }
+            }
         }
     }
 

@@ -25,13 +25,17 @@ namespace SIL.DisambiguateInFLExDB
 		public String BatchFile { get; set; }
 		public String RootGlossState { get; set; }
 		public Boolean InvocationSucceeded { get; set; }
+        public String MaxAmbiguities { get; set; }
+        public String TimeLimit { get; set; }
 
-		public PCPatrInvoker(string grammarFile, string anaFile, string rootglossState)
+        public PCPatrInvoker(string grammarFile, string anaFile, string rootglossState)
 		{
 			GrammarFile = grammarFile;
 			AnaFile = anaFile;
 			RootGlossState = rootglossState;
 			LogFile = Path.Combine(Path.GetTempPath(), logFileName);
+            MaxAmbiguities = "100";
+            TimeLimit = "0";
 		}
 
 		[DllImport("kernel32.dll", SetLastError = true)]
@@ -109,8 +113,16 @@ namespace SIL.DisambiguateInFLExDB
 			sbTake.Append("set features all\n");
 			HandleRootGloss(sbTake);
 			sbTake.Append("set tree xml\n");
-			sbTake.Append("set ambiguities 100\n");
-			sbTake.Append("set write-ample-parses on\n");
+            sbTake.Append("set ambiguities ");
+            sbTake.Append(MaxAmbiguities);
+            sbTake.Append("\n");
+            if (!TimeLimit.Equals("0"))
+            {
+                sbTake.Append("set limit ");
+                sbTake.Append(TimeLimit);
+                sbTake.Append("\n");
+            }
+            sbTake.Append("set write-ample-parses on\n");
             // since the batch fle defaults to the temp directory, we just use the invoker files as they are
             sbTake.Append("file disambiguate Invoker.ana Invoker.and\n");
             sbTake.Append("exit\n");

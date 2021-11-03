@@ -11,14 +11,13 @@ namespace SIL.PcPatrBrowser
 		protected XmlNode m_node;
 		protected Array m_aParses;
 		int m_iCurrentParse;
+        public bool OutOfTimeFailure { get; set; }
 
-		public PcPatrSentence()
+        public PcPatrSentence()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
-		}
-		public PcPatrSentence(XmlNode node)
+            OutOfTimeFailure = false;
+        }
+        public PcPatrSentence(XmlNode node)
 		{
 			m_node = node;
 
@@ -29,9 +28,10 @@ namespace SIL.PcPatrBrowser
 			m_iCurrentParse = 0;
 			string sent = this.ToString();
 			string s2 = sent.ToLower();
-		}
+            OutOfTimeFailure = false;
+        }
 
-		private void AllocateArrayOfParses()
+        private void AllocateArrayOfParses()
 		{
 			XmlNode attr = m_node.SelectSingleNode("/Analysis/@count");
 			int iCount = Convert.ToInt32(attr.InnerText);

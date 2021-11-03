@@ -1411,6 +1411,7 @@ namespace SIL.PcPatrBrowser
 			{
 				m_tree.Root = null;
 				m_tree.Invalidate();
+                pnlTree.Invalidate();
 			}
 			EnableDisableItems();
 			UpdateStatusBar(sentence);
@@ -1500,8 +1501,13 @@ namespace SIL.PcPatrBrowser
 				//if (m_sLogOrAnaFileName != null && m_sLogOrAnaFileName.Length > 1)
 				if (m_doc != null)
 				{
-					Graphics grfx = pea.Graphics;
-					grfx.DrawString("There is no parse for this sentence.", new Font("Times New Roman", 12.0f), new SolidBrush(Color.Black), 10.0f, 10.0f);
+                    string outOfTime = "";
+                    var sentence = m_doc.CurrentSentence;
+                    if (sentence != null)
+                        if (sentence.OutOfTimeFailure)
+                            outOfTime = " The time limit was exceeded.";
+                    Graphics grfx = pea.Graphics;
+					grfx.DrawString("There is no parse for this sentence." + outOfTime, new Font("Times New Roman", 12.0f), new SolidBrush(Color.Black), 10.0f, 10.0f);
 				}
 			}
 		}
