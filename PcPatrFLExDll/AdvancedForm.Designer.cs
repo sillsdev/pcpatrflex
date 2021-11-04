@@ -78,9 +78,9 @@
             this.lblTimeLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeLimit.Location = new System.Drawing.Point(40, 139);
             this.lblTimeLimit.Name = "lblTimeLimit";
-            this.lblTimeLimit.Size = new System.Drawing.Size(163, 25);
+            this.lblTimeLimit.Size = new System.Drawing.Size(332, 25);
             this.lblTimeLimit.TabIndex = 3;
-            this.lblTimeLimit.Text = "Parsing time limit:";
+            this.lblTimeLimit.Text = "Parsing time limit (in whole seconds):";
             // 
             // cbRunIndividually
             // 
@@ -105,7 +105,7 @@
             // 
             // tbTimeLimit
             // 
-            this.tbTimeLimit.Location = new System.Drawing.Point(221, 141);
+            this.tbTimeLimit.Location = new System.Drawing.Point(434, 141);
             this.tbTimeLimit.Name = "tbTimeLimit";
             this.tbTimeLimit.Size = new System.Drawing.Size(100, 26);
             this.tbTimeLimit.TabIndex = 4;

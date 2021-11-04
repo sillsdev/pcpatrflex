@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->3 November, 2021</date
+>4 November, 2021</date
 ><version
->Version 1.10.0 Beta</version
+>Version 1.10.1 Beta</version
 ><version
 >Copyright © 2018-2021 SIL International</version
 ><contents
@@ -276,7 +276,7 @@ id="sAdvanced"
 ><secTitle
 >Advanced</secTitle
 ><p
->The “Advanced” button is used to changed some advanced options.  It brings up a dialog that looks like what is shown in <exampleRef
+>The “Advanced” button is used to changed some advanced options. It brings up a dialog that looks like what is shown in <exampleRef
 letter="xAdvanced"
 num="xAdvanced"
 ></exampleRef
@@ -298,14 +298,14 @@ width="450"
 >“Maximum number of ambiguities to output:” is the maximum number of ambiguities that will appear in the <object
 type="tPcPatrBrowser"
 ></object
->.  The default is 100.</li
+>. The default is 100.</li
 ><li
->“Parsing time limit:” is how many seconds to allow for parsing the segments.  The default is 0 (which means no time limit).</li
+>“Parsing time limit:” is how many seconds to allow for parsing the segments. The default is 0 (which means no time limit).</li
 ><li
->“Run PC-PATR on each sentence individually” is for running each segment individually when disambiguating a text.  It is most useful when using a time limit.  With this option, you can have <object
+>“Run PC-PATR on each sentence individually” is for running each segment individually when disambiguating a text. It is most useful when using a time limit. With this option, you can have <object
 type="tPcPatrFLEx"
 ></object
-> parse each segment for a maximum number of seconds given by the parsing time limit.  Without this option, the maximum time limit is for the entire text.  With this option, the maximum time limit is for each segment.</li
+> parse each segment for a maximum number of seconds given by the parsing time limit. Without this option, the maximum time limit is for the entire text. With this option, the maximum time limit is for each segment.</li
 ></ol
 ><p
 ><object

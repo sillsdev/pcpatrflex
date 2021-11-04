@@ -647,7 +647,16 @@ namespace SIL.PcPatrFLEx
                         {
                             try
                             {
-                                sbAND.Append(File.ReadAllText(andResult));
+                                String result = File.ReadAllText(andResult);
+                                if (i > 2)
+                                {
+                                    // skip the "\id Grammar file used" line
+                                    int iFirstLineToUse = result.IndexOf("\\a ");
+                                    result = result.Substring(iFirstLineToUse);
+                                    // replace id
+                                    result = result.Replace("\"s1_", "\"s" + (i-1) + "_");
+                                }
+                                sbAND.Append(result);
                             }
                             catch (IOException e)
                             {
