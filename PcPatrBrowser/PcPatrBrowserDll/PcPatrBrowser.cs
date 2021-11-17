@@ -54,8 +54,9 @@ namespace SIL.PcPatrBrowser
 		private System.Windows.Forms.MenuItem miParseNext;
 		private System.Windows.Forms.MenuItem miParseLast;
 		private System.Windows.Forms.MenuItem miSentenceGoTo;
-		private System.Windows.Forms.MenuItem miUseThisParse;
-		private WebBrowser wbFeatureStructure;
+        private System.Windows.Forms.MenuItem miUseThisParse;
+        private System.Windows.Forms.MenuItem miCancelUsingThisParse;
+        private WebBrowser wbFeatureStructure;
 		private WebBrowser wbInterlinear;
 		private string m_sStartUpPath;
 
@@ -230,6 +231,7 @@ namespace SIL.PcPatrBrowser
 			miFileOpenGrammar.Visible = false;
 			miUseThisParse.Visible = true;
 			miUseThisParseNextSentence.Visible = true;
+            miCancelUsingThisParse.Visible = true;
 			tbbtnOpenAnalysis.Visible = false;
 		}
 
@@ -237,7 +239,8 @@ namespace SIL.PcPatrBrowser
 		{
 			miUseThisParse.Visible = false;
 			miUseThisParseNextSentence.Visible = false;
-			MyFontInfo nt = new MyFontInfo(new Font("Times New Roman", 14.0f), Color.Black);
+            miCancelUsingThisParse.Visible = false;
+            MyFontInfo nt = new MyFontInfo(new Font("Times New Roman", 14.0f), Color.Black);
 			MyFontInfo lex = new MyFontInfo(new Font("Courier New", 12.0f), Color.Blue);
 			MyFontInfo gloss = new MyFontInfo(new Font("Times New Roman", 12.0f), Color.Green);
 			m_language = new LanguageInfo("Default Language", nt, lex, gloss, false, "-");
@@ -299,7 +302,8 @@ namespace SIL.PcPatrBrowser
 				miSentence.Enabled = false;
 				miUseThisParse.Enabled = false;
 				miUseThisParseNextSentence.Enabled = false;
-				tbbtnFirstParse.Enabled = false;
+                miCancelUsingThisParse.Enabled = false;
+                tbbtnFirstParse.Enabled = false;
 				tbbtnFirstSentence.Enabled = false;
 				tbbtnLastParse.Enabled = false;
 				tbbtnLastSentence.Enabled = false;
@@ -323,8 +327,9 @@ namespace SIL.PcPatrBrowser
 				miUseThisParse.Enabled = parsesExist;
 				tbbtnUseThisParse.Enabled = parsesExist;
 				miUseThisParseNextSentence.Enabled = parsesExist;
-			}
-			if (m_tree == null)
+                miCancelUsingThisParse.Enabled = parsesExist;
+            }
+            if (m_tree == null)
 				miViewRightToLeft.Enabled = false;
 			else
 				miViewRightToLeft.Enabled = true;
@@ -569,7 +574,8 @@ namespace SIL.PcPatrBrowser
 			this.miParserGoTo = new System.Windows.Forms.MenuItem();
 			this.miUseThisParse = new System.Windows.Forms.MenuItem();
 			this.miUseThisParseNextSentence = new System.Windows.Forms.MenuItem();
-			this.miLanguage = new System.Windows.Forms.MenuItem();
+            this.miCancelUsingThisParse = new System.Windows.Forms.MenuItem();
+            this.miLanguage = new System.Windows.Forms.MenuItem();
 			this.menuItem1 = new System.Windows.Forms.MenuItem();
 			this.miHelpAbout = new System.Windows.Forms.MenuItem();
 			this.pnlTreeFeat = new System.Windows.Forms.Panel();
@@ -820,7 +826,8 @@ namespace SIL.PcPatrBrowser
             this.menuItem4,
             this.miParserGoTo,
             this.miUseThisParse,
-            this.miUseThisParseNextSentence});
+            this.miUseThisParseNextSentence,
+            this.miCancelUsingThisParse});
 			this.miParse.Text = "Parse";
 			// 
 			// miParseFirst
@@ -869,10 +876,16 @@ namespace SIL.PcPatrBrowser
 			this.miUseThisParseNextSentence.Index = 7;
 			this.miUseThisParseNextSentence.Text = "Use This Parse && Go to Ne&xt Sentence";
 			this.miUseThisParseNextSentence.Click += new System.EventHandler(this.miUseThisParseNextSentence_Click);
-			// 
-			// miLanguage
-			// 
-			this.miLanguage.Index = 4;
+            // 
+            // miCancelUsingThisParse
+            // 
+            this.miCancelUsingThisParse.Index = 8;
+            this.miCancelUsingThisParse.Text = "&Cancel Using This Parse";
+            this.miCancelUsingThisParse.Click += new System.EventHandler(this.miCancelUsingThisParse_Click);
+            // 
+            // miLanguage
+            // 
+            this.miLanguage.Index = 4;
 			this.miLanguage.Text = "&Language";
 			this.miLanguage.Click += new System.EventHandler(this.miLanguage_Click);
 			// 
@@ -1701,7 +1714,19 @@ namespace SIL.PcPatrBrowser
 			miSentenceNext_Click(sender, e);
 		}
 
-		private void miViewStatusBar_Click(object sender, System.EventArgs e)
+        private void miCancelUsingThisParse_Click(object sender, System.EventArgs e)
+        {
+            PcPatrSentence sent = m_doc.CurrentSentence;
+            PcPatrParse parse = sent.CurrentParse;
+            if (parse == null)
+                return;
+            PropertiesChosen[m_doc.CurrentSentenceNumber - 1] = "";
+            ParsesChosen[m_doc.CurrentSentenceNumber - 1] = 0;
+            ShowInterlinear(sent);
+            ShowParseTree(sent, parse);
+        }
+
+        private void miViewStatusBar_Click(object sender, System.EventArgs e)
 		{
 			if (miViewStatusBar.Checked)
 			{
