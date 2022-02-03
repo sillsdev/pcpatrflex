@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SIL International")]
 [assembly: AssemblyProduct("Use PC-PATR with FLEx")]
-[assembly: AssemblyCopyright("Copyright © 2018-2021")]
+[assembly: AssemblyCopyright("Copyright © 2018-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.10.2.0")]
-[assembly: AssemblyFileVersion("1.10.2.0")]
+[assembly: AssemblyVersion("1.10.3.0")]
+[assembly: AssemblyFileVersion("1.10.3.0")]

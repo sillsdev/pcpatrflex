@@ -24,7 +24,8 @@ namespace SIL.PrepFLExDB
 			btnProcess.Enabled = false;
 			lblDatabaseToUse.Text = "";
 			lblStatus.Text = "";
-			Icu.InitIcuDataDir();
+            // something changed in FLEx, apparently, so that the following no longer is valid 2022.02.03
+			//Icu.InitIcuDataDir();
 			Sldr.Initialize();
 		}
 

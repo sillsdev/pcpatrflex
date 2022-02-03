@@ -1,9 +1,0 @@
-copy icu.net.2.5.4.dll icu.net.dll
-copy SIL.Core.DesktopV6.dll SIL.Core.Desktop.dll
-copy SIL.Core.DesktopV6.pdb SIL.Core.Desktop.pdb
-copy SIL.CoreV6.dll SIL.Core.dll
-copy SIL.CoreV6.pdb SIL.Core.pdb
-copy SIL.LexiconV6.dll SIL.Lexicon.dll
-copy SIL.LexiconV6.pdb SIL.Lexicon.pdb
-copy SIL.WritingSystemsV6.dll SIL.WritingSystems.dll
-copy SIL.WritingSystemsV6.pdb SIL.WritingSystems.pdb

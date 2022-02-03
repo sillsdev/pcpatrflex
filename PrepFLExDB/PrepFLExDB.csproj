@@ -75,41 +75,45 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="icu.net">
+      <HintPath>..\FWDlls\v9\icu.net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+    <Reference Include="SIL.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FWDlls\SIL.Core.dll</HintPath>
+      <HintPath>..\FWDlls\v9\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core.Desktop">
-      <HintPath>..\FWDlls\SIL.Core.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="SIL.Core.Desktop, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LcmLoader\bin\x64\Debug\SIL.LcmLoader.dll</HintPath>
+      <HintPath>..\FWDlls\v9\SIL.Core.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LcmLoaderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LcmLoaderUI\bin\x64\Debug\SIL.LcmLoaderUI.dll</HintPath>
+      <HintPath>..\LcmLoader\bin\x64\Release\SIL.LcmLoader.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LcmLoaderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.dll</HintPath>
+      <HintPath>..\LcmLoaderUI\bin\x64\Release\SIL.LcmLoaderUI.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Core, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Utils, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.Utils.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Lexicon, Version=5.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+    <Reference Include="SIL.LCModel.Utils, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FWDlls\SIL.Lexicon.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+    <Reference Include="SIL.Lexicon, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FWDlls\SIL.WritingSystems.dll</HintPath>
+      <HintPath>..\FWDlls\v9\SIL.Lexicon.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\v9\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

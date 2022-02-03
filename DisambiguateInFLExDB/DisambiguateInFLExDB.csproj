@@ -67,17 +67,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="SIL.LcmLoaderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LcmLoaderUI\bin\x64\Debug\SIL.LcmLoaderUI.dll</HintPath>
+    <Reference Include="SIL.LcmLoaderUI">
+      <HintPath>..\LcmLoaderUI\bin\x64\Release\SIL.LcmLoaderUI.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Core, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.Core.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

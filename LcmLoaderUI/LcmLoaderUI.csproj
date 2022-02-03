@@ -66,29 +66,29 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+    <Reference Include="SIL.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FWDlls\SIL.Core.dll</HintPath>
+      <HintPath>..\FWDlls\v9\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LcmLoader\bin\x64\Debug\SIL.LcmLoader.dll</HintPath>
+      <HintPath>..\LcmLoader\bin\x64\Release\SIL.LcmLoader.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Core, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.Core.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Utils, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SIL.LCModel.Utils, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LCMDlls\SIL.LCModel.Utils.dll</HintPath>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Lexicon, Version=5.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+    <Reference Include="SIL.Lexicon, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FWDlls\SIL.Lexicon.dll</HintPath>
+      <HintPath>..\FWDlls\v9\SIL.Lexicon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
