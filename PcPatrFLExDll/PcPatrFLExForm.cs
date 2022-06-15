@@ -448,7 +448,25 @@ namespace SIL.PcPatrFLEx
                 MessageBox.Show(sb.ToString());
                 BadGlossesFound = true;
             }
+        }
 
+        private void ReportAnyMissingItemsFound(string ana)
+        {
+            int index = ana.IndexOf(Extractor.MissingItemMessage);
+            if (index > -1)
+            {
+                StringBuilder sb = new StringBuilder();
+                int iWord = ana.Substring(index).IndexOf("\\w ");
+                sb.Append("The following glosses contain a space.\nPlease fix them and try again.\n");
+                foreach (var gloss in Extractor.BadGlosses)
+                {
+                    sb.Append("\t");
+                    sb.Append(gloss);
+                    sb.Append("\n");
+                }
+                MessageBox.Show(sb.ToString());
+                BadGlossesFound = true;
+            }
         }
 
         private void Segments_SelectedIndexChanged(object sender, EventArgs e)
@@ -572,6 +590,17 @@ namespace SIL.PcPatrFLEx
                 int iWEnd = sW.IndexOf("\n");
                 String word = sW.Substring(3, iWEnd - 3);
                 MessageBox.Show("Sorry, but not every sentence has every word parsed. At least the word '" + word + "' did not parse.  Please make sure every word is parsed and try again.");
+                return false;
+            }
+            if (ana.Contains(Extractor.MissingItemMessage))
+            {
+                int iA = ana.IndexOf(Extractor.MissingItemMessage);
+                String sA = ana.Substring(iA);
+                int iW = sA.IndexOf("\\w ");
+                String sW = sA.Substring(iW);
+                int iWEnd = sW.IndexOf("\n");
+                String word = sW.Substring(3, iWEnd - 3);
+                MessageBox.Show("Sorry, but at least the word '" + word + "' has an analysis with an invalid parse.  Please make sure every word has valid parses and try again.");
                 return false;
             }
             return true;

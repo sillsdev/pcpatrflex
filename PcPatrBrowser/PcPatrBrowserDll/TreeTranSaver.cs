@@ -225,8 +225,6 @@ namespace SIL.PcPatrBrowser
 			sbXPath.Append("/Analysis/Input/Word[" + (iLeaf + 1) + "]/WordParse[");
 			for (int i = 1; i <= propList.Length; i++)
 			{
-                if (propList[i - 1].Length == 0)
-                    continue;
 				if (i > 1)
 				{
 					sbXPath.Append(" and ");

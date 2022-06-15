@@ -22,6 +22,8 @@ namespace SIL.DisambiguateInFLExDB
 
         public List<String> BadGlosses { get; set; }
 
+        public string MissingItemMessage { get; set; }
+
 		public FLExDBExtractor(LcmCache cache)
 		{
 			Cache = cache;
@@ -32,8 +34,8 @@ namespace SIL.DisambiguateInFLExDB
 			var customFields = GetListOfCustomFields();
 			CustomField = customFields.Find(fd => fd.Name == Constants.PcPatrFeatureDescriptorCustomField);
             BadGlosses = new List<string>();
-
-		}
+            MissingItemMessage = "_FOUND!_PLEASE_FIX_THIS_ANALYSIS_IN_Word_Analyses";
+        }
 
 		public string ExtractPcPatrLexicon()
 		{
@@ -156,11 +158,17 @@ namespace SIL.DisambiguateInFLExDB
 					{
 						var msa = bundle.MsaRA;
 						if (msa == null)
-							continue;
-						var morph = bundle.MorphRA;
+                        {
+                            sbA = MissingItemFound(sbA, "GRAMMATICAL_INFO");
+                            continue;
+                        }
+                        var morph = bundle.MorphRA;
 						if (morph == null)
-							continue;
-						if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
+                        {
+                            sbD = MissingItemFound(sbD, "FORM");
+                            continue;
+                        }
+                        if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
 						{
 							if (previous == null)
 								sbA.Append("< ");
@@ -261,7 +269,15 @@ namespace SIL.DisambiguateInFLExDB
 			return sb.ToString();
 		}
 
-		private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
+        private StringBuilder MissingItemFound(StringBuilder sb, string item)
+        {
+            sb.Append("MISSING_");
+            sb.Append(item);
+            sb.Append(MissingItemMessage);
+            return sb;
+        }
+
+        private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
 		{
 			var gloss = sense.Gloss.BestAnalysisAlternative.Text;
 			sbA.Append(gloss);
