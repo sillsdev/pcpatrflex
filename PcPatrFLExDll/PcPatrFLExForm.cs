@@ -382,7 +382,8 @@ namespace SIL.PcPatrFLEx
 			var segment = selectedSegmentToShow.Segment;
 			var ana = Extractor.ExtractTextSegmentAsANA(segment);
             ReportAnyBadGlossesFound();
-			return ana;
+            ReportAnyEmptySegments(ana, segment);
+            return ana;
 		}
 
         private string GetAnaForm(ListBox.SelectedObjectCollection selectedSegmentsToShow)
@@ -408,6 +409,7 @@ namespace SIL.PcPatrFLEx
         {
             var ana = Extractor.ExtractTextSegmentAsANA(segment);
             ReportAnyBadGlossesFound();
+            ReportAnyEmptySegments(ana, segment);
             int iEnd = Math.Max(ana.Length - 1, 0);
             sb.Append(ana.Substring(0, iEnd)); // skip final extra nl, if any
                                                // Now add period so PcPatr will treat it as an end of a sentence
@@ -469,6 +471,28 @@ namespace SIL.PcPatrFLEx
             }
         }
 
+        private void ReportAnyEmptySegments(string ana, ISegment segment)
+        {
+            if (!ana.Contains("\\a"))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Segment number ");
+                int segmentNumber = 0;
+                foreach (var seg in lbSegments.Items)
+                {
+                    segmentNumber++;
+                    var segToShow = seg as SegmentToShow;
+                    if (segToShow != null && segment.Equals(segToShow.Segment))
+                    {
+                        break;
+                    }
+                }
+                sb.Append(segmentNumber);
+                sb.Append(" does not have any words in it.\nPlease remove it or add words and try again.\n");
+                MessageBox.Show(sb.ToString());
+                BadGlossesFound = true;
+            }
+        }
         private void Segments_SelectedIndexChanged(object sender, EventArgs e)
         {
             int lastOne = lbSegments.SelectedItems.Count - 1;
@@ -633,7 +657,7 @@ namespace SIL.PcPatrFLEx
             string message;
             if (File.Exists(andResult))
             {
-                message = "The PC-PATR processing failed!\nPerhaps there are incompatible feature values in one of the forms.\nWe will show the error log after you click on OK.\nYou may also want to try and run the PcPatrFLEx.bat file in the %TEMP% diretory.\nThis may or may not show which features are incompatible or some other PC-PATR error or warning message.";
+                message = "The PC-PATR processing failed!\nPerhaps there are incompatible feature values in one of the forms.\nWe will show the error log after you click on OK.\nYou may also want to try and run the PcPatrFLEx.bat file in the %TEMP% directory.\nThis may or may not show which features are incompatible or some other PC-PATR error or warning message.";
             }
             else
             {
@@ -665,6 +689,10 @@ namespace SIL.PcPatrFLEx
                         lbStatusSegments.Text = "Processing segment " + i++ + "/" + lbSegments.Items.Count;
                         sb.Clear();
                         ProcessSegmentToAnaForm(sb, segment);
+                        if (BadGlossesFound)
+                        {
+                            continue;
+                        }
                         String anaFile = Path.Combine(Path.GetTempPath(), "Invoker.ana");
                         File.WriteAllText(anaFile, sb.ToString());
                         var invoker = new PCPatrInvoker(GrammarFile, anaFile, LastRootGlossSelection);
@@ -689,7 +717,7 @@ namespace SIL.PcPatrFLEx
                             }
                             catch (IOException e)
                             {
-                                MessageBox.Show("read failed for i=" + (i-1) + "; " + e.Message);
+                                MessageBox.Show("The read failed for segment number " + (i-1) + "; " + e.Message);
                             }
                         }
                         else

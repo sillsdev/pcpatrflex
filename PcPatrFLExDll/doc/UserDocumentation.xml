@@ -20,11 +20,11 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->4 November, 2021</date
+>22 July, 2022</date
 ><version
->Version 1.10.1 Beta</version
+>Version 1.11.0 Beta</version
 ><version
->Copyright © 2018-2021 SIL International</version
+>Copyright © 2018-2022 SIL International</version
 ><contents
 ></contents
 ></frontMatter
@@ -536,25 +536,25 @@ type="tPcPatrFLEx"
 ></object
 > will issue an error message.</p
 ><p
->Example <exampleRef
-letter="xErrorTypes"
-num="xErrorTypes"
-></exampleRef
+>Table <tablenumberedRef
+table="ntErrorMessages"
+></tablenumberedRef
 > lists the errors <object
 type="tPcPatrFLEx"
 ></object
 > reports along with a brief description of what the error might mean.</p
-><example
-XeLaTeXSpecial="pagebreak"
-num="xErrorTypes"
+><tablenumbered
+id="ntErrorMessages"
 ><table
 border="1"
+><caption
+>Error messages</caption
 ><tr
 ><th
-width="2in"
+width="3in"
 >Error</th
 ><th
-width="3.25in"
+width="2.85in"
 >Meaning</th
 ></tr
 ><tr
@@ -567,7 +567,7 @@ type="tErrorType"
 >The <object
 type="tPcPatrGrammar"
 ></object
-> file being used has at least one error it it so the <object
+> file being used has at least one error in it so the <object
 type="tPcPatr"
 ></object
 > program could not load and use it. The list of errors (and any warning messages, too) will be shown as soon as you click on the OK button. Note that in the error message file, the grammar file's location may look odd, but it is the same as what is showing before the “Browse” button.<endnote
@@ -584,6 +584,13 @@ sec="sHelp"
 >.)</td
 ></tr
 ><tr
+XeLaTeXSpecial="row-separation='-6pt'"
+><td
+> </td
+><td
+> </td
+></tr
+><tr
 ><td
 ><object
 type="tErrorType"
@@ -595,8 +602,123 @@ type="tFLEx"
 ></object
 >.</td
 ></tr
+><tr
+XeLaTeXSpecial="row-separation='-6pt'"
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>Segment number <object
+type="tErrorMessageItem"
+>number</object
+> does not have any words in it. Please remove it or add words and try again.</object
+></td
+><td
+>The indicated segment number does not have any words in it. You need to either remove the segment from the text or add some words to the segment in <object
+type="tFLEx"
+></object
+>.</td
+></tr
+><tr
+XeLaTeXSpecial="row-separation='-6pt'"
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>Sorry, but not every sentence has every word parsed. At least the word '<object
+type="tErrorMessageItem"
+>word</object
+>' did not parse. Please make sure every word is parsed and try again.</object
+></td
+><td
+>The indicated word does not have a parse. You need to give that word a parse in <object
+type="tFLEx"
+></object
+>.</td
+></tr
+><tr
+XeLaTeXSpecial="row-separation='-6pt'"
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>Sorry, but at least the word '<object
+type="tErrorMessageItem"
+>word</object
+>' has an analysis with an invalid parse. Please make sure every word has valid parses and try again.</object
+></td
+><td
+>The indicated word does not have a valid parse. You need to fix it in <object
+type="tFLEx"
+></object
+>.</td
+></tr
+><tr
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>The read failed for segment number <object
+type="tErrorMessageItem"
+>number</object
+>; <object
+type="tErrorMessageItem"
+>some error message</object
+></object
+></td
+><td
+>Something went wrong while processing the indicated segment number. This only shows when the “Run PC-PATR on each sentence individually” option is set (see section <sectionRef
+sec="sAdvanced"
+></sectionRef
+>). It may be that the “Parsing time limit” was met and <object
+type="tPcPatrFLEx"
+></object
+> had some issue trying to read one of its temporary files.</td
+></tr
+><tr
+XeLaTeXSpecial="row-separation='-6pt'"
+><td
+> </td
+><td
+> </td
+></tr
+><tr
+><td
+><object
+type="tErrorType"
+>The PC-PATR processing failed! Perhaps there are incompatible feature values in one of the forms. We will show the error log after you click on OK. You may also want to try and run the PcPatrFLEx.bat file in the %TEMP% directory. This may or may not show which features are incompatible or some other PC-PATR error or warning message.</object
+></td
+><td
+>When processing the input segment, the <object
+type="tPcPatrGrammar"
+></object
+> file being used has at least one incompatibility in it. The list of errors (and any warning messages, too) will be shown as soon as you click on the OK button. Note that in the error message file, the grammar file's location may look odd, but it is the same as what is showing before the “Browse” button. Also, the error messages and warnings may be a bit cryptic. See the PC-PATR Reference Manual for (some possible) help on this. (The manual is available via the "Help” button; see section <sectionRef
+sec="sHelp"
+></sectionRef
+>.)</td
+></tr
 ></table
-></example
+></tablenumbered
 ><p
 >If you get an error message not in the list above, please report it. See section <sectionRef
 sec="sSupport"
@@ -1046,6 +1168,11 @@ font-family="Arial"
 font-size="12pt"
 font-style="italic"
 id="tEmpty"
+></type
+><type
+color="black"
+font-style="italic"
+id="tErrorMessageItem"
 ></type
 ><type
 color="red"
@@ -1534,11 +1661,14 @@ textbefore=" "
 ><tablenumberedLayout
 captionLocation="after"
 ><tablenumberedLabelLayout
+font-weight="bold"
 textafter=" "
 ></tablenumberedLabelLayout
 ><tablenumberedNumberLayout
+textafter=": "
 ></tablenumberedNumberLayout
 ><tablenumberedCaptionLayout
+font-style="italic"
 textbefore="  "
 ></tablenumberedCaptionLayout
 ></tablenumberedLayout
