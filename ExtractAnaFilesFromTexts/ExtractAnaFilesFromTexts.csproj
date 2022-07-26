@@ -62,39 +62,49 @@
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\LCMDlls\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="PrepFLExDB">
-      <HintPath>..\PrepFLExDB\bin\x64\Debug\PrepFLExDB.exe</HintPath>
+    <ProjectReference Include="..\PrepFLExDB\PrepFLExDB.csproj">
+      <Project>{1C9C6F8C-05A7-4BD2-84CD-8C751DA518B0}</Project>
+      <Name>PrepFLExDB</Name>
+    </ProjectReference>
+    <Reference Include="SIL.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\v9\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core">
-      <HintPath>..\FWDlls\SIL.Core.dll</HintPath>
+    <Reference Include="SIL.Core.Desktop, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\v9\SIL.Core.Desktop.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core.Desktop">
-      <HintPath>..\FWDlls\SIL.Core.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="SIL.DisambiguateInFLExDB">
+    <Reference Include="SIL.DisambiguateInFLExDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DisambiguateInFLExDB\bin\x64\Release\SIL.DisambiguateInFLExDB.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LcmLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LcmLoader\bin\x64\Debug\SIL.LcmLoader.dll</HintPath>
+      <HintPath>..\LcmLoader\bin\x64\Release\SIL.LcmLoader.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LcmLoaderUI">
+    <Reference Include="SIL.LcmLoaderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LcmLoaderUI\bin\x64\Release\SIL.LcmLoaderUI.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel">
-      <HintPath>..\LCMDlls\SIL.LCModel.dll</HintPath>
+    <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Core">
-      <HintPath>..\LCMDlls\SIL.LCModel.Core.dll</HintPath>
+    <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel.Utils">
-      <HintPath>..\LCMDlls\SIL.LCModel.Utils.dll</HintPath>
+    <Reference Include="SIL.LCModel.Utils, Version=10.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LCMDlls\v10.2.0.24\SIL.LCModel.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Lexicon">
-      <HintPath>..\FWDlls\SIL.Lexicon.dll</HintPath>
+    <Reference Include="SIL.Lexicon, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\v9\SIL.Lexicon.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems">
-      <HintPath>..\FWDlls\SIL.WritingSystems.dll</HintPath>
+    <Reference Include="SIL.WritingSystems, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\v9\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\LCMDlls\StructureMap.dll</HintPath>
