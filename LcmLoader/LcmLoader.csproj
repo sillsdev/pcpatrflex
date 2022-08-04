@@ -75,9 +75,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FWDlls\Microsoft.Extensions.DependencyModel.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FWDlls\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FWDlls\v9\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

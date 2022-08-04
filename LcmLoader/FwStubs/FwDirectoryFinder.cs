@@ -16,6 +16,7 @@ using System.Security;
 using Microsoft.Win32;
 using SIL.LCModel;
 using SIL.LCModel.Utils;
+using SIL.PlatformUtilities;
 
 namespace SIL.LcmLoader
 {
@@ -363,7 +364,7 @@ namespace SIL.LcmLoader
 			{
 				if (!string.IsNullOrEmpty(m_srcdir))
 					return m_srcdir;
-				if (MiscUtils.IsUnix)
+				if (Platform.IsUnix)
 				{
 					// Linux doesn't have the registry setting, at least while running tests,
 					// so we'll assume the executing assembly is $FW/Output/Debug/FwUtils.dll,
@@ -562,7 +563,7 @@ namespace SIL.LcmLoader
 				// NOTE: SpecialFolder.MyDocuments returns $HOME on Linux
 				string myDocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 				// FWNX-501: use slightly different default path on Linux
-				string defaultDir = MiscUtils.IsUnix ?
+				string defaultDir = Platform.IsUnix ?
 					Path.Combine(myDocs, "Documents/fieldworks/backups") :
 					Path.Combine(Path.Combine(myDocs, "My FieldWorks"), "Backups");
 
