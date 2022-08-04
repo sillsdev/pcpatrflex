@@ -20,9 +20,9 @@ type="tPcPatrFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->22 July, 2022</date
+>4 August, 2022</date
 ><version
->Version 1.11.0 Beta</version
+>Version 1.12.0 Beta</version
 ><version
 >Copyright © 2018-2022 SIL International</version
 ><contents
@@ -1222,7 +1222,7 @@ before="PC-PATR grammar"
 id="tPcPatrGrammar"
 ></type
 ><type
-before="9.0.4 Beta"
+before="9.1.14 Beta"
 id="tFLExVersion"
 ></type
 ><type
