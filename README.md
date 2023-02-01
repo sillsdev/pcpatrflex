@@ -7,7 +7,7 @@ A tool to use a PC-PATR grammar to (morphologically) disambiguate texts in FLEx
 in a *FieldWorks Language Explorer* project. You tell *Use PC-PATR with FLEx* the PC-PATR grammar file to use.
 Then you can choose a text or a portion of that text and ask *Use PC-PATR with FLEx* to try and disambiguate it.
 
-*Use PC-PATR with FLEx* is compatible with version 9.0.4 Beta or higher of FLEx.
+*Use PC-PATR with FLEx* is compatible with version 9.1.18 or higher of FLEx.
 
 While you can use any PC-PATR grammar file, *Use PC-PATR with FLEx* expects that you will have used the *PAWS* program to create 
 the PC-PATR grammar file. See https://software.sil.org/paws/ for more on PAWS.
