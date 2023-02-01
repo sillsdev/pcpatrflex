@@ -92,7 +92,7 @@
 
         CONDITION:
            (
-           (current morphname is «NINT'FN'D»)
+           (current morphname is 6386)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,7 +108,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 6553)
+           (    (final morphname is 7195)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -133,7 +133,7 @@
 
         CONDITION:
            (
-           (current morphname is 5222)
+           (current morphname is 5742)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,7 +148,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 6217)
+           (    (final morphname is 6823)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -166,7 +166,7 @@
 
         CONDITION:
            (
-           (current morphname is 6217)
+           (current morphname is 6823)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,7 +182,7 @@
 
         CONDITION:
            (
-           (current morphname is 760)
+           (current morphname is 842)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,7 +197,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 1880)
+           (    (final morphname is 2087)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -351,7 +351,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 6382)
+           (    (final morphname is 7011)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -376,7 +376,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 6902)
+           (    (final morphname is 7581)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -488,7 +488,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 8290)
+           (    (final morphname is 9099)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -512,7 +512,7 @@
         Associate a H tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 467)
+           (    (final morphname is 522)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -819,7 +819,7 @@
 
         CONDITION:
            (
-           (current morphname is 4574)
+           (current morphname is 5022)
            )
 
 
@@ -1042,7 +1042,7 @@
 
         CONDITION:
            (
-           (current morphname is «OBL'N»)
+           (current morphname is 5040)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1059,7 +1059,7 @@
 
         CONDITION:
            (
-           (current morphname is «OBL'N'EO»)
+           (current morphname is 1490)
            )
 
 |]
@@ -1077,7 +1077,7 @@
 
         CONDITION:
            (
-           (current morphname is 9105)
+           (current morphname is 9985)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1160,7 +1160,7 @@
 
         CONDITION:
            (
-           (current morphname is 275)
+           (current morphname is 304)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1177,7 +1177,7 @@
         Associate a M tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 5025)
+           (    (final morphname is 5522)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -1202,7 +1202,7 @@
 
         CONDITION:
            (
-           (current morphname is 7837)
+           (current morphname is 8601)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1218,7 +1218,7 @@
         Associate a M tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 7566)
+           (    (final morphname is 8304)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -1236,7 +1236,7 @@
 
         CONDITION:
            (
-           (current morphname is 7566)
+           (current morphname is 8304)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1252,7 +1252,7 @@
 
         CONDITION:
            (
-           (current morphname is 4587)
+           (current morphname is 5036)
            )
 
 
@@ -1269,7 +1269,7 @@
         Associate a M tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 2604)
+           (    (final morphname is 2872)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -1294,7 +1294,7 @@
         Associate a M tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 61)
+           (    (final morphname is 65)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -1320,7 +1320,7 @@
         Associate a M tone at right edge of morpheme.
 
         CONDITION:
-           (    (final morphname is 4550)
+           (    (final morphname is 4998)
             AND (   (    (right type is root)
                      AND (current type is prefix)
                      AND NOT (current property is Ac2)
@@ -1434,7 +1434,7 @@
 
         CONDITION:
            (
-           (current morphname is 8656)
+           (current morphname is 9495)
            )
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1475,7 +1475,7 @@
         Associate a H tone at right edge of word.
 
         CONDITION:
-           (current morphname is 7035)
+           (current morphname is 7728)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | EQUATIVE INTERROGATIVE Tone Pattern 														  «EQ'Q»
@@ -1488,7 +1488,7 @@
         Associate a F tone at right edge of word.
 
         CONDITION:
-           (current morphname is 10610)
+           (current morphname is 11576)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | EQUATIVE with EMPHATIC OBJECT DECLARATIVE Tone Pattern 								   «EQ'EO'D»
@@ -1502,7 +1502,7 @@
         Associate a H tone at right edge of word.
 
         CONDITION:
-           (current morphname is 6158)
+           (current morphname is 6759)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | EQUATIVE with EMPHATIC OBJECT INTERROGATIVE Tone Pattern 								   «EQ'EO'Q»
@@ -1516,7 +1516,7 @@
         Associate a F tone at right edge of word.
 
         CONDITION:
-           (current morphname is 4661)
+           (current morphname is 5115)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | EQUATIVE NEGATIVE with EMPHATIC OBJECT DECLARATIVE Tone Pattern						 «EQ'N'EO'D»
@@ -1641,7 +1641,7 @@
         Associate a F tone at left edge of word.
 
         CONDITION:
-           (current morphname is 625)
+           (current morphname is 697)
 |]
 |}
 |{ D)  ########## TONE RULES FOR NON-VERBAL CLAUSES - COMPLEMENTATIONAL ############################
@@ -1657,7 +1657,7 @@
         Associate a M tone at right edge of word.
 
         CONDITION:
-           (current morphname is 4966)
+           (current morphname is 5449)
 
 |}
 |{ E)  ########## TONE RULES FOR PARTICLES #########################################################
@@ -1693,7 +1693,7 @@
         Associate a H tone at right edge of word.
 
         CONDITION:
-           (current morphname is 8438)
+           (current morphname is 9257)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | POSSESSIVE MIDDLE Tone «X'POSS'M» (Auxiliary)
@@ -1730,7 +1730,7 @@
         Associate a H tone at right edge of word.
 
         CONDITION:
-           (current morphname is 1701)
+           (current morphname is 1892)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | MIDDLE Tone on NPs/Particles «X'NP'M» (Auxiliary)
@@ -1742,7 +1742,7 @@
         Associate a M tone at right edge of word.
 
         CONDITION:
-           (current morphname is 9716)
+           (current morphname is 10648)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | RISING/FALLING Tone on NPs/Particles «X'NP'F» (Auxiliary)
@@ -1754,7 +1754,7 @@
         Associate a F tone at right edge of word.
 
         CONDITION:
-           (current morphname is 8455)
+           (current morphname is 9275)
 
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | LOW Tone on NPs/Particles «X'NP'L» (Auxiliary)
@@ -1766,7 +1766,7 @@
         Associate a L tone at right edge of word.
 
         CONDITION:
-           (current morphname is 1133)
+           (current morphname is 1260)
 
 | E3) ********** DEMONSTRATIVE AUXILIARY TONES **********
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

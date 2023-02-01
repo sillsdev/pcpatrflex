@@ -20,11 +20,11 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->14 August, 2019</date
+>1 February, 2023</date
 ><version
->Version 0.1.0 Beta</version
+>Version 0.1.1 Beta</version
 ><version
->Copyright © 2019 SIL International</version
+>Copyright © 2019-2023 SIL International</version
 ><contents
 ></contents
 ></frontMatter
@@ -245,7 +245,10 @@ type="tToneParsFLEx"
 ><section2
 id="sToneParsRuleBrowse"
 ><secTitle
->TonePars rule file Browse button</secTitle
+><object
+type="tTonePars"
+></object
+> rule file Browse button</secTitle
 ><p
 >To choose which <object
 type="tTonePars"
@@ -258,7 +261,10 @@ type="tTonePars"
 ><section2
 id="sAmpleIBrowsentxCtl"
 ><secTitle
->AMPLE intx ctl file Browse button</secTitle
+><object
+type="tAmple"
+></object
+> intx ctl file Browse button</secTitle
 ><p
 >As you most likely already know, when using <object
 type="tTonePars"
@@ -460,6 +466,14 @@ type="tFLEx"
 ></object
 >.</li
 ><li
+>The location of the <object
+type="tTonePars"
+></object
+> rule file and the <object
+type="tAmple"
+></object
+> intx ctl file work best if the path to them does not contain any spaces.</li
+><li
 >If a lexical entry in <object
 type="tFLEx"
 ></object
@@ -482,7 +496,7 @@ type="tFLEx"
 >The current version of <object
 type="tFLEx"
 ></object
-> does not always parse a capitalized word.  Here is one way to try and deal with this:<endnote
+> does not always parse a capitalized word. Here is one way to try and deal with this:<endnote
 id="nLT5722"
 ><p
 >This is a slightly modified version of Kevin Warfel's work-around in <object
@@ -533,6 +547,11 @@ type="tToneParsFLEx"
 type="tTonePars"
 ></object
 > in order to correctly handle “morphname is” statements in the rule file.</li
+><li
+>The position of the “Parse this segment” button may creep to the left between invocations of <object
+type="tToneParsFLEx"
+></object
+>.  We've tried to fix this, but have not had success yet.  Simply drag the splitter bar to the right to reset its location.</li
 ></ol
 ></section1
 ><section1
@@ -913,7 +932,7 @@ before="PC-PATR grammar"
 id="tPcPatrGrammar"
 ></type
 ><type
-before="9.0.6 Beta"
+before="9.1.18"
 id="tFLExVersion"
 ></type
 ><type

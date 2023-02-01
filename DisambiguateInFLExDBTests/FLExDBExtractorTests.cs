@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
-using SIL.LcmLoader;
 using SIL.WritingSystems;
 using System.Reflection;
 using System.IO;

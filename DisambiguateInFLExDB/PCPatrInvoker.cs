@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018 SIL International
+﻿// Copyright (c) 2018-2019 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -24,19 +24,24 @@ namespace SIL.DisambiguateInFLExDB
 		public String LogFile { get; set; }
 		public String BatchFile { get; set; }
 		public String RootGlossState { get; set; }
+		public Boolean InvocationSucceeded { get; set; }
+        public String MaxAmbiguities { get; set; }
+        public String TimeLimit { get; set; }
 
-		public PCPatrInvoker(string grammarFile, string anaFile, string rootglossState)
+        public PCPatrInvoker(string grammarFile, string anaFile, string rootglossState)
 		{
 			GrammarFile = grammarFile;
 			AnaFile = anaFile;
 			RootGlossState = rootglossState;
 			LogFile = Path.Combine(Path.GetTempPath(), logFileName);
+            MaxAmbiguities = "100";
+            TimeLimit = "0";
 		}
 
 		[DllImport("kernel32.dll", SetLastError = true)]
-		private static extern int GetShortPathName(String pathName, StringBuilder shortName, int cbShortName);
+        private static extern int GetShortPathName(String pathName, StringBuilder shortName, int cbShortName);
 
-		private void CreateBatchFile()
+        private void CreateBatchFile()
 		{
 			BatchFile = Path.Combine(Path.GetTempPath(), "PcPatrFLEx.bat");
 			StringBuilder sbBatchFile = new StringBuilder();
@@ -75,8 +80,16 @@ namespace SIL.DisambiguateInFLExDB
 			var process = Process.Start(processInfo);
 			process.Start();
 			process.WaitForExit();
-			string output = process.StandardOutput.ReadToEnd();
-			string error = process.StandardError.ReadToEnd();
+			if (process.ExitCode == 0)
+			{
+				InvocationSucceeded = true;
+			}
+			else
+			{
+				InvocationSucceeded = false;
+			}
+			//string output = process.StandardOutput.ReadToEnd();
+			//string error = process.StandardError.ReadToEnd();
 			//Console.Write(output);
 			//Console.Write(error);
 		}
@@ -91,32 +104,32 @@ namespace SIL.DisambiguateInFLExDB
 			sbTake.Append("log ");
 			sbTake.Append(logFileName);
 			sbTake.Append("\n");
-			sbTake.Append("load grammar ");
-			StringBuilder sbGrammarFileShortPath = new StringBuilder(255);
-			i = GetShortPathName(GrammarFile, sbGrammarFileShortPath, sbGrammarFileShortPath.Capacity);
-			sbTake.Append(sbGrammarFileShortPath.ToString() + "\n");
-			sbTake.Append("set timing on\n");
+            sbTake.Append("load grammar ");
+            StringBuilder sbGrammarFileShortPath = new StringBuilder(255);
+            i = GetShortPathName(GrammarFile, sbGrammarFileShortPath, sbGrammarFileShortPath.Capacity);
+            sbTake.Append(sbGrammarFileShortPath.ToString() + "\n");
+            sbTake.Append("set timing on\n");
 			sbTake.Append("set gloss on\n");
 			sbTake.Append("set features all\n");
 			HandleRootGloss(sbTake);
 			sbTake.Append("set tree xml\n");
-			sbTake.Append("set ambiguities 100\n");
-			sbTake.Append("set write-ample-parses on\n");
-			sbTake.Append("file disambiguate ");
-			StringBuilder sbAnaFileShortPath = new StringBuilder(255);
-			i = GetShortPathName(AnaFile, sbAnaFileShortPath, sbAnaFileShortPath.Capacity);
-			String anashort = sbAnaFileShortPath.ToString();
-			sbTake.Append(anashort);
-			//Console.WriteLine("anashort='" + anashort + "'");
-			sbTake.Append(" ");
-			//String andshort = "";
-			String result = anashort.Substring(0, anashort.Length - 1) + "d";
-			sbTake.Append(result + "\n");
-			sbTake.Append("exit\n");
+            sbTake.Append("set ambiguities ");
+            sbTake.Append(MaxAmbiguities);
+            sbTake.Append("\n");
+            if (!TimeLimit.Equals("0"))
+            {
+                sbTake.Append("set limit ");
+                sbTake.Append(TimeLimit);
+                sbTake.Append("\n");
+            }
+            sbTake.Append("set write-ample-parses on\n");
+            // since the batch fle defaults to the temp directory, we just use the invoker files as they are
+            sbTake.Append("file disambiguate Invoker.ana Invoker.and\n");
+            sbTake.Append("exit\n");
 			//Console.Write(sbTake.ToString());
 			File.WriteAllText(takeFile, sbTake.ToString());
-			AndFile = result;
-		}
+            AndFile = Path.Combine(Path.GetTempPath(), "Invoker.and");
+        }
 
 		private void HandleRootGloss(StringBuilder sbTake)
 		{

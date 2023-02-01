@@ -15,7 +15,7 @@ using SIL.LCModel;
 using System.Text.RegularExpressions;
 using System.Threading;
 using SIL.LCModel.DomainServices;
-using SIL.LcmLoaderUI;
+//using SIL.LcmLoaderUI;
 using XCore;
 using SIL.FieldWorks.WordWorks.Parser;
 using System.Xml.Linq;
@@ -468,7 +468,7 @@ namespace SIL.DisambiguateInFLExDB
 		private string GetAllToneParsPropsFromPossibilityList()
 		{
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.ToneParsPropertiesList);
+			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == ToneParsConstants.ToneParsPropertiesList);
 			var sb = new StringBuilder();
 			foreach (var prop in toneParsList.PossibilitiesOS)
 			{
@@ -486,7 +486,7 @@ namespace SIL.DisambiguateInFLExDB
 			var allomorphHvoPropertyMapper = new Dictionary<string, string> { };
 			var morphemePropertyMapper = new Dictionary<string, string> { };
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.ToneParsPropertiesList);
+			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == ToneParsConstants.ToneParsPropertiesList);
 			BuildAllomorphPropertyMapper(allomorphHvoPropertyMapper, toneParsList);
 			BuildMorphemePropertyMapper(morphemePropertyMapper, toneParsList);
 			// Add allomorph properties
@@ -722,4 +722,10 @@ namespace SIL.DisambiguateInFLExDB
 		}
 		// -----------------------
 	}
+    public static class ToneParsConstants
+    {
+        public const string ToneParsPropertiesSenseCustomField = "ToneParsSense";
+        public const string ToneParsPropertiesFormCustomField = "ToneParsForm";
+        public const string ToneParsPropertiesList = "TonePars Properties";
+    }
 }

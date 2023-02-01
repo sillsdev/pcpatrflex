@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Use TonePars with FLEx"
-#define MyAppVersion "0.1.0 Beta"
+#define MyAppVersion "0.1.1 Beta"
 #define MyAppPublisher "SIL Iternational"
 #define MyAppURL "https://software.sil.org/"
 #define MyAppExeName "ToneParsFLExDll.dll"
@@ -38,10 +38,8 @@ Source: "..\ToneParsFLExDll\bin\x64\Release\xample64.exe"; DestDir: "{app}"; Fla
 Source: "..\ToneParsFLExDll\bin\x64\Release\TonePars64.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\ToneParsFLExDll\bin\x64\Release\ToneParsFLExDll.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\ToneParsFLExDll\bin\x64\Release\ToneParsFLExDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDB.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\ToneParsFLExDll\bin\x64\Release\SIL.Core6.dll"; DestDir: "{app}"; DestName: "SIL.Core.dll"; Flags: ignoreversion
-Source: "..\ToneParsFLExDll\bin\x64\Release\SIL.Core6.pdb"; DestDir: "{app}"; DestName: "SIL.Core.pdb"; Flags: ignoreversion
+Source: "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDBDll.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDBDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\ToneParsFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\ToneParsFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ToneParscd.tab"; DestDir: "{app}"; Flags: ignoreversion

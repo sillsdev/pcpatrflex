@@ -4,7 +4,6 @@
 
 using NUnit.Framework;
 using SIL.DisambiguateInFLExDB;
-using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;

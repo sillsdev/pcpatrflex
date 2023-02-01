@@ -2,7 +2,7 @@
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
-using SIL.LcmLoaderUI;
+//using SIL.LcmLoaderUI;
 using SIL.LCModel;
 using System;
 using System.Collections.Generic;
@@ -20,21 +20,26 @@ namespace SIL.DisambiguateInFLExDB
 
 		FieldDescription CustomField { get; set; }
 
+        public List<String> BadGlosses { get; set; }
+
+        public string MissingItemMessage { get; set; }
+
 		public FLExDBExtractor(LcmCache cache)
 		{
 			Cache = cache;
 
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			PcpatrList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.PcPatrFeatureDescriptorList);
+			PcpatrList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == PcPatrConstants.PcPatrFeatureDescriptorList);
 
 			var customFields = GetListOfCustomFields();
-			CustomField = customFields.Find(fd => fd.Name == Constants.PcPatrFeatureDescriptorCustomField);
-
-		}
+			CustomField = customFields.Find(fd => fd.Name == PcPatrConstants.PcPatrFeatureDescriptorCustomField);
+            BadGlosses = new List<string>();
+            MissingItemMessage = "_FOUND!_PLEASE_FIX_THIS_ANALYSIS_IN_Word_Analyses";
+        }
 
 		public string ExtractPcPatrLexicon()
 		{
-			var sb = new StringBuilder();
+            var sb = new StringBuilder();
 			var lexEntries = Cache.LanguageProject.LexDbOA.Entries;
 			foreach (ILexEntry entry in lexEntries.OrderBy(e => e.ShortName))
 			{
@@ -46,6 +51,10 @@ namespace SIL.DisambiguateInFLExDB
 		protected void formatEntry(ILexEntry entry, StringBuilder sb)
 		{
 			var sense = entry.SensesOS.FirstOrDefault<ILexSense>();
+			if (sense == null)
+			{  // ignore variants for now
+				return;
+			}
 			var msa = sense.MorphoSyntaxAnalysisRA as IMoStemMsa;
 			if (msa == null)
 				return;
@@ -59,7 +68,7 @@ namespace SIL.DisambiguateInFLExDB
 			else
 				sb.Append("any");
 			sb.Append("\n\\g ");
-			sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
+            sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
 			sb.Append("\n\\f");
 			sb.Append(GetFeatureDescriptorsFromSense(sense));
 			sb.Append("\n\n");
@@ -100,6 +109,7 @@ namespace SIL.DisambiguateInFLExDB
 
 		public string ExtractTextSegmentAsANA(ISegment segment)
 		{
+            BadGlosses.Clear();
 			var sb = new StringBuilder();
 			var sbA = new StringBuilder();
 			var sbD = new StringBuilder();
@@ -148,9 +158,17 @@ namespace SIL.DisambiguateInFLExDB
 					{
 						var msa = bundle.MsaRA;
 						if (msa == null)
-							continue;
-						var morph = bundle.MorphRA;
-						if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
+                        {
+                            sbA = MissingItemFound(sbA, "GRAMMATICAL_INFO");
+                            continue;
+                        }
+                        var morph = bundle.MorphRA;
+						if (morph == null)
+                        {
+                            sbD = MissingItemFound(sbD, "FORM");
+                            continue;
+                        }
+                        if (msa is IMoStemMsa && !IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs))
 						{
 							if (previous == null)
 								sbA.Append("< ");
@@ -174,8 +192,14 @@ namespace SIL.DisambiguateInFLExDB
 						}
 						var sense = bundle.SenseRA;
 						if (sense == null)
-						{
-							if (morph != null)
+						{ // a sense can be missing from a bundle if the bundle is built by the parser filer
+							var entryOfMsa = (ILexEntry)msa.Owner;
+							sense = entryOfMsa.SensesOS.FirstOrDefault(s => s.MorphoSyntaxAnalysisRA == msa);
+							if (sense != null)
+							{
+								HandleSense(sbA, sbFD, sense);
+							}
+							else if (morph != null)
 							{
 								var entry = (ILexEntry)morph.Owner;
 								var sense2 = entry.SensesOS.FirstOrDefault();
@@ -245,11 +269,23 @@ namespace SIL.DisambiguateInFLExDB
 			return sb.ToString();
 		}
 
-		private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
+        private StringBuilder MissingItemFound(StringBuilder sb, string item)
+        {
+            sb.Append("MISSING_");
+            sb.Append(item);
+            sb.Append(MissingItemMessage);
+            return sb;
+        }
+
+        private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
 		{
 			var gloss = sense.Gloss.BestAnalysisAlternative.Text;
 			sbA.Append(gloss);
-			var fds = GetFeatureDescriptorsFromSense(sense);
+            if (gloss.Contains(" ") && !BadGlosses.Contains(gloss))
+            {
+                BadGlosses.Add(gloss);
+            }
+            var fds = GetFeatureDescriptorsFromSense(sense);
 			fds = (fds.Length > 1) ? fds.Substring(1) : fds;
 			sbFD.Append(fds);
 		}
@@ -279,11 +315,11 @@ namespace SIL.DisambiguateInFLExDB
 				return GetStemsCategory(bundle);
 			}
 			var stems = wfiAnalysis.MorphBundlesOS.Where(b => b.MsaRA is IMoStemMsa
-				&& !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
+				&& b.MorphRA != null && !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
 			if (stems.Count() == 1)
 			{
 				var firstStem = wfiAnalysis.MorphBundlesOS.First(b => b.MsaRA is IMoStemMsa
-					&& !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
+                    && b.MorphRA != null && !IsAttachedClitic(b.MorphRA.MorphTypeRA.Guid, 2));
 				result = GetStemsCategory(firstStem);
 			}
 			else if (stems.Count() > 1)
@@ -308,4 +344,9 @@ namespace SIL.DisambiguateInFLExDB
 			return result;
 		}
 	}
+    public static class PcPatrConstants
+    {
+        public const string PcPatrFeatureDescriptorCustomField = "PCPATR";
+        public const string PcPatrFeatureDescriptorList = "PCPATR Feature Descriptors";
+    }
 }

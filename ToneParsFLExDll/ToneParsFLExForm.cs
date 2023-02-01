@@ -64,10 +64,11 @@ namespace SIL.ToneParsFLEx
 		const string m_strLocationY = "LocationY";
 		const string m_strSizeHeight = "SizeHeight";
 		const string m_strSizeWidth = "SizeWidth";
-		const string m_strSplitterDistance = "SplitterDistance";
 		const string m_strWindowState = "WindowState";
+        const string m_strSplitterLocationX = "SplitterLocationX";
+        private int SplitterLocationRetrieved { get; set; }
 
-		const string m_strAll = "All";
+        const string m_strAll = "All";
 		const string m_strLeftmost = "Leftmost";
 		const string m_strOff = "Off";
 		const string m_strRightmost = "Rightmos";
@@ -179,14 +180,15 @@ namespace SIL.ToneParsFLEx
 			RectNormal = new Rectangle(iX, iY, iWidth, iHeight);
 			// Set form properties
 			WindowState = (FormWindowState)regkey.GetValue(m_strWindowState, 0);
-			splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterDistance, 390);
 
 			LastDatabase = (string)regkey.GetValue(m_strLastDatabase);
 			ToneRuleFile = LastToneRuleFile = (string)regkey.GetValue(m_strLastToneRuleFile);
 			IntxCtlFile = LastIntxCtlFile = (string)regkey.GetValue(m_strLastIntxCtlFile);
 			RetrievedLastText = LastText = (string)regkey.GetValue(m_strLastText);
 			RetrievedLastSegment = LastSegment = (string)regkey.GetValue(m_strLastSegment);
-			cbVerify.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastVerify, false));
+            splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterLocationX, 150);
+            SplitterLocationRetrieved = splitContainer1.SplitterDistance;
+            cbVerify.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastVerify, false));
 			cbTraceToneProcessing.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastDoTracing, false));
 			ToneParsInvokerOptions.Instance.RuleTrace = Convert.ToBoolean(regkey.GetValue(m_strLastRuleTrace, false));
 			ToneParsInvokerOptions.Instance.TierAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastTierAssignmentTrace, false));
@@ -234,9 +236,9 @@ namespace SIL.ToneParsFLEx
 			regkey.SetValue(m_strLocationY, RectNormal.Y);
 			regkey.SetValue(m_strSizeWidth, RectNormal.Width);
 			regkey.SetValue(m_strSizeHeight, RectNormal.Height);
-			regkey.SetValue(m_strSplitterDistance, splitContainer1.SplitterDistance);
+            regkey.SetValue(m_strSplitterLocationX, splitContainer1.SplitterDistance);
 
-			regkey.Close();
+            regkey.Close();
 		}
 
 		private static Font CreateFont(CoreWritingSystemDefinition wsDef)
@@ -264,7 +266,8 @@ namespace SIL.ToneParsFLEx
 
 		public void PrepareForm()
 		{
-			if (Cache != null)
+            splitContainer1.SplitterDistance = SplitterLocationRetrieved;
+            if (Cache != null)
 			{
 				EnsureDatabaseHasBeenPrepped();
 				Extractor = new FLExDBExtractor(Cache);

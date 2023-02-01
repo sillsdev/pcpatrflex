@@ -1,16 +1,18 @@
-copy "..\ToneParsFLExDll\bin\x64\Release\xample64.exe" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\tonepars64.exe" "c:\fwrepo\fw\Output\Release"
-copy "ToneParscd.tab" "c:\fwrepo\fw\Output\Release"
-copy "XAmplecd.tab" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\ToneParsFLExDll.dll" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\ToneParsFLExDll.pdb" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDB.exe" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDB.pdb" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.dll" "c:\fwrepo\fw\Output\Release"
-copy "..\ToneParsFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.pdb" "c:\fwrepo\fw\Output\Release"
-if not exist "c:\fwrepo\fw\Output\Release\doc\" mkdir "c:\fwrepo\fw\Output\Release\doc\"
-copy "..\ToneParsFLExDll\doc\silewp2007_002.pdf" "c:\fwrepo\fw\Output\Release\doc"
-copy "..\ToneParsFLExDll\doc\ToneParsGrammar.txt" "c:\fwrepo\fw\Output\Release\doc"
-copy "..\ToneParsFLExDll\doc\ToneParsFLExUserDocumentation.pdf" "c:\fwrepo\fw\Output\Release\doc"
+@echo off
+copy "..\ToneParsFLExDll\bin\x64\Release\xample64.exe" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\tonepars64.exe" "c:\fwrepo\fw\Output\Release" > nul
+copy "ToneParscd.tab" "c:\fwrepo\fw\Output\Release" > nul
+copy "XAmplecd.tab" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\ToneParsFLExDll.dll" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\ToneParsFLExDll.pdb" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDBDll.dll" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\PrepFLExDBDll.pdb" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.dll" "c:\fwrepo\fw\Output\Release" > nul
+copy "..\ToneParsFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.pdb" "c:\fwrepo\fw\Output\Release" > nul
+if not exist "c:\fwrepo\fw\Output\Release\doc\" mkdir "c:\fwrepo\fw\Output\Release\doc\" > nul
+copy "..\ToneParsFLExDll\doc\silewp2007_002.pdf" "c:\fwrepo\fw\Output\Release\doc" > nul
+copy "..\ToneParsFLExDll\doc\ToneParsGrammar.txt" "c:\fwrepo\fw\Output\Release\doc" > nul
+copy "..\ToneParsFLExDll\doc\ToneParsFLExUserDocumentation.pdf" "c:\fwrepo\fw\Output\Release\doc" > nul
+echo Copying done
 REM copy UtilityCatalogLine.txt >> "C:\fwrepo\fw\DistFiles\Language Explorer\Configuration\UtilityCatalogInclude.xml"
 
