@@ -354,8 +354,11 @@ namespace SIL.ToneParsFLEx
 				WaitForLoadToFinish();
 			}
 			invoker.Invoke();
-			invoker.SaveResultsInDatabase();
-		}
+            if (invoker.InvocationSucceeded)
+            {
+                invoker.SaveResultsInDatabase();
+            }
+        }
 
 		private void WaitForLoadToFinish()
 		{

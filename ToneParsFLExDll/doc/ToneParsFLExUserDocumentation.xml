@@ -20,9 +20,9 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->1 February, 2023</date
+>10 February, 2023</date
 ><version
->Version 0.1.1 Beta</version
+>Version 0.1.2 Beta</version
 ><version
 >Copyright © 2019-2023 SIL International</version
 ><contents
@@ -551,7 +551,7 @@ type="tTonePars"
 >The position of the “Parse this segment” button may creep to the left between invocations of <object
 type="tToneParsFLEx"
 ></object
->.  We've tried to fix this, but have not had success yet.  Simply drag the splitter bar to the right to reset its location.</li
+>. We've tried to fix this, but have not had success yet. Simply drag the splitter bar to the right to reset its location.</li
 ></ol
 ></section1
 ><section1
@@ -734,6 +734,70 @@ type="tXAmple"
 type="tFLEx"
 ></object
 > to properly process the data.</p
+></section1
+><section1
+id="sErrorMessages"
+><secTitle
+>Error messages</secTitle
+><p
+>When parsing a segment or a text, you may see an error message box.  The following tries to explain them.</p
+><table
+border="1"
+><tr
+><th
+>Message</th
+><th
+>Explanation</th
+></tr
+><tr
+><td
+align="left"
+valign="top"
+><object
+type="tErrorType"
+>There was a problem with XAmple parsing the segment or text.  Make sure every word can be parsed by XAmple.</object
+></td
+><td
+align="left"
+valign="top"
+>At least one word did not parse using <object
+type="tXAmple"
+></object
+>.  You may be able to find which ones by looking in the %TEMP% directory at the XAmpleInvoker.log file.  If <object
+type="tXAmple"
+></object
+> cannot parse every word, then <object
+type="tTonePars"
+></object
+> will probably have a problem, too.</td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+></td
+><td
+align="left"
+valign="top"
+></td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+><object
+type="tErrorType"
+>There was a problem with TonePars parsing the segment.  See the %TEMP%\ToneParsInvoker.log file.</object
+></td
+><td
+align="left"
+valign="top"
+><object
+type="tTonePars"
+></object
+> apparently ran into an issue.  See if the ToneParsInvoker.log file in the %TEMP% directory has any clues for you.</td
+></tr
+></table
 ></section1
 ><section1
 id="sSupport"
