@@ -45,6 +45,7 @@ namespace SIL.DisambiguateInFLExDB
         public String XAmpleLogFile { get; set; }
         public Char DecompSeparationChar { get; set; }
         public IdleQueue Queue { get; set; }
+        public Label ParsingStatus { get; set; }
 
         protected String[] AntRecords { get; set; }
         protected const String kAdCtl = "adctl.txt";
@@ -106,8 +107,54 @@ namespace SIL.DisambiguateInFLExDB
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern int GetShortPathName(String pathName, StringBuilder shortName, int cbShortName);
 
-        private void CreateBatchFile()
+        private void CreateBatchFiles()
         {
+            CreateXAmpleBatchFile();
+            CreateToneParsBatchFile();
+        }
+
+        private void CreateToneParsBatchFile()
+        {
+            // TonePars
+            if (File.Exists(ToneParsBatchFile))
+            {
+                File.Delete(ToneParsBatchFile);
+            }
+            StringBuilder sbBatchFile = new StringBuilder();
+            sbBatchFile.Append("@echo off");
+            sbBatchFile.Append(Environment.NewLine);
+            sbBatchFile.Append("cd \"");
+            sbBatchFile.Append(Path.GetTempPath());
+            sbBatchFile.Append("\"");
+            sbBatchFile.Append(Environment.NewLine);
+            sbBatchFile.Append("\"");
+            sbBatchFile.Append(GetXAmpleExePath());
+            sbBatchFile.Append("\\tonepars64\" -b -u ");
+            sbBatchFile.Append(ToneParsInvokerOptions.Instance.GetOptionsString());
+            sbBatchFile.Append(" -f \"");
+            sbBatchFile.Append(ToneParsCmdFile);
+            sbBatchFile.Append("\" -i \"");
+            sbBatchFile.Append(AnaFile);
+            sbBatchFile.Append("\" -o \"");
+            sbBatchFile.Append(AntFile);
+            sbBatchFile.Append("\" >\"");
+            sbBatchFile.Append(ToneParsLogFile);
+            sbBatchFile.Append("\"");
+            sbBatchFile.Append(Environment.NewLine);
+
+            //Console.WriteLine("==========");
+            //Console.WriteLine("ToneParsBatch File");
+            //Console.WriteLine("==========");
+            //Console.Write(sbBatchFile.ToString());
+            File.WriteAllText(ToneParsBatchFile, sbBatchFile.ToString());
+        }
+
+        private void CreateXAmpleBatchFile()
+        {
+            if (File.Exists(XAmpleBatchFile))
+            {
+                File.Delete(XAmpleBatchFile);
+            }
             StringBuilder sbBatchFile = new StringBuilder();
             sbBatchFile.Append("@echo off");
             sbBatchFile.Append(Environment.NewLine);
@@ -138,38 +185,14 @@ namespace SIL.DisambiguateInFLExDB
             //Console.WriteLine("==========");
             //Console.Write(sbBatchFile.ToString());
             File.WriteAllText(XAmpleBatchFile, sbBatchFile.ToString());
-            // TonePars
-            sbBatchFile.Clear();
-            sbBatchFile.Append("@echo off");
-            sbBatchFile.Append(Environment.NewLine);
-            sbBatchFile.Append("cd \"");
-            sbBatchFile.Append(Path.GetTempPath());
-            sbBatchFile.Append("\"");
-            sbBatchFile.Append(Environment.NewLine);
-            sbBatchFile.Append("\"");
-            sbBatchFile.Append(GetXAmpleExePath());
-            sbBatchFile.Append("\\tonepars64\" -b -u ");
-            sbBatchFile.Append(ToneParsInvokerOptions.Instance.GetOptionsString());
-            sbBatchFile.Append(" -f \"");
-            sbBatchFile.Append(ToneParsCmdFile);
-            sbBatchFile.Append("\" -i \"");
-            sbBatchFile.Append(AnaFile);
-            sbBatchFile.Append("\" -o \"");
-            sbBatchFile.Append(AntFile);
-            sbBatchFile.Append("\" >\"");
-            sbBatchFile.Append(ToneParsLogFile);
-            sbBatchFile.Append("\"");
-            sbBatchFile.Append(Environment.NewLine);
-
-            //Console.WriteLine("==========");
-            //Console.WriteLine("ToneParsBatch File");
-            //Console.WriteLine("==========");
-            //Console.Write(sbBatchFile.ToString());
-            File.WriteAllText(ToneParsBatchFile, sbBatchFile.ToString());
         }
 
         private void CreateXAmpleCmdFile()
         {
+            if (File.Exists(XAmpleCmdFile))
+            {
+                File.Delete(XAmpleCmdFile);
+            }
             StringBuilder sbCmdFile = new StringBuilder();
             sbCmdFile.Append(DatabaseName);
             sbCmdFile.Append(kAdCtl);
@@ -197,6 +220,10 @@ namespace SIL.DisambiguateInFLExDB
 
         private void CreateToneParsCmdFile()
         {
+            if (File.Exists(ToneParsCmdFile))
+            {
+                File.Delete(ToneParsCmdFile);
+            }
             StringBuilder sbCmdFile = new StringBuilder();
             sbCmdFile.Append(DatabaseName);
             sbCmdFile.Append(kTPAdCtl);
@@ -228,34 +255,117 @@ namespace SIL.DisambiguateInFLExDB
         }
         public void Invoke()
         {
-            AppendToneParsPropertiesToAdCtlFile();
-            AddToneParsPropertiesToLexiconFile();
-            ConvertMorphnameIsToUseHvosInToneRuleFile();
-            CreateBatchFile();
-            CreateXAmpleCmdFile();
-            CreateToneParsCmdFile();
-            CopyCodeTableFilesToTemp();
-
-            File.Delete(AntFile);
-            File.Delete(ToneParsLogFile);
-
-
-            var processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + XAmpleBatchFile + "\"");
-            InvokeBatchFile(processInfo);
-            if (!InvocationSucceeded)
+            try
             {
-                MessageBox.Show("There was a problem with XAmple parsing the segment or text.  Make sure every word can be parsed by XAmple.");
+                UpdateParsingStatus("Preparing for parsing");
+                AppendToneParsPropertiesToAdCtlFile();
+                AddToneParsPropertiesToLexiconFile();
+                ConvertMorphnameIsToUseHvosInToneRuleFile();
+                CreateBatchFiles();
+                CreateXAmpleCmdFile();
+                CreateToneParsCmdFile();
+                CopyCodeTableFilesToTemp();
+
+                File.Delete(AnaFile);
+                File.Delete(XAmpleLogFile);
+                File.Delete(AntFile);
+                File.Delete(ToneParsLogFile);
+
+                string sInput = File.ReadAllText(InputFile);
+                Console.WriteLine("Text is '" + sInput + "'");
+                var processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + XAmpleBatchFile + "\"");
+                UpdateParsingStatus("Parsing via XAmple");
+                InvokeBatchFile(processInfo);
+                WaitForFileCompletion(AnaFile);
+
+                processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
+                UpdateParsingStatus("Parsing via TonePars");
+                InvokeBatchFile(processInfo);
+                WaitForFileCompletion(AntFile);
+                if (!File.Exists(AntFile))
+                {
+                    MessageBox.Show("There was a timing problem.  Please try again.");
+                    InvocationSucceeded = false;
+                    return;
+                }
+                UpdateParsingStatus("Preparing results");
+                CreateAntRecords();
+            }
+            catch (IOException e)
+            {
+                if (e.Message.Contains("The process cannot access the file") || e.Message.Contains("because it is being used by another process."))
+                {
+                    if (e.Message.Contains("ToneParsInvoker.ana'"))
+                    {
+                        UpdateParsingStatus("XAmple result file had a problem.");
+                    }
+                    else
+                    {
+                        UpdateParsingStatus("TonePars result file had a problem.");
+                    }
+                    InvocationSucceeded = false;
+                }
+            }
+        }
+
+        private void UpdateParsingStatus(string content)
+        {
+            if (ParsingStatus != null)
+            {
+                ParsingStatus.Text = content;
+                ParsingStatus.Invalidate();
+                ParsingStatus.Update();
+            }
+        }
+
+        private void WaitForFileCompletion(string filePath)
+        {
+            string programName = filePath.EndsWith("ana") ? "XAmple" : "TonePars";
+            // Give it time to completely finish or the output file won't be available
+            Console.WriteLine("Wait: path=" + filePath);
+            const int numberOfRetries = 10;
+            const int delayOnRetry = 1000;
+            int iWait = 0;
+            while (iWait < numberOfRetries)
+            {
+                if (!File.Exists(filePath))
+                {
+                    Thread.Sleep(delayOnRetry);
+                    iWait++;
+                    continue;
+                }
+                Console.WriteLine("\tWait: file exists after=" + iWait);
+                break;
+            }
+            if (!File.Exists(filePath))
+            {
+                UpdateParsingStatus("Parsing failed to produce a file (" + programName + ").");
+                InvocationSucceeded = false;
                 return;
             }
-
-            processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
-            InvokeBatchFile(processInfo);
-            if (!InvocationSucceeded)
+            iWait = 0;
+            long fileSize = 0;
+            while (iWait < numberOfRetries)
             {
-                MessageBox.Show("There was a problem with TonePars parsing the segment.  See the %TEMP%\\ToneParsInvoker.log file.");
-                return;
+                fileSize = new System.IO.FileInfo(filePath).Length;
+                if (fileSize == 0)
+                {
+                    Console.WriteLine("\tWait: file size is zero after=" + iWait);
+                    Thread.Sleep(delayOnRetry);
+                    iWait++;
+                }
+                else
+                {
+                    Console.WriteLine("\tWait: file size after=" + iWait + "; size=" + fileSize);
+                    iWait = numberOfRetries;
+                }
             }
-            CreateAntRecords();
+            fileSize = new System.IO.FileInfo(filePath).Length;
+            if (fileSize == 0)
+            {
+                UpdateParsingStatus("Parsing failed to finish writin to a file (" + programName + ").");
+                InvocationSucceeded = false;
+            }
         }
 
         private void CopyCodeTableFilesToTemp()
@@ -272,44 +382,16 @@ namespace SIL.DisambiguateInFLExDB
         {
             AntRecords = new string[] { "" };
             String antFileContents = "";
-            //private const int NumberOfRetries = 3;
-            //        private const int DelayOnRetry = 1000;
-
-            //for (int i=1; i <= NumberOfRetries; ++i)
-            //            {
-            //    try {
             antFileContents = File.ReadAllText(AntFile, Encoding.UTF8).Replace("\r", "");
-            //    break; // When done we can break loop
-            //}
-            //catch (IOException e) when(i <= NumberOfRetries)
-            //    {
-            //        // You may check error code to filter some exceptions, not every error
-            //        // can be recovered.
-            //        Thread.Sleep(DelayOnRetry);
-            //    }
-            //}
-            StringBuilder sb = new StringBuilder();
-            using (var stream = File.Open(AntFile, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                byte[] b = new byte[1024];
-                UTF8Encoding temp = new UTF8Encoding(true);
-
-                while (stream.Read(b, 0, b.Length) > 0)
-                {
-                    sb.Append(temp.GetString(b));
-                }
-            }
-            antFileContents = sb.ToString().Replace("\r", "");
-            //using (var streamReader = new StreamReader(AntFile, Encoding.UTF8))
-            //{
-            //    antFileContents = streamReader.ReadToEnd().Replace("\r", "");
-            //    streamReader.Close();
-            //}
             if (String.IsNullOrEmpty(antFileContents))
             {
+                Console.Beep();
+                MessageBox.Show("Somehow the result file was empty.  Please try again.");
+                InvocationSucceeded = false;
                 return;
             }
             AntRecords = antFileContents.Split(new string[] { "\\a " }, StringSplitOptions.None);
+            InvocationSucceeded = true;
         }
 
         private void InvokeBatchFile(ProcessStartInfo processInfo)
@@ -321,6 +403,7 @@ namespace SIL.DisambiguateInFLExDB
 
             using (var process = Process.Start(processInfo))
             {
+                process.PriorityClass = ProcessPriorityClass.High;
                 process.Start();
                 string stdOutput = process.StandardOutput.ReadToEnd();
                 string stdError = process.StandardError.ReadToEnd();
@@ -337,9 +420,7 @@ namespace SIL.DisambiguateInFLExDB
                 process.StandardError.Close();
                 process.Close();
             }
-            // Give it time to completely finish or the output file won't be available
-            Thread.Sleep(1000);
-		}
+        }
 
 		public Boolean ConvertAntToParserFilerXML(int word)
 		{

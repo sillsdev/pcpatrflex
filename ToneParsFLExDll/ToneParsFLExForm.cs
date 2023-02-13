@@ -129,8 +129,9 @@ namespace SIL.ToneParsFLEx
 					Cursor.Current = Cursors.Default;
 				}
 				AdjustSplitterLocation();
-			}
-			catch (Exception e)
+                lblParsingStatus.Text = "";
+            }
+            catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
 				Console.WriteLine(e.InnerException);
@@ -336,7 +337,7 @@ namespace SIL.ToneParsFLEx
 
 		private void ParseSegment_Click(object sender, EventArgs e)
 		{
-			Cursor.Current = Cursors.WaitCursor;
+            Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
 			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
@@ -345,22 +346,53 @@ namespace SIL.ToneParsFLEx
 			Cursor.Current = Cursors.Default;
 		}
 
-		private void InvokeToneParser(string inputFile)
+        private void UpdateParsingStatus(string content)
+        {
+            lblParsingStatus.Text = content;
+            lblParsingStatus.Invalidate();
+            lblParsingStatus.Update();
+        }
+
+        private void InvokeToneParser(string inputFile)
 		{
-			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, GetDecompSeparationCharacter(), Cache);
-			if (ConnectToParser(invoker.Queue))
+            lblParsingStatus.Text = "";
+            //string statusMessage = lbStatusSegments.Text;
+            //statusMessage = lblStatus.Text;
+            var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, GetDecompSeparationCharacter(), Cache);
+            invoker.ParsingStatus = lblParsingStatus;
+            //lbStatusSegments.Text = "Updating Grammar and Lexicon";
+            //lblStatus.Text = "Updating Grammar and Lexicon";
+            UpdateParsingStatus("Updating Grammar and Lexicon");
+            // TODO: need to send event message to the label so it will see it
+            if (ConnectToParser(invoker.Queue))
 			{
 				m_parserConnection.ReloadGrammarAndLexicon();
 				WaitForLoadToFinish();
 			}
-			invoker.Invoke();
+            //lbStatusSegments.Text = "Parsing words";
+            //lblStatus.Text = "Parsing words";
+            //lblParsingStatus.Text = "Parsing words";
+            UpdateParsingStatus("Parsing words");
+            invoker.Invoke();
             if (invoker.InvocationSucceeded)
             {
+                Console.WriteLine("invocation succeeded!\n");
+                UpdateParsingStatus("Updating results in texts");
                 invoker.SaveResultsInDatabase();
+                UpdateParsingStatus("");
+                Console.Beep();
             }
+            else
+            {
+                Console.WriteLine("invocation failed!\n");
+                Console.Beep();
+            }
+            //lbStatusSegments.Text = statusMessage;
+            //lblStatus.Text = statusMessage;
+            //lblParsingStatus.Text = "";
         }
 
-		private void WaitForLoadToFinish()
+        private void WaitForLoadToFinish()
 		{
 			while (m_parserConnection.GetQueueSize(ParserPriority.ReloadGrammarAndLexicon) > 0)
 			{
@@ -421,8 +453,10 @@ namespace SIL.ToneParsFLEx
 		private void Segments_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
-			LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
-			var ana = GetAnaForm(selectedSegmentToShow);
+            string sSelectedIndicies = FormatSelectedSegmentIndices();
+            lbStatusSegments.Text = sSelectedIndicies + "/" + lbSegments.Items.Count; LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
+            lblStatus.Text = sSelectedIndicies + "/" + lbSegments.Items.Count; LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
+            var ana = GetAnaForm(selectedSegmentToShow);
 			if (ana.Contains("\\a \n"))
 			{
 				btnParseSegment.Enabled = false;
@@ -434,7 +468,27 @@ namespace SIL.ToneParsFLEx
 			btnParseSegment.Enabled = true;
 		}
 
-		private void Browse_Click(object sender, EventArgs e)
+        private String FormatSelectedSegmentIndices()
+        {
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            foreach (var seg in lbSegments.SelectedItems)
+            {
+                var selectedSegment = seg as SegmentToShow;
+                if (selectedSegment != null)
+                {
+                    sb.Append(SegmentsInListBox.IndexOf(selectedSegment) + 1);
+                    if (++i < lbSegments.SelectedItems.Count)
+                    {
+                        sb.Append(",");
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        private void Browse_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog dlg = new OpenFileDialog();
 			dlg.Filter = "Tone Parse Rule File (*TP.ctl)|*.ctl|" +
@@ -491,7 +545,7 @@ namespace SIL.ToneParsFLEx
 			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
 			File.WriteAllText(inputFile, selectedTextBaselines);
 			InvokeToneParser(inputFile);
-			Cursor.Current = Cursors.Default; Cursor.Current = Cursors.Default;
+			Cursor.Current = Cursors.Default;
 		}
 
 		private void btnHelp_Click(object sender, EventArgs e)

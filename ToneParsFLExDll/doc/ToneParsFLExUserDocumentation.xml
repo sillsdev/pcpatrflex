@@ -20,7 +20,7 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->10 February, 2023</date
+>14 February, 2023</date
 ><version
 >Version 0.1.2 Beta</version
 ><version
@@ -117,7 +117,7 @@ type="tToneParsFLEx"
 ></object
 >, obtain the installer from <link
 href="https://github.com/sillsdev/pcpatrflex/blob/ToneParsFLEx/InstallerTonePars/Output/UseToneParsWithFLExDllSetup.exe"
->https://​github.com/​sillsdev/​pcpatrflex/​blob/​ToneParsFLEx/​InstallerTonePars/​Output/​UseToneParsWithFLExDllSetup.exe</link
+>https://​github.com/​sillsdev/​pcpatrflex/​blob/​ToneParsFLEx/​InstallerTonePars/​Output/​Use​Tone​Pars​With​FLExDll​Setup.exe</link
 >. The installer will check to see if you have installed <object
 type="tFieldWorks"
 ></object
@@ -387,6 +387,8 @@ type="tFLEx"
 type="tFLEx"
 ></object
 > show their result. It is easiest to see this in the “Texts &amp; Words" / “Interlinear Texts" view or the “Texts &amp; Words" / “Word Analyses” view.</p
+><p
+>During the parsing process, the bottom left of the window will display the current step that is occurring.</p
 ></section2
 ><section2
 id="sParse"
@@ -406,6 +408,8 @@ type="tFLEx"
 type="tFLEx"
 ></object
 > show their result. It is easiest to see this in the “Texts &amp; Words" / “Interlinear Texts" view or the “Texts &amp; Words" / “Word Analyses” view.</p
+><p
+>During the parsing process, the bottom left of the window will display the current step that is occurring.</p
 ></section2
 ></section1
 ><section1
@@ -548,10 +552,22 @@ type="tTonePars"
 ></object
 > in order to correctly handle “morphname is” statements in the rule file.</li
 ><li
->The position of the “Parse this segment” button may creep to the left between invocations of <object
+>Sometimes <object
 type="tToneParsFLEx"
 ></object
->. We've tried to fix this, but have not had success yet. Simply drag the splitter bar to the right to reset its location.</li
+> will fail to finish parsing with both <object
+type="tXAmple"
+></object
+> and <object
+type="tTonePars"
+></object
+>.  It appears to be a timing issue where either <object
+type="tXAmple"
+></object
+>  or <object
+type="tTonePars"
+></object
+> does not finish writing out the resulting ANA file.  I will continue to look into this.</li
 ></ol
 ></section1
 ><section1
@@ -740,7 +756,7 @@ id="sErrorMessages"
 ><secTitle
 >Error messages</secTitle
 ><p
->When parsing a segment or a text, you may see an error message box.  The following tries to explain them.</p
+>When parsing a segment or a text, you may see an error message box. The following tries to explain them.</p
 ><table
 border="1"
 ><tr
@@ -755,21 +771,12 @@ align="left"
 valign="top"
 ><object
 type="tErrorType"
->There was a problem with XAmple parsing the segment or text.  Make sure every word can be parsed by XAmple.</object
+>Log file does not exist; please parse a segment or a text.</object
 ></td
 ><td
 align="left"
 valign="top"
->At least one word did not parse using <object
-type="tXAmple"
-></object
->.  You may be able to find which ones by looking in the %TEMP% directory at the XAmpleInvoker.log file.  If <object
-type="tXAmple"
-></object
-> cannot parse every word, then <object
-type="tTonePars"
-></object
-> will probably have a problem, too.</td
+>This appears when you try to show the log file and we could not find one.</td
 ></tr
 ><tr
 ><td
@@ -787,15 +794,41 @@ align="left"
 valign="top"
 ><object
 type="tErrorType"
->There was a problem with TonePars parsing the segment.  See the %TEMP%\ToneParsInvoker.log file.</object
+>Somehow the result file was empty.  Please try again.</object
 ></td
 ><td
 align="left"
 valign="top"
-><object
+>We detected that the resulting <object
 type="tTonePars"
 ></object
-> apparently ran into an issue.  See if the ToneParsInvoker.log file in the %TEMP% directory has any clues for you.</td
+> file was empty.  This seems to be a result of some kind of timing issue.</td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+></td
+><td
+align="left"
+valign="top"
+></td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+><object
+type="tErrorType"
+>There was a timing problem. Please try again.</object
+></td
+><td
+align="left"
+valign="top"
+>We detected that the resulting <object
+type="tTonePars"
+></object
+> file was not usable.</td
 ></tr
 ></table
 ></section1
