@@ -31,13 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToneParsFLExForm));
             this.btnParseSegment = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lblParsingStatus = new System.Windows.Forms.Label();
             this.lbTexts = new System.Windows.Forms.ListBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.ssSegments = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbStatusSegments = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbSegments = new System.Windows.Forms.ListBox();
+            this.lblParsingStatus = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.lblTexts = new System.Windows.Forms.Label();
             this.lblSegments = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +53,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.ssSegments.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnParseSegment
@@ -81,93 +77,62 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.lblParsingStatus);
             this.splitContainer1.Panel1.Controls.Add(this.lbTexts);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.lblStatus);
-            this.splitContainer1.Panel2.Controls.Add(this.ssSegments);
             this.splitContainer1.Panel2.Controls.Add(this.lbSegments);
-            this.splitContainer1.Size = new System.Drawing.Size(1194, 1215);
+            this.splitContainer1.Size = new System.Drawing.Size(1194, 579);
             this.splitContainer1.SplitterDistance = 534;
             this.splitContainer1.TabIndex = 4;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
-            // lblParsingStatus
-            // 
-            this.lblParsingStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblParsingStatus.AutoSize = true;
-            this.lblParsingStatus.Location = new System.Drawing.Point(4, 758);
-            this.lblParsingStatus.Name = "lblParsingStatus";
-            this.lblParsingStatus.Size = new System.Drawing.Size(110, 20);
-            this.lblParsingStatus.TabIndex = 1;
-            this.lblParsingStatus.Text = "Parsing status";
-            // 
             // lbTexts
             // 
-            this.lbTexts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTexts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTexts.FormattingEnabled = true;
             this.lbTexts.ItemHeight = 20;
-            this.lbTexts.Location = new System.Drawing.Point(0, 0);
+            this.lbTexts.Location = new System.Drawing.Point(-52, 0);
             this.lbTexts.Name = "lbTexts";
-            this.lbTexts.Size = new System.Drawing.Size(534, 744);
+            this.lbTexts.Size = new System.Drawing.Size(583, 564);
             this.lbTexts.TabIndex = 0;
             this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.Texts_SelectedIndexChanged);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(535, 759);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(102, 20);
-            this.lblStatus.TabIndex = 19;
-            this.lblStatus.Text = "Status thingy";
-            // 
-            // ssSegments
-            // 
-            this.ssSegments.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.ssSegments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.lbStatusSegments});
-            this.ssSegments.Location = new System.Drawing.Point(0, 1185);
-            this.ssSegments.Name = "ssSegments";
-            this.ssSegments.Size = new System.Drawing.Size(656, 30);
-            this.ssSegments.TabIndex = 1;
-            this.ssSegments.Text = "SegmentsStatusBar";
-            this.ssSegments.Visible = false;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(462, 25);
-            this.toolStripStatusLabel1.Spring = true;
-            // 
-            // lbStatusSegments
-            // 
-            this.lbStatusSegments.BackColor = System.Drawing.SystemColors.Control;
-            this.lbStatusSegments.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.lbStatusSegments.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.lbStatusSegments.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbStatusSegments.Name = "lbStatusSegments";
-            this.lbStatusSegments.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbStatusSegments.Size = new System.Drawing.Size(179, 25);
-            this.lbStatusSegments.Text = "toolStripStatusLabel1";
-            this.lbStatusSegments.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lbSegments
             // 
+            this.lbSegments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbSegments.FormattingEnabled = true;
             this.lbSegments.ItemHeight = 20;
             this.lbSegments.Location = new System.Drawing.Point(0, 0);
             this.lbSegments.Name = "lbSegments";
             this.lbSegments.ScrollAlwaysVisible = true;
-            this.lbSegments.Size = new System.Drawing.Size(656, 744);
+            this.lbSegments.Size = new System.Drawing.Size(656, 564);
             this.lbSegments.TabIndex = 0;
             this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
+            // 
+            // lblParsingStatus
+            // 
+            this.lblParsingStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblParsingStatus.AutoSize = true;
+            this.lblParsingStatus.Location = new System.Drawing.Point(-1, 953);
+            this.lblParsingStatus.Name = "lblParsingStatus";
+            this.lblParsingStatus.Size = new System.Drawing.Size(110, 20);
+            this.lblParsingStatus.TabIndex = 1;
+            this.lblParsingStatus.Text = "Parsing status";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(1095, 953);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(102, 20);
+            this.lblStatus.TabIndex = 19;
+            this.lblStatus.Text = "Status thingy";
             // 
             // lblTexts
             // 
@@ -318,7 +283,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 1146);
+            this.ClientSize = new System.Drawing.Size(1228, 977);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblParsingStatus);
             this.Controls.Add(this.btnShowLog);
             this.Controls.Add(this.cbVerify);
             this.Controls.Add(this.btnTracingOptions);
@@ -337,16 +304,12 @@
             this.Controls.Add(this.btnParseSegment);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ToneParsFLExForm";
-            this.Text = "Use TonePars with FLEx HI!";
+            this.Text = "Use TonePars with FLEx";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.ssSegments.ResumeLayout(false);
-            this.ssSegments.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,9 +335,6 @@
 		private System.Windows.Forms.Button btnTracingOptions;
 		private System.Windows.Forms.CheckBox cbVerify;
 		private System.Windows.Forms.Button btnShowLog;
-        private System.Windows.Forms.StatusStrip ssSegments;
-        private System.Windows.Forms.ToolStripStatusLabel lbStatusSegments;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblParsingStatus;
     }

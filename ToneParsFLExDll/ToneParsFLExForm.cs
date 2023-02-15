@@ -454,7 +454,6 @@ namespace SIL.ToneParsFLEx
 		{
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
             string sSelectedIndicies = FormatSelectedSegmentIndices();
-            lbStatusSegments.Text = sSelectedIndicies + "/" + lbSegments.Items.Count; LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
             lblStatus.Text = sSelectedIndicies + "/" + lbSegments.Items.Count; LastSegment = selectedSegmentToShow.Segment.Guid.ToString();
             var ana = GetAnaForm(selectedSegmentToShow);
 			if (ana.Contains("\\a \n"))
