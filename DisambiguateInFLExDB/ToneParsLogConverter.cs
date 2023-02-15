@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 SIL International
+﻿// Copyright (c) 2019-2023 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -23,28 +23,37 @@ namespace SIL.DisambiguateInFLExDB
 		public ToneParsLogConverter(LcmCache cache, string logfile)
 		{
 			Cache = cache;
-			if (File.Exists(logfile))
+            if (File.Exists(logfile))
 			{
 				LogFileContents = File.ReadAllText(logfile);
 				int iEndOfPreamble = LogFileContents.IndexOf("Output file: ");
-				LogFilePrologue = LogFileContents.Substring(0, iEndOfPreamble);
-				int iBegOfStatistics = LogFileContents.IndexOf("TONEPARS STATISTICS: ");
-				LogFileEpilogue = LogFileContents.Substring(iBegOfStatistics);
-				LogFileMiddle = LogFileContents.Substring(iEndOfPreamble, iBegOfStatistics - iEndOfPreamble);
-			}
-			else
-			{
-				LogFileContents = "";
-				LogFilePrologue = "";
-				LogFileMiddle = "";
-				LogFileEpilogue = "";
-			}
-		}
+                if (iEndOfPreamble > -1)
+                {
+                    LogFilePrologue = LogFileContents.Substring(0, iEndOfPreamble);
+                    int iBegOfStatistics = LogFileContents.IndexOf("TONEPARS STATISTICS: ");
+                    if (iBegOfStatistics > -1)
+                    {
+                        LogFileEpilogue = LogFileContents.Substring(iBegOfStatistics);
+                        LogFileMiddle = LogFileContents.Substring(iEndOfPreamble, iBegOfStatistics - iEndOfPreamble);
+                        return;
+                    }
+                }
+            }
+            CleanLogFileContent();
+        }
+
+        private void CleanLogFileContent()
+        {
+            LogFileContents = "";
+            LogFilePrologue = "";
+            LogFileMiddle = "";
+            LogFileEpilogue = "";
+        }
 
 
-		// TonePars log file shows hvos of MSAs instead of a morphname.
-		// We need to convert all of these from MSA hvo to gloss.
-		public string ConvertHvosToMorphnames()
+        // TonePars log file shows hvos of MSAs instead of a morphname.
+        // We need to convert all of these from MSA hvo to gloss.
+        public string ConvertHvosToMorphnames()
 		{
 			if (LogFileMiddle == "")
 				return "";
