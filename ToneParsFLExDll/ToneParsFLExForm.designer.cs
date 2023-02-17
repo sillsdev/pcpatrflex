@@ -49,6 +49,7 @@
             this.btnTracingOptions = new System.Windows.Forms.Button();
             this.cbVerify = new System.Windows.Forms.CheckBox();
             this.btnShowLog = new System.Windows.Forms.Button();
+            this.cbIgnoreContext = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -163,12 +164,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "TonePars rule file: ";
             // 
-            // tbGrammarFile
+            // tbToneRuleFile
             // 
             this.tbToneRuleFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbToneRuleFile.Location = new System.Drawing.Point(216, 28);
-            this.tbToneRuleFile.Name = "tbGrammarFile";
+            this.tbToneRuleFile.Name = "tbToneRuleFile";
             this.tbToneRuleFile.Size = new System.Drawing.Size(884, 26);
             this.tbToneRuleFile.TabIndex = 1;
             // 
@@ -279,11 +280,24 @@
             this.btnShowLog.UseVisualStyleBackColor = true;
             this.btnShowLog.Click += new System.EventHandler(this.ShowLog_Click);
             // 
+            // cbIgnoreContext
+            // 
+            this.cbIgnoreContext.AutoSize = true;
+            this.cbIgnoreContext.Checked = true;
+            this.cbIgnoreContext.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbIgnoreContext.Location = new System.Drawing.Point(18, 239);
+            this.cbIgnoreContext.Name = "cbIgnoreContext";
+            this.cbIgnoreContext.Size = new System.Drawing.Size(360, 24);
+            this.cbIgnoreContext.TabIndex = 20;
+            this.cbIgnoreContext.Text = "Ignore Context (only parse unique word forms)";
+            this.cbIgnoreContext.UseVisualStyleBackColor = true;
+            // 
             // ToneParsFLExForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 977);
+            this.Controls.Add(this.cbIgnoreContext);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblParsingStatus);
             this.Controls.Add(this.btnShowLog);
@@ -337,6 +351,7 @@
 		private System.Windows.Forms.Button btnShowLog;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblParsingStatus;
+        private System.Windows.Forms.CheckBox cbIgnoreContext;
     }
 }
 

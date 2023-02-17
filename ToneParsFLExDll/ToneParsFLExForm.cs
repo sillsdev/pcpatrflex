@@ -29,6 +29,7 @@ using System.Xml.Linq;
 using ToneParsFLExDll;
 using XCore;
 using XAmpleManagedWrapper;
+using ToneParsTextPreparer;
 
 namespace SIL.ToneParsFLEx
 {
@@ -52,7 +53,8 @@ namespace SIL.ToneParsFLEx
 		const string m_strLastText = "LastText";
 		const string m_strLastSegment = "LastSegment";
 		const string m_strLastVerify = "LastVerify";
-		const string m_strLastDoTracing = "LastDoTracing";
+        const string m_strLastIgnoreContext = "LastIgnoreContext";
+        const string m_strLastDoTracing = "LastDoTracing";
 		const string m_strLastRuleTrace = "LastRuleTrace";
 		const string m_strLastTierAssignmentTrace = "LastTierAssignmentTrace";
 		const string m_strLastDomainAssignmentTrace = "LastDomainAssignmentTrace";
@@ -192,7 +194,8 @@ namespace SIL.ToneParsFLEx
             splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterLocationX, 150);
             SplitterLocationRetrieved = splitContainer1.SplitterDistance;
             cbVerify.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastVerify, false));
-			cbTraceToneProcessing.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastDoTracing, false));
+            cbIgnoreContext.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastIgnoreContext, false));
+            cbTraceToneProcessing.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastDoTracing, false));
 			ToneParsInvokerOptions.Instance.RuleTrace = Convert.ToBoolean(regkey.GetValue(m_strLastRuleTrace, false));
 			ToneParsInvokerOptions.Instance.TierAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastTierAssignmentTrace, false));
 			ToneParsInvokerOptions.Instance.DomainAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastDomainAssignmentTrace, false));
@@ -221,8 +224,9 @@ namespace SIL.ToneParsFLEx
 				regkey.SetValue(m_strLastText, LastText);
 			if (LastSegment != null)
 				regkey.SetValue(m_strLastSegment, LastSegment);
-			regkey.SetValue(m_strLastVerify, cbVerify.Checked);
-			regkey.SetValue(m_strLastDoTracing, cbTraceToneProcessing.Checked);
+            regkey.SetValue(m_strLastVerify, cbVerify.Checked);
+            regkey.SetValue(m_strLastIgnoreContext, cbIgnoreContext.Checked);
+            regkey.SetValue(m_strLastDoTracing, cbTraceToneProcessing.Checked);
 			regkey.SetValue(m_strLastRuleTrace, ToneParsInvokerOptions.Instance.RuleTrace);
 			regkey.SetValue(m_strLastTierAssignmentTrace, ToneParsInvokerOptions.Instance.TierAssignmentTrace);
 			regkey.SetValue(m_strLastDomainAssignmentTrace, ToneParsInvokerOptions.Instance.DomainAssignmentTrace);
@@ -342,8 +346,18 @@ namespace SIL.ToneParsFLEx
             Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
+            string textToUse;
+            if (cbIgnoreContext.Checked)
+            {
+                TextPreparer preparer = TextPreparer.Instance;
+                textToUse = preparer.GetUniqueWordForms(selectedSegmentToShow.Segment);
+            }
+            else
+            {
+                textToUse = selectedSegmentToShow.Baseline;
+            }
             var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
-            File.WriteAllText(inputFile, selectedSegmentToShow.Baseline);
+            File.WriteAllText(inputFile, textToUse);
             InvokeToneParser(inputFile);
 			Cursor.Current = Cursors.Default;
 		}
@@ -532,9 +546,18 @@ namespace SIL.ToneParsFLEx
 			Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
-			var selectedTextBaselines = GetTextBaselines(selectedTextToShow);
+            string textToUse;
+            if (cbIgnoreContext.Checked)
+            {
+                TextPreparer preparer = TextPreparer.Instance;
+                textToUse = preparer.GetUniqueWordForms(selectedTextToShow);
+            }
+            else
+            {
+                textToUse = GetTextBaselines(selectedTextToShow);
+            }
 			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
-			File.WriteAllText(inputFile, selectedTextBaselines);
+			File.WriteAllText(inputFile, textToUse);
 			InvokeToneParser(inputFile);
 			Cursor.Current = Cursors.Default;
 		}
