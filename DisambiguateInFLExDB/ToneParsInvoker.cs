@@ -43,9 +43,6 @@ namespace SIL.DisambiguateInFLExDB
         public String ToneParsCmdFile { get; set; }
         public String ToneParsLogFile { get; set; }
         public String ToneParsRuleFile { get; set; }
-        public String XAmpleBatchFile { get; set; }
-        public String XAmpleCmdFile { get; set; }
-        public String XAmpleLogFile { get; set; }
         public Char DecompSeparationChar { get; set; }
         public IdleQueue Queue { get; set; }
         public Label ParsingStatus { get; set; }
@@ -72,9 +69,6 @@ namespace SIL.DisambiguateInFLExDB
         {
             AnaFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.ana");
             AntFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.ant");
-            XAmpleBatchFile = Path.Combine(Path.GetTempPath(), "XAmpleFLEx.bat");
-            XAmpleCmdFile = Path.Combine(Path.GetTempPath(), "XAmpleCmd.cmd");
-            XAmpleLogFile = Path.Combine(Path.GetTempPath(), "XAmpleInvoker.log");
             ToneParsBatchFile = Path.Combine(Path.GetTempPath(), "ToneParsFLEx.bat");
             ToneParsCmdFile = Path.Combine(Path.GetTempPath(), "ToneParsCmd.cmd");
             ToneParsLogFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.log");
@@ -110,12 +104,6 @@ namespace SIL.DisambiguateInFLExDB
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern int GetShortPathName(String pathName, StringBuilder shortName, int cbShortName);
 
-        private void CreateBatchFiles()
-        {
-            CreateXAmpleBatchFile();
-            CreateToneParsBatchFile();
-        }
-
         private void CreateToneParsBatchFile()
         {
             // TonePars
@@ -144,81 +132,7 @@ namespace SIL.DisambiguateInFLExDB
             sbBatchFile.Append(ToneParsLogFile);
             sbBatchFile.Append("\"");
             sbBatchFile.Append(Environment.NewLine);
-
-            //Console.WriteLine("==========");
-            //Console.WriteLine("ToneParsBatch File");
-            //Console.WriteLine("==========");
-            //Console.Write(sbBatchFile.ToString());
             File.WriteAllText(ToneParsBatchFile, sbBatchFile.ToString());
-        }
-
-        private void CreateXAmpleBatchFile()
-        {
-            if (File.Exists(XAmpleBatchFile))
-            {
-                File.Delete(XAmpleBatchFile);
-            }
-            StringBuilder sbBatchFile = new StringBuilder();
-            sbBatchFile.Append("@echo off");
-            sbBatchFile.Append(Environment.NewLine);
-            sbBatchFile.Append("cd \"");
-            sbBatchFile.Append(Path.GetTempPath());
-            // XAmple
-            sbBatchFile.Append("\"");
-            sbBatchFile.Append(Environment.NewLine);
-            sbBatchFile.Append("\"");
-            sbBatchFile.Append(GetXAmpleExePath());
-            //xample32 -b -u -f Abaza.cmd -i Abaza.txt -o Abaza.ana -e Abazagram.txt -m >Abaza.log
-            sbBatchFile.Append("\\xample64\" -b -u -f \"");
-            sbBatchFile.Append(XAmpleCmdFile);
-            sbBatchFile.Append("\" -i \"");
-            sbBatchFile.Append(InputFile);
-            sbBatchFile.Append("\" -o \"");
-            sbBatchFile.Append(AnaFile);
-            sbBatchFile.Append("\" -e \"");
-            sbBatchFile.Append(DatabaseName);
-            sbBatchFile.Append("gram.txt");
-            sbBatchFile.Append("\" >\"");
-            sbBatchFile.Append(XAmpleLogFile);
-            sbBatchFile.Append("\"");
-            sbBatchFile.Append(Environment.NewLine);
-            sbBatchFile.Append(Environment.NewLine);
-            //Console.WriteLine("==========");
-            //Console.WriteLine("XAmpleBatch File");
-            //Console.WriteLine("==========");
-            //Console.Write(sbBatchFile.ToString());
-            File.WriteAllText(XAmpleBatchFile, sbBatchFile.ToString());
-        }
-
-        private void CreateXAmpleCmdFile()
-        {
-            if (File.Exists(XAmpleCmdFile))
-            {
-                File.Delete(XAmpleCmdFile);
-            }
-            StringBuilder sbCmdFile = new StringBuilder();
-            sbCmdFile.Append(DatabaseName);
-            sbCmdFile.Append(kAdCtl);
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append("XAmplecd.tab");
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append(DatabaseName);
-            sbCmdFile.Append(kTPLexicon);
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append(Environment.NewLine);
-            StringBuilder sbIntxCtlFileShortPath = new StringBuilder(255);
-            int i = GetShortPathName(IntxCtlFile, sbIntxCtlFileShortPath, sbIntxCtlFileShortPath.Capacity);
-            sbCmdFile.Append(sbIntxCtlFileShortPath.ToString());
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append("y");
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append("y");
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append(Environment.NewLine);
-            sbCmdFile.Append(Environment.NewLine);
-            File.WriteAllText(XAmpleCmdFile, sbCmdFile.ToString());
         }
 
         private void CreateToneParsCmdFile()
@@ -265,13 +179,11 @@ namespace SIL.DisambiguateInFLExDB
                 AppendToneParsPropertiesToAdCtlFile();
                 AddToneParsPropertiesToLexiconFile();
                 ConvertMorphnameIsToUseHvosInToneRuleFile();
-                CreateBatchFiles();
-                CreateXAmpleCmdFile();
+                CreateToneParsBatchFile();
                 CreateToneParsCmdFile();
                 CopyCodeTableFilesToTemp();
 
                 File.Delete(AnaFile);
-                File.Delete(XAmpleLogFile);
                 File.Delete(AntFile);
                 File.Delete(ToneParsLogFile);
 
