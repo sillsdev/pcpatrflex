@@ -95,9 +95,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTexts.FormattingEnabled = true;
             this.lbTexts.ItemHeight = 20;
-            this.lbTexts.Location = new System.Drawing.Point(-52, 0);
+            this.lbTexts.Location = new System.Drawing.Point(2, 0);
             this.lbTexts.Name = "lbTexts";
-            this.lbTexts.Size = new System.Drawing.Size(583, 564);
+            this.lbTexts.Size = new System.Drawing.Size(529, 564);
             this.lbTexts.TabIndex = 0;
             this.lbTexts.SelectedIndexChanged += new System.EventHandler(this.Texts_SelectedIndexChanged);
             // 
