@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2019 SIL International
+﻿// Copyright (c) 2019-2023 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -25,8 +25,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using ToneParsFLExDll;
 using XCore;
+using XAmpleManagedWrapper;
 
 namespace SIL.ToneParsFLEx
 {
@@ -119,7 +121,7 @@ namespace SIL.ToneParsFLEx
 					WindowState = WindowState;
 					StartPosition = FormStartPosition.Manual;
 					if (!String.IsNullOrEmpty(LastToneRuleFile))
-						tbGrammarFile.Text = LastToneRuleFile;
+						tbToneRuleFile.Text = LastToneRuleFile;
 					if (!String.IsNullOrEmpty(LastIntxCtlFile))
 						tbIntxCtlFile.Text = LastIntxCtlFile;
 					if (Cache != null && Cache.LangProject.Texts.Count > 0)
@@ -340,9 +342,9 @@ namespace SIL.ToneParsFLEx
             Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
-			var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
-			File.WriteAllText(inputFile, selectedSegmentToShow.Baseline);
-			InvokeToneParser(inputFile);
+            var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
+            File.WriteAllText(inputFile, selectedSegmentToShow.Baseline);
+            InvokeToneParser(inputFile);
 			Cursor.Current = Cursors.Default;
 		}
 
@@ -356,23 +358,15 @@ namespace SIL.ToneParsFLEx
         private void InvokeToneParser(string inputFile)
 		{
             lblParsingStatus.Text = "";
-            //string statusMessage = lbStatusSegments.Text;
-            //statusMessage = lblStatus.Text;
-            var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, inputFile, GetDecompSeparationCharacter(), Cache);
+            btnParseText.Enabled = btnParseSegment.Enabled = false;
+            var invoker = new ToneParsInvoker(tbToneRuleFile.Text, tbIntxCtlFile.Text, inputFile, GetDecompSeparationCharacter(), Cache);
             invoker.ParsingStatus = lblParsingStatus;
-            //lbStatusSegments.Text = "Updating Grammar and Lexicon";
-            //lblStatus.Text = "Updating Grammar and Lexicon";
             UpdateParsingStatus("Updating Grammar and Lexicon");
-            // TODO: need to send event message to the label so it will see it
             if (ConnectToParser(invoker.Queue))
 			{
 				m_parserConnection.ReloadGrammarAndLexicon();
 				WaitForLoadToFinish();
 			}
-            //lbStatusSegments.Text = "Parsing words";
-            //lblStatus.Text = "Parsing words";
-            //lblParsingStatus.Text = "Parsing words";
-            UpdateParsingStatus("Parsing words");
             invoker.Invoke();
             if (invoker.InvocationSucceeded)
             {
@@ -387,9 +381,7 @@ namespace SIL.ToneParsFLEx
                 Console.WriteLine("invocation failed!\n");
                 Console.Beep();
             }
-            //lbStatusSegments.Text = statusMessage;
-            //lblStatus.Text = statusMessage;
-            //lblParsingStatus.Text = "";
+            btnParseText.Enabled = btnParseSegment.Enabled = true;
         }
 
         private void WaitForLoadToFinish()
@@ -496,7 +488,7 @@ namespace SIL.ToneParsFLEx
 			{
 				ToneRuleFile = dlg.FileName;
 				LastToneRuleFile = ToneRuleFile;
-				tbGrammarFile.Text = ToneRuleFile;
+				tbToneRuleFile.Text = ToneRuleFile;
 			}
 		}
 
@@ -620,7 +612,7 @@ namespace SIL.ToneParsFLEx
 
 		private void ShowLog_Click(object sender, EventArgs e)
 		{
-			var invoker = new ToneParsInvoker(tbGrammarFile.Text, tbIntxCtlFile.Text, "", ' ', Cache);
+			var invoker = new ToneParsInvoker(tbToneRuleFile.Text, tbIntxCtlFile.Text, "", ' ', Cache);
 			if (File.Exists(invoker.ToneParsLogFile))
 			{
 				if (ToneParsInvokerOptions.Instance.DoTracing)

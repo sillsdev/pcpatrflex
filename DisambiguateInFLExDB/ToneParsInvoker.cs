@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018-2019 SIL International
+﻿// Copyright (c) 2018-2023 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -22,6 +22,9 @@ using System.Xml.Linq;
 using SIL.LCModel.Infrastructure;
 using SIL.LCModel.Core.Text;
 using System.Windows.Forms;
+using XAmpleManagedWrapper;
+using XAmpleWithToneParse;
+using SIL.FieldWorks.Common.FwUtils;
 
 namespace SIL.DisambiguateInFLExDB
 {
@@ -253,6 +256,7 @@ namespace SIL.DisambiguateInFLExDB
             var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
             return rootdir;
         }
+
         public void Invoke()
         {
             try
@@ -271,14 +275,11 @@ namespace SIL.DisambiguateInFLExDB
                 File.Delete(AntFile);
                 File.Delete(ToneParsLogFile);
 
-                string sInput = File.ReadAllText(InputFile);
-                Console.WriteLine("Text is '" + sInput + "'");
-                var processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + XAmpleBatchFile + "\"");
                 UpdateParsingStatus("Parsing via XAmple");
-                InvokeBatchFile(processInfo);
+                XAmpleParseFile();
                 WaitForFileCompletion(AnaFile);
 
-                processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
+                var processInfo = new ProcessStartInfo("cmd.exe", "/c\"" + ToneParsBatchFile + "\"");
                 UpdateParsingStatus("Parsing via TonePars");
                 InvokeBatchFile(processInfo);
                 WaitForFileCompletion(AntFile);
@@ -306,6 +307,16 @@ namespace SIL.DisambiguateInFLExDB
                     InvocationSucceeded = false;
                 }
             }
+        }
+
+        private void XAmpleParseFile()
+        {
+            string cdTableDir = Path.Combine(FwDirectoryFinder.CodeDirectory, FwDirectoryFinder.ksFlexFolderName, "Configuration", "Grammar");
+            UpdateParsingStatus("Parsing via XAmple");
+            XAmpleWrapperForTonePars m_xampleTP = new XAmpleWrapperForTonePars();
+            m_xampleTP.InitForTonePars();
+            m_xampleTP.LoadFilesForTonePars(cdTableDir, Path.GetTempPath(), DatabaseName, IntxCtlFile);
+            var results = m_xampleTP.ParseFileForTonePars(InputFile, AnaFile);
         }
 
         private void UpdateParsingStatus(string content)
@@ -372,8 +383,7 @@ namespace SIL.DisambiguateInFLExDB
         {
             const string kTPcdtab = "ToneParscd.tab";
             const string kXAcdtab = "XAmplecd.tab";
-            Uri uriBase = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-            var rootdir = Path.GetDirectoryName(Uri.UnescapeDataString(uriBase.AbsolutePath));
+            var rootdir = GetXAmpleExePath();
             File.Copy(Path.Combine(rootdir, kTPcdtab), Path.Combine(Path.GetTempPath(), kTPcdtab), true);
             File.Copy(Path.Combine(rootdir, kXAcdtab), Path.Combine(Path.GetTempPath(), kXAcdtab), true);
         }
@@ -697,7 +707,7 @@ namespace SIL.DisambiguateInFLExDB
 				IWfiWordform thiswf = GetWordformFromString(wordform);
 				if (thiswf != null)
 				{
-					var parseResult = ParseWord(ParserFilerXMLString);
+					var parseResult = ConvertParserFilerResultXmlToParseResult(ParserFilerXMLString);
 					m_parseFiler.ProcessParse(thiswf, ParserPriority.Low, parseResult);
 				}
 				i++;
@@ -729,14 +739,14 @@ namespace SIL.DisambiguateInFLExDB
 			idleQueue.Clear();
 		}
 
-		//-----------------------
-		// ParseWord(), TryCreateParseMorph(), and ProcessMsaHvo() are from XAmpleParser.cs
-		// Ideally, we'd expose them from XAmpleParser.cs
-		public ParseResult ParseWord(string results)
+        //-----------------------
+        // ConvertParserFilerResultXmlToParseResult(), TryCreateParseMorph(), and ProcessMsaHvo() are from XAmpleParser.cs
+        // (I renamed ParseWord() to ConvertParserFilerResultXmlToParseResult() to avoid confusion.)
+        // Ideally, we'd expose them from XAmpleParser.cs
+        public ParseResult ConvertParserFilerResultXmlToParseResult(string results)
 		{
-			//TODO: fix! CheckDisposed();
-
-			results = results.Replace("DB_REF_HERE", "'0'");
+            //TODO: fix! CheckDisposed();
+            results = results.Replace("DB_REF_HERE", "'0'");
 			results = results.Replace("<...>", "[...]");
 			var wordformElem = XElement.Parse(results.ToString());
 			string errorMessage = null;

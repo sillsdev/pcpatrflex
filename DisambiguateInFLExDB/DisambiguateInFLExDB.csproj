@@ -69,9 +69,16 @@
     <Reference Include="CommonServiceLocator">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="FwUtils, Version=9.1.19.20352, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\FwUtils.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="ParserCore">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\ParserCore.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.LcmLoader">
+      <HintPath>..\LcmLoader\bin\x64\Debug\SIL.LcmLoader.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,6 +97,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="XAmpleManagedWrapper, Version=9.1.19.20365, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\XAmpleManagedWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="xCoreInterfaces">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\xCoreInterfaces.dll</HintPath>
     </Reference>
@@ -105,6 +116,12 @@
     <Compile Include="ToneParsInvoker.cs" />
     <Compile Include="ToneParsInvokerOptions.cs" />
     <Compile Include="ToneParsLogConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XAmpleWithToneParse\XAmpleWithToneParse.csproj">
+      <Project>{068626EF-B736-42FB-BB0A-39955B713394}</Project>
+      <Name>XAmpleWithToneParse</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

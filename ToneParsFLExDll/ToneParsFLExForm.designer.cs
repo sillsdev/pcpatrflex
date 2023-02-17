@@ -38,7 +38,7 @@
             this.lblTexts = new System.Windows.Forms.Label();
             this.lblSegments = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbGrammarFile = new System.Windows.Forms.TextBox();
+            this.tbToneRuleFile = new System.Windows.Forms.TextBox();
             this.btnBrowseToneRule = new System.Windows.Forms.Button();
             this.btnParseText = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
@@ -165,12 +165,12 @@
             // 
             // tbGrammarFile
             // 
-            this.tbGrammarFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbToneRuleFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbGrammarFile.Location = new System.Drawing.Point(216, 28);
-            this.tbGrammarFile.Name = "tbGrammarFile";
-            this.tbGrammarFile.Size = new System.Drawing.Size(884, 26);
-            this.tbGrammarFile.TabIndex = 1;
+            this.tbToneRuleFile.Location = new System.Drawing.Point(216, 28);
+            this.tbToneRuleFile.Name = "tbGrammarFile";
+            this.tbToneRuleFile.Size = new System.Drawing.Size(884, 26);
+            this.tbToneRuleFile.TabIndex = 1;
             // 
             // btnBrowseToneRule
             // 
@@ -296,7 +296,7 @@
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnParseText);
             this.Controls.Add(this.btnBrowseToneRule);
-            this.Controls.Add(this.tbGrammarFile);
+            this.Controls.Add(this.tbToneRuleFile);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSegments);
             this.Controls.Add(this.lblTexts);
@@ -324,7 +324,7 @@
 		private System.Windows.Forms.Label lblSegments;
 		private System.Windows.Forms.ListBox lbSegments;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox tbGrammarFile;
+		private System.Windows.Forms.TextBox tbToneRuleFile;
 		private System.Windows.Forms.Button btnBrowseToneRule;
 		private System.Windows.Forms.Button btnParseText;
 		private System.Windows.Forms.Button btnHelp;

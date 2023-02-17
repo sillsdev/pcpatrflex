@@ -140,6 +140,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="XAmpleManagedWrapper, Version=9.1.19.20365, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\XAmpleManagedWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="xCoreInterfaces, Version=9.0.6.23392, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\xCoreInterfaces.dll</HintPath>
@@ -149,6 +154,10 @@
     <ProjectReference Include="..\PrepFLExDBDll\PrepFLExDBDll.csproj">
       <Project>{808145c1-b5ca-4ec7-9402-88b3f353b002}</Project>
       <Name>PrepFLExDBDll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XAmpleWithToneParse\XAmpleWithToneParse.csproj">
+      <Project>{068626ef-b736-42fb-bb0a-39955b713394}</Project>
+      <Name>XAmpleWithToneParse</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
