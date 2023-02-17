@@ -39,6 +39,7 @@ namespace ToneParsTextPreparer
 
         public string GetUniqueWordForms(IText text)
         {
+            wordSet.Clear();
             if (text == null || text.ContentsOA == null)
                 return "";
             var istText = text.ContentsOA as IStText;
