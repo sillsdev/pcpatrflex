@@ -110,7 +110,6 @@
             this.lbSegments.ItemHeight = 20;
             this.lbSegments.Location = new System.Drawing.Point(0, 0);
             this.lbSegments.Name = "lbSegments";
-            this.lbSegments.ScrollAlwaysVisible = true;
             this.lbSegments.Size = new System.Drawing.Size(656, 564);
             this.lbSegments.TabIndex = 0;
             this.lbSegments.SelectedIndexChanged += new System.EventHandler(this.Segments_SelectedIndexChanged);
