@@ -60,7 +60,7 @@ namespace XAmpleWithToneParse
             return lpszResult;
         }
 
-        public void LoadFilesForTonePars(string lspzFixedFilesDir, string lspzDynamicFilesDir, string lspzDatabaseName, string lpszIntxCtl)
+        public void LoadFilesForTonePars(string lspzFixedFilesDir, string lspzDynamicFilesDir, string lspzDatabaseName, string lpszIntxCtl, int maxToReturn)
         {
             CheckPtr(m_setup);
 
@@ -71,7 +71,7 @@ namespace XAmpleWithToneParse
 
             m_ampleReset(m_setup);
 
-            SetOptionsForTonePars();
+            SetOptionsForTonePars(maxToReturn);
 
             // LOAD THE CONTROL FILES
             // ortho
@@ -88,10 +88,10 @@ namespace XAmpleWithToneParse
             ThrowIfError(sResult, lpszGram);
         }
 
-        protected void SetOptionsForTonePars()
+        protected void SetOptionsForTonePars(int maxToReturn)
         {
             m_options.OutputStyle = "Ana";
-            m_options.MaxAnalysesToReturn = 100;
+            m_options.MaxAnalysesToReturn = maxToReturn;
             SetOptions();
         }
 

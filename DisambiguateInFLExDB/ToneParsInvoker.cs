@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using XAmpleManagedWrapper;
 using XAmpleWithToneParse;
 using SIL.FieldWorks.Common.FwUtils;
+using System.Xml;
 
 namespace SIL.DisambiguateInFLExDB
 {
@@ -227,8 +228,27 @@ namespace SIL.DisambiguateInFLExDB
             UpdateParsingStatus("Parsing via XAmple");
             XAmpleWrapperForTonePars m_xampleTP = new XAmpleWrapperForTonePars();
             m_xampleTP.InitForTonePars();
-            m_xampleTP.LoadFilesForTonePars(cdTableDir, Path.GetTempPath(), DatabaseName, IntxCtlFile);
+            int maxToReturn = GetMaxAnalysesToReturn();
+            m_xampleTP.LoadFilesForTonePars(cdTableDir, Path.GetTempPath(), DatabaseName, IntxCtlFile, maxToReturn);
             var results = m_xampleTP.ParseFileForTonePars(InputFile, AnaFile);
+        }
+
+        private int GetMaxAnalysesToReturn()
+        {
+            string parameters = Cache.LangProject.MorphologicalDataOA.ParserParameters;
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(parameters);
+            XmlNodeList elems = doc.GetElementsByTagName("MaxAnalysesToReturn");
+            if (elems != null)
+            {
+                int max = Int32.Parse(elems.Item(0).InnerText);
+                if (max < 0)
+                {
+                    max = 1000;
+                }
+                return max;
+            }
+            return 100;
         }
 
         private void UpdateParsingStatus(string content)

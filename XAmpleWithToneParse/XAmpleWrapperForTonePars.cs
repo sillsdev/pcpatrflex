@@ -65,11 +65,11 @@ namespace XAmpleWithToneParse
             }
         }
 
-        public void LoadFilesForTonePars(string fixedFilesDir, string dynamicFilesDir, string databaseName, string intxControlFile)
+        public void LoadFilesForTonePars(string fixedFilesDir, string dynamicFilesDir, string databaseName, string intxControlFile, int maxToReturn)
         {
             lock (m_lockObject)
             {
-                m_xampleTP.LoadFilesForTonePars(fixedFilesDir, dynamicFilesDir, databaseName, intxControlFile);
+                m_xampleTP.LoadFilesForTonePars(fixedFilesDir, dynamicFilesDir, databaseName, intxControlFile, maxToReturn);
             }
         }
 

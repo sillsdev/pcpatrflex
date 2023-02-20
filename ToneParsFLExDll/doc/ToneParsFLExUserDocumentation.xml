@@ -370,7 +370,7 @@ id="sIgenoreContext"
 >When the “Ignore Context” check box is checked, <object
 type="tToneParsFLEx"
 ></object
-> will determine all the unique word forms in the text (or segment) and parse them. This means that each unique word form is parsed once and only once no matter how many times it appears in the text (or segment). It therefore runs much faster especially on a text.  This is the default setting.</p
+> will determine all the unique word forms in the text (or segment) and parse them. This means that each unique word form is parsed once and only once no matter how many times it appears in the text (or segment). It therefore runs much faster especially on a text. This is the default setting.</p
 ><p
 >When this check box is not checked, then the input to parsing is like it is for <object
 type="tAmple"
@@ -431,6 +431,40 @@ type="tFLEx"
 ><p
 >During the parsing process, the bottom left of the window will display the current step that is occurring.</p
 ></section2
+></section1
+><section1
+id="sMaxAnalyses"
+><secTitle
+>Maximum analyses setting for <object
+type="tXAmple"
+></object
+></secTitle
+><p
+>By default, <object
+type="tFLEx"
+></object
+> only returns a maximum of the first twenty parses found by <object
+type="tXAmple"
+></object
+>.  This is often very reasonable when one is not using <object
+type="tTonePars"
+></object
+>.  With <object
+type="tTonePars"
+></object
+>, however, this could easily be too few.  In one <object
+type="tTonePars"
+></object
+> project, there are twenty-six nulls possible for various tone possibilities within a given word.  Only returning twenty will never do.  We have changed the default to be 1000.  If this is ridiculously high for your situation, you can always change the setting to a different number.  To do so, in the main <object
+type="tFLEx"
+></object
+> window, use the <object
+type="tMenuItem"
+>Parser / Edit Parser Parameters…</object
+> menu item and set the “MaxAnalyses” value to what you need.  Note that a value of -1 will be treated as 1000 by <object
+type="tToneParsFLEx"
+></object
+>.</p
 ></section1
 ><section1
 id="sRemembering"
