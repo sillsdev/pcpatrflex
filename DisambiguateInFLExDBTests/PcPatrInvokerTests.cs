@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SIL.DisambiguateInFLExDBTests
@@ -109,6 +110,8 @@ namespace SIL.DisambiguateInFLExDBTests
 
 			invoker.RootGlossState = state;
 			invoker.Invoke();
+			// Give it time to completely finish or the output file won't be available
+			Thread.Sleep(500);
 			using (var streamReader = new StreamReader(takeFile, Encoding.UTF8))
 			{
 				TakeString = streamReader.ReadToEnd().Replace("\r", "");

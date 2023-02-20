@@ -2,7 +2,7 @@
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
-using SIL.LcmLoaderUI;
+//using SIL.LcmLoaderUI;
 using SIL.LCModel;
 using System;
 using System.Collections.Generic;
@@ -29,10 +29,10 @@ namespace SIL.DisambiguateInFLExDB
 			Cache = cache;
 
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			PcpatrList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.PcPatrFeatureDescriptorList);
+			PcpatrList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == PcPatrConstants.PcPatrFeatureDescriptorList);
 
 			var customFields = GetListOfCustomFields();
-			CustomField = customFields.Find(fd => fd.Name == Constants.PcPatrFeatureDescriptorCustomField);
+			CustomField = customFields.Find(fd => fd.Name == PcPatrConstants.PcPatrFeatureDescriptorCustomField);
             BadGlosses = new List<string>();
             MissingItemMessage = "_FOUND!_PLEASE_FIX_THIS_ANALYSIS_IN_Word_Analyses";
         }
@@ -344,4 +344,9 @@ namespace SIL.DisambiguateInFLExDB
 			return result;
 		}
 	}
+    public static class PcPatrConstants
+    {
+        public const string PcPatrFeatureDescriptorCustomField = "PCPATR";
+        public const string PcPatrFeatureDescriptorList = "PCPATR Feature Descriptors";
+    }
 }
