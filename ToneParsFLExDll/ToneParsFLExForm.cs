@@ -194,7 +194,7 @@ namespace SIL.ToneParsFLEx
             splitContainer1.SplitterDistance = (int)regkey.GetValue(m_strSplitterLocationX, 150);
             SplitterLocationRetrieved = splitContainer1.SplitterDistance;
             cbVerify.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastVerify, false));
-            cbIgnoreContext.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastIgnoreContext, false));
+            cbIgnoreContext.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastIgnoreContext, true));
             cbTraceToneProcessing.Checked = Convert.ToBoolean(regkey.GetValue(m_strLastDoTracing, false));
 			ToneParsInvokerOptions.Instance.RuleTrace = Convert.ToBoolean(regkey.GetValue(m_strLastRuleTrace, false));
 			ToneParsInvokerOptions.Instance.TierAssignmentTrace = Convert.ToBoolean(regkey.GetValue(m_strLastTierAssignmentTrace, false));

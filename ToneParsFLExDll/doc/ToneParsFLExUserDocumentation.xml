@@ -370,7 +370,7 @@ id="sIgenoreContext"
 >When the “Ignore Context” check box is checked, <object
 type="tToneParsFLEx"
 ></object
-> will determine all the unique word forms in the text (or segment) and parse them. This means that each unique word form is parsed once and only once no matter how many times it appears in the text (or segment). It runs much faster.</p
+> will determine all the unique word forms in the text (or segment) and parse them. This means that each unique word form is parsed once and only once no matter how many times it appears in the text (or segment). It therefore runs much faster especially on a text.  This is the default setting.</p
 ><p
 >When this check box is not checked, then the input to parsing is like it is for <object
 type="tAmple"
