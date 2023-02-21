@@ -20,9 +20,9 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->20 February, 2023</date
+>21 February, 2023</date
 ><version
->Version 0.2.0 Beta</version
+>Version 0.3.0 Beta</version
 ><version
 >Copyright © 2019-2023 SIL International</version
 ><contents
@@ -400,7 +400,31 @@ type="tXAmple"
 > and then <object
 type="tTonePars"
 ></object
->. The mouse icon will change to the “busy” shape until it is done. The results will show in <object
+>. Before parsing the text, <object
+type="tToneParsFLEx"
+></object
+> will check to make sure the following files exist:</p
+><ol
+><li
+>The <object
+type="tAmple"
+></object
+> intx control file.</li
+><li
+>The <object
+type="tTonePars"
+></object
+> rule file.</li
+><li
+>The segments file from the <object
+type="tTonePars"
+></object
+> rule file.</li
+></ol
+><pc
+>If any cannot be found, then an error message showing the unfound file(s) will show.  The parsing will not be done.</pc
+><p
+>If these files are there, then the mouse icon will change to the “busy” shape until it is done. The results will show in <object
 type="tFLEx"
 ></object
 > the same way as using one of the morphological parsers that come with <object
@@ -421,7 +445,31 @@ type="tXAmple"
 > and then <object
 type="tTonePars"
 ></object
->. The mouse icon will change to the “busy” shape until it is done. The results will show in <object
+>. Before parsing the text, <object
+type="tToneParsFLEx"
+></object
+> will check to make sure the following files exist:</p
+><ol
+><li
+>The <object
+type="tAmple"
+></object
+> intx control file.</li
+><li
+>The <object
+type="tTonePars"
+></object
+> rule file.</li
+><li
+>The segments file from the <object
+type="tTonePars"
+></object
+> rule file.</li
+></ol
+><pc
+>If any cannot be found, then an error message showing the unfound file(s) will show. The parsing will not be done.</pc
+><p
+>If these files are there, then the mouse icon will change to the “busy” shape until it is done. The results will show in <object
 type="tFLEx"
 ></object
 > the same way as using one of the morphological parsers that come with <object
@@ -446,22 +494,22 @@ type="tFLEx"
 > only returns a maximum of the first twenty parses found by <object
 type="tXAmple"
 ></object
->.  This is often very reasonable when one is not using <object
+>. This is often very reasonable when one is not using <object
 type="tTonePars"
 ></object
->.  With <object
+>. With <object
 type="tTonePars"
 ></object
->, however, this could easily be too few.  In one <object
+>, however, this could easily be too few. In one <object
 type="tTonePars"
 ></object
-> project, there are twenty-six nulls possible for various tone possibilities within a given word.  Only returning twenty will never do.  We have changed the default to be 1000.  If this is ridiculously high for your situation, you can always change the setting to a different number.  To do so, in the main <object
+> project, there are twenty-six nulls possible for various tone possibilities within a given word. Only returning twenty will never do. We have changed the default to be 1000. If this is ridiculously high for your situation, you can always change the setting to a different number. To do so, in the main <object
 type="tFLEx"
 ></object
 > window, use the <object
 type="tMenuItem"
 >Parser / Edit Parser Parameters…</object
-> menu item and set the “MaxAnalyses” value to what you need.  Note that a value of -1 will be treated as 1000 by <object
+> menu item and set the “MaxAnalyses” value to what you need. Note that a value of -1 will be treated as 1000 by <object
 type="tToneParsFLEx"
 ></object
 >.</p
@@ -531,6 +579,14 @@ type="tTonePars"
 type="tAmple"
 ></object
 > intx ctl file work best if the path to them does not contain any spaces.</li
+><li
+>The location of the segments file within the <object
+type="tTonePars"
+></object
+> rule file needs to follow the MSDOS 8.3 file convention or it may not be found.  See <link
+href="https://stackoverflow.com/questions/4051088/get-dos-path-instead-of-windows-path"
+>here</link
+> for some ways to do that.</li
 ><li
 >If a lexical entry in <object
 type="tFLEx"
@@ -781,6 +837,93 @@ align="left"
 valign="top"
 ><object
 type="tErrorType"
+>Could not find the AMPLE intx.ctl file at: <object
+type="tItalic"
+>file location</object
+></object
+></td
+><td
+align="left"
+valign="top"
+>This appears when you try to parse a text or a segment and the <object
+type="tAmple"
+></object
+> intx ctrl file was not found.</td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+></td
+><td
+align="left"
+valign="top"
+></td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+><object
+type="tErrorType"
+>Could not find the segments file in the TonePars rule file at: <object
+type="tItalic"
+>file location</object
+></object
+></td
+><td
+align="left"
+valign="top"
+>This appears when you try to parse a text or a segment and while the <object
+type="tTonePars"
+></object
+> rule file was found, the file indicated by the \segments field was not found.</td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+></td
+><td
+align="left"
+valign="top"
+></td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+><object
+type="tErrorType"
+>Could not find the TonePars rule file at: <object
+type="tItalic"
+>file location</object
+></object
+></td
+><td
+align="left"
+valign="top"
+>This appears when you try to parse a text or a segment and the <object
+type="tTonePars"
+></object
+> rule file was not found.</td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+></td
+><td
+align="left"
+valign="top"
+></td
+></tr
+><tr
+><td
+align="left"
+valign="top"
+><object
+type="tErrorType"
 >Log file does not exist; please parse a segment or a text.</object
 ></td
 ><td
@@ -830,15 +973,18 @@ align="left"
 valign="top"
 ><object
 type="tErrorType"
->There was a timing problem. Please try again.</object
+>There was a timing problem. Check if the \segments path to xxxTP.seg in xxxTP.ctl is correct. See the Log file.</object
 ></td
 ><td
 align="left"
 valign="top"
->We detected that the resulting <object
+>For some reason, the running of <object
 type="tTonePars"
 ></object
-> file was not usable.</td
+> did not finish.  One possibility is that the \segments field in the <object
+type="tTonePars"
+></object
+> rule file had a problem or could not be found.</td
 ></tr
 ></table
 ></section1

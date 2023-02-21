@@ -37,14 +37,14 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblTexts = new System.Windows.Forms.Label();
             this.lblSegments = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblToneRuleFile = new System.Windows.Forms.Label();
             this.tbToneRuleFile = new System.Windows.Forms.TextBox();
             this.btnBrowseToneRule = new System.Windows.Forms.Button();
             this.btnParseText = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnBrowseIntxCtl = new System.Windows.Forms.Button();
             this.tbIntxCtlFile = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAmpleIntxCtl = new System.Windows.Forms.Label();
             this.cbTraceToneProcessing = new System.Windows.Forms.CheckBox();
             this.btnTracingOptions = new System.Windows.Forms.Button();
             this.cbVerify = new System.Windows.Forms.CheckBox();
@@ -154,14 +154,14 @@
             this.lblSegments.TabIndex = 9;
             this.lblSegments.Text = "Segments";
             // 
-            // label1
+            // lblToneRuleFile
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TonePars rule file: ";
+            this.lblToneRuleFile.AutoSize = true;
+            this.lblToneRuleFile.Location = new System.Drawing.Point(14, 32);
+            this.lblToneRuleFile.Name = "lblToneRuleFile";
+            this.lblToneRuleFile.Size = new System.Drawing.Size(139, 20);
+            this.lblToneRuleFile.TabIndex = 0;
+            this.lblToneRuleFile.Text = "TonePars rule file: ";
             // 
             // tbToneRuleFile
             // 
@@ -224,14 +224,14 @@
             this.tbIntxCtlFile.Size = new System.Drawing.Size(884, 26);
             this.tbIntxCtlFile.TabIndex = 13;
             // 
-            // label2
+            // lblAmpleIntxCtl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "AMPLE intx.ctl file: ";
+            this.lblAmpleIntxCtl.AutoSize = true;
+            this.lblAmpleIntxCtl.Location = new System.Drawing.Point(10, 83);
+            this.lblAmpleIntxCtl.Name = "lblAmpleIntxCtl";
+            this.lblAmpleIntxCtl.Size = new System.Drawing.Size(143, 20);
+            this.lblAmpleIntxCtl.TabIndex = 12;
+            this.lblAmpleIntxCtl.Text = "AMPLE intx.ctl file: ";
             // 
             // cbTraceToneProcessing
             // 
@@ -305,12 +305,12 @@
             this.Controls.Add(this.cbTraceToneProcessing);
             this.Controls.Add(this.btnBrowseIntxCtl);
             this.Controls.Add(this.tbIntxCtlFile);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblAmpleIntxCtl);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnParseText);
             this.Controls.Add(this.btnBrowseToneRule);
             this.Controls.Add(this.tbToneRuleFile);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblToneRuleFile);
             this.Controls.Add(this.lblSegments);
             this.Controls.Add(this.lblTexts);
             this.Controls.Add(this.splitContainer1);
@@ -336,14 +336,14 @@
 		private System.Windows.Forms.ListBox lbTexts;
 		private System.Windows.Forms.Label lblSegments;
 		private System.Windows.Forms.ListBox lbSegments;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblToneRuleFile;
 		private System.Windows.Forms.TextBox tbToneRuleFile;
 		private System.Windows.Forms.Button btnBrowseToneRule;
 		private System.Windows.Forms.Button btnParseText;
 		private System.Windows.Forms.Button btnHelp;
 		private System.Windows.Forms.Button btnBrowseIntxCtl;
 		private System.Windows.Forms.TextBox tbIntxCtlFile;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label lblAmpleIntxCtl;
 		private System.Windows.Forms.CheckBox cbTraceToneProcessing;
 		private System.Windows.Forms.Button btnTracingOptions;
 		private System.Windows.Forms.CheckBox cbVerify;

@@ -198,7 +198,7 @@ namespace SIL.DisambiguateInFLExDB
                 WaitForFileCompletion(AntFile);
                 if (!File.Exists(AntFile))
                 {
-                    MessageBox.Show("There was a timing problem.  Please try again.");
+                    MessageBox.Show("There was a timing problem.\nCheck if the \\segments path to xxxTP.seg in xxxTP.ctl is correct.  See the Log file.");
                     InvocationSucceeded = false;
                     return;
                 }

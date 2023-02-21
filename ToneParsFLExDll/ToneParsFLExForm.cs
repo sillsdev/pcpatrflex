@@ -30,6 +30,7 @@ using ToneParsFLExDll;
 using XCore;
 using XAmpleManagedWrapper;
 using ToneParsTextPreparer;
+using System.Text.RegularExpressions;
 
 namespace SIL.ToneParsFLEx
 {
@@ -341,10 +342,62 @@ namespace SIL.ToneParsFLEx
 			lbSegments.DataSource = SegmentsInListBox;
 		}
 
-		private void ParseSegment_Click(object sender, EventArgs e)
+        private bool CheckForValidFiles()
+        {
+            bool result = true;
+            if (!File.Exists(IntxCtlFile))
+            {
+                MessageBox.Show("Could not find the " + RemoveColon(lblAmpleIntxCtl.Text) + " at: " + IntxCtlFile);
+                result = false;
+            }
+            if (!File.Exists(ToneRuleFile))
+            {
+                MessageBox.Show("Could not find the " + RemoveColon(lblToneRuleFile.Text) + " at: " + ToneRuleFile);
+                result = false;
+            }
+            else
+            {
+                string sContents = File.ReadAllText(ToneRuleFile);
+                string pattern = "\r\n\\\\segments ";
+                var ms = Regex.Matches(sContents, pattern);
+                foreach (Match match in Regex.Matches(sContents, pattern))
+                {
+                    if (match.Success && match.Index > -1)
+                    {
+                        int indexBeg = match.Index + 12;
+                        int end = sContents.Substring(indexBeg).IndexOf("\r\n");
+                        string sSegFile = sContents.Substring(indexBeg, end);
+                        sSegFile = sSegFile.Trim();
+                        if (!File.Exists(sSegFile))
+                        {
+                            MessageBox.Show("Could not find the segments file in the "
+                                + RemoveColon(lblToneRuleFile.Text) + " at: " + sSegFile);
+                            result = false;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private static string RemoveColon(string sLabel)
+        {
+            int index = sLabel.LastIndexOf(":");
+            if (index > -1)
+            {
+                sLabel = sLabel.Substring(0, index);
+            }
+
+            return sLabel;
+        }
+
+        private void ParseSegment_Click(object sender, EventArgs e)
 		{
+            if (!CheckForValidFiles())
+                return;
             Cursor.Current = Cursors.WaitCursor;
-			Application.DoEvents();
+            Application.DoEvents();
 			var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
             string textToUse;
             if (cbIgnoreContext.Checked)
@@ -543,7 +596,9 @@ namespace SIL.ToneParsFLEx
 
 		private void ParseText_Click(object sender, EventArgs e)
 		{
-			Cursor.Current = Cursors.WaitCursor;
+            if (!CheckForValidFiles())
+                return;
+            Cursor.Current = Cursors.WaitCursor;
 			Application.DoEvents();
 			var selectedTextToShow = lbTexts.SelectedItem as IText;
             string textToUse;
