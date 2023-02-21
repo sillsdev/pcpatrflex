@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Use TonePars with FLEx"
-#define MyAppVersion "0.2.0 Beta"
+#define MyAppVersion "0.3.0 Beta"
 #define MyAppPublisher "SIL Iternational"
 #define MyAppURL "https://software.sil.org/"
 #define MyAppExeName "ToneParsFLExDll.dll"
