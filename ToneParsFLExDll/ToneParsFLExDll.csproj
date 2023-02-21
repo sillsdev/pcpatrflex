@@ -162,7 +162,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>cd "$(SolutionDir)\..\InstallerTonePars"
+    <PostBuildEvent>cd "$(SolutionDir)\InstallerTonePars"
 DevInstallDebug.bat
 </PostBuildEvent>
   </PropertyGroup>

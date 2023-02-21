@@ -2,6 +2,7 @@
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
+using SIL.DisambiguateInFLExDB;
 using SIL.LcmLoaderUI;
 using SIL.LCModel;
 using SIL.LCModel.Core.Cellar;
@@ -120,7 +121,7 @@ namespace SIL.PrepFLExDB
 		public void AddToneParsList()
 		{
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.ToneParsPropertiesList);
+			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == ToneParsConstants.ToneParsPropertiesList);
 			if (toneParsList != null)
 			{
 				return;
@@ -128,7 +129,7 @@ namespace SIL.PrepFLExDB
 			NonUndoableUnitOfWorkHelper.Do(Cache.ActionHandlerAccessor, () =>
 			{
 				int ws = WritingSystemServices.kwsAnal;
-				Cache.ServiceLocator.GetInstance<ICmPossibilityListFactory>().CreateUnowned(Constants.ToneParsPropertiesList, ws);
+				Cache.ServiceLocator.GetInstance<ICmPossibilityListFactory>().CreateUnowned(ToneParsConstants.ToneParsPropertiesList, ws);
 				toneParsList = possListRepository.AllInstances().Last();
 				var factPoss = Cache.ServiceLocator.GetInstance<ICmCustomItemFactory>();
 				ws = Cache.DefaultAnalWs;
@@ -152,13 +153,13 @@ namespace SIL.PrepFLExDB
 		public void AddToneParsSenseCustomField()
 		{
 			var customFields = GetListOfCustomFields();
-			if (customFields.Find(fd => fd.Name == Constants.ToneParsPropertiesSenseCustomField) != null)
+			if (customFields.Find(fd => fd.Name == ToneParsConstants.ToneParsPropertiesSenseCustomField) != null)
 			{
 				// already done; quit
 				return;
 			}
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.ToneParsPropertiesList);
+			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == ToneParsConstants.ToneParsPropertiesList);
 			if (toneParsList == null)
 			{
 				// need the master possibility list and it does not exist
@@ -174,8 +175,8 @@ namespace SIL.PrepFLExDB
 				// create new custom field
 				var fd = new FieldDescription(Cache)
 				{
-					Name = Constants.ToneParsPropertiesSenseCustomField,
-					Userlabel = Constants.ToneParsPropertiesSenseCustomField,
+					Name = ToneParsConstants.ToneParsPropertiesSenseCustomField,
+					Userlabel = ToneParsConstants.ToneParsPropertiesSenseCustomField,
 					HelpString = string.Empty,
 					Class = LexSenseTags.kClassId
 				};
@@ -195,13 +196,13 @@ namespace SIL.PrepFLExDB
 		public void AddToneParsFormCustomField()
 		{
 			var customFields = GetListOfCustomFields();
-			if (customFields.Find(fd => fd.Name == Constants.ToneParsPropertiesFormCustomField) != null)
+			if (customFields.Find(fd => fd.Name == ToneParsConstants.ToneParsPropertiesFormCustomField) != null)
 			{
 				// already done; quit
 				return;
 			}
 			var possListRepository = Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == Constants.ToneParsPropertiesList);
+			var toneParsList = possListRepository.AllInstances().FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == ToneParsConstants.ToneParsPropertiesList);
 			if (toneParsList == null)
 			{
 				// need the master possibility list and it does not exist
@@ -217,8 +218,8 @@ namespace SIL.PrepFLExDB
 				// create new custom field
 				var fd = new FieldDescription(Cache)
 				{
-					Name = Constants.ToneParsPropertiesFormCustomField,
-					Userlabel = Constants.ToneParsPropertiesFormCustomField,
+					Name = ToneParsConstants.ToneParsPropertiesFormCustomField,
+					Userlabel = ToneParsConstants.ToneParsPropertiesFormCustomField,
 					HelpString = string.Empty,
 					Class = MoFormTags.kClassId
 				};

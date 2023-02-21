@@ -4,7 +4,6 @@
 
 using Microsoft.Win32;
 using SIL.DisambiguateInFLExDB;
-using SIL.LcmLoader;
 using SIL.LCModel;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.Core.WritingSystems;
@@ -29,7 +28,6 @@ namespace SIL.PcPatrFLEx
 	public partial class ExtractAnaFilesFromTextsForm : Form
 	{
 		public LcmCache Cache { get; set; }
-		public ProjectId ProjId { get; set; }
 
 		private IList<IText> Texts { get; set; }
 		private FLExDBExtractor Extractor { get; set; }
@@ -190,40 +188,10 @@ namespace SIL.PcPatrFLEx
 				btnExtract.Enabled = true;
 		}
 
-		/// ------------------------------------------------------------------------------------
-		/// <summary>
-		/// Lets the user select an existing language project.
-		/// </summary>
-		/// <param name="dialogOwner">The owner of the dialog.</param>
-		/// <returns>The chosen project, or null if no project was chosen</returns>
-		/// ------------------------------------------------------------------------------------
-		internal static ProjectId ChooseLangProject(ExtractAnaFilesFromTextsForm dialogOwner)
-		{
-			using (var dlg = new SIL.LcmLoaderUI.ChooseLangProjectDialog(false))
-			{
-				FwRegistryHelper.Initialize();
-				dlg.ShowDialog(dialogOwner);
-				if (dlg.DialogResult == DialogResult.OK)
-				{
-					var projId = new ProjectId(dlg.Project);
-					return projId;
-				}
-				return null;
-			}
-		}
-
-		private void UnlockDatabaseIfNeeded()
-		{
-			if (Cache != null)
-			{
-				ProjectLockingService.UnlockCurrentProject(Cache);
-			}
-		}
 		private void OnFormClosing(object sender, EventArgs e)
 		{
 			Console.WriteLine("form closing");
 			SaveRegistryInfo();
-			UnlockDatabaseIfNeeded();
 		}
 
 		private string GetAnaForm(IText selectedTextToShow)
