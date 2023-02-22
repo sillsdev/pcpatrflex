@@ -20,9 +20,9 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->21 February, 2023</date
+>22 February, 2023</date
 ><version
->Version 0.3.0 Beta</version
+>Version 0.4.0 Beta</version
 ><version
 >Copyright © 2019-2023 SIL International</version
 ><contents
@@ -422,7 +422,7 @@ type="tTonePars"
 > rule file.</li
 ></ol
 ><pc
->If any cannot be found, then an error message showing the unfound file(s) will show.  The parsing will not be done.</pc
+>If any cannot be found, then an error message showing the unfound file(s) will show. The parsing will not be done.</pc
 ><p
 >If these files are there, then the mouse icon will change to the “busy” shape until it is done. The results will show in <object
 type="tFLEx"
@@ -583,7 +583,7 @@ type="tAmple"
 >The location of the segments file within the <object
 type="tTonePars"
 ></object
-> rule file needs to follow the MSDOS 8.3 file convention or it may not be found.  See <link
+> rule file needs to follow the MSDOS 8.3 file convention or it may not be found. See <link
 href="https://stackoverflow.com/questions/4051088/get-dos-path-instead-of-windows-path"
 >here</link
 > for some ways to do that.</li
@@ -869,7 +869,7 @@ type="tErrorType"
 >Could not find the segments file in the TonePars rule file at: <object
 type="tItalic"
 >file location</object
-></object
+>.  Remember that this file path may need to be in 8.3 format.</object
 ></td
 ><td
 align="left"
@@ -877,7 +877,10 @@ valign="top"
 >This appears when you try to parse a text or a segment and while the <object
 type="tTonePars"
 ></object
-> rule file was found, the file indicated by the \segments field was not found.</td
+> rule file was found, the file indicated by the \segments field was not found.  See section <sectionRef
+sec="sKnownProblems"
+></sectionRef
+>, item 3.</td
 ></tr
 ><tr
 ><td
@@ -981,7 +984,7 @@ valign="top"
 >For some reason, the running of <object
 type="tTonePars"
 ></object
-> did not finish.  One possibility is that the \segments field in the <object
+> did not finish. One possibility is that the \segments field in the <object
 type="tTonePars"
 ></object
 > rule file had a problem or could not be found.</td
