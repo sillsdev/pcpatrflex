@@ -371,7 +371,8 @@ namespace SIL.ToneParsFLEx
                         if (!File.Exists(sSegFile))
                         {
                             MessageBox.Show("Could not find the segments file in the "
-                                + RemoveColon(lblToneRuleFile.Text) + " at: " + sSegFile);
+                                + RemoveColon(lblToneRuleFile.Text) + " at: " + sSegFile
+                                + "\nRemember that this file path may need to be in 8.3 format.");
                             result = false;
                         }
                     }
@@ -721,9 +722,19 @@ namespace SIL.ToneParsFLEx
 			var optionsDialog = new TracingOptionsDialog();
 			optionsDialog.ShowDialog();
 		}
-	}
 
-	public class SegmentToShow
+        private void tbToneRuleFile_TextChanged(object sender, EventArgs e)
+        {
+            ToneRuleFile = tbToneRuleFile.Text;
+        }
+
+        private void tbIntxCtlFile_TextChanged(object sender, EventArgs e)
+        {
+            IntxCtlFile = tbIntxCtlFile.Text;
+        }
+    }
+
+    public class SegmentToShow
 	{
 		public ISegment Segment { get; set; }
 		public String Baseline { get; set; }

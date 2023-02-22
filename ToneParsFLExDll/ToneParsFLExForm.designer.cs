@@ -171,6 +171,7 @@
             this.tbToneRuleFile.Name = "tbToneRuleFile";
             this.tbToneRuleFile.Size = new System.Drawing.Size(884, 26);
             this.tbToneRuleFile.TabIndex = 1;
+            this.tbToneRuleFile.TextChanged += new System.EventHandler(this.tbToneRuleFile_TextChanged);
             // 
             // btnBrowseToneRule
             // 
@@ -223,6 +224,7 @@
             this.tbIntxCtlFile.Name = "tbIntxCtlFile";
             this.tbIntxCtlFile.Size = new System.Drawing.Size(884, 26);
             this.tbIntxCtlFile.TabIndex = 13;
+            this.tbIntxCtlFile.TextChanged += new System.EventHandler(this.tbIntxCtlFile_TextChanged);
             // 
             // lblAmpleIntxCtl
             // 
