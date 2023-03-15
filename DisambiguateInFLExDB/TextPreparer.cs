@@ -60,7 +60,7 @@ namespace ToneParsTextPreparer
                 return;
             foreach (IAnalysis analysis in segment.AnalysesRS)
             {
-                if (analysis.ClassName == "WfiWordform")
+                if (analysis.ClassName != "PunctuationForm")
                 {
                     string wf = analysis.Wordform.Form.BestVernacularAnalysisAlternative.Text;
                     wordSet.Add(wf);
