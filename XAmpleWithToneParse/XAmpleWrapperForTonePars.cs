@@ -25,11 +25,7 @@ namespace XAmpleWithToneParse
 #endif
 
         /// <summary/>
-        public new bool IsDisposed
-        {
-            get;
-            private set;
-        }
+        public new bool IsDisposed { get; private set; }
 
         /// <summary/>
         public new void Dispose()
@@ -41,7 +37,10 @@ namespace XAmpleWithToneParse
         /// <summary/>
         protected new virtual void Dispose(bool fDisposing)
         {
-            System.Diagnostics.Debug.WriteLineIf(!fDisposing, "****** Missing Dispose() call for " + GetType().Name + ". ****** ");
+            System.Diagnostics.Debug.WriteLineIf(
+                !fDisposing,
+                "****** Missing Dispose() call for " + GetType().Name + ". ****** "
+            );
             if (fDisposing && !IsDisposed)
             {
                 // dispose managed and unmanaged objects
@@ -65,14 +64,24 @@ namespace XAmpleWithToneParse
             }
         }
 
-        public void LoadFilesForTonePars(string fixedFilesDir, string dynamicFilesDir, string databaseName, string intxControlFile, int maxToReturn)
+        public void LoadFilesForTonePars(
+            string fixedFilesDir,
+            string dynamicFilesDir,
+            string databaseName,
+            string intxControlFile,
+            int maxToReturn
+        )
         {
             lock (m_lockObject)
             {
-                m_xampleTP.LoadFilesForTonePars(fixedFilesDir, dynamicFilesDir, databaseName, intxControlFile, maxToReturn);
+                m_xampleTP.LoadFilesForTonePars(
+                    fixedFilesDir,
+                    dynamicFilesDir,
+                    databaseName,
+                    intxControlFile,
+                    maxToReturn
+                );
             }
         }
-
-
     }
 }

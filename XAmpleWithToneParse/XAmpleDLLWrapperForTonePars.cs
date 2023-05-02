@@ -15,16 +15,30 @@ namespace XAmpleWithToneParse
 {
     public class XAmpleDLLWrapperForTonePars : XAmpleManagedWrapper.XAmpleDLLWrapper
     {
-
         [DllImport("xample.dll", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern new IntPtr AmpleParseFile(IntPtr pSetupIo, byte[] pszInputTextIn, string pszUseTextIn);
+        internal static extern new IntPtr AmpleParseFile(
+            IntPtr pSetupIo,
+            byte[] pszInputTextIn,
+            string pszUseTextIn
+        );
+
         public SpecAmpleParseFile AmpleParseFileDelegate { get; set; }
 
-        internal string AmpleParseFileMarshaled(IntPtr pSetupIo, string pszInFilePathin, string pszOutFilePathin)
+        internal string AmpleParseFileMarshaled(
+            IntPtr pSetupIo,
+            string pszInFilePathin,
+            string pszOutFilePathin
+        )
         {
             int bufferSize = Encoding.UTF8.GetByteCount(pszInFilePathin);
             byte[] temp = new byte[bufferSize + 1]; // +1 for NULL term
-            int sizeWritten = Encoding.UTF8.GetBytes(pszInFilePathin, 0, pszInFilePathin.Length, temp, 0);
+            int sizeWritten = Encoding.UTF8.GetBytes(
+                pszInFilePathin,
+                0,
+                pszInFilePathin.Length,
+                temp,
+                0
+            );
             //Debug.Assert(sizeWritten == bufferSize);
             var ret = AmpleParseFile(pSetupIo, temp, pszOutFilePathin);
             return PtrToString(ret, Encoding.UTF8);
@@ -60,14 +74,39 @@ namespace XAmpleWithToneParse
             return lpszResult;
         }
 
-        public void LoadFilesForTonePars(string lspzFixedFilesDir, string lspzDynamicFilesDir, string lspzDatabaseName, string lpszIntxCtl, int maxToReturn)
+        public void LoadFilesForTonePars(
+            string lspzFixedFilesDir,
+            string lspzDynamicFilesDir,
+            string lspzDatabaseName,
+            string lpszIntxCtl,
+            int maxToReturn
+        )
         {
             CheckPtr(m_setup);
 
-            var lpszCdTable = string.Format("{0}{1}cd.tab", lspzFixedFilesDir, Path.DirectorySeparatorChar);
-            var lpszAdCtl = string.Format("{0}{1}{2}adctl.txt", lspzDynamicFilesDir, Path.DirectorySeparatorChar, lspzDatabaseName);
-            var lpszGram = string.Format("{0}{1}{2}gram.txt", lspzDynamicFilesDir, Path.DirectorySeparatorChar, lspzDatabaseName);
-            var lpszDict = string.Format("{0}{1}{2}lex.txt", lspzDynamicFilesDir, Path.DirectorySeparatorChar, lspzDatabaseName);
+            var lpszCdTable = string.Format(
+                "{0}{1}cd.tab",
+                lspzFixedFilesDir,
+                Path.DirectorySeparatorChar
+            );
+            var lpszAdCtl = string.Format(
+                "{0}{1}{2}adctl.txt",
+                lspzDynamicFilesDir,
+                Path.DirectorySeparatorChar,
+                lspzDatabaseName
+            );
+            var lpszGram = string.Format(
+                "{0}{1}{2}gram.txt",
+                lspzDynamicFilesDir,
+                Path.DirectorySeparatorChar,
+                lspzDatabaseName
+            );
+            var lpszDict = string.Format(
+                "{0}{1}{2}lex.txt",
+                lspzDynamicFilesDir,
+                Path.DirectorySeparatorChar,
+                lspzDatabaseName
+            );
 
             m_ampleReset(m_setup);
 
@@ -75,7 +114,13 @@ namespace XAmpleWithToneParse
 
             // LOAD THE CONTROL FILES
             // ortho
-            string sResult = m_ampleLoadControlFiles(m_setup, lpszAdCtl, lpszCdTable, null, lpszIntxCtl);
+            string sResult = m_ampleLoadControlFiles(
+                m_setup,
+                lpszAdCtl,
+                lpszCdTable,
+                null,
+                lpszIntxCtl
+            );
             // INTX
             ThrowIfError(sResult, lpszAdCtl, lpszCdTable);
 
@@ -94,6 +139,5 @@ namespace XAmpleWithToneParse
             m_options.MaxAnalysesToReturn = maxToReturn;
             SetOptions();
         }
-
     }
 }

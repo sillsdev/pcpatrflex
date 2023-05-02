@@ -16,18 +16,13 @@ namespace ToneParsTextPreparer
         private static readonly TextPreparer instance = new TextPreparer();
         private HashSet<string> wordSet = new HashSet<string>();
 
-        static TextPreparer()
-        {
-        }
-        private TextPreparer()
-        {
-        }
+        static TextPreparer() { }
+
+        private TextPreparer() { }
+
         public static TextPreparer Instance
         {
-            get
-            {
-                return instance;
-            }
+            get { return instance; }
         }
 
         public string GetUniqueWordForms(ISegment segment)

@@ -20,23 +20,23 @@ using SIL.PcPatrBrowser;
 
 namespace SIL.PcPatrBrowser
 {
-	/// <summary>
-	/// Summary description for PcPatrBrowser.
-	/// </summary>
-	public class PcPatrBrowserExe
-	{
-		/// -----------------------------------------------------------------------------------
-		/// <summary>
-		/// Application entry point. If PcPatrBrowser isn't already running,
-		/// an instance of the app is created.
-		/// </summary>
-		/// <param name="rgArgs">Command-line arguments</param>
-		/// <returns>0</returns>
-		/// -----------------------------------------------------------------------------------
-		[STAThread]
-		public static void Main(string[] rgArgs)
-		{
+    /// <summary>
+    /// Summary description for PcPatrBrowser.
+    /// </summary>
+    public class PcPatrBrowserExe
+    {
+        /// -----------------------------------------------------------------------------------
+        /// <summary>
+        /// Application entry point. If PcPatrBrowser isn't already running,
+        /// an instance of the app is created.
+        /// </summary>
+        /// <param name="rgArgs">Command-line arguments</param>
+        /// <returns>0</returns>
+        /// -----------------------------------------------------------------------------------
+        [STAThread]
+        public static void Main(string[] rgArgs)
+        {
             PcPatrBrowserApp.Main(rgArgs);
-		}
-	}
+        }
+    }
 }

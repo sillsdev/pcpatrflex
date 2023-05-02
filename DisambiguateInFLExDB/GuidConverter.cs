@@ -10,30 +10,29 @@ using System.Threading.Tasks;
 
 namespace SIL.DisambiguateInFLExDB
 {
-	public static class GuidConverter
-	{
-
-		public static List<Guid> CreateListFromString(string result)
-		{
-			List<Guid> guids = new List<Guid>();
-			if (!String.IsNullOrEmpty(result))
-			{
-				var guidStrings = result.Split('\n');
-				foreach (string sGuid in guidStrings)
-				{
-					if (!String.IsNullOrEmpty(sGuid))
-					{
-						String sGuidToUse = sGuid;
-						int i = sGuid.IndexOf("=");
-						if (i > 0)
-						{
-							sGuidToUse = sGuid.Substring(0, i);
-						}
-						guids.Add(new Guid(sGuidToUse));
-					}
-				}
-			}
-			return guids;
-		}
-	}
+    public static class GuidConverter
+    {
+        public static List<Guid> CreateListFromString(string result)
+        {
+            List<Guid> guids = new List<Guid>();
+            if (!String.IsNullOrEmpty(result))
+            {
+                var guidStrings = result.Split('\n');
+                foreach (string sGuid in guidStrings)
+                {
+                    if (!String.IsNullOrEmpty(sGuid))
+                    {
+                        String sGuidToUse = sGuid;
+                        int i = sGuid.IndexOf("=");
+                        if (i > 0)
+                        {
+                            sGuidToUse = sGuid.Substring(0, i);
+                        }
+                        guids.Add(new Guid(sGuidToUse));
+                    }
+                }
+            }
+            return guids;
+        }
+    }
 }
