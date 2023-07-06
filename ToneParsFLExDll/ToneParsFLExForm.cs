@@ -826,9 +826,18 @@ namespace SIL.ToneParsFLEx
         {
             IntxCtlFile = tbIntxCtlFile.Text;
         }
-    }
 
-    public class SegmentToShow
+		private void btnRefresh_Click(object sender, EventArgs e)
+		{
+			Cursor.Current = Cursors.WaitCursor;
+			Application.DoEvents();
+			RetrievedLastText = LastText;
+			FillTextsListBox();
+			Cursor.Current = Cursors.Default;
+		}
+	}
+
+	public class SegmentToShow
     {
         public ISegment Segment { get; set; }
         public String Baseline { get; set; }

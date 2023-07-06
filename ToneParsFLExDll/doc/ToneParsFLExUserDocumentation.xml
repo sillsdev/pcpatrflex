@@ -20,9 +20,9 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->22 February, 2023</date
+>6 July, 2023</date
 ><version
->Version 0.4.0 Beta</version
+>Version 0.4.2 Beta</version
 ><version
 >Copyright © 2019-2023 SIL International</version
 ><contents
@@ -344,6 +344,13 @@ type="tTonePars"
 > will be displayed.</p
 ></section2
 ><section2
+id="sHelp"
+><secTitle
+>Help button</secTitle
+><p
+>The “Help...” button is used to get this user documentation file, show the TonePars Manual, show the TonePars Grammar documentation file, or show the “About” dialog box.</p
+></section2
+><section2
 id="sVerifyControlFileInformation"
 ><secTitle
 >Verify Control File Information check box</secTitle
@@ -383,11 +390,20 @@ id="nEdgeRules"
 > then you may need to process texts (and segments) this way.</p
 ></section2
 ><section2
-id="sHelp"
+id="sRefresh"
 ><secTitle
->Help button</secTitle
+>Refresh Texts button</secTitle
 ><p
->The “Help...” button is used to get this user documentation file, show the TonePars Manual, show the TonePars Grammar documentation file, or show the “About” dialog box.</p
+>Whenever you click on the “Refresh Texts” button, <object
+type="tToneParsFLEx"
+></object
+> will reload all of the texts from <object
+type="tFLEx"
+></object
+>. This is so if you know that if some texts have been added, deleted or changed since you first started <object
+type="tToneParsFLEx"
+></object
+>, you can get the most current list of texts.</p
 ></section2
 ><section2
 id="sDisambiguate"
@@ -869,7 +885,7 @@ type="tErrorType"
 >Could not find the segments file in the TonePars rule file at: <object
 type="tItalic"
 >file location</object
->.  Remember that this file path may need to be in 8.3 format.</object
+>. Remember that this file path may need to be in 8.3 format.</object
 ></td
 ><td
 align="left"
@@ -877,7 +893,7 @@ valign="top"
 >This appears when you try to parse a text or a segment and while the <object
 type="tTonePars"
 ></object
-> rule file was found, the file indicated by the \segments field was not found.  See section <sectionRef
+> rule file was found, the file indicated by the \segments field was not found. See section <sectionRef
 sec="sKnownProblems"
 ></sectionRef
 >, item 3.</td
