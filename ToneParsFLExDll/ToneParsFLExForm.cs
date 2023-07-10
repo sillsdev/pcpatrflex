@@ -835,6 +835,17 @@ namespace SIL.ToneParsFLEx
 			FillTextsListBox();
 			Cursor.Current = Cursors.Default;
 		}
+
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		{
+			if (keyData == Keys.F5)
+			{
+				btnRefresh_Click(null, null);
+				return true;
+			}
+			return base.ProcessCmdKey(ref msg, keyData);
+		}
+
 	}
 
 	public class SegmentToShow

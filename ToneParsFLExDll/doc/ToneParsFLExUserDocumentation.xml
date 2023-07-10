@@ -20,9 +20,9 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->6 July, 2023</date
+>10 July, 2023</date
 ><version
->Version 0.4.2 Beta</version
+>Version 0.5.0 Beta</version
 ><version
 >Copyright © 2019-2023 SIL International</version
 ><contents
@@ -394,7 +394,10 @@ id="sRefresh"
 ><secTitle
 >Refresh Texts button</secTitle
 ><p
->Whenever you click on the “Refresh Texts” button, <object
+>Whenever you click on the “Refresh Texts” button or press the <object
+type="tKey"
+>F5</object
+> key, <object
 type="tToneParsFLEx"
 ></object
 > will reload all of the texts from <object
