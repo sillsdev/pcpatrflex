@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Use PC-PATR with FLEx"
-#define MyAppVersion "1.12.1 Beta"
+#define MyAppVersion "1.12.2 Beta"
 #define MyAppPublisher "SIL Iternational"
 #define MyAppURL "https://software.sil.org/"
 #define MyAppExeName "PcPatrFLExDll.dll"
@@ -38,8 +38,8 @@ Source: "..\PcPatrFLExDll\bin\x64\Release\pcpatr64.exe"; DestDir: "{app}"; Flags
 Source: "..\PcPatrFLExDll\bin\x64\Release\LingTreeTree.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\PcPatrFLExDll.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\PcPatrFLExDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\PcPatrFLExDll\bin\x64\Release\PrepFLExDB.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\PcPatrFLExDll\bin\x64\Release\PrepFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLExDll\bin\x64\Release\PrepFLExDBDll.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\PcPatrFLExDll\bin\x64\Release\PrepFLExDBDll.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrFLExDll\bin\x64\Release\SIL.DisambiguateInFLExDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\PcPatrBrowser\PcPatrBrowserDll\bin\x64\Release\SIL.PcPatrBrowserDll.dll"; DestDir: "{app}"; Flags: ignoreversion
