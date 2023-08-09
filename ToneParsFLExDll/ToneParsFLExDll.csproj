@@ -151,6 +151,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HermitCrabWithTonePars\HermitCrabWithTonePars.csproj">
+      <Project>{8eb1ec47-b551-4bbc-9419-48512f0ca7f0}</Project>
+      <Name>HermitCrabWithTonePars</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrepFLExDBDll\PrepFLExDBDll.csproj">
       <Project>{808145c1-b5ca-4ec7-9402-88b3f353b002}</Project>
       <Name>PrepFLExDBDll</Name>

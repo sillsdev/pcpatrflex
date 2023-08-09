@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HermitCrabWithTonePars
+namespace SIL.HermitCrabWithTonePars
 {
     public class OrthoChanger
     {
@@ -19,17 +19,21 @@ namespace HermitCrabWithTonePars
         const char singleQuote = '\'';
 
         public string OrthoFileContents { get; set; } = "";
+        public bool ChangesExist { get; set; }
 
         public OrthoChanger() { }
 
-        public bool LoadOrthoChangesFile(string inputOrthoChangeFile)
+        public void LoadOrthoChangesFile(string inputOrthoChangeFile)
         {
             if (!File.Exists(inputOrthoChangeFile))
             {
-                return false;
+                ChangesExist = false;
             }
-            OrthoFileContents = File.ReadAllText(inputOrthoChangeFile, Encoding.UTF8);
-            return true;
+            else
+            {
+                OrthoFileContents = File.ReadAllText(inputOrthoChangeFile, Encoding.UTF8);
+                ChangesExist = true;
+            }
         }
 
         public List<OrthoChangeMapping> CreateOrthoChanges()
@@ -46,6 +50,10 @@ namespace HermitCrabWithTonePars
                     chIndex =
                         FindFirstChIndex(OrthoFileContents.Substring(finalIndex)) + finalIndex;
                 }
+            }
+            if (mappings.Count == 0)
+            {
+                ChangesExist = false;
             }
             return mappings;
         }

@@ -9,6 +9,8 @@ copy "..\ToneParsFLExDll\bin\x64\Debug\PrepFLExDBDll.dll" "c:\fwrepo\fw\Output\D
 copy "..\ToneParsFLExDll\bin\x64\Debug\PrepFLExDBDll.pdb" "c:\fwrepo\fw\Output\Debug" > nul
 copy "..\ToneParsFLExDll\bin\x64\Debug\XAmpleWithToneParse.dll" "c:\fwrepo\fw\Output\Debug" > nul
 copy "..\ToneParsFLExDll\bin\x64\Debug\XAmpleWithToneParse.pdb" "c:\fwrepo\fw\Output\Debug" > nul
+copy "..\ToneParsFLExDll\bin\x64\Debug\HermitCrabWithTonePars.dll" "c:\fwrepo\fw\Output\Debug" > nul
+copy "..\ToneParsFLExDll\bin\x64\Debug\HermitCrabWithTonePars.pdb" "c:\fwrepo\fw\Output\Debug" > nul
 copy "..\ToneParsFLExDll\bin\x64\Debug\SIL.DisambiguateInFLExDB.dll" "c:\fwrepo\fw\Output\Debug" > nul
 copy "..\ToneParsFLExDll\bin\x64\Debug\SIL.DisambiguateInFLExDB.pdb" "c:\fwrepo\fw\Output\Debug" > nul
 if not exist "c:\fwrepo\fw\Output\Debug\doc\" mkdir "c:\fwrepo\fw\Output\Debug\doc\" > nul

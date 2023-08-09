@@ -134,6 +134,12 @@
   <ItemGroup>
     <Compile Include="PcPatrInvokerTests.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HermitCrabWithTonePars\HermitCrabWithTonePars.csproj">
+      <Project>{8eb1ec47-b551-4bbc-9419-48512f0ca7f0}</Project>
+      <Name>HermitCrabWithTonePars</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(SolutionDir)lib\downloads\$(PlatformName)\*.dll" "$(ProjectDir)\$(OutDir)"

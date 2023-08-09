@@ -511,6 +511,7 @@ namespace SIL.ToneParsFLEx
                 GetDecompSeparationCharacter(),
                 Cache
             );
+            invoker.Extractor = Extractor;
             invoker.ParsingStatus = lblParsingStatus;
             UpdateParsingStatus("Updating Grammar and Lexicon");
             if (ConnectToParser(invoker.Queue))
@@ -827,28 +828,27 @@ namespace SIL.ToneParsFLEx
             IntxCtlFile = tbIntxCtlFile.Text;
         }
 
-		private void btnRefresh_Click(object sender, EventArgs e)
-		{
-			Cursor.Current = Cursors.WaitCursor;
-			Application.DoEvents();
-			RetrievedLastText = LastText;
-			FillTextsListBox();
-			Cursor.Current = Cursors.Default;
-		}
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Application.DoEvents();
+            RetrievedLastText = LastText;
+            FillTextsListBox();
+            Cursor.Current = Cursors.Default;
+        }
 
-		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-		{
-			if (keyData == Keys.F5)
-			{
-				btnRefresh_Click(null, null);
-				return true;
-			}
-			return base.ProcessCmdKey(ref msg, keyData);
-		}
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F5)
+            {
+                btnRefresh_Click(null, null);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+    }
 
-	}
-
-	public class SegmentToShow
+    public class SegmentToShow
     {
         public ISegment Segment { get; set; }
         public String Baseline { get; set; }

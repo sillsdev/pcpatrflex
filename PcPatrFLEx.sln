@@ -74,6 +74,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HermitCrabWithTonePars", "HermitCrabWithTonePars\HermitCrabWithTonePars.csproj", "{8EB1EC47-B551-4BBC-9419-48512F0CA7F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HermitCrabWithToneParsTests", "HermitCrabWithToneParsTests\HermitCrabWithToneParsTests.csproj", "{743EFAF5-80EB-41D8-8C2F-07043F5287A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8EB1EC47-B551-4BBC-9419-48512F0CA7F0} = {8EB1EC47-B551-4BBC-9419-48512F0CA7F0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

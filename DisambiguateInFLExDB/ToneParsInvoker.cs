@@ -2,30 +2,30 @@
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
-using System;
-using System.Runtime.InteropServices;
+using SIL.FieldWorks.Common.FwUtils;
+using SIL.FieldWorks.WordWorks.Parser;
+using SIL.HermitCrabWithTonePars;
+using SIL.LCModel.Core.Text;
+using SIL.LCModel.DomainServices;
+using SIL.LCModel.Infrastructure;
+using SIL.LCModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Text;
 using System.Threading.Tasks;
-using System.Reflection;
-using SIL.LCModel;
-using System.Text.RegularExpressions;
 using System.Threading;
-using SIL.LCModel.DomainServices;
-//using SIL.LcmLoaderUI;
-using XCore;
-using SIL.FieldWorks.WordWorks.Parser;
-using System.Xml.Linq;
-using SIL.LCModel.Infrastructure;
-using SIL.LCModel.Core.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using System.Xml;
+using System;
 using XAmpleManagedWrapper;
 using XAmpleWithToneParse;
-using SIL.FieldWorks.Common.FwUtils;
-using System.Xml;
+using XCore;
 
 namespace SIL.DisambiguateInFLExDB
 {
@@ -53,6 +53,7 @@ namespace SIL.DisambiguateInFLExDB
         protected const String kTPAdCtl = "TPadctl.txt";
         protected const String kLexicon = "lex.txt";
         protected const String kTPLexicon = "TPlex.txt";
+        public FLExDBExtractor Extractor { get; set; }
 
         public ToneParsInvoker(
             string toneParsRuleFile,
@@ -205,9 +206,15 @@ namespace SIL.DisambiguateInFLExDB
                 File.Delete(AnaFile);
                 File.Delete(AntFile);
                 File.Delete(ToneParsLogFile);
-
-                UpdateParsingStatus("Parsing via XAmple");
-                XAmpleParseFile();
+                string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
+                if (activeParser == "HC")
+                {
+                    HermitCrabParseFile();
+                }
+                else
+                {
+                    XAmpleParseFile();
+                }
                 WaitForFileCompletion(AnaFile);
 
                 var processInfo = new ProcessStartInfo(
@@ -245,6 +252,26 @@ namespace SIL.DisambiguateInFLExDB
                     }
                     InvocationSucceeded = false;
                 }
+            }
+        }
+
+        private void HermitCrabParseFile()
+        {
+            UpdateParsingStatus("Parsing via HermitCrab");
+            OrthoChanger changer = new OrthoChanger();
+            changer.LoadOrthoChangesFile(this.IntxCtlFile);
+            IParser hcParser = new HCParser(Cache);
+            hcParser.Update();
+            foreach (string word in File.ReadLines(InputFile, Encoding.UTF8))
+            {
+                string mappedWord = word.Replace(".", "");
+                if (changer.ChangesExist)
+                {
+                    mappedWord = changer.ApplyChangesToWord(mappedWord);
+                }
+                XDocument xmlResult = hcParser.ParseWordXml(mappedWord);
+                ParseResult result = hcParser.ParseWord(mappedWord);
+                int i = 0;
             }
         }
 

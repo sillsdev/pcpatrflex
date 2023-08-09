@@ -7,8 +7,8 @@
     <ProjectGuid>{743EFAF5-80EB-41D8-8C2F-07043F5287A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HermitCrabWithToneParsTests</RootNamespace>
-    <AssemblyName>HermitCrabWithToneParsTests</AssemblyName>
+    <RootNamespace>SIL.HermitCrabWithToneParsTests</RootNamespace>
+    <AssemblyName>SIL.HermitCrabWithToneParsTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -49,27 +49,71 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FwCoreDlgs">
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\FwCoreDlgs.dll</HintPath>
+    </Reference>
+    <Reference Include="icu.net, Version=2.9.0.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\icu.net.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.HermitCrabWithTonePars, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HermitCrabWithTonePars\bin\x64\Debug\SIL.HermitCrabWithTonePars.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.LCModel.Tests">
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.Tests.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.LCModel.Utils, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems, Version=12.1.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.WritingSystems.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\System.Net.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ANABuilderTest.cs" />
+    <Compile Include="FwTestBase.cs" />
+    <Compile Include="HermitCrabWithToneParsTestBase.cs" />
     <Compile Include="OrthoChangerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestLcmDirectories.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HermitCrabWithTonePars\HermitCrabWithTonePars.csproj">
-      <Project>{8EB1EC47-B551-4BBC-9419-48512F0CA7F0}</Project>
-      <Name>HermitCrabWithTonePars</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DisambiguateInFLExDB\DisambiguateInFLExDB.csproj">
+      <Project>{1C52CDF8-7ACB-4CC7-AA46-B21FC32E05D5}</Project>
+      <Name>DisambiguateInFLExDB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if not exist "$(TargetDir)\icudt68.dll" copy C:\fwrepo\fw\Output\Debug\icudt68.dll "$(TargetDir)\icudt68.dll"
+if not exist "$(TargetDir)\icuuc68.dll" copy C:\fwrepo\fw\Output\Debug\icuuc68.dll "$(TargetDir)\icuuc68.dll"
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>

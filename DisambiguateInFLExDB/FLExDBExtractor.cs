@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018 SIL International
+﻿// Copyright (c) 2018-2023 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -16,7 +16,7 @@ namespace SIL.DisambiguateInFLExDB
     {
         public LcmCache Cache { get; set; }
 
-        ICmPossibilityList PcpatrList { get; set; }
+        public ICmPossibilityList CustomSenseList { get; set; }
 
         FieldDescription CustomField { get; set; }
 
@@ -28,15 +28,7 @@ namespace SIL.DisambiguateInFLExDB
         {
             Cache = cache;
 
-            var possListRepository =
-                Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-            PcpatrList = possListRepository
-                .AllInstances()
-                .FirstOrDefault(
-                    list =>
-                        list.Name.BestAnalysisAlternative.Text
-                        == PcPatrConstants.PcPatrFeatureDescriptorList
-                );
+            CustomSenseList = FillCustomList(PcPatrConstants.PcPatrFeatureDescriptorList);
 
             var customFields = GetListOfCustomFields();
             CustomField = customFields.Find(
@@ -44,6 +36,16 @@ namespace SIL.DisambiguateInFLExDB
             );
             BadGlosses = new List<string>();
             MissingItemMessage = "_FOUND!_PLEASE_FIX_THIS_ANALYSIS_IN_Word_Analyses";
+        }
+
+        public ICmPossibilityList FillCustomList(string listName)
+        {
+            var possListRepository =
+                Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+            var customList = possListRepository
+                .AllInstances()
+                .FirstOrDefault(list => list.Name.BestAnalysisAlternative.Text == listName);
+            return customList;
         }
 
         public string ExtractPcPatrLexicon()
@@ -79,23 +81,23 @@ namespace SIL.DisambiguateInFLExDB
             sb.Append("\n\\g ");
             sb.Append(sense.Gloss.BestAnalysisAlternative.Text);
             sb.Append("\n\\f");
-            sb.Append(GetFeatureDescriptorsFromSense(sense));
+            sb.Append(GetFeatureDescriptorsFromSense(sense, CustomField));
             sb.Append("\n\n");
         }
 
-        private string GetFeatureDescriptorsFromSense(ILexSense sense)
+        private string GetFeatureDescriptorsFromSense(ILexSense sense, FieldDescription customField)
         {
             var sb = new StringBuilder();
-            if (CustomField != null)
+            if (customField != null)
             {
                 IList<string> fds = new List<string>() { };
-                var size = Cache.MainCacheAccessor.get_VecSize(sense.Hvo, CustomField.Id);
+                var size = Cache.MainCacheAccessor.get_VecSize(sense.Hvo, customField.Id);
                 for (int i = 0; i < size; i++)
                 {
-                    var hvo = Cache.MainCacheAccessor.get_VecItem(sense.Hvo, CustomField.Id, i);
-                    if (PcpatrList != null)
+                    var hvo = Cache.MainCacheAccessor.get_VecItem(sense.Hvo, customField.Id, i);
+                    if (CustomSenseList != null)
                     {
-                        var item = PcpatrList.PossibilitiesOS.Where(ps => ps.Hvo == hvo);
+                        var item = CustomSenseList.PossibilitiesOS.Where(ps => ps.Hvo == hvo);
                         var fd = item.ElementAt(0).Name.BestAnalysisAlternative.Text;
                         fds.Add(fd);
                     }
@@ -219,7 +221,7 @@ namespace SIL.DisambiguateInFLExDB
                             );
                             if (sense != null)
                             {
-                                HandleSense(sbA, sbFD, sense);
+                                HandleSense(sbA, sbFD, sense, CustomField);
                             }
                             else if (morph != null)
                             {
@@ -231,13 +233,13 @@ namespace SIL.DisambiguateInFLExDB
                                 }
                                 else
                                 {
-                                    HandleSense(sbA, sbFD, sense2);
+                                    HandleSense(sbA, sbFD, sense2, CustomField);
                                 }
                             }
                         }
                         else
                         {
-                            HandleSense(sbA, sbFD, sense);
+                            HandleSense(sbA, sbFD, sense, CustomField);
                         }
                         if (
                             msa is IMoStemMsa
@@ -297,7 +299,7 @@ namespace SIL.DisambiguateInFLExDB
             return sb.ToString();
         }
 
-        private StringBuilder MissingItemFound(StringBuilder sb, string item)
+        public StringBuilder MissingItemFound(StringBuilder sb, string item)
         {
             sb.Append("MISSING_");
             sb.Append(item);
@@ -305,7 +307,12 @@ namespace SIL.DisambiguateInFLExDB
             return sb;
         }
 
-        private void HandleSense(StringBuilder sbA, StringBuilder sbFD, ILexSense sense)
+        public void HandleSense(
+            StringBuilder sbA,
+            StringBuilder sbFD,
+            ILexSense sense,
+            FieldDescription customField
+        )
         {
             var gloss = sense.Gloss.BestAnalysisAlternative.Text;
             sbA.Append(gloss);
@@ -313,7 +320,7 @@ namespace SIL.DisambiguateInFLExDB
             {
                 BadGlosses.Add(gloss);
             }
-            var fds = GetFeatureDescriptorsFromSense(sense);
+            var fds = GetFeatureDescriptorsFromSense(sense, customField);
             fds = (fds.Length > 1) ? fds.Substring(1) : fds;
             sbFD.Append(fds);
         }
