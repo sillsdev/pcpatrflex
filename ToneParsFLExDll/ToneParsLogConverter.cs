@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace SIL.DisambiguateInFLExDB
+namespace SIL.ToneParsFLEx
 {
     public class ToneParsLogConverter
     {

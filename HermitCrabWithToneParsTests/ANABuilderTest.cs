@@ -4,8 +4,8 @@
 
 using NUnit.Framework;
 using SIL.DisambiguateInFLExDB;
-using SIL.HermitCrabWithTonePars;
 using SIL.LCModel;
+using SIL.ToneParsFLEx;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,6 +45,7 @@ namespace SIL.HermitCrabWithToneParsTests
             foreach (ISegment segment in stPara.SegmentsOS)
             {
                 string ana = anaBuilder.ExtractTextSegmentAndParseWordAsANA(segment);
+                Console.WriteLine(ana);
                 string[] records = ana.Split(
                     new[] { "\\a " },
                     StringSplitOptions.RemoveEmptyEntries
@@ -52,36 +53,24 @@ namespace SIL.HermitCrabWithToneParsTests
                 Assert.AreEqual(3, records.Length);
                 Assert.AreEqual("%26%", records[0].Substring(0, 4));
                 // the results do not always occur in the same order, so we are just checking for some
-                Assert.AreEqual(true, records[0].Contains("%< n God > SGᴺ «X'NP'H»%"));
-                Assert.AreEqual(true, records[0].Contains("%< n God > SGᴺ «X'NP'L»%"));
-                Assert.AreEqual(true, records[0].Contains("%< n God > SGᴺ «ATTDR'NV'Q»%"));
-                Assert.AreEqual(true, records[0].Contains("%< n God > SGᴺ «X'POSS'H»%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 1892%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 1257%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 698%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 9260%"));
 
                 Assert.AreEqual("%13%", records[1].Substring(0, 4));
-                Assert.AreEqual(true, records[1].Contains("%< n value > «X'NP'H»%"));
-                Assert.AreEqual(true, records[1].Contains("%< n value > «EQ'EO'D»%"));
-                Assert.AreEqual(true, records[1].Contains("%< n value > «CMPL\"EQ'D»%"));
-                Assert.AreEqual(true, records[1].Contains("%< n value >%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7330 > 1892"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7330 > 6764%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7330 > 9278%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7330 >%"));
 
                 Assert.AreEqual("%125%", records[2].Substring(0, 5));
-                Assert.AreEqual(
-                    true,
-                    records[2].Contains("%S.B&L.GEN.3.FN < v cook > «INT'FN'Q»%")
-                );
-                Assert.AreEqual(
-                    true,
-                    records[2].Contains("%S.B&L.GEN.3.FN < v cook > «NINT'FV'Q»%")
-                );
-                Assert.AreEqual(
-                    true,
-                    records[2].Contains("%S.B&L.GEN.IMP.2.FN < v cook > «INT'EO'D»%")
-                );
-                Assert.AreEqual(
-                    true,
-                    records[2].Contains("%S.B&L.DX'F.3SGN < v cook > «NINT'EO'Q»%")
-                );
+                Assert.AreEqual(true, records[2].Contains("%2656 < W 3263 > 7588%"));
+                Assert.AreEqual(true, records[2].Contains("%2656 < W 3263 > 6827%"));
+                Assert.AreEqual(true, records[2].Contains("%7679 < W 3263 > 9105%"));
+                Assert.AreEqual(true, records[2].Contains("%380 < W 3263 > 2088%"));
 
-                Assert.AreEqual(10432, ana.Length);
+                Assert.AreEqual(7763, ana.Length);
             }
         }
     }

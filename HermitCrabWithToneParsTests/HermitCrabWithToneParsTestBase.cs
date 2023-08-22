@@ -4,7 +4,7 @@
 
 using NUnit.Framework;
 using SIL.DisambiguateInFLExDB;
-using SIL.HermitCrabWithTonePars;
+using SIL.ToneParsFLEx;
 using System;
 using System.Collections.Generic;
 using System.IO;

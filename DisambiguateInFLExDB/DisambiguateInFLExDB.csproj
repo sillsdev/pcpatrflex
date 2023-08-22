@@ -81,9 +81,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.HermitCrabWithTonePars">
-      <HintPath>..\HermitCrabWithTonePars\bin\x64\Debug\SIL.HermitCrabWithTonePars.dll</HintPath>
-    </Reference>
     <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
@@ -119,10 +116,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentDisambiguation.cs" />
     <Compile Include="TextDisambiguation.cs" />
-    <Compile Include="TextPreparer.cs" />
-    <Compile Include="ToneParsInvoker.cs" />
-    <Compile Include="ToneParsInvokerOptions.cs" />
-    <Compile Include="ToneParsLogConverter.cs" />
+    <Compile Include="ToneParsConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XAmpleWithToneParse\XAmpleWithToneParse.csproj">

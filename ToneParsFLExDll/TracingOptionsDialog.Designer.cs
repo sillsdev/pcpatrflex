@@ -1,4 +1,4 @@
-﻿namespace ToneParsFLExDll
+﻿namespace SIL.ToneParsFLEx
 {
 	partial class TracingOptionsDialog
 	{

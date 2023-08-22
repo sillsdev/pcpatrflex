@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToneParsTextPreparer
+namespace SIL.ToneParsFLEx
 {
     public sealed class TextPreparer
     {

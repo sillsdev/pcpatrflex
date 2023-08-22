@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CA15FA91-A4B5-45C6-B8AD-B0D1B4FCBD6D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ToneParsFLExDll</RootNamespace>
+    <RootNamespace>SIL.ToneParsFLEx</RootNamespace>
     <AssemblyName>ToneParsFLExDll</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -62,20 +62,30 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ANABuilder.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="FLExUtility.cs" />
+    <Compile Include="HCMorpherAnaProducer.cs" />
+    <Compile Include="MorpherAnaProducer.cs" />
+    <Compile Include="OrthoChangeMapping.cs" />
+    <Compile Include="OrthoChanger.cs" />
+    <Compile Include="TextPreparer.cs" />
     <Compile Include="ToneParsFLExForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ToneParsFLExForm.designer.cs">
       <DependentUpon>ToneParsFLExForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToneParsInvoker.cs" />
+    <Compile Include="ToneParsInvokerOptions.cs" />
+    <Compile Include="ToneParsLogConverter.cs" />
     <Compile Include="TracingOptionsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TracingOptionsDialog.Designer.cs">
       <DependentUpon>TracingOptionsDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="XAmpleMorpherAnaProducer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBox.resx">
@@ -95,6 +105,10 @@
     <Reference Include="FwCoreDlgs, Version=9.0.6.23409, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\FwCoreDlgs.dll</HintPath>
+    </Reference>
+    <Reference Include="FwUtils, Version=9.1.22.19005, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\FwUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="ParserCore, Version=9.0.6.23410, Culture=neutral, processorArchitecture=MSIL">
@@ -151,10 +165,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HermitCrabWithTonePars\HermitCrabWithTonePars.csproj">
-      <Project>{8eb1ec47-b551-4bbc-9419-48512f0ca7f0}</Project>
-      <Name>HermitCrabWithTonePars</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PrepFLExDBDll\PrepFLExDBDll.csproj">
       <Project>{808145c1-b5ca-4ec7-9402-88b3f353b002}</Project>
       <Name>PrepFLExDBDll</Name>

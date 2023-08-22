@@ -26,10 +26,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using ToneParsFLExDll;
 using XCore;
 using XAmpleManagedWrapper;
-using ToneParsTextPreparer;
 using System.Text.RegularExpressions;
 
 namespace SIL.ToneParsFLEx
@@ -46,6 +44,8 @@ namespace SIL.ToneParsFLEx
 
         private String ToneRuleFile { get; set; }
         private String IntxCtlFile { get; set; }
+
+        private MorpherAnaProducer AnaProducer { get; set; }
 
         public static string m_strRegKey = "Software\\SIL\\ToneParsFLEx";
         const string m_strLastDatabase = "LastDatabase";
@@ -477,19 +477,24 @@ namespace SIL.ToneParsFLEx
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
             var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
-            string textToUse;
-            if (cbIgnoreContext.Checked)
+            UpdateGrammarAndLexicon();
+            string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
+            if (activeParser == "HC")
             {
-                TextPreparer preparer = TextPreparer.Instance;
-                textToUse = preparer.GetUniqueWordForms(selectedSegmentToShow.Segment);
+                UpdateParsingStatus("Parsing via Hermit Crab");
+                AnaProducer = new HCMorpherAnaProducer(cbIgnoreContext.Checked, Cache, IntxCtlFile);
             }
             else
             {
-                textToUse = selectedSegmentToShow.Baseline;
+                UpdateParsingStatus("Parsing via XAmple");
+                AnaProducer = new XAmpleMorpherAnaProducer(
+                    cbIgnoreContext.Checked,
+                    Cache,
+                    IntxCtlFile
+                );
             }
-            var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
-            File.WriteAllText(inputFile, textToUse);
-            InvokeToneParser(inputFile);
+            AnaProducer.ProduceANA(selectedSegmentToShow);
+            InvokeToneParser(AnaProducer.AnaFilePath);
             Cursor.Current = Cursors.Default;
         }
 
@@ -513,12 +518,6 @@ namespace SIL.ToneParsFLEx
             );
             invoker.Extractor = Extractor;
             invoker.ParsingStatus = lblParsingStatus;
-            UpdateParsingStatus("Updating Grammar and Lexicon");
-            if (ConnectToParser(invoker.Queue))
-            {
-                m_parserConnection.ReloadGrammarAndLexicon();
-                WaitForLoadToFinish();
-            }
             invoker.Invoke();
             if (invoker.InvocationSucceeded)
             {
@@ -534,6 +533,17 @@ namespace SIL.ToneParsFLEx
                 Console.Beep();
             }
             btnParseText.Enabled = btnParseSegment.Enabled = true;
+        }
+
+        private void UpdateGrammarAndLexicon()
+        {
+            var queue = new IdleQueue { IsPaused = true };
+            UpdateParsingStatus("Updating Grammar and Lexicon");
+            if (ConnectToParser(queue))
+            {
+                m_parserConnection.ReloadGrammarAndLexicon();
+                WaitForLoadToFinish();
+            }
         }
 
         private void WaitForLoadToFinish()
@@ -688,19 +698,24 @@ namespace SIL.ToneParsFLEx
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
             var selectedTextToShow = lbTexts.SelectedItem as IText;
-            string textToUse;
-            if (cbIgnoreContext.Checked)
+            UpdateGrammarAndLexicon();
+            string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
+            if (activeParser == "HC")
             {
-                TextPreparer preparer = TextPreparer.Instance;
-                textToUse = preparer.GetUniqueWordForms(selectedTextToShow);
+                UpdateParsingStatus("Parsing via Hermit Crab");
+                AnaProducer = new HCMorpherAnaProducer(cbIgnoreContext.Checked, Cache, IntxCtlFile);
             }
             else
             {
-                textToUse = GetTextBaselines(selectedTextToShow);
+                UpdateParsingStatus("Parsing via XAmple");
+                AnaProducer = new XAmpleMorpherAnaProducer(
+                    cbIgnoreContext.Checked,
+                    Cache,
+                    IntxCtlFile
+                );
             }
-            var inputFile = Path.Combine(Path.GetTempPath(), "ToneParsInvoker.txt");
-            File.WriteAllText(inputFile, textToUse);
-            InvokeToneParser(inputFile);
+            AnaProducer.ProduceANA(selectedTextToShow);
+            InvokeToneParser(AnaProducer.AnaFilePath);
             Cursor.Current = Cursors.Default;
         }
 

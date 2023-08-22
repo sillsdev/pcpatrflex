@@ -85,7 +85,7 @@ namespace SIL.DisambiguateInFLExDB
             sb.Append("\n\n");
         }
 
-        private string GetFeatureDescriptorsFromSense(ILexSense sense, FieldDescription customField)
+        public string GetFeatureDescriptorsFromSense(ILexSense sense, FieldDescription customField)
         {
             var sb = new StringBuilder();
             if (customField != null)

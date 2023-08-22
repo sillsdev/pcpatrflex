@@ -3,7 +3,7 @@
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
 using NUnit.Framework;
-using SIL.HermitCrabWithTonePars;
+using SIL.ToneParsFLEx;
 using System;
 using System.Collections.Generic;
 using System.IO;

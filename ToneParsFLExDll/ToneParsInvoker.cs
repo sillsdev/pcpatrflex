@@ -4,7 +4,6 @@
 
 using SIL.FieldWorks.Common.FwUtils;
 using SIL.FieldWorks.WordWorks.Parser;
-using SIL.HermitCrabWithTonePars;
 using SIL.LCModel.Core.Text;
 using SIL.LCModel.DomainServices;
 using SIL.LCModel.Infrastructure;
@@ -26,8 +25,9 @@ using System;
 using XAmpleManagedWrapper;
 using XAmpleWithToneParse;
 using XCore;
+using SIL.DisambiguateInFLExDB;
 
-namespace SIL.DisambiguateInFLExDB
+namespace SIL.ToneParsFLEx
 {
     public class ToneParsInvoker
     {
@@ -49,10 +49,12 @@ namespace SIL.DisambiguateInFLExDB
         public Label ParsingStatus { get; set; }
 
         protected String[] AntRecords { get; set; }
-        protected const String kAdCtl = "adctl.txt";
-        protected const String kTPAdCtl = "TPadctl.txt";
-        protected const String kLexicon = "lex.txt";
-        protected const String kTPLexicon = "TPlex.txt";
+
+        //protected const String kAdCtl = "adctl.txt";
+        public const string kTPAdCtl = "TPadctl.txt";
+
+        //protected const String kLexicon = "lex.txt";
+        public const String kTPLexicon = "TPlex.txt";
         public FLExDBExtractor Extractor { get; set; }
 
         public ToneParsInvoker(
@@ -196,25 +198,25 @@ namespace SIL.DisambiguateInFLExDB
             try
             {
                 UpdateParsingStatus("Preparing for parsing");
-                AppendToneParsPropertiesToAdCtlFile();
-                AddToneParsPropertiesToLexiconFile();
+                //AppendToneParsPropertiesToAdCtlFile();
+                //AddToneParsPropertiesToLexiconFile();
                 ConvertMorphnameIsToUseHvosInToneRuleFile();
                 CreateToneParsBatchFile();
                 CreateToneParsCmdFile();
                 CopyCodeTableFilesToTemp();
 
-                File.Delete(AnaFile);
+                //File.Delete(AnaFile);
                 File.Delete(AntFile);
                 File.Delete(ToneParsLogFile);
-                string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
-                if (activeParser == "HC")
-                {
-                    HermitCrabParseFile();
-                }
-                else
-                {
-                    XAmpleParseFile();
-                }
+                //string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
+                //if (activeParser == "HC")
+                //{
+                //    HermitCrabParseFile();
+                //}
+                //else
+                //{
+                //    XAmpleParseFile();
+                //}
                 WaitForFileCompletion(AnaFile);
 
                 var processInfo = new ProcessStartInfo(
@@ -255,25 +257,26 @@ namespace SIL.DisambiguateInFLExDB
             }
         }
 
-        private void HermitCrabParseFile()
-        {
-            UpdateParsingStatus("Parsing via HermitCrab");
-            OrthoChanger changer = new OrthoChanger();
-            changer.LoadOrthoChangesFile(this.IntxCtlFile);
-            IParser hcParser = new HCParser(Cache);
-            hcParser.Update();
-            foreach (string word in File.ReadLines(InputFile, Encoding.UTF8))
-            {
-                string mappedWord = word.Replace(".", "");
-                if (changer.ChangesExist)
-                {
-                    mappedWord = changer.ApplyChangesToWord(mappedWord);
-                }
-                XDocument xmlResult = hcParser.ParseWordXml(mappedWord);
-                ParseResult result = hcParser.ParseWord(mappedWord);
-                int i = 0;
-            }
-        }
+        //private void HermitCrabParseFile()
+        //{
+        //    UpdateParsingStatus("Parsing via HermitCrab");
+        //    OrthoChanger changer = new OrthoChanger();
+        //    changer.LoadOrthoChangesFile(this.IntxCtlFile);
+        //    changer.CreateOrthoChanges();
+        //    IParser hcParser = new HCParser(Cache);
+        //    hcParser.Update();
+        //    foreach (string word in File.ReadLines(InputFile, Encoding.UTF8))
+        //    {
+        //        string mappedWord = word.Replace(".", "");
+        //        if (changer.ChangesExist)
+        //        {
+        //            mappedWord = changer.ApplyChangesToWord(mappedWord);
+        //        }
+        //        XDocument xmlResult = hcParser.ParseWordXml(mappedWord);
+        //        ParseResult result = hcParser.ParseWord(mappedWord);
+        //        int i = 0;
+        //    }
+        //}
 
         private void XAmpleParseFile()
         {
@@ -642,116 +645,116 @@ namespace SIL.DisambiguateInFLExDB
             File.WriteAllText(toneParsLexiconFile, toneParsLexicon);
         }
 
-        private void AppendToneParsPropertiesToAdCtlFile()
-        {
-            // Append all TonePars properties in FLEx DB as allomorph properties to the AD Ctl file
-            String xAmpleAdCtlFile = Path.GetTempPath() + DatabaseName + kAdCtl;
-            String xAmpleAdCtl = File.ReadAllText(xAmpleAdCtlFile);
-            var props = GetAllToneParsPropsFromPossibilityList();
-            String toneParsAdCtlFile = Path.GetTempPath() + DatabaseName + kTPAdCtl;
-            File.WriteAllText(toneParsAdCtlFile, xAmpleAdCtl + props);
-        }
+        //private void AppendToneParsPropertiesToAdCtlFile()
+        //{
+        //    // Append all TonePars properties in FLEx DB as allomorph properties to the AD Ctl file
+        //    String xAmpleAdCtlFile = Path.GetTempPath() + DatabaseName + kAdCtl;
+        //    String xAmpleAdCtl = File.ReadAllText(xAmpleAdCtlFile);
+        //    var props = GetAllToneParsPropsFromPossibilityList();
+        //    String toneParsAdCtlFile = Path.GetTempPath() + DatabaseName + kTPAdCtl;
+        //    File.WriteAllText(toneParsAdCtlFile, xAmpleAdCtl + props);
+        //}
 
-        private string GetAllToneParsPropsFromPossibilityList()
-        {
-            var possListRepository =
-                Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-            var toneParsList = possListRepository
-                .AllInstances()
-                .FirstOrDefault(
-                    list =>
-                        list.Name.BestAnalysisAlternative.Text
-                        == ToneParsConstants.ToneParsPropertiesList
-                );
-            var sb = new StringBuilder();
-            foreach (var prop in toneParsList.PossibilitiesOS)
-            {
-                sb.Append("\\ap ");
-                sb.Append(prop.Name.AnalysisDefaultWritingSystem.Text);
-                sb.Append("\n");
-            }
-            return sb.ToString();
-        }
+        //private string GetAllToneParsPropsFromPossibilityList()
+        //{
+        //    var possListRepository =
+        //        Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+        //    var toneParsList = possListRepository
+        //        .AllInstances()
+        //        .FirstOrDefault(
+        //            list =>
+        //                list.Name.BestAnalysisAlternative.Text
+        //                == ToneParsConstants.ToneParsPropertiesList
+        //        );
+        //    var sb = new StringBuilder();
+        //    foreach (var prop in toneParsList.PossibilitiesOS)
+        //    {
+        //        sb.Append("\\ap ");
+        //        sb.Append(prop.Name.AnalysisDefaultWritingSystem.Text);
+        //        sb.Append("\n");
+        //    }
+        //    return sb.ToString();
+        //}
 
-        private void AddToneParsPropertiesToLexiconFile()
-        {
-            String xAmpleLexiconFile = Path.GetTempPath() + DatabaseName + kLexicon;
-            String xAmpleLexicon = File.ReadAllText(xAmpleLexiconFile);
-            var allomorphHvoPropertyMapper = new Dictionary<string, string> { };
-            var morphemePropertyMapper = new Dictionary<string, string> { };
-            var possListRepository =
-                Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
-            var toneParsList = possListRepository
-                .AllInstances()
-                .FirstOrDefault(
-                    list =>
-                        list.Name.BestAnalysisAlternative.Text
-                        == ToneParsConstants.ToneParsPropertiesList
-                );
-            BuildAllomorphPropertyMapper(allomorphHvoPropertyMapper, toneParsList);
-            BuildMorphemePropertyMapper(morphemePropertyMapper, toneParsList);
-            // Add allomorph properties
-            var lexWithAlloProps = allomorphHvoPropertyMapper.Aggregate(
-                xAmpleLexicon,
-                (current, replacement) => current.Replace(replacement.Key, replacement.Value)
-            );
-            // Add morpheme properties
-            var lexWithAlloAndMorphProps = morphemePropertyMapper.Aggregate(
-                lexWithAlloProps,
-                (current, replacement) => current.Replace(replacement.Key, replacement.Value)
-            );
+        //private void AddToneParsPropertiesToLexiconFile()
+        //{
+        //    String xAmpleLexiconFile = Path.GetTempPath() + DatabaseName + kLexicon;
+        //    String xAmpleLexicon = File.ReadAllText(xAmpleLexiconFile);
+        //    var allomorphHvoPropertyMapper = new Dictionary<string, string> { };
+        //    var morphemePropertyMapper = new Dictionary<string, string> { };
+        //    var possListRepository =
+        //        Cache.ServiceLocator.GetInstance<ICmPossibilityListRepository>();
+        //    var toneParsList = possListRepository
+        //        .AllInstances()
+        //        .FirstOrDefault(
+        //            list =>
+        //                list.Name.BestAnalysisAlternative.Text
+        //                == ToneParsConstants.ToneParsPropertiesList
+        //        );
+        //    BuildAllomorphPropertyMapper(allomorphHvoPropertyMapper, toneParsList);
+        //    BuildMorphemePropertyMapper(morphemePropertyMapper, toneParsList);
+        //    // Add allomorph properties
+        //    var lexWithAlloProps = allomorphHvoPropertyMapper.Aggregate(
+        //        xAmpleLexicon,
+        //        (current, replacement) => current.Replace(replacement.Key, replacement.Value)
+        //    );
+        //    // Add morpheme properties
+        //    var lexWithAlloAndMorphProps = morphemePropertyMapper.Aggregate(
+        //        lexWithAlloProps,
+        //        (current, replacement) => current.Replace(replacement.Key, replacement.Value)
+        //    );
 
-            String toneParsLexiconFile = Path.GetTempPath() + DatabaseName + kTPLexicon;
-            File.WriteAllText(toneParsLexiconFile, lexWithAlloAndMorphProps);
-        }
+        //    String toneParsLexiconFile = Path.GetTempPath() + DatabaseName + kTPLexicon;
+        //    File.WriteAllText(toneParsLexiconFile, lexWithAlloAndMorphProps);
+        //}
 
-        private static void BuildAllomorphPropertyMapper(
-            Dictionary<string, string> allomorphHvoPropertyMapper,
-            ICmPossibilityList toneParsList
-        )
-        {
-            foreach (var prop in toneParsList.PossibilitiesOS)
-            {
-                var refObjs = prop.ReferringObjects.Select(o => o).Where(o => !(o is ILexSense));
-                foreach (ICmObject obj in refObjs)
-                {
-                    var sHvo = obj.Hvo.ToString();
-                    if (!allomorphHvoPropertyMapper.ContainsKey(sHvo))
-                    {
-                        var hvoMatch = " {" + sHvo + "}";
-                        var replaceWith =
-                            hvoMatch + " " + prop.Name.AnalysisDefaultWritingSystem.Text;
-                        allomorphHvoPropertyMapper.Add(hvoMatch, replaceWith);
-                    }
-                }
-            }
-        }
+        //private static void BuildAllomorphPropertyMapper(
+        //    Dictionary<string, string> allomorphHvoPropertyMapper,
+        //    ICmPossibilityList toneParsList
+        //)
+        //{
+        //    foreach (var prop in toneParsList.PossibilitiesOS)
+        //    {
+        //        var refObjs = prop.ReferringObjects.Select(o => o).Where(o => !(o is ILexSense));
+        //        foreach (ICmObject obj in refObjs)
+        //        {
+        //            var sHvo = obj.Hvo.ToString();
+        //            if (!allomorphHvoPropertyMapper.ContainsKey(sHvo))
+        //            {
+        //                var hvoMatch = " {" + sHvo + "}";
+        //                var replaceWith =
+        //                    hvoMatch + " " + prop.Name.AnalysisDefaultWritingSystem.Text;
+        //                allomorphHvoPropertyMapper.Add(hvoMatch, replaceWith);
+        //            }
+        //        }
+        //    }
+        //}
 
-        private static void BuildMorphemePropertyMapper(
-            Dictionary<string, string> morphemePropertyMapper,
-            ICmPossibilityList toneParsList
-        )
-        {
-            foreach (var prop in toneParsList.PossibilitiesOS)
-            {
-                var refObjs = prop.ReferringObjects.Select(o => o).Where(o => o is ILexSense);
-                foreach (ICmObject obj in refObjs)
-                {
-                    var sense = obj as ILexSense;
-                    var sHvo = sense.MorphoSyntaxAnalysisRA.Hvo.ToString();
-                    if (!morphemePropertyMapper.ContainsKey(sHvo))
-                    {
-                        var hvoMatch = "\\lx " + sHvo + "\r\n";
-                        var replaceWith =
-                            hvoMatch
-                            + "\\mp "
-                            + prop.Name.AnalysisDefaultWritingSystem.Text
-                            + "\r\n";
-                        morphemePropertyMapper.Add(hvoMatch, replaceWith);
-                    }
-                }
-            }
-        }
+        //private static void BuildMorphemePropertyMapper(
+        //    Dictionary<string, string> morphemePropertyMapper,
+        //    ICmPossibilityList toneParsList
+        //)
+        //{
+        //    foreach (var prop in toneParsList.PossibilitiesOS)
+        //    {
+        //        var refObjs = prop.ReferringObjects.Select(o => o).Where(o => o is ILexSense);
+        //        foreach (ICmObject obj in refObjs)
+        //        {
+        //            var sense = obj as ILexSense;
+        //            var sHvo = sense.MorphoSyntaxAnalysisRA.Hvo.ToString();
+        //            if (!morphemePropertyMapper.ContainsKey(sHvo))
+        //            {
+        //                var hvoMatch = "\\lx " + sHvo + "\r\n";
+        //                var replaceWith =
+        //                    hvoMatch
+        //                    + "\\mp "
+        //                    + prop.Name.AnalysisDefaultWritingSystem.Text
+        //                    + "\r\n";
+        //                morphemePropertyMapper.Add(hvoMatch, replaceWith);
+        //            }
+        //        }
+        //    }
+        //}
 
         public void SaveResultsInDatabase()
         {
@@ -978,12 +981,5 @@ namespace SIL.DisambiguateInFLExDB
             );
         }
         // -----------------------
-    }
-
-    public static class ToneParsConstants
-    {
-        public const string ToneParsPropertiesSenseCustomField = "ToneParsSense";
-        public const string ToneParsPropertiesFormCustomField = "ToneParsForm";
-        public const string ToneParsPropertiesList = "TonePars Properties";
     }
 }

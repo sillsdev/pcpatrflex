@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.HermitCrabWithTonePars
+namespace SIL.ToneParsFLEx
 {
     public class OrthoChanger
     {

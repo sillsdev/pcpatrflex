@@ -59,10 +59,6 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.HermitCrabWithTonePars, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\HermitCrabWithTonePars\bin\x64\Debug\SIL.HermitCrabWithTonePars.dll</HintPath>
-    </Reference>
     <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
@@ -102,12 +98,18 @@
     <Compile Include="TestLcmDirectories.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DisambiguateInFLExDB\DisambiguateInFLExDB.csproj">
       <Project>{1C52CDF8-7ACB-4CC7-AA46-B21FC32E05D5}</Project>
       <Name>DisambiguateInFLExDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToneParsFLExDll\ToneParsFLExDll.csproj">
+      <Project>{CA15FA91-A4B5-45C6-B8AD-B0D1B4FCBD6D}</Project>
+      <Name>ToneParsFLExDll</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

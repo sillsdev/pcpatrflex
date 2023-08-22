@@ -77,8 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ANABuilder.cs" />
-    <Compile Include="OrthoChangeMapping.cs" />
     <Compile Include="OrthoChanger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
