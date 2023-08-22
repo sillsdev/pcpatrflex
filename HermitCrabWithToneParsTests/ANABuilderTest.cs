@@ -70,7 +70,7 @@ namespace SIL.HermitCrabWithToneParsTests
                 Assert.AreEqual(true, records[2].Contains("%7679 < W 3263 > 9105%"));
                 Assert.AreEqual(true, records[2].Contains("%380 < W 3263 > 2088%"));
 
-                Assert.AreEqual(7763, ana.Length);
+                Assert.AreEqual(7259, ana.Length);
             }
         }
     }

@@ -65,13 +65,13 @@ namespace SIL.ToneParsFLEx
             var sbA = new StringBuilder();
             var sbD = new StringBuilder();
             //var sbC = new StringBuilder();
-            var sbFD = new StringBuilder();
+            //var sbFD = new StringBuilder();
             var sbP = new StringBuilder();
             var sbW = new StringBuilder();
             sbA.Append("\\a ");
             sbD.Append("\\d ");
             //sbC.Append("\\cat ");
-            sbFD.Append("\\fd ");
+            //sbFD.Append("\\fd ");
             sbP.Append("\\p ");
             sbW.Append("\\w ");
             sbW.Append(shape + "\n");
@@ -85,7 +85,6 @@ namespace SIL.ToneParsFLEx
                 sbA.Append(ambigs);
                 sbD.Append(ambigs);
                 //sbC.Append(ambigs);
-                sbFD.Append(ambigs);
                 sbP.Append(ambigs);
             }
             foreach (ParseAnalysis pAnalysis in parserResult.Analyses)
@@ -140,36 +139,6 @@ namespace SIL.ToneParsFLEx
                         sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
                     }
                     sbA.Append(msa.Hvo);
-                    //sbA.Append(" ");
-                    ILexSense sense = null; // pMorph.Msa.GetGlossOfFirstSense();
-                    if (sense == null)
-                    { // a sense can be missing from a bundle if the bundle is built by the parser filer
-                        var entryOfMsa = (ILexEntry)msa.Owner;
-                        sense = entryOfMsa.SensesOS.FirstOrDefault(
-                            s => s.MorphoSyntaxAnalysisRA == msa
-                        );
-                        if (sense != null)
-                        {
-                            HandleFeatureDescriptors(sbFD, sense);
-                        }
-                        else if (morph != null)
-                        {
-                            var entry = (ILexEntry)morph.Owner;
-                            var sense2 = entry.SensesOS.FirstOrDefault();
-                            if (sense2 == null)
-                            {
-                                sbA.Append("missing_sense");
-                            }
-                            else
-                            {
-                                HandleFeatureDescriptors(sbA, sense2);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        HandleFeatureDescriptors(sbFD, sense);
-                    }
                     if (
                         msa is IMoStemMsa
                         && !Extractor.IsAttachedClitic(morph.MorphTypeRA.Guid, maxMorphs)
@@ -197,40 +166,29 @@ namespace SIL.ToneParsFLEx
                     if (i < maxMorphs)
                     {
                         sbD.Append("-");
-                        sbFD.Append("=");
+                        //sbFD.Append("=");
                         sbP.Append("=");
                     }
                 }
-                //sbC.Append(GetOrComputeWordCategory(pAnalysis));
                 if (ambiguities > 1)
                 {
                     sbA.Append("%");
                     sbD.Append("%");
                     //sbC.Append("%");
-                    sbFD.Append("%");
                     sbP.Append("%");
                 }
             }
             sbA.Append("\n");
             sbD.Append("\n");
             //sbC.Append("\n");
-            sbFD.Append("\n");
             sbP.Append("\n");
             sbW.Append("\n");
             sb.Append(sbA.ToString());
             sb.Append(sbD.ToString());
             //sb.Append(sbC.ToString());
             sb.Append(sbP.ToString());
-            sb.Append(sbFD.ToString());
             sb.Append(sbW.ToString());
             return sb.ToString();
-        }
-
-        private void HandleFeatureDescriptors(StringBuilder sbFD, ILexSense sense)
-        {
-            var fds = Extractor.GetFeatureDescriptorsFromSense(sense, CustomSenseField);
-            fds = (fds.Length > 1) ? fds.Substring(1) : fds;
-            sbFD.Append(fds);
         }
 
         private string GetAnaProperties(ParseMorph pMorph)
