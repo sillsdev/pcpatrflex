@@ -18,7 +18,7 @@ namespace SIL.ToneParsFLEx
         public LcmCache Cache { get; set; }
         FieldDescription CustomFormField { get; set; }
         FieldDescription CustomSenseField { get; set; }
-        public ICmPossibilityList CustomFormList { get; set; }
+        public ICmPossibilityList CustomList { get; set; }
 
         protected FLExDBExtractor Extractor { get; set; }
         protected OrthoChanger Changer { get; set; }
@@ -37,7 +37,7 @@ namespace SIL.ToneParsFLEx
             CustomSenseField = customFields.Find(
                 fd => fd.Name == ToneParsConstants.ToneParsPropertiesSenseCustomField
             );
-            CustomFormList = extractor.FillCustomList(ToneParsConstants.ToneParsPropertiesList);
+            CustomList = extractor.FillCustomList(ToneParsConstants.ToneParsPropertiesList);
         }
 
         public string ExtractTextSegmentAndParseWordAsANA(ISegment segment)
@@ -209,29 +209,85 @@ namespace SIL.ToneParsFLEx
                 case MoUnclassifiedAffixMsaTags.kClassId:
                     break;
             }
-
+            var senseProps = GetPropertiesFromSense(msa, pMorph.Form);
+            sb.Append(senseProps);
+            var alloProps = GetPropertiesFromForm(pMorph.Form, CustomFormField);
+            sb.Append(alloProps);
             return sb.ToString();
         }
 
-        private string GetFeatureDescriptorsFromForm(IMoForm form, FieldDescription customField)
+        private string GetPropertiesFromSense(IMoMorphSynAnalysis msa, IMoForm morph)
+        {
+            string returnValue = "";
+            var entryOfMsa = (ILexEntry)msa.Owner;
+            ILexSense sense = entryOfMsa.SensesOS.FirstOrDefault(
+                s => s.MorphoSyntaxAnalysisRA == msa
+            );
+            if (sense != null)
+            {
+                returnValue = GetPropertiesFromSense(sense);
+            }
+            else if (morph != null)
+            {
+                var entry = (ILexEntry)morph.Owner;
+                var sense2 = entry.SensesOS.FirstOrDefault();
+                if (sense2 != null)
+                {
+                    returnValue = GetPropertiesFromSense(sense2);
+                }
+            }
+            return returnValue;
+        }
+
+        private string GetPropertiesFromSense(ILexSense sense)
+        {
+            var sb = new StringBuilder();
+            if (CustomSenseField != null)
+            {
+                IList<string> props = new List<string>() { };
+                var size = Cache.MainCacheAccessor.get_VecSize(sense.Hvo, CustomSenseField.Id);
+                for (int i = 0; i < size; i++)
+                {
+                    var hvo = Cache.MainCacheAccessor.get_VecItem(
+                        sense.Hvo,
+                        CustomSenseField.Id,
+                        i
+                    );
+                    if (CustomSenseField != null)
+                    {
+                        var item = CustomList.PossibilitiesOS.Where(ps => ps.Hvo == hvo);
+                        var prop = item.ElementAt(0).Name.BestAnalysisAlternative.Text;
+                        props.Add(prop);
+                    }
+                }
+                props = props.OrderBy(fd => fd).ToList();
+                foreach (string fd in props)
+                {
+                    sb.Append(" " + fd);
+                }
+            }
+            return sb.ToString();
+        }
+
+        private string GetPropertiesFromForm(IMoForm form, FieldDescription customField)
         {
             var sb = new StringBuilder();
             if (customField != null)
             {
-                IList<string> fds = new List<string>() { };
+                IList<string> props = new List<string>() { };
                 var size = Cache.MainCacheAccessor.get_VecSize(form.Hvo, customField.Id);
                 for (int i = 0; i < size; i++)
                 {
                     var hvo = Cache.MainCacheAccessor.get_VecItem(form.Hvo, customField.Id, i);
                     if (CustomFormField != null)
                     {
-                        var item = CustomFormList.PossibilitiesOS.Where(ps => ps.Hvo == hvo);
-                        var fd = item.ElementAt(0).Name.BestAnalysisAlternative.Text;
-                        fds.Add(fd);
+                        var item = CustomList.PossibilitiesOS.Where(ps => ps.Hvo == hvo);
+                        var prop = item.ElementAt(0).Name.BestAnalysisAlternative.Text;
+                        props.Add(prop);
                     }
                 }
-                fds = fds.OrderBy(fd => fd).ToList();
-                foreach (string fd in fds)
+                props = props.OrderBy(fd => fd).ToList();
+                foreach (string fd in props)
                 {
                     sb.Append(" " + fd);
                 }

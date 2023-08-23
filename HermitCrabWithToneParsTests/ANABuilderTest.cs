@@ -39,13 +39,14 @@ namespace SIL.HermitCrabWithToneParsTests
             string textName = textNameMU.BestAnalysisVernacularAlternative.Text;
             Assert.AreEqual("Roland's sample, one line", textName);
             var stText = text1.ContentsOA;
+            Assert.AreEqual(10, stText.ParagraphsOS.Count);
             var stPara = stText.ParagraphsOS.ElementAtOrDefault(0) as IStTxtPara;
             Assert.NotNull(stPara);
             Assert.AreEqual(1, stPara.SegmentsOS.Count);
             foreach (ISegment segment in stPara.SegmentsOS)
             {
                 string ana = anaBuilder.ExtractTextSegmentAndParseWordAsANA(segment);
-                Console.WriteLine(ana);
+                //Console.WriteLine(ana);
                 string[] records = ana.Split(
                     new[] { "\\a " },
                     StringSplitOptions.RemoveEmptyEntries
@@ -53,24 +54,58 @@ namespace SIL.HermitCrabWithToneParsTests
                 Assert.AreEqual(3, records.Length);
                 Assert.AreEqual("%26%", records[0].Substring(0, 4));
                 // the results do not always occur in the same order, so we are just checking for some
-                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 1892%"));
-                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 1257%"));
-                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 698%"));
-                Assert.AreEqual(true, records[0].Contains("%< W 4183 > 9436 9260%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4310 > 9713 10957%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4310 > 9713 9553%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4310 > 9713 3%"));
+                Assert.AreEqual(true, records[0].Contains("%< W 4310 > 9713 5625%"));
 
                 Assert.AreEqual("%13%", records[1].Substring(0, 4));
-                Assert.AreEqual(true, records[1].Contains("%< W 7330 > 1892"));
-                Assert.AreEqual(true, records[1].Contains("%< W 7330 > 6764%"));
-                Assert.AreEqual(true, records[1].Contains("%< W 7330 > 9278%"));
-                Assert.AreEqual(true, records[1].Contains("%< W 7330 >%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7548 > 5284%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7548 > 9553%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7548 > 3%"));
+                Assert.AreEqual(true, records[1].Contains("%< W 7548 >%"));
 
                 Assert.AreEqual("%125%", records[2].Substring(0, 5));
-                Assert.AreEqual(true, records[2].Contains("%2656 < W 3263 > 7588%"));
-                Assert.AreEqual(true, records[2].Contains("%2656 < W 3263 > 6827%"));
-                Assert.AreEqual(true, records[2].Contains("%7679 < W 3263 > 9105%"));
-                Assert.AreEqual(true, records[2].Contains("%380 < W 3263 > 2088%"));
+                Assert.AreEqual(true, records[2].Contains("%7905 < W 3345 > 3651%"));
+                Assert.AreEqual(true, records[2].Contains("%7905 < W 3345 > 308%"));
+                Assert.AreEqual(true, records[2].Contains("%383 < W 3345 > 528%"));
+                Assert.AreEqual(true, records[2].Contains("%383 < W 3345 > 5695%"));
 
-                Assert.AreEqual(7259, ana.Length);
+                Assert.AreEqual(7264, ana.Length);
+            }
+
+            stPara = stText.ParagraphsOS.ElementAtOrDefault(8) as IStTxtPara;
+            Assert.NotNull(stPara);
+            Assert.AreEqual(1, stPara.SegmentsOS.Count);
+            foreach (ISegment segment in stPara.SegmentsOS)
+            {
+                string ana = anaBuilder.ExtractTextSegmentAndParseWordAsANA(segment);
+                //Console.WriteLine(ana);
+                string[] records = ana.Split(
+                    new[] { "\\a " },
+                    StringSplitOptions.RemoveEmptyEntries
+                );
+                Assert.AreEqual(2, records.Length);
+                Assert.AreEqual("%25%", records[0].Substring(0, 4));
+                // the results do not always occur in the same order, so we are just checking for some
+                Assert.AreEqual(true, records[0].Contains("%10918 8145 < W 1711 > 7227%"));
+                Assert.AreEqual(true, records[0].Contains("%10918 8145 < W 1711 > 859%"));
+                Assert.AreEqual(true, records[0].Contains("%10918 8145 < W 1711 > 4880%"));
+                Assert.AreEqual(true, records[0].Contains("%10918 8145 < W 1711 > 308%"));
+
+                Assert.AreEqual("%25%", records[1].Substring(0, 4));
+                Assert.AreEqual(true, records[1].Contains("%10918 8145 < W 1711 > 6570%"));
+                Assert.AreEqual(true, records[1].Contains("%10918 8145 < W 1711 > 5205%"));
+                Assert.AreEqual(true, records[1].Contains("%10918 8145 < W 1711 > 7028%"));
+                Assert.AreEqual(true, records[1].Contains("%10918 8145 < W 1711 > 65%"));
+
+                records = ana.Split(new[] { "\\p " }, StringSplitOptions.RemoveEmptyEntries);
+                Assert.AreEqual(true, records[1].Contains("Ac2"));
+                Assert.AreEqual(false, records[1].Contains("sampleToneParsAllomorphProperty"));
+                Assert.AreEqual(true, records[2].Contains("Ac2"));
+                Assert.AreEqual(true, records[2].Contains("sampleToneParsAllomorphProperty"));
+
+                Assert.AreEqual(3686, ana.Length);
             }
         }
     }

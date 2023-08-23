@@ -50,10 +50,8 @@ namespace SIL.ToneParsFLEx
 
         protected String[] AntRecords { get; set; }
 
-        //protected const String kAdCtl = "adctl.txt";
         public const string kTPAdCtl = "TPadctl.txt";
 
-        //protected const String kLexicon = "lex.txt";
         public const String kTPLexicon = "TPlex.txt";
         public FLExDBExtractor Extractor { get; set; }
 
@@ -205,18 +203,8 @@ namespace SIL.ToneParsFLEx
                 CreateToneParsCmdFile();
                 CopyCodeTableFilesToTemp();
 
-                //File.Delete(AnaFile);
                 File.Delete(AntFile);
                 File.Delete(ToneParsLogFile);
-                //string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
-                //if (activeParser == "HC")
-                //{
-                //    HermitCrabParseFile();
-                //}
-                //else
-                //{
-                //    XAmpleParseFile();
-                //}
                 WaitForFileCompletion(AnaFile);
 
                 var processInfo = new ProcessStartInfo(
@@ -256,27 +244,6 @@ namespace SIL.ToneParsFLEx
                 }
             }
         }
-
-        //private void HermitCrabParseFile()
-        //{
-        //    UpdateParsingStatus("Parsing via HermitCrab");
-        //    OrthoChanger changer = new OrthoChanger();
-        //    changer.LoadOrthoChangesFile(this.IntxCtlFile);
-        //    changer.CreateOrthoChanges();
-        //    IParser hcParser = new HCParser(Cache);
-        //    hcParser.Update();
-        //    foreach (string word in File.ReadLines(InputFile, Encoding.UTF8))
-        //    {
-        //        string mappedWord = word.Replace(".", "");
-        //        if (changer.ChangesExist)
-        //        {
-        //            mappedWord = changer.ApplyChangesToWord(mappedWord);
-        //        }
-        //        XDocument xmlResult = hcParser.ParseWordXml(mappedWord);
-        //        ParseResult result = hcParser.ParseWord(mappedWord);
-        //        int i = 0;
-        //    }
-        //}
 
         private void XAmpleParseFile()
         {
