@@ -29,6 +29,8 @@ using System.Xml.Linq;
 using XCore;
 using XAmpleManagedWrapper;
 using System.Text.RegularExpressions;
+using SIL.LCModel.Infrastructure;
+using SIL.FieldWorks.Common.FwUtils;
 
 namespace SIL.ToneParsFLEx
 {
@@ -76,7 +78,10 @@ namespace SIL.ToneParsFLEx
         const string m_strAll = "All";
         const string m_strLeftmost = "Leftmost";
         const string m_strOff = "Off";
-        const string m_strRightmost = "Rightmos";
+        const string m_strRightmost = "Rightmost";
+
+        const string m_strHC = "HC";
+        const string m_strXAmple = "XAmple";
 
         public Rectangle RectNormal { get; set; }
 
@@ -91,6 +96,7 @@ namespace SIL.ToneParsFLEx
 
         private RegistryKey regkey;
         private ParserConnection m_parserConnection;
+        private XAmpleParser m_XAmpleParser = null;
 
         private ContextMenuStrip helpContextMenu;
         const string UserDocumentation = "User Documentation";
@@ -474,28 +480,8 @@ namespace SIL.ToneParsFLEx
         {
             if (!CheckForValidFiles())
                 return;
-            Cursor.Current = Cursors.WaitCursor;
-            Application.DoEvents();
             var selectedSegmentToShow = (SegmentToShow)lbSegments.SelectedItem;
-            UpdateGrammarAndLexicon();
-            string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
-            if (activeParser == "HC")
-            {
-                UpdateParsingStatus("Parsing via Hermit Crab");
-                AnaProducer = new HCMorpherAnaProducer(cbIgnoreContext.Checked, Cache, IntxCtlFile);
-            }
-            else
-            {
-                UpdateParsingStatus("Parsing via XAmple");
-                AnaProducer = new XAmpleMorpherAnaProducer(
-                    cbIgnoreContext.Checked,
-                    Cache,
-                    IntxCtlFile
-                );
-            }
-            AnaProducer.ProduceANA(selectedSegmentToShow);
-            InvokeToneParser(AnaProducer.AnaFilePath);
-            Cursor.Current = Cursors.Default;
+            ParseTextOrSegment(null, selectedSegmentToShow);
         }
 
         private void UpdateParsingStatus(string content)
@@ -695,13 +681,22 @@ namespace SIL.ToneParsFLEx
         {
             if (!CheckForValidFiles())
                 return;
+            var selectedTextToShow = lbTexts.SelectedItem as IText;
+            ParseTextOrSegment(selectedTextToShow, null);
+        }
+
+        private void ParseTextOrSegment(
+            IText selectedTextToShow,
+            SegmentToShow selectedSegmentToShow
+        )
+        {
             Cursor.Current = Cursors.WaitCursor;
             Application.DoEvents();
-            var selectedTextToShow = lbTexts.SelectedItem as IText;
             UpdateGrammarAndLexicon();
             string activeParser = Cache.LangProject.MorphologicalDataOA.ActiveParser;
-            if (activeParser == "HC")
+            if (activeParser == m_strHC)
             {
+                EnsureXAmpleFilesAreUpToDate();
                 UpdateParsingStatus("Parsing via Hermit Crab");
                 AnaProducer = new HCMorpherAnaProducer(cbIgnoreContext.Checked, Cache, IntxCtlFile);
             }
@@ -714,9 +709,56 @@ namespace SIL.ToneParsFLEx
                     IntxCtlFile
                 );
             }
-            AnaProducer.ProduceANA(selectedTextToShow);
+            if (selectedSegmentToShow != null)
+            {
+                AnaProducer.ProduceANA(selectedSegmentToShow);
+            }
+            else if (selectedTextToShow != null)
+            {
+                AnaProducer.ProduceANA(selectedTextToShow);
+            }
             InvokeToneParser(AnaProducer.AnaFilePath);
             Cursor.Current = Cursors.Default;
+        }
+
+        private void EnsureXAmpleFilesAreUpToDate()
+        {
+            if (!XAmpleFilesAreUpToDate())
+            {
+                // We need to ensure that the lex and ad ctl files about to be used by TonePars are up-to-date.
+                NonUndoableUnitOfWorkHelper.Do(
+                    Cache.ActionHandlerAccessor,
+                    () =>
+                    {
+                        Cache.LangProject.MorphologicalDataOA.ActiveParser = m_strXAmple;
+                    }
+                );
+                m_XAmpleParser.Reset();
+                m_XAmpleParser.Update();
+                UpdateGrammarAndLexicon();
+                NonUndoableUnitOfWorkHelper.Do(
+                    Cache.ActionHandlerAccessor,
+                    () =>
+                    {
+                        Cache.LangProject.MorphologicalDataOA.ActiveParser = m_strHC;
+                    }
+                );
+            }
+        }
+
+        private bool XAmpleFilesAreUpToDate()
+        {
+            if (m_XAmpleParser == null)
+            {
+                m_XAmpleParser = new XAmpleParser(
+                    Cache,
+                    Path.Combine(
+                        FwDirectoryFinder.CodeDirectory,
+                        FwDirectoryFinder.ksFlexFolderName
+                    )
+                );
+            }
+            return m_XAmpleParser.IsUpToDate();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)

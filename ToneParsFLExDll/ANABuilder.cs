@@ -64,15 +64,15 @@ namespace SIL.ToneParsFLEx
             var sb = new StringBuilder();
             var sbA = new StringBuilder();
             var sbD = new StringBuilder();
-            //var sbC = new StringBuilder();
             //var sbFD = new StringBuilder();
             var sbP = new StringBuilder();
+            var sbU = new StringBuilder();
             var sbW = new StringBuilder();
             sbA.Append("\\a ");
             sbD.Append("\\d ");
-            //sbC.Append("\\cat ");
             //sbFD.Append("\\fd ");
             sbP.Append("\\p ");
+            sbU.Append("\\u ");
             sbW.Append("\\w ");
             sbW.Append(shape + "\n");
 
@@ -84,8 +84,8 @@ namespace SIL.ToneParsFLEx
                 String ambigs = "%" + ambiguities + "%";
                 sbA.Append(ambigs);
                 sbD.Append(ambigs);
-                //sbC.Append(ambigs);
                 sbP.Append(ambigs);
+                sbU.Append(ambigs);
             }
             foreach (ParseAnalysis pAnalysis in parserResult.Analyses)
             {
@@ -105,6 +105,7 @@ namespace SIL.ToneParsFLEx
                     if (morph == null)
                     {
                         sbD = Extractor.MissingItemFound(sbD, "FORM");
+                        sbU = Extractor.MissingItemFound(sbU, "FORM");
                         continue;
                     }
                     if (
@@ -136,7 +137,13 @@ namespace SIL.ToneParsFLEx
                         sbA.Append(" ");
                     if (morph != null)
                     {
-                        sbD.Append(morph.Form.VernacularDefaultWritingSystem.Text);
+                        string sForm = morph.Form.VernacularDefaultWritingSystem.Text;
+                        if (sForm == "^0" || sForm == "&0" || sForm == "*0" || sForm == "∅")
+                        {
+                            sForm = "0";
+                        }
+                        sbD.Append(sForm);
+                        sbU.Append("0");
                     }
                     sbA.Append(msa.Hvo);
                     if (
@@ -165,29 +172,30 @@ namespace SIL.ToneParsFLEx
                     i++;
                     if (i < maxMorphs)
                     {
-                        sbD.Append("-");
-                        //sbFD.Append("=");
+                        sbD.Append("+");
                         sbP.Append("=");
+                        sbU.Append("+");
                     }
                 }
                 if (ambiguities > 1)
                 {
                     sbA.Append("%");
                     sbD.Append("%");
-                    //sbC.Append("%");
                     sbP.Append("%");
+                    sbU.Append("%");
                 }
             }
             sbA.Append("\n");
             sbD.Append("\n");
-            //sbC.Append("\n");
             sbP.Append("\n");
+            sbU.Append("\n");
             sbW.Append("\n");
             sb.Append(sbA.ToString());
             sb.Append(sbD.ToString());
-            //sb.Append(sbC.ToString());
             sb.Append(sbP.ToString());
+            sb.Append(sbU.ToString());
             sb.Append(sbW.ToString());
+            sb.Append("\n");
             return sb.ToString();
         }
 
