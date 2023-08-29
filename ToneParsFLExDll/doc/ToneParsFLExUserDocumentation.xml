@@ -20,9 +20,9 @@ type="tToneParsFLEx"
 ><emailAddress
 >blackhandrew@gmail.com</emailAddress
 ><date
->10 July, 2023</date
+>29 August, 2023</date
 ><version
->Version 0.5.0 Beta</version
+>Version 0.6.0 Beta</version
 ><version
 >Copyright © 2019-2023 SIL International</version
 ><contents
@@ -45,8 +45,11 @@ type="tFLEx"
 >). <object
 type="tToneParsFLEx"
 ></object
-> runs the <object
+> runs either the <object
 type="tXAmple"
+></object
+> program or the <object
+type="tHermitCrab"
 ></object
 > program followed by the <object
 type="tTonePars"
@@ -63,7 +66,15 @@ type="tTonePars"
 > rule file to use as well as an <object
 type="tXAmple"
 ></object
-> input control file. Then you can choose a text or a portion of that text and ask <object
+> input control file.<endnote
+id="nIntextCtrl"
+><p
+>When using the <object
+type="tHermitCrab"
+></object
+> program, you still need an input control file in order to define the set of input changes.  These are normally used to remove tone markings from an input word.</p
+></endnote
+> Then you can choose a text or a portion of that text and ask <object
 type="tToneParsFLEx"
 ></object
 > to process it. The result will show in <object
@@ -74,7 +85,10 @@ type="tFLEx"
 ></object
 >.</p
 ><p
->The input to the <object
+>When using the <object
+type="tXAmple"
+></object
+> program, the input to the <object
 type="tXAmple"
 ></object
 > program is the same as what <object
@@ -285,6 +299,20 @@ type="tToneParsFLEx"
 type="tAmple"
 ></object
 > input text control file names end with “intx.ctl” so this is what the file browser uses.</p
+><p
+>If you are using the <object
+type="tHermitCrab"
+></object
+> parser in <object
+type="tFLEx"
+></object
+>, you will still need to specify this file.  <object
+type="tToneParsFLEx"
+></object
+> will read the input text changes from this file and apply them before parsing a word via <object
+type="tHermitCrab"
+></object
+>.</p
 ></section2
 ><section2
 id="sTraceToneProcessing"
@@ -413,9 +441,23 @@ id="sDisambiguate"
 ><secTitle
 >Parse this text button</secTitle
 ><p
->Above the pane containing the texts is a button labeled “Parse this text.” You use this button to parse this entire text via <object
-type="tXAmple"
+>Above the pane containing the texts is a button labeled “Parse this text.” You use this button to parse this entire text via the current parser chosen in <object
+type="tFLEx"
 ></object
+><endnote
+id="nChooseParser"
+><p
+>To set the parser in <object
+type="tFLEx"
+></object
+>, use <object
+type="tMenuItem"
+>Parser</object
+> menu item / <object
+type="tMenuItem"
+>Choose Parser</object
+>.</p
+></endnote
 > and then <object
 type="tTonePars"
 ></object
@@ -458,10 +500,24 @@ id="sParse"
 ><secTitle
 >Parse this segment button</secTitle
 ><p
->Above the pane containing the segments of the selected text is a button labeled “Parse this segment.” You use this button to parse this particular segment via <object
-type="tXAmple"
+>Above the pane containing the segments of the selected text is a button labeled “Parse this segment.” You use this button to parse this particular segment via the current parser chosen in <object
+type="tFLEx"
 ></object
-> and then <object
+><endnote
+id="nChooseParser2"
+><p
+>To set the parser in <object
+type="tFLEx"
+></object
+>, use <object
+type="tMenuItem"
+>Parser</object
+> menu item / <object
+type="tMenuItem"
+>Choose Parser</object
+>.</p
+></endnote
+>  and then <object
 type="tTonePars"
 ></object
 >. Before parsing the text, <object
@@ -532,6 +588,17 @@ type="tMenuItem"
 type="tToneParsFLEx"
 ></object
 >.</p
+><p
+>This situation is only for when the using the <object
+type="tXAmple"
+></object
+> parser in <object
+type="tFLEx"
+></object
+>.  There is no such restriction when using the <object
+type="tHermitCrab"
+></object
+> parser.</p
 ></section1
 ><section1
 id="sRemembering"
@@ -1189,6 +1256,12 @@ before="CARLAStudio"
 color="navy"
 font-style="italic"
 id="tCarlaStudio"
+></type
+><type
+before="Hermit Crab"
+color="navy"
+font-style="italic"
+id="tHermitCrab"
 ></type
 ><type
 before="XAmple"
