@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Use PC-PATR with FLEx"
-#define MyAppVersion "1.12.5 Beta"
+#define MyAppVersion "1.12.6 Beta"
 #define MyAppPublisher "SIL Iternational"
 #define MyAppURL "https://software.sil.org/"
 #define MyAppExeName "PcPatrFLExDll.dll"
