@@ -1,0 +1,53 @@
+# This workflow will sign an installer for the Extract-Ana-Files-From-Texts utility.
+
+name: Extract-Ana-Files-From-Texts Sign and Release
+
+on:
+  push:
+    paths:
+      - 'InstallerExtractAnaFilesFromTexts/Output/**'
+      - '.github/workflows/extractanafiles**.yml'
+jobs:
+  preparation:
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+
+      - name: Create artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExtractAnaFilesFromTexts
+          path: InstallerExtractAnaFilesFromTexts/Output/ExtractAnaFilesFromTextsDllDllSetup.exe
+          if-no-files-found: error
+
+  sign-installer:
+    name: Sign Extract-Ana-Files-From-Texts installer
+    needs: preparation
+    uses: sillsdev/codesign/.github/workflows/sign.yml@v2
+    with:
+      artifact: ExtractAnaFilesFromTexts
+    secrets:
+      certificate: ${{ secrets.CODESIGN_LSDEVSECTIGOEV }}
+
+  create-release:
+    name: Create Release
+    needs: sign-installer
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ExtractAnaFilesFromTexts
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ExtractAnaFilesFromTextsDllDllSetup.exe
+          body: |
+            Release for version ${{ github.ref }}
+          draft: true

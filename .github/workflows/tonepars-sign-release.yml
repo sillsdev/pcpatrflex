@@ -1,0 +1,53 @@
+# This workflow will sign an installer for the TonePars-FLEx utility.
+
+name: TonePars-FLEx Sign and Release
+
+on:
+  push:
+    paths:
+      - 'InstallerTonePars/Output/**'
+      - '.github/workflows/tonepars**.yml'
+jobs:
+  preparation:
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+
+      - name: Create artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ToneParsFLEx
+          path: InstallerTonePars/Output/UseToneParsWithFLExDllSetup.exe
+          if-no-files-found: error
+
+  sign-installer:
+    name: Sign ToneParsFLEx installer
+    needs: preparation
+    uses: sillsdev/codesign/.github/workflows/sign.yml@v2
+    with:
+      artifact: ToneParsFLEx
+    secrets:
+      certificate: ${{ secrets.CODESIGN_LSDEVSECTIGOEV }}
+
+  create-release:
+    name: Create Release
+    needs: sign-installer
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ToneParsFLEx
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: UseToneParsWithFLExDllSetup.exe
+          body: |
+            Release for version ${{ github.ref }}
+          draft: true
