@@ -13,7 +13,7 @@ jobs:
       runs-on: windows-latest
       steps:
       - name: Checkout Files
-        uses: actions/checkout@v4
+        uses: sillsdev/FieldWorks/actions/checkout@v4
         id: checkout
 
       - name: Download 461 targeting pack
