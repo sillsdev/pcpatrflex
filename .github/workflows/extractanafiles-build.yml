@@ -40,9 +40,9 @@ jobs:
             5.0.x
           
       - name: Prepare for build
+#          working-directory: Build
         run: |
           dir
-#          working-directory: Build
           cd Build
           build64.bat /t:WriteNonlocalDevelopmentPropertiesFile
         shell: cmd
