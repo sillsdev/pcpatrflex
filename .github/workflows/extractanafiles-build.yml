@@ -40,10 +40,12 @@ jobs:
             5.0.x
           
       - name: Prepare for build
+        run |
+          dir
+#          working-directory: Build
+          cd Build
+          build64.bat /t:WriteNonlocalDevelopmentPropertiesFile
         shell: cmd
-        run: dir
-        working-directory: Build
-        run: build64.bat /t:WriteNonlocalDevelopmentPropertiesFile /property:config=release
 
       - name: Build Release
         id: build_and_test
