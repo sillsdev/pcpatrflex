@@ -15,11 +15,12 @@ jobs:
       - name: Checkout Files
         uses: actions/checkout@v4
         with:
-          name: sillsdev/FieldWorks
-#          ref: refs/heads/release
+          repository: sillsdev/FieldWorks
         id: checkout
+      - name: Directory of FLEx
         shell: cmd
         run: dir
+
       - name: Download 461 targeting pack
         uses: suisei-cn/actions-download-file@818d6b7dc8fe73f2f924b6241f2b1134ca1377d9 # 1.6.0
         id: downloadfile  # Remember to give an ID if you need the output filename
