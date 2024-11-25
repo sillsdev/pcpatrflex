@@ -10,8 +10,8 @@ on:
 jobs:
   build:
       name: Build Release
-  runs-on: windows-latest
-  steps:
+      runs-on: windows-latest
+      steps:
       - name: Checkout Files
         uses: actions/checkout@v4
         id: checkout

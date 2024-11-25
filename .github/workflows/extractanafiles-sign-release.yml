@@ -6,7 +6,7 @@ on:
   push:
     paths:
       - 'InstallerExtractAnaFilesFromTexts/Output/**'
-      - '.github/workflows/extractanafiles**.yml'
+      - '.github/workflows/extractanafiles-sign**.yml'
 jobs:
   preparation:
 
