@@ -41,6 +41,7 @@ jobs:
           
       - name: Prepare for build
         shell: cmd
+        run: dir
         working-directory: Build
         run: build64.bat /t:WriteNonlocalDevelopmentPropertiesFile /property:config=release
 
