@@ -40,7 +40,7 @@ jobs:
             5.0.x
           
       - name: Prepare for build
-        run |
+        run: |
           dir
 #          working-directory: Build
           cd Build
