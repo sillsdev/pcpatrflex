@@ -12,7 +12,7 @@ jobs:
       name: Build Release
       runs-on: windows-latest
       steps:
-      - name: Checkout Files
+      - name: Checkout FLEx Files
         uses: actions/checkout@v4
         with:
           repository: sillsdev/FieldWorks
@@ -44,7 +44,6 @@ jobs:
       - name: Prepare for build
 #          working-directory: Build
         run: |
-          dir D:\a
           cd Build
           build64.bat /t:WriteNonlocalDevelopmentPropertiesFile
         shell: cmd
@@ -80,3 +79,15 @@ jobs:
           ls -la
           ls -la ../fw
         shell: bash
+      - name: Checkout Extract Ana Files
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+#      - name: Build version ${{ env.VERSION }}
+      - name: Build version
+        run: dotnet publish ExtractAnaFilesFromTexts/ExtractAnaFilesFromTexts.csproj
+      - name: List Extract Ana Files
+        shell: cmd
+        run: |
+          dir ExtractAnaFilesFromTexts
+          dir ExtractAnaFilesFromTexts/bin
