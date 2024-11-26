@@ -10,7 +10,7 @@ on:
 jobs:
   build:
       name: Build Release
-      runs-on: windows-latest
+      runs-on: windows-2019
       steps:
       - name: Checkout FLEx Files
         uses: actions/checkout@v4
@@ -69,9 +69,9 @@ jobs:
               Write-Host "No errors found" -ForegroundColor green 
               exit 0
           }
-      - name: Get directory
-        shell: cmd
-        run: dir
+#      - name: Get directory
+#        shell: cmd
+#        run: dir
       - name: Move results to new fw directory
         run: |
           mkdir ../fw
@@ -83,8 +83,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: '0'
-      - name: Get dir of checked out files
-        run: dir
+#      - name: Get dir of checked out files
+#        run: dir
 #      - name: Build version ${{ env.VERSION }}
       - name: Build DisambiguateInFLExDB
         run: |
