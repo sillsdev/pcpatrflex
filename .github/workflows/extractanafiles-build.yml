@@ -56,7 +56,7 @@ jobs:
           cd Build
           .\build64.bat /t:remakefw-jenkins /p:action=test /p:desktopNotAvailable=true ^| tee-object -FilePath build.log
       
-      - name: Scan Debug Build Output
+      - name: Scan Release Build Output
         shell: powershell
         working-directory: Build
         run: |
@@ -73,3 +73,9 @@ jobs:
       - name: Get directory
         shell: cmd
         run: dir
+      - name: Move results to new fw directory
+        run: |
+          mv {,.[^.]}* fw
+          ls -la
+          ls -la fw
+        shell: bash
