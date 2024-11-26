@@ -75,7 +75,8 @@ jobs:
         run: dir
       - name: Move results to new fw directory
         run: |
-          mv {,.[^.]}* fw
+          mkdir ../fw
+          mv {,.[^.]}* ../fw
           ls -la
-          ls -la fw
+          ls -la ../fw
         shell: bash
