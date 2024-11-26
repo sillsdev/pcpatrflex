@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<!--
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -38,6 +39,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+-->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -67,32 +69,32 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="FwUtils, Version=9.1.19.20352, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\FwUtils.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\FwUtils.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="ParserCore">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\ParserCore.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\ParserCore.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Core, Version=12.1.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.Core.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\SIL.Core.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\SIL.LCModel.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.Core.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\SIL.LCModel.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\System.Net.Http.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -102,10 +104,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="XAmpleManagedWrapper, Version=9.1.19.20365, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\XAmpleManagedWrapper.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\XAmpleManagedWrapper.dll</HintPath>
     </Reference>
     <Reference Include="xCoreInterfaces">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\xCoreInterfaces.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\xCoreInterfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -118,11 +120,13 @@
     <Compile Include="TextDisambiguation.cs" />
     <Compile Include="ToneParsConstants.cs" />
   </ItemGroup>
+  <!--
   <ItemGroup>
     <ProjectReference Include="..\XAmpleWithToneParse\XAmpleWithToneParse.csproj">
       <Project>{068626EF-B736-42FB-BB0A-39955B713394}</Project>
       <Name>XAmpleWithToneParse</Name>
     </ProjectReference>
   </ItemGroup>
+-->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -83,9 +83,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: '0'
+      - name: Get dir of checked out files
+        run: dir
 #      - name: Build version ${{ env.VERSION }}
-      - name: Build version
-        run: dotnet publish ExtractAnaFilesFromTexts/ExtractAnaFilesFromTexts.csproj
+      - name: Build DisambiguateInFLExDB
+        run: |
+          cd DisambiguateInFLExDB
+          dotnet build -a x64 --configuration Release DisambiguateInFLExDB.csproj
+      - name: Build PrepFLExDBDll
+        run: |
+          cd PrepFLExDBDll
+          dotnet build -a x64 --configuration Release PrepFLExDBDll.csproj
+      - name: Build Extract Ana version
+        run: |
+          cd ExtractAnaFilesFromTexts
+          dotnet build -a x64 --configuration Release ExtractAnaFilesFromTexts.csproj
       - name: List Extract Ana Files
         shell: cmd
         run: |

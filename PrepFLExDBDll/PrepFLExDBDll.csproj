@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<!--
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -30,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+ -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
@@ -50,21 +52,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="SIL.DisambiguateInFLExDB">
       <HintPath>..\DisambiguateInFLExDB\bin\x64\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\SIL.LCModel.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel.Core">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.Core.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\SIL.LCModel.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http">
-      <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\System.Net.Http.dll</HintPath>
+      <HintPath>..\..\fw\Output\Release\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
