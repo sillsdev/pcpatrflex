@@ -8,9 +8,10 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SIL.PcPatrFLEx</RootNamespace>
     <AssemblyName>PcPatrFLExDll</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -100,8 +101,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DisambiguateInFLExDB\bin\x64\Release\SIL.DisambiguateInFLExDB.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.LCModel, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SIL.LCModel">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
     </Reference>
     <Reference Include="SIL.LCModel.Core, Version=10.2.0.0, Culture=neutral, PublicKeyToken=f245775b81dcfaab, processorArchitecture=MSIL">
