@@ -122,9 +122,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SIL.PcPatrBrowserDll">
-      <HintPath>..\PcPatrBrowserDll\bin\x64\Release\SIL.PcPatrBrowserDll.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -174,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PcPatrBrowserDll\PcPatrBrowserDll.csproj">
+      <Project>{6279a591-0d6a-46df-a536-ba9b66ba686b}</Project>
+      <Name>PcPatrBrowserDll</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

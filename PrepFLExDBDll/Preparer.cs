@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018-2023 SIL International
+﻿// Copyright (c) 2018-2026 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -7,12 +7,8 @@ using SIL.LCModel;
 using SIL.LCModel.Core.Cellar;
 using SIL.LCModel.DomainServices;
 using SIL.LCModel.Infrastructure;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SIL.PrepFLExDB

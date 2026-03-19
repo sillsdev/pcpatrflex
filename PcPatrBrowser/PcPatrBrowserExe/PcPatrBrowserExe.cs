@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------
-#region // Copyright (c) 2003-2021, SIL International. All Rights Reserved.
-// <copyright from='2003' to='2021' company='SIL International'>
-//		Copyright (c) 2003, SIL International. All Rights Reserved.
+#region // Copyright (c) 2003-2026, SIL International. All Rights Reserved.
+// <copyright from='2003' to='2026' company='SIL International'>
+//		Copyright (c) 2003-2026, SIL International. All Rights Reserved.
 //
 //		Distributable under the terms of either the Common Public License or the
 //		GNU Lesser General Public License, as specified in the LICENSING.txt file.
@@ -18,7 +18,7 @@
 using System;
 using SIL.PcPatrBrowser;
 
-namespace SIL.PcPatrBrowser
+namespace SIL.PcPatrBrowserExe
 {
     /// <summary>
     /// Summary description for PcPatrBrowser.

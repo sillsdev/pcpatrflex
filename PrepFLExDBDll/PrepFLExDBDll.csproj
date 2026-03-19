@@ -53,9 +53,6 @@
     <Reference Include="CommonServiceLocator">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\CommonServiceLocator.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.DisambiguateInFLExDB">
-      <HintPath>..\DisambiguateInFLExDB\bin\x64\Debug\SIL.DisambiguateInFLExDB.dll</HintPath>
-    </Reference>
     <Reference Include="SIL.LCModel">
       <HintPath>..\..\..\..\..\..\fwrepo\fw\Output\Debug\SIL.LCModel.dll</HintPath>
     </Reference>
@@ -77,6 +74,12 @@
   <ItemGroup>
     <Compile Include="Preparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DisambiguateInFLExDB\DisambiguateInFLExDB.csproj">
+      <Project>{1c52cdf8-7acb-4cc7-aa46-b21fc32e05d5}</Project>
+      <Name>DisambiguateInFLExDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
