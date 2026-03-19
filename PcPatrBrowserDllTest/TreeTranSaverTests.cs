@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2018 SIL International
+﻿// Copyright (c) 2018-2026 SIL International
 // This software is licensed under the LGPL, version 2.1 or later
 // (http://www.gnu.org/licenses/lgpl-2.1.html)
 
@@ -12,10 +12,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIL.PcPatrBrowserTest
+namespace SIL.PcPatrBrowserTests
 {
     [TestFixture]
-    class TreeTranSaverTest
+    class TreeTranSaverTests
     {
         String TestDataDir { get; set; }
         String AndFile { get; set; }
