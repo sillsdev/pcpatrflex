@@ -15,3 +15,5 @@ the PC-PATR grammar file. See https://software.sil.org/paws/ for more on PAWS.
 See https://github.com/sillsdev/pcpatrflex/tree/master/PcPatrFLExDll/doc/UserDocumentation.pdf for more.
 
 The installer can be downloaded at https://github.com/sillsdev/pcpatrflex/tree/master/Installer/Output/UsePcPatrWithFLExDllSetup.exe.
+
+The installer is built using [Inno Setup](https://jrsoftware.org/isinfo.php).
