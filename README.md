@@ -13,4 +13,3 @@ Then you can choose a text or a portion of that text and ask *Use PC-PATR with F
 
 While you can use any PC-PATR grammar file, *Use PC-PATR with FLEx* expects that you will have used the *PAWS* program to create 
 the PC-PATR grammar file. See https://software.sil.org/paws/ for more on PAWS.
-
